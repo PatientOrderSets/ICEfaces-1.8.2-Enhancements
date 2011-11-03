@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+-->
+&ice-att-userrole-rendered-props;
+&core-props;
+&base-props;
+&ice-att-userrole-enabled-props;
+&pass-thru-accept-props;
+&pass-thru-accesskey-props;
+&pass-thru-onfocus-props;
+&pass-thru-onblur-props;
+&pass-thru-onchange-props;
+&pass-thru-tabindex-props;
+
+<property>
+    <description>
+        <![CDATA[
+		<p>
+		MethodBinding representing a progress listener method that will be notify 
+		the application on the percentage of the file being uploaded. The expression 
+		must evaluate to a public method that takes a single parameter of type 
+		com.icesoft.faces.component.inputfile.InputFileProgressEvent, with a return type of void.
+		</p>
+		<p>
+       These are some things to consider when implementing the progressListener. 
+		<ul>
+			<li>Beans which implement the progressListener must be in session scope. </li>
+			<li>The PersistentFacesState must be set in the constructor of session bean. </li>
+			<li>The progressListener method may invoke the executeAndRender() call on the PersistentFacesState instance, or may use the OnDemandRenderer, in order to render the page. </li>
+			<li>The progressListener method must take a single argument of type com.icesoft.faces.component.inputfile.InputFileProgressEvent. </li>
+			<li>From the InputFileProgressEvent's getComponent() or getSource() methods, developers may attain a reference to the InputFile component. </li>
+			<li>If the progressListener is being invoked due to the inputFile causing a form submit (refer to the <b>submitOnUpload</b> attribute), then the InputFile's FileInfo object's isPreUpload() or isPostUpload() method will return true, depending if the form post is from before or after the file upload. </li>
+		</ul>
+		</p>
+		]]>
+    </description>
+    <property-name>progressListener</property-name>
+    <property-class>javax.faces.el.MethodBinding</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &methodBindingEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+        Text that will appear on the submit button.
+    </description>
+    <property-name>label</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <default-value>"Upload"</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        Bean property that will be a reference to the uploaded file.
+        Note: This is deprecated. Instead you should use actionListener,
+        and when in the callback method, call InputFile.getFileInfo(),
+        which will give you information on both successful and failed
+        file upload attempts.
+    </description>
+    <property-name>file</property-name>
+    <property-class>java.io.File</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+    </property-extension>
+</property>
+<property>
+    <description>
+        Passed through to root element.
+    </description>
+    <property-name>title</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+        <![CDATA[
+		This uniqueFolder attribute works in conjunction with the com.icesoft.faces.uploadDirectory
+		parameter with four possible combinations as illustrated in the table below:
+		<table border="1">
+			<tr><td></td><td colspan="2" align="center"> <b>com.icesoft.faces.uploadDirectory</b> </td></tr>
+			<tr><td><b>uniqueFolder</b></td><td align="center"><b>Set</b></td><td align="center"><b>Not Set</b></td></tr>
+			<tr><td>True</td><td>/application-context/uploadDirectory/sessionid/</td><td>/application-context/sessionid/</td></tr>
+			<tr><td>False</td><td>/application-context/uploadDirectory/</td><td>/application-context/</td></tr>
+		</table>
+		Note: The default value is true.
+		]]>
+    </description>
+    <property-name>uniqueFolder</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_COMPONENT</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        style class for the submit button.
+    </description>
+    <property-name>buttonClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+        style class for the inputText.
+    </description>
+    <property-name>inputTextClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+        width of the component.
+    </description>
+    <property-name>width</property-name>
+    <property-class>int</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &integerEditor;
+        </editor-class>
+        <default-value>500</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        height of the component.
+    </description>
+    <property-name>height</property-name>
+    <property-class>int</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &integerEditor;
+        </editor-class>
+        <default-value>30</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        size of the input text.
+    </description>
+    <property-name>inputTextSize</property-name>
+    <property-class>int</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &integerEditor;
+        </editor-class>
+        <default-value>35</default-value>
+    </property-extension>
+</property>
+
+
+<property>
+    <description>
+        <![CDATA[
+		The name of the file being uploaded must conform with this pattern. The regular 
+		expression can be use to define the valid file name to be uploaded.<br>
+		
+		If the file name does not match with the pattern, the file will not be 
+		uploaded and an actionEvent and an exception would be fired and thrown
+		respectively.
+		<pre>
+		public void action(ActionEvent event) {
+             InputFile inputFile = (InputFile) event.getSource();
+		     if (inputFile.getStatus() == InputFile.INVALID) {
+                inputFile.getFileInfo().getException().printStackTrace();
+             }
+        }
+        </pre>
+        
+        The default pattern is set to <b>".+"</b> for any name lenght > 0. Let say
+        to allow only .pdf files to be uploaded the pattern would be <b>".+\.pdf"</b><br/>
+        
+        
+        ]]>
+    </description>
+    <property-name>fileNamePattern</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <default-value>".+"</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        Describes the directory where any uploaded files should be placed.  
+        Overrides the com.icesoft.faces.uploadDirectory context-param 
+        for this specific inputFile.
+    </description>
+    <property-name>uploadDirectory</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+        If the uploadDirectory should be interpretted as an absolute 
+        path into the filesystem, or as a relative path from the deployment directory.
+        Overrides the com.icesoft.faces.uploadDirectoryAbsolute context-param 
+        for this specific inputFile.
+    </description>
+    <property-name>uploadDirectoryAbsolute</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+                <p>
+              Space-separated list of CSS style class(es) to be applied when this
+              element is rendered. This value must be passed through as the 
+              "class" attribute on generated markup.<br/>
+              Default value is <b>iceInpFile</b>.<br/>        
+              Style classes used, if enabled:
+                     <ul>
+                       <li>iceInpFile</li>
+                       <li>iceInpFileBtn</li>
+                       <li>iceInpFileTxt</li>                      
+                     </ul>
+              if disabled
+                     <ul>
+                       <li>iceInpFile-dis</li>
+                       <li>iceInpFileBtn-dis</li>
+                       <li>iceInpFileTxt-dis</li>                      
+                     </ul>  
+              </p>       
+		]]>
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        <p>Historically, when the inputFile's current file upload was progressing,  
+        and the <b>progressListener</b> was invoked, the <b>progressListener</b>'s bean 
+        would implement <b>com.icesoft.faces.async.render.Renderable</b>, and use the 
+        <b>com.icesoft.faces.async.render.RenderManager</b> in conjunction with the 
+        <b>com.icesoft.faces.async.render.OnDemandRenderer</b>, to do a server push, 
+        to update the view in the browser with the current progress. It could also invoke 
+        either <b>PersistentFacesState.render()</b> or <b>PersistentFacesState.renderLater()</b>,
+        to accomplish the same thing.</p>
+        <p>As of ICEfaces 1.7.1, you can just set <b>progressRender="true"</b>, and the server 
+        push will happen for you, without setting up all that glue code in the bean. 
+        You still have to set your <b>outputProgress</b> component's progress percent 
+        in the bean via the <b>progressListener</b>, and you have to enabled asynchronous 
+        mode, by setting the <b>com.icesoft.faces.synchronousUpdate</b> context parameter 
+        to false.</p>
+        <p>As of ICEfaces 1.8 DR#2, the RenderManager method is completely outdated, 
+        since now the inputFile requires a full JSF lifecycle for each progress event,
+        meaning that now it automatically renders itself. Neither is it necessary to set 
+        <b>progressRender="true"</b>, since it is true by default. It's possible to 
+        set <b>progressRender="false"</b>, to disable the lifecycles, but that will also 
+        disable the <b>progressListener</b> and <b>actionListener</b> MethodBindings and 
+        the <b>file</b> settable ValueBinding, since these all happen within JSF lifecycles.</p>
+        <p>Note: The default value is true.</p>
+		]]>
+    </description>
+    <property-name>progressRender</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_COMPONENT</category>
+     </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        <p>Depending on the value of <b>submitOnUpload</b>, the inputFile may post its 
+        enclosing form, before and/or after the file upload occurs. Possible values are:</p>
+        <dl>
+        <dt>none</dt>
+        <dd>File uploading will not cause the inputFile's enclosing form, and any other of the form fields, to be submitted to the server.</dd>
+        <dt>preUpload</dt>
+        <dd>The inputFile's enclosing form, and any other of the form fields, will be submitted to the server, immediately before the file uploading begins.</dd>
+        <dt>postUpload</dt>
+        <dd>The inputFile's enclosing form, and any other of the form fields, will be submitted to the server, immediately after the file uploading finishes.</dd>
+        <dt>preAndPostUpload</dt>
+        <dd>The inputFile's enclosing form, and any other of the form fields, will be submitted to the server, both before and after the file uploading takes place.</dd>
+        </dl>        
+        <p>This is to support two different use cases. Applications running in synchronous 
+        mode can not make use of server push, so to depict the beginning and the ending 
+        of the file upload requires browser initiated JSF lifecycles, accomplished via 
+        form submissions. As well, for some applications, it's desirable to submit other 
+        form fields when the user clicks on the file upload button, so that they may be 
+        processed together with the uploaded file.</p>
+        <p>Note: The default value is <b>none</b>.</p>
+		]]>
+    </description>
+    <property-name>submitOnUpload</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+            This attribute is true by default. It makes the inputFile component 
+            throw an exception if the file size is 0. Setting it to false lets 
+            files be uploaded with 0 size, without the component throwing any exception. 
+            In that case, the application can handle 0 sized file using the actionListener.
+        ]]>
+    </description>
+    <property-name>failOnEmptyFile</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_COMPONENT</category>
+     </property-extension>
+</property>
+
+<property>
+	<description>
+        <![CDATA[
+		MethodBinding representing the application action to invoke when
+		this component is activated by the user. The expression must
+		evaluate to a either a String or a public method that takes no
+		parameters, and returns a String (the logical outcome) which is
+		passed to the NavigationHandler for this application.<br/>
+		Note: Long processing, for more than a few seconds, should be done
+		from a worker thread, spawned by your action method. Otherwise the
+		browser will timeout, and the inputFile component will disappear.
+		]]>
+	</description>
+	
+	<property-name>action</property-name>
+   <property-class>javax.faces.el.MethodBinding</property-class>
+
+	<property-extension>
+		<category>EVENTS</category>	
+	</property-extension>
+</property>
+
+<property>
+	<description>
+        <![CDATA[
+		MethodBinding representing an action listener method that will be 
+		notified when this component is activated by the user. The expression 
+		must evaluate to a public method that takes an ActionEvent parameter, 
+		with a return type of void.<br/> 
+		Note: Long processing, for more than a few seconds, should be done
+		from a worker thread, spawned by your action method. Otherwise the
+		browser will timeout, and the inputFile component will disappear.
+		]]>
+	</description>	
+	<property-name>actionListener</property-name>
+    <property-class>javax.faces.el.MethodBinding</property-class>	
+	<property-extension>
+		<category>ADVANCED</category>
+		<editor-class>
+			&methodBindingEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+            This attribute is false by default. It makes the inputFile component 
+            to automatically upload the file on selection.
+        ]]>
+    </description>
+    <property-name>autoUpload</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_COMPONENT</category>
+     </property-extension>
+</property>
+
+

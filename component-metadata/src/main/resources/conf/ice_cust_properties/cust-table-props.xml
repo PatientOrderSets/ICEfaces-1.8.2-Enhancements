@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+
+<!-- ========== Table Properties =========================================== -->
+
+<property>
+    <description>
+        Name or code of the background color for this table.
+    </description>
+    <property-name>bgcolor</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Width (in pixels) of the border to be drawn around this table.
+    </description>
+    <property-name>border</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &integerEditor;
+        </editor-class>
+        
+        <default-value>"0"</default-value>
+        <named-value>
+            <name>minValue</name>
+            <expression>new Integer(0)</expression>
+        </named-value>
+        <named-value>
+            <name>unsetValue</name>
+            <expression>new Integer(Integer.MIN_VALUE)</expression>
+        </named-value>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Definition of how much space the user agent should leave between
+        the border of each cell and its contents.
+    </description>
+    <property-name>cellpadding</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &lengthEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Definition of how much space the user agent should leave between
+        the left side of the table and the leftmost column, the top of
+        the table and the top of the top side of the topmost row, and so
+        on for the right and bottom of the table. It also specifies the
+        amount of space to leave between cells.
+    </description>
+    <property-name>cellspacing</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &lengthEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Code specifying which sides of the frame surrounding this table
+        will be visible. Valid values are: none (no sides, default
+        value); above (top side only); below (bottom side only); hsides
+        (top and bottom sides only); vsides (right and left sides only);
+        lhs (left hand side only); rhs (right hand side only); box (all
+        four sides); and border (all four sides).
+    </description>
+    <property-name>frame</property-name>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>&selectOneDomainEditor;</editor-class>
+        <named-value>
+            <name>&domainClass;</name>
+            <expression>&frameTargetsDomain;</expression>
+        </named-value>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Code specifying which rules will appear between cells within
+        this table. Valid values are: none (no rules, default value);
+        groups (between row groups); rows (between rows only); cols
+        (between columns only); and all (between all rows and columns).
+    </description>
+    <property-name>rules</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>&selectOneDomainEditor;</editor-class>
+        <named-value>
+            <name>&domainClass;</name>
+            <expression>&htmlTableRulesDomain;</expression>
+        </named-value>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Summary of this table's purpose and structure, for user agents
+        rendering to non-visual media such as speech and Braille.
+    </description>
+    <property-name>summary</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        height of the entire table, for visual user agents.
+    </description>
+    <property-name>height</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Width of the entire table, for visual user agents.
+    </description>
+    <property-name>width</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+
+

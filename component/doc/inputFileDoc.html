@@ -1,0 +1,213 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <title>inputFile Component</title>
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2">inputFile</h2>
+<hr>
+<p> The inputFile component can be used to provide a
+user-specified file upload capability.
+</p>
+<p >
+The inputFile component renders an file input HTML element. Users
+specify a file to upload either by entering the path to a file
+directly, or by clicking the <span style="color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-decoration: none; text-transform: none; vertical-align: baseline;">Browse</span> button to open a file-system
+navigation dialog window. Clicking the <span style="color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-decoration: none; text-transform: none; vertical-align: baseline;">Upload</span> button uploads the
+specified file to the server.
+</p>
+<div
+ style="margin: 12pt 54pt 12pt 60.24pt; color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-align: left; text-decoration: none; text-indent: -36pt; text-transform: none; vertical-align: baseline;">
+<span style="font-weight: bold;">Note:</span>&nbsp;&nbsp;Newer browsers now make the field, where users previously could type in the file path, be read-only, to prevent users from entering invalid file paths. Clicking into that field can summon the file selection dialog, just as clicking on the <span style="color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-decoration: none; text-transform: none; vertical-align: baseline;">Browse</span> button would.<br>
+</div>
+<p>
+<p>
+The inputFile component has two listeners <span style="color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-decoration: none; text-transform: none; vertical-align: baseline;">progressListener</span> and
+<span style="color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-decoration: none; text-transform: none; vertical-align: baseline;">actionListener</span>. The progressListener can notify the application on the
+percentage of the file being uploaded while the actionListener
+notifies the application about the state of the file. The
+progressListener is optional and only required when the Developer
+would like to inform the user of the File upload progress.
+</p>
+
+<div
+ style="margin: 12pt 54pt 12pt 60.24pt; color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-align: left; text-decoration: none; text-indent: -36pt; text-transform: none; vertical-align: baseline;">
+<span style="font-weight: bold;">Note:</span>&nbsp;&nbsp;The inputFile component sends exception information to the client using FacesMessage, so it always a good idea to have a instance of <span style="color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-decoration: none; text-transform: none; vertical-align: baseline;">message</span> or <span style="color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-decoration: none; text-transform: none; vertical-align: baseline;">messages</span> for inputFile component and if the developer wants to perform some operation against an exception he/she could do it using actionListener.<br>
+</div>
+
+<p>
+<b>progressListener:</b>
+These are some things to consider when implementing the progressListener.
+<ol>
+<li>Method must take a single argument of type com.icesoft.faces.component.inputfile.InputFileProgressEvent. For backwards compatibility, it will also accept instead an event of type java.util.EventObject.</li>
+<li>This method is typically used to simply store the percent progress, to be used by an ice:outputProgress component.</li>
+</ol>
+The following example shows an InputFile progressListener implementation
+in a bean.
+
+<pre>
+public class MyBean {
+    private int percent = -1;
+
+    /**
+     * This is the progressListener implementation
+     */
+    public void progress(EventObject event) {
+        InputFile file = (InputFile) event.getSource();
+        percent  = file.getFileInfo().getPercent();
+    }
+    
+    public int getPercent() {
+        return percent;
+    }
+}
+</pre>
+</p>
+
+<p>
+<b>actionListener:</b></br>
+These are some things to consider when implementing the actionListener.
+<ol>
+<li>The actionListener is only invoked when the file is saved or on any exception.</li>
+<li>The developer can make a decision using the following InputFile states:</br>
+    [SAVED, INVALID, SIZE_LIMIT_EXCEEDED, UNKNOWN_SIZE, INVALID_NAME_PATTERN, UNSPECIFIED_NAME, INVALID_CONTENT_TYPE]   
+</ol>
+
+
+The following example shows an InputFile actionListener implementation.
+<pre>
+public void action(ActionEvent event){
+    InputFile inputFile = (InputFile) event.getSource();
+    FileInfo fileInfo = inputFile.getFileInfo();
+    // File has been saved
+    if (fileInfo.isSaved()) {
+        fileName = fileInfo.getFileName();
+        contentType = fileInfo.getContentType();
+    }
+    // One of the several filure possibilities. Use fileInfo.getStatus() to see which
+    else if (fileInfo.isFailed()) {
+        fileInfo.getException().printStackTrace();
+    }
+  }
+</pre>
+</p>
+
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Example<br>
+</div>
+<p > The following code shows how to create a simple
+inputFile component: </p>
+<pre class="Preformatted">
+&lt;ice:inputFile /&gt;
+</pre>
+
+
+
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;">
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellBody">tag-name:</div>
+      </td>
+      <td>
+      <div class="CellBody">&lt;ice:inputFile&gt; </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody">tag-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.component.inputfile.InputFileTag
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody">component-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.component.inputfile.InputFile
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody">component-type:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.File </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody">component-family:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.File </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody">renderer-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.component.inputfile.InputFileRenderer
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody">renderer-type:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.Upload </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</span></div>
+</body>
+</html>

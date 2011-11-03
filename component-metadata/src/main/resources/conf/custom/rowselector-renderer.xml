@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+	<description>
+		<![CDATA[
+		The Row Selector tag enables single and multiple row selection 
+		for DataTable. To add the row selection to the dataTable, the rowSelector
+		component can be added to any column of the dataTable(e.g.)
+		<p>
+		&lt;ice:dataTable..&gt;<br/>
+		&nbsp;&nbsp;&lt;ice:column&gt;<br/>
+               &nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:rowSelector .../&gt; <br/>
+		       &nbsp;&nbsp;&nbsp;&nbsp;&lt;f:facet name="header"&gt;<br/>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:outputText ..../&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/f:facet&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:outputText ...../&gt;<br/>
+        &nbsp;&nbsp;&lt;/ice:column&gt;<br/>
+        </p>   
+        
+        <b>Note:</b> 
+        <ul>
+        <li>        
+        there should be only one rowSelector component inside a dataTable.
+        <p> The row selection will fire a <i>RowSelectorEvent</i> which can be caught by
+        the <i>selectionListener</i> on this component.
+        </p>
+        
+        <p>The selection is based on the following two attributes:
+        <ul>
+            <li>multiple</li>
+            <li>enhancedMultiple</li>
+        </ul>
+        By default the component runs in single selection mode. In which selecting a row
+        deselects the previously selected row. Setting "multiple" to true, puts the component in
+        multiple selection mode, which allows you to select multiple rows but you
+        can not use "ctrl" or "shift" keys for selection. <br>
+        Setting the "enhancedMultiple" to true, allows single or muliple selection 
+        using the shift or ctrl keys combination. For more detail please see the 
+        attribute specific description. 
+        </p>
+        </li>
+        <li>
+	    It is a good practice to use the immediate parameter of the rowSelector. If set to true, it will work with the results
+     of the selection in APPLY_REQUEST_VALUE phase, before validation occurs. If set to false it will defer event
+     processing until INVOKE_APPLICATION phase, after validation. If validation fails, selection event will not fire with
+     immediate=false
+     </li>
+     <li>    
+      The event lists selection changes tied to the event, not the total model 
+      state. So the RowSelectorEvent.getSelectedRows() can return multiple rows 
+      only when the selection was made using the "shift" key in enhancedMultiple 
+      mode, other wise it returns a single rowindex. To determine all the 
+      currently selected rows in a dataTable the application needs to query the model 
+      </li>
+      </ul>
+	
+     ]]>
+	</description>
+	<component-family>
+		com.icesoft.faces.RowSelectorFamily
+	</component-family>
+	<renderer-type>null	</renderer-type>
+
+	<renderer-extension>
+		<instance-name>rowSelector</instance-name>
+		<is-container>false</is-container>
+		<renders-children>false</renders-children>
+		<tag-name>rowSelector</tag-name>
+		<taglib-prefix>@taglib-prefix@</taglib-prefix>
+		<taglib-uri>@taglib-uri@</taglib-uri>
+	</renderer-extension>
+
+</renderer>

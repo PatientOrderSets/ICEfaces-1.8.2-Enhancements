@@ -1,0 +1,42 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ice="http://www.icesoft.com/icefaces/component"
+        xmlns:f="http://java.sun.com/jsf/core">
+
+    <html>
+    <head>
+        <title>Easy Ajax Push Counter</title>
+    </head>
+
+    <body>
+
+    <h2>Easy Ajax Push Counter</h2>
+
+    <ice:form>
+        <ice:panelGrid columns="3">
+            <ice:outputText value="Application counter:"/>
+            <ice:outputText value="#{applicationCounter.count}"/>
+            <ice:panelGroup>
+                <ice:commandButton value="-"
+                                   actionListener="#{applicationCounter.decrement}"/>
+                <ice:commandButton value="+"
+                                   actionListener="#{applicationCounter.increment}"/>
+            </ice:panelGroup>
+
+            <ice:outputText value="Session counter:"/>
+            <ice:outputText value="#{sessionCounter.count}"/>
+            <ice:panelGroup>
+                <ice:commandButton value="-"
+                                   actionListener="#{sessionCounter.decrement}"/>
+                <ice:commandButton value="+"
+                                   actionListener="#{sessionCounter.increment}"/>
+            </ice:panelGroup>
+
+        </ice:panelGrid>
+    </ice:form>
+
+    </body>
+
+    </html>
+</f:view>

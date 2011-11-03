@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Output</component-family>
+    <renderer-type>com.icesoft.faces.OutputDeclaration</renderer-type>
+    <renderer-class>com.icesoft.faces.component.outputdeclaration.OutputDeclarationRenderer</renderer-class>
+</renderer>

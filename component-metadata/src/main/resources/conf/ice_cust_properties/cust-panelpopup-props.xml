@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+	~
+	~  "The contents of this file are subject to the Mozilla Public License
+	~  Version 1.1 (the "License"); you may not use this file except in
+	~  compliance with the License. You may obtain a copy of the License at
+	~  http://www.mozilla.org/MPL/
+	~
+	~  Software distributed under the License is distributed on an "AS IS"
+	~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+	~  License for the specific language governing rights and limitations under
+	~  the License.
+	~
+	~  The Original Code is ICEfaces 1.5 open source software code, released
+	~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+	~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+	~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+	~
+	~  Contributor(s): _____________________.
+	~
+	~  Alternatively, the contents of this file may be used under the terms of
+	~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+	~  License), in which case the provisions of the LGPL License are
+	~  applicable instead of those above. If you wish to allow use of your
+	~  version of this file only under the terms of the LGPL License and not to
+	~  allow others to use your version of this file under the MPL, indicate
+	~  your decision by deleting the provisions above and replace them with
+	~  the notice and other provisions required by the LGPL License. If you do
+	~  not delete the provisions above, a recipient may use your version of
+	~  this file under either the MPL or the LGPL License."
+	~
+-->
+
+
+&ice-ext-core-styled-props;
+&ice-att-title-props;
+&base-props;
+&ice-effects-props;
+&events-props;
+
+<property>
+	<description>This attribute is currently unsupported.</description>
+	<property-name>resizable</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+        <default-value>false</default-value>
+        <is-hidden>true</is-hidden>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		Used to render a modal popup. Note: this will only cover the
+		body of a document. Make sure the document body takes up 100% of
+		the window. For example: &lt;html&gt;&lt;body&gt;&lt;div
+		style="height=100%;witdh:100%;"&gt;&lt;div&gt;&lt;/body&gt;&lt;/html&gt;
+	</description>
+	<property-name>modal</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+        <default-value>false</default-value>
+    </property-extension>
+</property>
+
+
+<property>
+	<description>
+		When set to 'true' this panel is draggable. The user will be
+		able to drag the panel to any position on the page. Note: all
+		Draggable panels must be contained in a form.
+	</description>
+	<property-name>draggable</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[
+        <p>
+		Space-separated list of CSS style class(es) to be applied when this 
+		element is rendered. This value must be passed through as the "class" 
+		attribute on generated markup.
+		</p>
+        <p>Defines the base class name for all style classes.
+        Default value is <b>icePnlPop</b></p>
+              </p><ul>
+                <li>icePnlPop</li>
+                <li>icePnlPopHdr</li>
+                <li>icePnlPopBody</li>
+                <li>icePnlPopFtr</li>
+              </ul>              
+		]]>
+	</description>
+	<property-name>styleClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ADVANCED</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>The Javascript Effect</description>
+	<property-name>effect</property-name>
+	<property-class>
+		com.icesoft.faces.context.effects.Effect
+	</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+	</property-extension>
+</property>
+<property>
+	<description>
+		Used to keep the popup centred on the screen through scrolling
+		and window resizing events.
+	</description>
+	<property-name>autoCentre</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+        <default-value>false</default-value>
+    </property-extension>
+</property>
+<property>
+	<description>
+		Used to keep the popup positioned on the screen through
+		scrolling events. Use a string of x and y px values (e.g.
+		autoPostion="35,200"). For a modal popup, use "manual" to disable
+        automatic centering on the document. Then specify top, left
+        positions by style or styleClass.
+	</description>
+	<property-name>autoPosition</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+	</property-extension>
+</property>
+<property>
+    <description>
+        Sends update to the server on drop event if false.
+        Default value is false.
+    </description>
+    <property-name>clientOnly</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <default-value>false</default-value>
+    </property-extension>
+</property>
+<property>
+<description>
+    Centre or position popup once on load only. Any drag and drop will disable autoCentre and autoPosition.
+</description>
+<property-name>positionOnLoadOnly</property-name>
+<property-class>boolean</property-class>
+<property-extension>
+    <category>ICE_LAYOUT</category>
+    <default-value>false</default-value>
+</property-extension>
+</property>

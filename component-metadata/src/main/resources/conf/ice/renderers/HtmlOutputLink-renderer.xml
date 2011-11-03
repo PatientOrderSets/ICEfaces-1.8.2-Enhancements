@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Output</component-family>
+    <renderer-type>com.icesoft.faces.Link</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.OutputLinkRenderer</renderer-class>
+</renderer>

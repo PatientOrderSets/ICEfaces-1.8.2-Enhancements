@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+&base-props;
+&core-props;
+&actionsource-props;
+
+<property>
+    <description>
+        Sets the component's model value, which must be a JSF value binding expression 
+        to an implementation of the "javax.swing.tree.TreeModel" interface.
+     </description>
+    <property-name>value</property-name>
+    <property-class>java.lang.Object</property-class>
+    <property-extension>
+        <category>DATA</category>
+        <editor-class>
+            &valueBindingEditor;
+        </editor-class>
+        <named-value>
+            <name>ignoreIsBound</name>
+            <value>true</value>
+        </named-value>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Name of the image that overrides the default image.
+    </description>
+    <property-name>navOpenTop</property-name>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Name of the image that overrides the default image.
+    </description>
+    <property-name>navOpenTopNoSiblings</property-name>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <property-name>navCloseTop</property-name>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Set directory for location of the tree images.
+    </description>
+    <property-name>imageDir</property-name>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &urlEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Declares whether the navigation links will be rendered. Valid
+        values are true and false.
+    </description>
+    <property-name>hideNavigation</property-name>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+           &selectOneDomainEditor;
+        </editor-class>
+        <default-value>false</default-value>
+    </property-extension>
+
+</property>
+
+
+<property>
+    <description>
+        Declares whether the root tree node will be rendered. Valid
+        values are true and false.
+    </description>
+    <property-name>hideRootNode</property-name>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <default-value>false</default-value>
+        <editor-class>
+            &selectOneDomainEditor;
+        </editor-class>
+        <default-value>false</default-value>
+    </property-extension>
+
+</property>
+
+
+
+
+<property>
+    <description>
+        Name of a request-scope attribute under which the model data for
+        the row selected by the current value of the "rowIndex" property
+        (i.e. also the current value of the "rowData" property) will be
+        exposed.
+    </description>
+    <property-name>var</property-name>
+    <property-extension>
+        <category>DATA</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <is-bindable>true</is-bindable>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+
+    </description>
+    <property-name>documentImage</property-name>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+
+    </description>
+    <property-name>folderOpenImage</property-name>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+
+    </description>
+    <property-name>folderImage</property-name>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[ 
+        <p>
+		Space-separated list of CSS style class(es) to be applied when this 
+		element is rendered. This value must be passed through as the "class" 
+		attribute on generated markup.
+		</p>
+        <p>Defines the base class name for all style classes.
+        Default value is <b>iceTree</b></p>
+              </p><ul>
+                <li>iceTree</li>
+                <li>iceTreeRow</li>
+              </ul>              
+		]]>			
+    </description>
+    <property-name>styleClass</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &styleClassEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		CSS style(s) to be applied when this component is rendered.
+	</description>
+	<property-name>style</property-name>
+        <property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+		<editor-class>
+			&cssStyleEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+    <description>
+        Enables keyboard support, default value is true.
+    </description>
+    <property-name>keyboardNavigationEnabled</property-name>
+    <property-class>boolean</property-class>    
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+

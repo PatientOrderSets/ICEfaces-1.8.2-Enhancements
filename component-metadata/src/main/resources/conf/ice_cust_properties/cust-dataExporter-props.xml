@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!--todo -->
+&core-props;
+&base-props;
+<property>
+	<description>
+		  ID of the dataTable that this dataExporter component will export data from.
+	</description>
+	<property-name>for</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>		
+	</property-extension>
+</property>
+
+ <property>
+	<description>
+	    Note: This is deprecated as of 1.8.1. Specifying a value for this attribute will have no effect.
+	</description>
+    <property-name>clickToCreateFileText</property-name>
+
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+      <default-value>false</default-value>
+    </property-extension>
+  </property>
+
+ <property>
+	<description>
+        Custom output handler can be define using this attribute. The custom handler
+        must be a type of com.icesoft.faces.component.dataexporter.OutputTypeHandler
+	</description>
+    <property-name>outputTypeHandler</property-name>
+    <property-class>com.icesoft.faces.component.dataexporter.OutputTypeHandler</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+  </property>
+
+   <property>
+    <description>
+        <![CDATA[<p>
+        It can have one of the following value:
+        <ul>
+           <li>excel</li>
+           <li>csv</li>
+        </ul>
+        
+        <b>Note:</b> If the custom handler has been defined using the <i>outputTypeHandler</i>
+        attribute then it will take percedence over this attribute. 
+        </p>         ]]>        
+    </description>
+    <property-name>type</property-name>
+
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+      <default-value>true</default-value>
+    </property-extension>
+  </property>
+  
+     <property>
+    <description>
+        The value of this attribute will be rendered to download the generated file.
+        If it has not been defined then the file name will be rendered instead.
+    </description>
+    <property-name>label</property-name>
+
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+      <default-value>true</default-value>
+    </property-extension>
+  </property> 
+
+  <property>
+    <description>
+        The URL of an image that will be rendered instead of the 'label' attribute 
+        text which the user can click on to initiate a data export download. When 
+        this attribute is specified, the 'label' text will be used for the 'title' 
+        and 'alt' text on the image element.
+    </description>
+    <property-name>image</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+  </property>  
+  
+ <property>
+    <description>
+        This is false by default. If true the dataExporter
+        will ignore the "first" and "rows" properties on the associated dataTable.
+    </description>
+    <property-name>ignorePagination</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+      <default-value>false</default-value>
+    </property-extension>
+  </property>  
+  
+   <property>
+    <description>
+    This is false by default. If true the label text will be the label of a rendered button, instead of an anchor link.
+    </description>
+    <property-name>renderLabelAsButton</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+      <default-value>false</default-value>
+    </property-extension>
+  </property>  
+  
+  <property>
+    <description>
+        <![CDATA[
+             <p>
+              Space-separated list of CSS style class(es) to be applied when this
+              element is rendered. This value must be passed through as the 
+              "class" attribute on generated markup.<br/>
+              Default value is <b>iceDatExp<b/></p>
+        ]]>
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &styleClassEditor;
+        </editor-class>
+    </property-extension>
+</property>
+  
+  <property>
+    <description>
+        <![CDATA[    
+        <p>This attribute lets you define the order and number of columns that needs to be added to
+        the generated output. It takes comma separated column indexes. 
+        Note that index starts with 0. <br/><br/>
+        
+        If there are 6 columns in the table and you want to add only 1st, 4th 
+        and 6th column to the generated output:<br/>
+        &lt;ice:dataExporter includeColumns="0,3,5"... &gt;
+        <br/>
+        The column order of the above example can be changed a well:</br>
+        &lt;ice:dataExporter includeColumns="5,0,3"... &gt;
+        <br/>
+        By default all columns will be included to the output, and in the default order.
+        </p>
+        
+        ]]>
+    </description>
+    <property-name>includeColumns</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+  </property>   
+  
+     <property>
+    <description>
+        <![CDATA[    
+        <p>    
+        When used in a browser with a popup blocker enabled downloading the 
+        exported file will require two clicks instead of a single click. In this 
+        case the value of this attribute will be used to update the label for 
+        the dataExporter to reflect that the user must click the link/button/image 
+        again to complete the download process.. 
+        </p>
+        
+        ]]>        
+    </description>
+    <property-name>popupBlockerLabel</property-name>
+
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+      <default-value>true</default-value>
+    </property-extension>
+  </property>   
+  

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+  
+&base-props;
+&ice-att-userrole-rendered-props;
+&core-props;
+&ice-att-userrole-enabled-props;
+&ice-att-title-props;
+&i18n-props;
+&events-props;
+
+<property>
+    <description>Label of this tab.</description>
+    <property-name>label</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+        The icon attribute sets the icon file for this panelTab component           
+    </description>          
+    <property-name>icon</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+
+<property>
+    <description>
+        The icon attribute sets the icon file for this panelTab component           
+    </description>    
+    <property-name>iconAlignRight</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+              <p>Space-separated list of CSS style class(es) to be applied when this
+              element is rendered. This value must be passed through as the 
+              "class" attribute on generated markup.</p>
+              <p>Defines the base class name for all style classes used in tabbed panes.</p>
+              <p>Default value for the base class name is <b>icePnlTb</b>. The base class name
+              is used as a prefix for the style classes that will be applied to the elements that make up
+              the panelTab. The default style classes are defined in the xp.css and royale.css that are included
+              with ICEfaces.</p>
+              <p>There are several parts of the CSS class names, as they are defined in the CSS files:
+              <dl>
+              <dt>icePnlTb</dt>
+              <dd>The root of the class name, as set in the styleClass attribute</dd>
+              <dt>On / Off / Over</dt>
+              <dd>On: If tab is the selected one. Off: If tab is not the selected one. Over: When mouseover the tab.</dd>
+              <dt>Btm</dt>
+              <dd>If the tab is on the top, then "", else if the tab is on the bottom, then "Btm"</dd>
+              <dt>Lft / Mid / Rt</dt>
+              <dd>For the tab, which horizonal section, as left, middle, and right.</dd>
+              <dt>Top / Mid / Btm</dt>
+              <dd>For the tab, which vertical section, as top, middle, and bottom.</dd>
+              <dt>-dis</dt>
+              <dd>If the panel is enabled, then "", else if the panel is disabled, then "-dis"</dd>
+              </dl>
+              <p>Put together, the various sections are: ".{root_classname}{tab_is_On_or_Off_or_Over}{tab_on_top_or_bottom} .{horizonal_section_of_tab}{vertical_section_of_tab}{disabled}"<br/>
+              That means there is a matrix of classes that have to be defined for the 3 possibilities of tab_is_On_or_Off_or_Over, the 2 possibilities of tab_on_top_or_bottom, the 3 values of horizonal_section_of_tab, the 3 values of vertical_section_of_tab, and the 2 possiblities for disabled, which is 3x2x3x3x2=108 combinations.<br/>
+              So, given the default value of styleClass as being <b>icePnlTb</b>, if you want a styling for mousing over the tab, when tabs are on the bottom, for the right top side of the tab, then you would have to define this class in your CSS file: <b>.icePnlTbOverBtm .RtTop</b></br>
+              And if you want a styling for the currently selected tab, when tabs are on the top, for the right middle side of the tab, and the tab is disabled, then you would have to define this class in your CSS file: <b>.icePnlTbOn .RtMid-dis</b></br>
+              </p>
+		]]>
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>Integer value representing the width (in pixels) of the label text. If the actual width of the text turns out to be greater than the one specified, the text will be wrapped or clipped, depending on the labelWrap attribute.</description>
+    <property-name>labelWidth</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>If this attribute is set to true, then the label text will wrap to multiple lines instead of being clipped when the width of the text is greater than the one specified by the labelWidth attribute.</description>
+    <property-name>labelWrap</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+    </property-extension>
+</property>

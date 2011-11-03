@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+
+&ice-ext-core-styled-props;
+&base-props;
+&ice-att-displayListener-props;
+&ice-effects-props;
+&events-props;
+
+<property>
+	<description>
+	    <![CDATA[
+		When set to 'true' this panelTooltip is draggable. The user will be
+		able to drag the panel to any position on the page. 
+		Note: all Draggable panels must be contained in a form. If the panelTooltip
+		is draggable it becomes dynamic automatically.
+		
+        ]]> 		
+	</description>
+	<property-name>draggable</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        <p>
+        Space-separated list of CSS style class(es) to be applied when this 
+        element is rendered. This value must be passed through as the "class" 
+        attribute on generated markup.
+        </p>
+        <p>Defines the base class name for all style classes.
+        Default value is <b>icePnlTlTip</b></p>
+              </p><ul>
+                <li>icePnlTlTip</li>
+                <li>icePnlTlTipHdr</li>
+                <li>icePnlTlTipBody</li>
+                <li>icePnlTlTipFtr</li>
+              </ul>              
+        ]]>     	
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+	<description>The Javascript Effect</description>
+	<property-name>effect</property-name>
+	<property-class>com.icesoft.faces.context.effects.Effect</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>		
+	</property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+            <p>
+        The following are the valid values for the autoHide attribute:
+            <ul>
+                <li> mouseout </li>
+                <li> mousedown </li>
+                <li> none </li>
+            </ul> 
+            </p>
+            <p>
+            <h3>  mouseout :</h3> the tooltip will be hide (un-rdender or invisible, depending
+            on the dynamic attribute) when the user moves the mouse out of the 
+            triggering component. 
+            </p>
+            
+            <p>
+            <h3>  mousedown :</h3> the tooltip will be hide (un-rdender or invisible, depending
+            on the dynamic attribute) when the user clicks any area outside of 
+            the panelTooltip itself is clicked. 
+            </p>  
+            
+            <p>
+            <h3>  none :</h3> the tooltip will not be hide until the application 
+            changes the "visible" attribute to be false<br/>
+            </p> 
+        ]]>        
+    </description>
+    <property-name>hideOn</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <default-value>"mouseout"</default-value>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        # of milliseconds that mouse must be continuously hovered over the 
+        component before the tooltip is displayed. 
+    </description>
+    <property-name>hoverDelay</property-name>
+    <property-class>int</property-class>
+    <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <default-value>500</default-value>        
+    </property-extension>
+</property>
+
+<property>
+<description>
+    <![CDATA[
+            <p>
+        The following are the valid values for the displayOn attribute:
+            <ul>
+                <li> hover (default): cursor hover </li>
+                <li> click: left mouse button clicked </li>
+                <li> altclick: right mouse button clicked (tied to the "contextmenu" JS event) </li>
+                <li> dblclick: double click </li>
+            </ul>
+        ]]>
+</description>
+<property-name>displayOn</property-name>
+<property-class>java.lang.String</property-class>
+<property-extension>
+    <category>ICE_COMPONENT</category>
+    <editor-class>
+        &stringEditor;
+    </editor-class>
+    <default-value>"hover"</default-value>
+</property-extension>
+</property>
+
+<property>
+<description>
+    <![CDATA[
+		When set to "true" this will cause the panelTooltip to track with the mouse.
+        Default is "false"
+    ]]>
+</description>
+<property-name>moveWithMouse</property-name>
+<property-class>boolean</property-class>
+<property-extension>
+    <category>ICE_COMPONENT</category>
+
+    <default-value>false</default-value>
+</property-extension>
+</property>

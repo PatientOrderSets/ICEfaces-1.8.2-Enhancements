@@ -1,0 +1,151 @@
+<h2>ICEsoft ICEfaces AddressForm Demo</h2>
+<p>
+    This is a basic demo that illustrates intelligent form processing using
+    ICEfaces and the partial submit mechanism. It is based on entering a USA
+    address, but uses partial submits to analyse and manipulate user input to
+    ensure that a complete valid address is obtained prior to form submission.
+    As you interact with this JSF application, you will find the Direct-to-DOM
+    experience to be enriched in a number of ways. It is important to note that
+    these rich features do not rely on a bunch of JavaScript in the page, but
+    instead leverage the power and resource of the server through ICEfaces.
+</p>
+<div class="roundBox">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+
+
+        <h3>Input Formatting:</h3>
+
+        <p>The first and last name field will autocorrect for capitalization
+            when you tab out of them.
+    </div>
+    <b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b
+            class="r1"></b></b>
+
+</div>
+
+<div class="roundBox">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <h3>Incremental Form Validation:</h3>
+
+        <p>Address, City and State are validated against a server-side address
+            database to ensure they are correct. These validations take place as
+            you tab out of the field, ensuring that you are informed of errors
+            as they happen.
+        </p>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+</div>
+
+<div class="roundBox">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <h3>Inter-field Validation:</h3>
+
+        <p>Not only can you run basic validation against individual fields, you
+            can do inter-field analysis for more complex validation. In this
+            demo we analyse City, State, and Zip against the server-side address
+            database to ensure they represent a correct address.
+        </p>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+</div>
+<div class="roundBox">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <h3>Form Control Manipulation:</h3>
+
+        <p>
+            As the form is being completed we can manipulate the form controls
+            to aid the user in entering the form. For instance, if you enter a
+            valid City, the State input text field morphs to a drop-down
+            selection with only States that match the City. If you then select a
+            valid State, the Zip input text field will do the same and present a
+            list of valid Zip codes for that City and State. Likewise, if you
+            enter a Zip first, the City and State will autofill with correct
+            values.
+        </p>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+</div>
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<div class="roundBox">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <h3>Submit Suppression:</h3>
+
+        <p>
+            You may have noticed that the Submit button is inactive during form
+            entry. It is not activated for the user until the form is known to
+            be completed fully and contains a valid City, State and Zip for the
+            address. This means that we can drastically reduce form entry errors
+            prior to submission.
+        </p>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+
+</div>
+
+<div class="roundBox">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <h3>Internet Explorer Keyboard Navigation:</h3>
+
+        <p>
+            Internet Explorer users who use the keyboard to navigate should open
+            menus using (Alt + Down Arrow) keys before navigating the menu with
+            the arrow keys. Then the (Enter) key should be used to select a menu
+            item. When a menu is not open, prior to navigation, Internet Explorer
+            will process the onchange event on the first (Down Arrow) key event.
+            Resulting in the selection of an item the user may not have intended
+            to select.
+        </p>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+
+</div>

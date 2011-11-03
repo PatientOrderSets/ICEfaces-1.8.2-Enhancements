@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.PanelStack</component-type>
+    <component-class>com.icesoft.faces.component.panelstack.PanelStack</component-class>
+</component>  

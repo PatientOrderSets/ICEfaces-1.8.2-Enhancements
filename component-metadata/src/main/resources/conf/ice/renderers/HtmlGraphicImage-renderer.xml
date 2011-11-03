@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Graphic</component-family>
+    <renderer-type>com.icesoft.faces.Image</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.ImageRenderer</renderer-class>
+</renderer>

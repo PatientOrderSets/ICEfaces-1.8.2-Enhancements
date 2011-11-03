@@ -1,0 +1,135 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!-- updated May 02 2005 MKiD -->
+<span class="headLine">ICEsoft JSF Auction Monitor Demo</span><br/>
+This demonstration highlights many of the capabilities that ICEfaces and Direct-to-DOM rendering provide. The Auction Monitor is an example of a multi-user, interactive experience not easily acheived using standard web application techniques.  To begin with, there is no page refreshing; instead you experience smooth incremental updating of the page as you interact with it.  Next you get page updates in real time.  Clocks tick down, and bids appear automatically, but the user is never forced out of their current area of focus as these updates occur.
+As you interact with this JSF application, here are some of the things that you can do.  You will find your Direct-to-DOM version to be enriched in a number of ways.
+<br/><br/>
+
+<div class="nifty">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <span class="infoHeader">Item Sorting:</span><br/>
+        Items can be sorted by; Item Name, Price, Bids or Time Left. Clicking on
+        the text in the column headers will perform the sort. Items can be
+        sorted in ascending or descending order.<br/>
+    </div>
+    <b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b
+            class="r1"></b></b>
+</div>    <br/>
+
+<div class="nifty">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <span class="infoHeader">Viewing Item Details:</span><br/>
+        Items can be expanded or collapsed by clicking on the small triangle to
+        the left of each item name.<br/>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+</div>    <br/>
+
+<div class="nifty">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <span class="infoHeader">Bidding on Items:</span><br/>
+        To start bidding on an Item, click the Bid button. This will display the
+        Bid text field, the Accept Bid and the Cancel Bid image buttons. Type
+        your bid amount into the the Bid text field. The bid will not be
+        submitted until the Accept button has been clicked or the Enter key has
+        been pressed.<br/>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+</div>    <br/>
+
+<div class="nifty">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <span class="infoHeader">Accepting a Bid:</span><br/>
+        Bids are accepted and submitted by clicking on the Accept image button
+        (green check mark). Bids will also be submitted when a Bid text field
+        has focus and the Enter key is pressed.<br/>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+</div>    <br/>
+
+<div class="nifty">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <span class="infoHeader">Canceling a Bid:</span><br/>
+        Bids are canceled and not submitted by clicking on the Cancel image
+        button (red X).<br/>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+</div>    <br/>
+
+<div class="nifty">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <span class="infoHeader">Clocks:</span><br/>
+        The clocks indicate the time remaining in the auction for each item.
+        Since the clocks are
+        dynamically updated from the server, only the D2D version shows ticking
+        clocks.<br/>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+</div>    <br/>
+
+<div class="nifty">
+    <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b
+            class="r4"></b></b>
+
+    <div style="padding:5px 20px 5px 20px ;">
+        <span class="infoHeader">Chat:</span><br/>
+        Just enter your name and start chatting. You will automatically be
+        connected with other bidders that are in the chat session.<br/>
+    </div><b class="rbottom"><b class="r4"></b><b class="r3"></b><b
+        class="r2"></b><b class="r1"></b></b>
+</div>    <br/>
+
+<span class="infoHeader">Trouble Shooting:</span><br/>
+Leaving the auction page for more than a few minutes may cause your session to expire and you may need to reload the page.
+<br/>
+

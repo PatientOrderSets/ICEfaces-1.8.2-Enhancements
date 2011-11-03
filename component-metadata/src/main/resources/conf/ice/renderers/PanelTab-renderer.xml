@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Panel</component-family>
+    <renderer-type>com.icesoft.faces.TabbedPaneTab</renderer-type>
+    <renderer-class>com.icesoft.faces.component.paneltabset.PanelTabRenderer</renderer-class>
+</renderer>

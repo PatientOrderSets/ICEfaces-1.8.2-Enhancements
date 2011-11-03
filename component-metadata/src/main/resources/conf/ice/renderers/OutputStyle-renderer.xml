@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.OutputStyle</component-family>
+    <renderer-type>com.icesoft.faces.style.OutputStyleRenderer</renderer-type>
+    <renderer-class>com.icesoft.faces.component.style.OutputStyleRenderer</renderer-class>
+</renderer>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Overlay 1.1//EN"
+  "dtd/web-facesconfig_1_1.dtd"
+  [
+<!ENTITY ice-ApplyEffect-renderer SYSTEM "ice/renderers/ApplyEffect-renderer.xml">
+<!ENTITY ice-PanelBorder-renderer SYSTEM "ice/renderers/PanelBorder-renderer.xml">
+<!ENTITY ice-DataPaginator-renderer SYSTEM "ice/renderers/DataPaginator-renderer.xml">
+<!ENTITY ice-InputFile-renderer SYSTEM "ice/renderers/InputFile-renderer.xml">
+<!ENTITY ice-GMap-renderer SYSTEM "ice/renderers/GMap-renderer.xml">
+<!ENTITY ice-HtmlCheckbox-renderer SYSTEM "ice/renderers/HtmlCheckbox-renderer.xml">
+<!ENTITY ice-HtmlCommandButton-renderer SYSTEM "ice/renderers/HtmlCommandButton-renderer.xml">
+<!ENTITY ice-HtmlCommandLink-renderer SYSTEM "ice/renderers/HtmlCommandLink-renderer.xml">
+<!ENTITY ice-HtmlDataTable-renderer SYSTEM "ice/renderers/HtmlDataTable-renderer.xml">
+<!ENTITY ice-HtmlForm-renderer SYSTEM "ice/renderers/HtmlForm-renderer.xml">
+<!ENTITY ice-HtmlGraphicImage-renderer SYSTEM "ice/renderers/HtmlGraphicImage-renderer.xml">
+<!ENTITY ice-HtmlInputHidden-renderer SYSTEM "ice/renderers/HtmlInputHidden-renderer.xml">
+<!ENTITY ice-HtmlInputSecret-renderer SYSTEM "ice/renderers/HtmlInputSecret-renderer.xml">
+<!ENTITY ice-HtmlInputText-renderer SYSTEM "ice/renderers/HtmlInputText-renderer.xml">
+<!ENTITY ice-HtmlInputTextarea-renderer SYSTEM "ice/renderers/HtmlInputTextarea-renderer.xml">
+<!ENTITY ice-HtmlMessage-renderer SYSTEM "ice/renderers/HtmlMessage-renderer.xml">
+<!ENTITY ice-HtmlMessages-renderer SYSTEM "ice/renderers/HtmlMessages-renderer.xml">
+<!ENTITY ice-HtmlOutputLabel-renderer SYSTEM "ice/renderers/HtmlOutputLabel-renderer.xml">
+<!ENTITY ice-HtmlOutputFormat-renderer SYSTEM "ice/renderers/HtmlOutputFormat-renderer.xml">
+<!ENTITY ice-HtmlOutputLink-renderer SYSTEM "ice/renderers/HtmlOutputLink-renderer.xml">
+<!ENTITY ice-HtmlOutputText-renderer SYSTEM "ice/renderers/HtmlOutputText-renderer.xml">
+<!ENTITY ice-HtmlPanelGrid-renderer SYSTEM "ice/renderers/HtmlPanelGrid-renderer.xml">
+<!ENTITY ice-HtmlPanelGroup-renderer SYSTEM "ice/renderers/HtmlPanelGroup-renderer.xml">
+<!ENTITY ice-HtmlRadio-renderer SYSTEM "ice/renderers/HtmlRadio-renderer.xml">
+<!ENTITY ice-HtmlSelectBooleanCheckbox-renderer SYSTEM "ice/renderers/HtmlSelectBooleanCheckbox-renderer.xml">
+<!ENTITY ice-HtmlSelectManyCheckbox-renderer SYSTEM "ice/renderers/HtmlSelectManyCheckbox-renderer.xml">
+<!ENTITY ice-HtmlSelectManyListbox-renderer SYSTEM "ice/renderers/HtmlSelectManyListbox-renderer.xml">
+<!ENTITY ice-HtmlSelectManyMenu-renderer SYSTEM "ice/renderers/HtmlSelectManyMenu-renderer.xml">
+<!ENTITY ice-HtmlSelectOneListbox-renderer SYSTEM "ice/renderers/HtmlSelectOneListbox-renderer.xml">
+<!ENTITY ice-HtmlSelectOneMenu-renderer SYSTEM "ice/renderers/HtmlSelectOneMenu-renderer.xml">
+<!ENTITY ice-HtmlSelectOneRadio-renderer SYSTEM "ice/renderers/HtmlSelectOneRadio-renderer.xml">
+<!ENTITY ice-InputRichText-renderer SYSTEM "ice/renderers/InputRichText-renderer.xml">
+<!ENTITY ice-MenuBar-renderer SYSTEM "ice/renderers/MenuBar-renderer.xml">
+<!ENTITY ice-MenuItem-renderer SYSTEM "ice/renderers/MenuItem-renderer.xml">
+<!ENTITY ice-MenuItemSeparator-renderer SYSTEM "ice/renderers/MenuItemSeparator-renderer.xml">
+<!ENTITY ice-MenuItems-renderer SYSTEM "ice/renderers/MenuItems-renderer.xml">
+<!ENTITY ice-MenuPopup-renderer SYSTEM "ice/renderers/MenuPopup-renderer.xml">
+<!ENTITY ice-OutputBody-renderer SYSTEM "ice/renderers/OutputBody-renderer.xml">
+<!ENTITY ice-OutputChart-renderer SYSTEM "ice/renderers/OutputChart-renderer.xml">
+<!ENTITY ice-OutputConnectionStatus-renderer SYSTEM "ice/renderers/OutputConnectionStatus-renderer.xml">
+<!ENTITY ice-OutputDeclaration-renderer SYSTEM "ice/renderers/OutputDeclaration-renderer.xml">
+<!ENTITY ice-OutputHead-renderer SYSTEM "ice/renderers/OutputHead-renderer.xml">
+<!ENTITY ice-OutputHtml-renderer SYSTEM "ice/renderers/OutputHtml-renderer.xml">
+<!ENTITY ice-OutputMedia-renderer SYSTEM "ice/renderers/OutputMedia-renderer.xml">
+<!ENTITY ice-OutputResource-renderer SYSTEM "ice/renderers/OutputResource-renderer.xml">
+<!ENTITY ice-OutputStyle-renderer SYSTEM "ice/renderers/OutputStyle-renderer.xml">
+<!ENTITY ice-PanelCollapsible-renderer SYSTEM "ice/renderers/PanelCollapsible-renderer.xml">
+<!ENTITY ice-PanelConfirmation-renderer SYSTEM "ice/renderers/PanelConfirmation-renderer.xml">
+<!ENTITY ice-PanelDivider-renderer SYSTEM "ice/renderers/PanelDivider-renderer.xml">
+<!ENTITY ice-PanelLayout-renderer SYSTEM "ice/renderers/PanelLayout-renderer.xml">
+<!ENTITY ice-PanelPopup-renderer SYSTEM "ice/renderers/PanelPopup-renderer.xml">
+<!ENTITY ice-PanelSeries-renderer SYSTEM "ice/renderers/PanelSeries-renderer.xml">
+<!ENTITY ice-PanelStack-renderer SYSTEM "ice/renderers/PanelStack-renderer.xml">
+<!ENTITY ice-PanelTab-renderer SYSTEM "ice/renderers/PanelTab-renderer.xml">
+<!ENTITY ice-PanelTabSet-renderer SYSTEM "ice/renderers/PanelTabSet-renderer.xml">
+<!ENTITY ice-PanelTooltip-renderer SYSTEM "ice/renderers/PanelTooltip-renderer.xml">
+<!ENTITY ice-Portlet-renderer SYSTEM "ice/renderers/Portlet-renderer.xml">
+<!ENTITY ice-OutputProgress-renderer SYSTEM "ice/renderers/OutputProgress-renderer.xml">
+<!ENTITY ice-SelectInputDate-renderer SYSTEM "ice/renderers/SelectInputDate-renderer.xml">
+<!ENTITY ice-SelectInputText-renderer SYSTEM "ice/renderers/SelectInputText-renderer.xml">
+<!ENTITY ice-CommandSortHeader-renderer SYSTEM "ice/renderers/CommandSortHeader-renderer.xml">
+<!ENTITY ice-TreeNode-renderer SYSTEM "ice/renderers/TreeNode-renderer.xml">
+<!ENTITY ice-Tree-renderer SYSTEM "ice/renderers/Tree-renderer.xml">
+<!ENTITY ice-PanelPositioned-renderer SYSTEM "ice/renderers/PanelPositioned-renderer.xml">
+<!ENTITY ice-DataExporter-renderer SYSTEM "ice/renderers/DataExporter-renderer.xml">
+<!ENTITY ice-ApplyEffect-component SYSTEM "ice/components/ApplyEffect-component.xml">
+<!ENTITY ice-PanelBorder-component SYSTEM "ice/components/PanelBorder-component.xml">
+<!ENTITY ice-UIColumn-component SYSTEM "ice/components/UIColumn-component.xml">
+<!ENTITY ice-ColumnGroup-component SYSTEM "ice/components/ColumnGroup-component.xml">
+<!ENTITY ice-UIColumns-component SYSTEM "ice/components/UIColumns-component.xml">
+<!ENTITY ice-DataPaginator-component SYSTEM "ice/components/DataPaginator-component.xml">
+<!ENTITY ice-InputFile-component SYSTEM "ice/components/InputFile-component.xml">
+<!ENTITY ice-GMap-component SYSTEM "ice/components/GMap-component.xml">
+<!ENTITY ice-GMapControl-component SYSTEM "ice/components/GMapControl-component.xml">
+<!ENTITY ice-GMapDirection-component SYSTEM "ice/components/GMapDirection-component.xml">
+<!ENTITY ice-GMapGeoXml-component SYSTEM "ice/components/GMapGeoXml-component.xml">
+<!ENTITY ice-GMapLatLng-component SYSTEM "ice/components/GMapLatLng-component.xml">
+<!ENTITY ice-GMapLatLngs-component SYSTEM "ice/components/GMapLatLngs-component.xml">
+<!ENTITY ice-GMapMarker-component SYSTEM "ice/components/GMapMarker-component.xml">
+<!ENTITY ice-HeaderRow-component SYSTEM "ice/components/HeaderRow-component.xml">
+<!ENTITY ice-HtmlCheckbox-component SYSTEM "ice/components/HtmlCheckbox-component.xml">
+<!ENTITY ice-HtmlCommandButton-component SYSTEM "ice/components/HtmlCommandButton-component.xml">
+<!ENTITY ice-HtmlCommandLink-component SYSTEM "ice/components/HtmlCommandLink-component.xml">
+<!ENTITY ice-HtmlDataTable-component SYSTEM "ice/components/HtmlDataTable-component.xml">
+<!ENTITY ice-HtmlForm-component SYSTEM "ice/components/HtmlForm-component.xml">
+<!ENTITY ice-HtmlGraphicImage-component SYSTEM "ice/components/HtmlGraphicImage-component.xml">
+<!ENTITY ice-HtmlInputHidden-component SYSTEM "ice/components/HtmlInputHidden-component.xml">
+<!ENTITY ice-HtmlInputSecret-component SYSTEM "ice/components/HtmlInputSecret-component.xml">
+<!ENTITY ice-HtmlInputText-component SYSTEM "ice/components/HtmlInputText-component.xml">
+<!ENTITY ice-HtmlInputTextarea-component SYSTEM "ice/components/HtmlInputTextarea-component.xml">
+<!ENTITY ice-HtmlMessage-component SYSTEM "ice/components/HtmlMessage-component.xml">
+<!ENTITY ice-HtmlMessages-component SYSTEM "ice/components/HtmlMessages-component.xml">
+<!ENTITY ice-HtmlOutputFormat-component SYSTEM "ice/components/HtmlOutputFormat-component.xml">
+<!ENTITY ice-HtmlOutputLabel-component SYSTEM "ice/components/HtmlOutputLabel-component.xml">
+<!ENTITY ice-HtmlOutputLink-component SYSTEM "ice/components/HtmlOutputLink-component.xml">
+<!ENTITY ice-HtmlOutputText-component SYSTEM "ice/components/HtmlOutputText-component.xml">
+<!ENTITY ice-HtmlPanelGrid-component SYSTEM "ice/components/HtmlPanelGrid-component.xml">
+<!ENTITY ice-HtmlPanelGroup-component SYSTEM "ice/components/HtmlPanelGroup-component.xml">
+<!ENTITY ice-HtmlRadio-component SYSTEM "ice/components/HtmlRadio-component.xml">
+<!ENTITY ice-HtmlSelectBooleanCheckbox-component SYSTEM "ice/components/HtmlSelectBooleanCheckbox-component.xml">
+<!ENTITY ice-HtmlSelectManyCheckbox-component SYSTEM "ice/components/HtmlSelectManyCheckbox-component.xml">
+<!ENTITY ice-HtmlSelectManyListbox-component SYSTEM "ice/components/HtmlSelectManyListbox-component.xml">
+<!ENTITY ice-HtmlSelectManyMenu-component SYSTEM "ice/components/HtmlSelectManyMenu-component.xml">
+<!ENTITY ice-HtmlSelectOneListbox-component SYSTEM "ice/components/HtmlSelectOneListbox-component.xml">
+<!ENTITY ice-HtmlSelectOneMenu-component SYSTEM "ice/components/HtmlSelectOneMenu-component.xml">
+<!ENTITY ice-HtmlSelectOneRadio-component SYSTEM "ice/components/HtmlSelectOneRadio-component.xml">
+<!ENTITY ice-InputRichText-component SYSTEM "ice/components/InputRichText-component.xml">
+<!ENTITY ice-LoadBundle-component SYSTEM "ice/components/LoadBundle-component.xml">
+<!ENTITY ice-MenuBar-component SYSTEM "ice/components/MenuBar-component.xml">
+<!ENTITY ice-MenuItem-component SYSTEM "ice/components/MenuItem-component.xml">
+<!ENTITY ice-MenuItemSeparator-component SYSTEM "ice/components/MenuItemSeparator-component.xml">
+<!ENTITY ice-MenuItems-component SYSTEM "ice/components/MenuItems-component.xml">
+<!ENTITY ice-MenuPopup-component SYSTEM "ice/components/MenuPopup-component.xml">
+<!ENTITY ice-OutputBody-component SYSTEM "ice/components/OutputBody-component.xml">
+<!ENTITY ice-OutputChart-component SYSTEM "ice/components/OutputChart-component.xml">
+<!ENTITY ice-OutputConnectionStatus-component SYSTEM "ice/components/OutputConnectionStatus-component.xml">
+<!ENTITY ice-OutputDeclaration-component SYSTEM "ice/components/OutputDeclaration-component.xml">
+<!ENTITY ice-OutputHead-component SYSTEM "ice/components/OutputHead-component.xml">
+<!ENTITY ice-OutputHtml-component SYSTEM "ice/components/OutputHtml-component.xml">
+<!ENTITY ice-OutputMedia-component SYSTEM "ice/components/OutputMedia-component.xml">
+<!ENTITY ice-OutputResource-component SYSTEM "ice/components/OutputResource-component.xml">
+<!ENTITY ice-OutputStyle-component SYSTEM "ice/components/OutputStyle-component.xml">
+<!ENTITY ice-PanelCollapsible-component SYSTEM "ice/components/PanelCollapsible-component.xml">
+<!ENTITY ice-PanelConfirmation-component SYSTEM "ice/components/PanelConfirmation-component.xml">
+<!ENTITY ice-PanelDivider-component SYSTEM "ice/components/PanelDivider-component.xml">
+<!ENTITY ice-PanelLayout-component SYSTEM "ice/components/PanelLayout-component.xml">
+<!ENTITY ice-PanelPopup-component SYSTEM "ice/components/PanelPopup-component.xml">
+<!ENTITY ice-PanelSeries-component SYSTEM "ice/components/PanelSeries-component.xml">
+<!ENTITY ice-PanelStack-component SYSTEM "ice/components/PanelStack-component.xml">
+<!ENTITY ice-PanelTab-component SYSTEM "ice/components/PanelTab-component.xml">
+<!ENTITY ice-PanelTabSet-component SYSTEM "ice/components/PanelTabSet-component.xml">
+<!ENTITY ice-PanelTooltip-component SYSTEM "ice/components/PanelTooltip-component.xml">
+<!ENTITY ice-Portlet-component SYSTEM "ice/components/Portlet-component.xml">
+<!ENTITY ice-OutputProgress-component SYSTEM "ice/components/OutputProgress-component.xml">
+<!ENTITY ice-RowSelector-component SYSTEM "ice/components/RowSelector-component.xml">
+<!ENTITY ice-SelectInputDate-component SYSTEM "ice/components/SelectInputDate-component.xml">
+<!ENTITY ice-SelectInputText-component SYSTEM "ice/components/SelectInputText-component.xml">
+<!ENTITY ice-SetEventPhase-component SYSTEM "ice/components/SetEventPhase-component.xml">
+<!ENTITY ice-CommandSortHeader-component SYSTEM "ice/components/CommandSortHeader-component.xml">
+<!ENTITY ice-TreeNode-component SYSTEM "ice/components/TreeNode-component.xml">
+<!ENTITY ice-Tree-component SYSTEM "ice/components/Tree-component.xml">
+<!ENTITY ice-PanelPositioned-component SYSTEM "ice/components/PanelPositioned-component.xml">
+<!ENTITY ice-UISeries-component SYSTEM "ice/components/UISeries-component.xml">
+<!ENTITY ice-DataExporter-component SYSTEM "ice/components/DataExporter-component.xml">
+  ]>
+<faces-config>
+    &ice-ApplyEffect-component;
+    &ice-PanelBorder-component;
+    &ice-UIColumn-component;
+    &ice-ColumnGroup-component;
+    &ice-UIColumns-component;
+    &ice-DataPaginator-component;
+    &ice-InputFile-component;
+    &ice-GMap-component;
+    &ice-GMapControl-component;
+    &ice-GMapDirection-component;
+    &ice-GMapGeoXml-component;
+    &ice-GMapLatLng-component;
+    &ice-GMapLatLngs-component;
+    &ice-GMapMarker-component;
+    &ice-HeaderRow-component;
+    &ice-HtmlCheckbox-component;
+    &ice-HtmlCommandButton-component;
+    &ice-HtmlCommandLink-component;
+    &ice-HtmlDataTable-component;
+    &ice-HtmlForm-component;
+    &ice-HtmlGraphicImage-component;
+    &ice-HtmlInputHidden-component;
+    &ice-HtmlInputSecret-component;
+    &ice-HtmlInputText-component;
+    &ice-HtmlInputTextarea-component;
+    &ice-HtmlMessage-component;
+    &ice-HtmlMessages-component;
+    &ice-HtmlOutputFormat-component;
+    &ice-HtmlOutputLabel-component;
+    &ice-HtmlOutputLink-component;
+    &ice-HtmlOutputText-component;
+    &ice-HtmlPanelGrid-component;
+    &ice-HtmlPanelGroup-component;
+    &ice-HtmlRadio-component;
+    &ice-HtmlSelectBooleanCheckbox-component;
+    &ice-HtmlSelectManyCheckbox-component;
+    &ice-HtmlSelectManyListbox-component;
+    &ice-HtmlSelectManyMenu-component;
+    &ice-HtmlSelectOneListbox-component;
+    &ice-HtmlSelectOneMenu-component;
+    &ice-HtmlSelectOneRadio-component;
+    &ice-InputRichText-component;
+    &ice-LoadBundle-component;
+    &ice-MenuBar-component;
+    &ice-MenuItem-component;
+    &ice-MenuItemSeparator-component;
+    &ice-MenuItems-component;
+    &ice-MenuPopup-component;
+    &ice-OutputBody-component;
+    &ice-OutputChart-component;
+    &ice-OutputConnectionStatus-component;
+    &ice-OutputDeclaration-component;
+    &ice-OutputHead-component;
+    &ice-OutputHtml-component;
+    &ice-OutputMedia-component;
+    &ice-OutputResource-component;
+    &ice-OutputStyle-component;
+    &ice-PanelCollapsible-component;
+    &ice-PanelConfirmation-component;
+    &ice-PanelDivider-component;
+    &ice-PanelLayout-component;
+    &ice-PanelPopup-component;
+    &ice-PanelSeries-component;
+    &ice-PanelStack-component;
+    &ice-PanelTab-component;
+    &ice-PanelTabSet-component;
+    &ice-PanelTooltip-component;
+    &ice-Portlet-component;
+    &ice-OutputProgress-component;
+    &ice-RowSelector-component;
+    &ice-SelectInputDate-component;
+    &ice-SelectInputText-component;
+    &ice-SetEventPhase-component;
+    &ice-CommandSortHeader-component;
+    &ice-TreeNode-component;
+    &ice-Tree-component;
+    &ice-PanelPositioned-component;
+    &ice-UISeries-component;
+    &ice-DataExporter-component;    
+    <render-kit>
+            &ice-ApplyEffect-renderer;
+            &ice-PanelBorder-renderer;
+            &ice-DataPaginator-renderer;
+            &ice-InputFile-renderer;
+            &ice-GMap-renderer;
+            &ice-HtmlCheckbox-renderer;
+            &ice-HtmlCommandButton-renderer;
+            &ice-HtmlCommandLink-renderer;
+            &ice-HtmlDataTable-renderer;
+            &ice-HtmlForm-renderer;
+            &ice-HtmlGraphicImage-renderer;
+            &ice-HtmlInputHidden-renderer;
+	    &ice-HtmlInputSecret-renderer;
+            &ice-HtmlInputText-renderer;
+            &ice-HtmlInputTextarea-renderer;
+            &ice-HtmlMessage-renderer;
+            &ice-HtmlMessages-renderer;
+            &ice-HtmlOutputFormat-renderer;
+            &ice-HtmlOutputLabel-renderer;
+            &ice-HtmlOutputLink-renderer;
+            &ice-HtmlOutputText-renderer;
+            &ice-HtmlPanelGrid-renderer;
+            &ice-HtmlPanelGroup-renderer;
+            &ice-HtmlRadio-renderer;
+            &ice-HtmlSelectBooleanCheckbox-renderer;
+            &ice-HtmlSelectManyCheckbox-renderer;
+            &ice-HtmlSelectManyListbox-renderer;
+            &ice-HtmlSelectManyMenu-renderer;
+            &ice-HtmlSelectOneListbox-renderer;
+            &ice-HtmlSelectOneMenu-renderer;
+            &ice-HtmlSelectOneRadio-renderer;
+            &ice-InputRichText-renderer;
+            &ice-MenuBar-renderer;
+            &ice-MenuItem-renderer;
+            &ice-MenuItemSeparator-renderer;
+            &ice-MenuItems-renderer;
+            &ice-MenuPopup-renderer;            
+            &ice-OutputBody-renderer;
+            &ice-OutputChart-renderer;
+            &ice-OutputConnectionStatus-renderer;
+            &ice-OutputDeclaration-renderer;
+            &ice-OutputHead-renderer;
+            &ice-OutputHtml-renderer;
+            &ice-OutputMedia-renderer;
+            &ice-OutputResource-renderer;
+            &ice-OutputStyle-renderer;
+            &ice-PanelCollapsible-renderer;
+            &ice-PanelConfirmation-renderer;
+            &ice-PanelDivider-renderer;
+            &ice-PanelLayout-renderer;
+            &ice-PanelPopup-renderer;
+            &ice-PanelSeries-renderer;
+            &ice-PanelStack-renderer;
+            &ice-PanelTab-renderer;
+            &ice-PanelTabSet-renderer;
+            &ice-PanelTooltip-renderer;
+            &ice-Portlet-renderer;
+            &ice-OutputProgress-renderer;
+            &ice-SelectInputDate-renderer;
+            &ice-SelectInputText-renderer;
+            &ice-CommandSortHeader-renderer;
+            &ice-TreeNode-renderer;
+            &ice-Tree-renderer;
+            &ice-PanelPositioned-renderer;
+            &ice-DataExporter-renderer;            
+    </render-kit>
+</faces-config>

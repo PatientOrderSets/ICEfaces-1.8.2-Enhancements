@@ -1,0 +1,258 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ ?The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/?
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later? (the? ?LGPL?
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable? instead of those above.? If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting? the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License.? If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<f:view xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+<ice:outputDeclaration doctypeRoot="HTML"
+                       doctypePublic="-//W3C//DTD XHTML 1.0 Transitional//EN"
+                       doctypeSystem="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>ICEfaces Address Demo</title>
+    <ice:outputStyle href='./xmlhttp/css/xp/xp.css'/>
+    <ice:outputStyle href="./css/demo_template.css"/>
+    <ice:outputStyle href="./css/address.css"/>
+    <ice:outputStyle href="./css/readme.css"/>
+</head>
+<body>
+
+<div>
+    <div class="header_right">
+        <img src="./css/images/banner_logo.jpg" alt="ICEfaces" width="267"
+             height="159"/>
+    </div>
+    <div class="header_container">
+        <div class="header_left">
+            <img src="./css/images/banner_hdr_address.jpg"
+                 width="463" height="100"
+                 title="Component Suite Showcase"
+                 alt="Component Suite Showcase"/>
+        </div>
+
+        <div class="clearer"/>
+    </div>
+</div>
+
+
+<div id="addressFormPanel">
+<h1>Enter Address Details into the ICEfaces Demo Below</h1>
+<ice:form id="iceForm">
+
+<table>
+<tr>
+    <td colspan="4"><ice:outputText value=" "/></td>
+</tr>
+<tr class="formLabel">
+
+    <td><ice:outputLabel for="title" value="Title"/></td>
+
+    <!-- Title -->
+    <td class="input"><ice:selectOneMenu id="title" style="width:55px;"
+                                         accesskey="T"
+                                         styleClass="textFieldDynamic"
+                                         tabindex="10"
+                                         value="#{address.elementContainer.title.value}"
+                                         partialSubmit="true"
+                                         binding="#{address.addressFormProcessor.selectTitle}">
+        <f:selectItems value="#{address.elementContainer.titles}"/>
+    </ice:selectOneMenu></td>
+
+    <td><ice:outputLabel for="city" value="City"/></td>
+
+    <!-- City -->
+    <td class="input"><ice:inputText style="width:120px;" id="city"
+                                     accesskey="C"
+                                     styleClass="textField" tabindex="40"
+                                     value="#{address.elementContainer.city.value}"
+                                     valueChangeListener="#{address.addressFormProcessor.cityChanged}"
+                                     partialSubmit="true"
+                                     rendered="#{address.elementContainer.city.inputRendered}"
+                                     binding="#{address.addressFormProcessor.cityText}"/>
+        <ice:selectOneMenu id="citySelect"
+                           style="width:120px;"
+                           rendered="#{address.elementContainer.city.selectRendered}"
+                           styleClass="textFieldDynamic" tabindex="45"
+                           valueChangeListener="#{address.addressFormProcessor.citySelectChanged}"
+                           partialSubmit="true"
+                           binding="#{address.addressFormProcessor.selectCity}"
+                >
+            <f:selectItems value="#{address.elementContainer.city.select}"/>
+        </ice:selectOneMenu>
+        <ice:graphicImage
+                url="images/#{address.elementContainer.city.image}" width="15"
+                height="15" alt="incorrect city name"/>
+    </td>
+</tr>
+
+<tr class="formLabel">
+    <td><ice:outputLabel for="firstName" value="First Name"/></td>
+
+    <!-- First Name -->
+    <td class="input"><ice:inputText style="width:120px;" id="firstName"
+                                     accesskey="F"
+                                     styleClass="textField" tabindex="20"
+                                     value="#{address.elementContainer.firstName.value}"
+                                     converter="fixCaps"
+                                     partialSubmit="true"
+                                     binding="#{address.addressFormProcessor.firstNameText}"
+            /></td>
+
+    <td><ice:outputLabel for="state" value="State"/></td>
+
+    <!-- State -->
+    <td class="input"><ice:inputText style="width:50px;" id="state"
+                                     maxlength="2"
+                                     accesskey="S"
+                                     size="4" styleClass="textField"
+                                     tabindex="50"
+                                     rendered="#{address.elementContainer.state.inputRendered}"
+                                     value="#{address.elementContainer.state.value}"
+                                     valueChangeListener="#{address.addressFormProcessor.stateChanged}"
+                                     partialSubmit="true"
+                                     binding="#{address.addressFormProcessor.stateText}"/>
+        <ice:selectOneMenu id="stateSelect"
+                           style="width:50px;" tabindex="55"
+                           rendered="#{address.elementContainer.state.selectRendered}"
+                           styleClass="textFieldDynamic"
+                           valueChangeListener="#{address.addressFormProcessor.stateSelectChanged}"
+                           partialSubmit="true"
+                           binding="#{address.addressFormProcessor.selectState}"
+                >
+            <f:selectItems value="#{address.elementContainer.state.select}"/>
+        </ice:selectOneMenu>
+        <ice:graphicImage
+                url="images/#{address.elementContainer.state.image}" width="15"
+                height="15" alt="incorrect state name"/>
+    </td>
+</tr>
+
+<tr class="formLabel">
+    <td><ice:outputLabel for="lastName" value="Last Name"/></td>
+
+    <!-- Last Name -->
+    <td class="input"><ice:inputText style="width:120px;"
+                                     id="lastName"
+                                     accesskey="L"
+                                     styleClass="textField" tabindex="30"
+                                     value="#{address.elementContainer.lastName.value}"
+                                     converter="fixCaps"
+                                     partialSubmit="true"
+                                     binding="#{address.addressFormProcessor.lastNameText}"/>
+    </td>
+
+    <td><ice:outputLabel for="zip" value="Zip"/></td>
+
+    <!-- Zip -->
+    <td class="input"><ice:inputText id="zip" maxlength="5"
+                                     accesskey="Z"
+                                     size="5" styleClass="textField"
+                                     tabindex="60"
+                                     rendered="#{address.elementContainer.zip.inputRendered}"
+                                     value="#{address.elementContainer.zip.value}"
+                                     valueChangeListener="#{address.addressFormProcessor.zipChanged}"
+                                     partialSubmit="true"
+                                     style="width:65px;"
+                                     binding="#{address.addressFormProcessor.zipText}"/>
+        <ice:selectOneMenu id="zipSelect" tabindex="65"
+                           style="width:65px;" styleClass="textFieldDynamic"
+                           rendered="#{address.elementContainer.zip.selectRendered}"
+                           valueChangeListener="#{address.addressFormProcessor.zipSelectChanged}"
+                           partialSubmit="true"
+                           binding="#{address.addressFormProcessor.selectZip}"
+                >
+            <f:selectItems value="#{address.elementContainer.zip.select}"/>
+        </ice:selectOneMenu>
+        <ice:graphicImage
+                url="images/#{address.elementContainer.zip.image}" width="15"
+                height="15" alt="incorrect zip code"/>
+    </td>
+</tr>
+<tr>
+    <!-- Submit & Reset -->
+    <td colspan="4" style="text-align:right;">
+        <ice:commandButton tabindex="70"
+                           type="button" id="Reset"
+                           title="reset"
+                           accesskey="R"
+                           image="./images/reset-button.gif"
+                           action="#{address.reset}" alt="Reset"/>
+        <ice:commandButton
+                type="submit" tabindex="80"
+                title="Complete Address Form"
+                disabled="#{address.elementContainer.submit.disabled}"
+                image="#{address.elementContainer.submit.imageButton}"
+                id="Submit"
+                accesskey="E"
+                action="submit" value="submit" alt="Submit"
+                binding="#{address.addressFormProcessor.submitButton}"/>
+    </td>
+</tr>
+</table>
+<!-- Suggestions and Warnings -->
+<ice:messages id="messages"/>
+</ice:form>
+</div>
+
+<ice:form>
+
+
+    <div id="readme"><ice:commandButton image="#{ReadmeBean.imageButton}"
+                                        alt="View Demo Notes"
+                                        action="#{ReadmeBean.pressExpandButton}"
+                                        title="Toggle the notes section open or close"/><br/>
+        <ice:outputText value="#{ReadmeBean.readmeText}" escape="false"
+                        rendered="#{ReadmeBean.expanded}"/>
+    </div>
+
+    <div class="footer_container">
+        <div class="footer_left">
+            <div style="display:inline;float:left">&#160; Copyright 2009
+                <a href="http://www.icesoft.com/"
+                   target="_blank">ICEsoft Technologies Inc.</a></div>
+            <div style="display:inline;float:right"><i>Powered By
+                <a href="http://www.icefaces.org/" target="_blank">ICEfaces</a></i>
+            </div>
+
+        </div>
+        <div class="footer_right"><img src="./css/images/footer_faces.jpg"
+                                       alt="ICEfaces" width="121"
+                                       height="95" border="0"/></div>
+    </div>
+</ice:form>
+</body>
+</html>
+</f:view>

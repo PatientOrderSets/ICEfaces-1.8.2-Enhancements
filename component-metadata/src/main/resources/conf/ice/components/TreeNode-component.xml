@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.TreeNode</component-type>
+    <component-class>com.icesoft.faces.component.tree.TreeNode</component-class>
+</component>  

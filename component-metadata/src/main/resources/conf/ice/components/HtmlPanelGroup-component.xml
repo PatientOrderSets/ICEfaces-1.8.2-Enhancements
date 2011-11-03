@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlPanelGroup</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlPanelGroup</component-class>
+</component>  

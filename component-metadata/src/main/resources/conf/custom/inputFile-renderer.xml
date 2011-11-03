@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+	<description>
+		<![CDATA[<p>The inputFile component can be used to provide a user-specified file upload capability.<br>
+		    The inputFile component renders an file input HTML element. Users specify a file to upload
+            either by entering the path to a file directly, or by  clicking the  <b>Browse</b>  button
+            to open a file-system navigation dialog window.  Clicking the  <b>Upload</b>  button uploads
+            the specified file to the server.<br>
+            Note: Newer browsers now make the field, where users previously could type in the file path,
+            be read-only, to prevent users from entering invalid file paths. Clicking into that field can 
+            summon the file selection dialog, just as clicking on the  <b>Browse</b>  button would.<br>
+            Note: The web.xml parameter com.icesoft.faces.uploadDirectoryAbsolute when set to true will use 
+            the value of the com.icesoft.faces.uploadDirectory parameter as an absolute directory.<br>
+            Note: If the styleClass, buttonClass or the inputTextClass need to be set, then the css file
+            must be referenced using the ice:outputStyle component.<br/>
+            Note: In order to set the height and width of this component, it is recomended to use the height and the width
+            attribute of this component instead of setting it using the style or styleClass. This is due to 
+            the rendering of an iframe.
+            ]]>
+            
+	</description>
+	<component-family>com.icesoft.faces.File</component-family>
+	<renderer-type>com.icesoft.faces.Upload</renderer-type>
+	<renderer-extension>
+		<instance-name>inputFile</instance-name>
+		<is-container>true</is-container>
+		<renders-children>true</renders-children>
+		<tag-name>inputFile</tag-name>
+		<taglib-prefix>@taglib-prefix@</taglib-prefix>
+		<taglib-uri>@taglib-uri@</taglib-uri>
+	</renderer-extension>
+</renderer>

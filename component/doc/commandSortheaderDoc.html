@@ -1,0 +1,144 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>commandSortHeader Component</title>
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h2 class="Heading2"><span
+style="color: rgb(0, 0, 102);">commandSortHeader</span></h2>
+<hr>
+
+<p>The commandSortHeader component is used in conjunction with a
+dataTable. The commandSortHeader renders a clickable column header facet
+allowing the user to toggle the sort order of data in the table, either
+ascending or descending based on the values in the column.</p>
+
+<p >The commandSortHeader can be used to provide a
+user-controlled data sorting capability to a dataTable.</p>
+
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+<p>Example</p>
+</div>
+
+<p >The following code shows how to create a basic
+commandSortHeader component:</p>
+<pre class="Preformatted">&lt;ice:dataTable<br>        var="car"<br>         value="#{list.cars}"<br>         sortColumn="#{list.sort}"<br>         sortAscending="#{list.ascending}"<br>         &gt;<br>  <br>        &lt;f:facet name="header"&gt;<br>                 &lt;ice:outputText value="(header table)"  /&gt;<br>         &lt;/f:facet&gt;<br> <br>        &lt;f:facet name="footer"&gt;<br>                 &lt;ice:outputText value="(footer table)"  /&gt;<br>         &lt;/f:facet&gt;<br>  <br>        &lt;ice:column&gt;<br> <br>                &lt;f:facet name="header"&gt;<br>                         &lt;ice:commandSortHeader columnName="type" arrow="true"&gt;<br>                                 sort Type<br>                         &lt;/ice:commandSortHeader&gt;<br>                 &lt;/f:facet&gt;<br> <br>                &lt;ice:outputText value="#{car.type}" /&gt;<br> <br>                &lt;f:facet name="footer"&gt;<br>                         &lt;h:outputText id="ftr1" value="(footer col1)"  /&gt;<br>                 &lt;/f:facet&gt;<br> <br>        &lt;/ice:column&gt;<br>  <br>        &lt;ice:column&gt;<br> <br>                &lt;f:facet name="header"&gt;<br>                        &lt;ice:commandSortHeader columnName="color" arrow="true"&gt;<br>                                sortColor<br>                        &lt;/ice:commandSortHeader&gt;<br>                &lt;/f:facet&gt;<br> <br>                &lt;h:outputText value="#{car.color}" /&gt;<br> <br>                &lt;f:facet name="footer"&gt;<br>                        &lt;ice:outputText id="ftr2" value="(footer col2)"  /&gt;<br>                &lt;/f:facet&gt;<br> <br>        &lt;/ice:column&gt;<br> <br>&lt;/ice:dataTable&gt;<br>  </pre>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary</div>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption>
+  <tbody>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-name:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        &lt;ice:commandSortHeader&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.commandsortheader.CommandSortHeaderTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.commandsortheader.CommandSortHeader</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.SortHeader</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-family:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        javax.faces.Command</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.commandsortheader.CommandSortHeaderRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.SortHeader</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

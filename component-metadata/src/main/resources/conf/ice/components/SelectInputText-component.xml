@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.SelectInputText</component-type>
+    <component-class>com.icesoft.faces.component.selectinputtext.SelectInputText</component-class>
+</component>  

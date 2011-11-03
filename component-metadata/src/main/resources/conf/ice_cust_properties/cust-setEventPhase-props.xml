@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+-->
+<property>
+	<description>
+		The types of events that should be changed to be broadcasted in the 
+        different phase. Specified as a space delimited list of event class 
+        names. If a short version of the class name is given, without a 
+        package name, then "javax.faces.event" will be assumed. An event will 
+        be determined to match the entries in this property if it passes the 
+        instanceof test, meaning that if it is exactly that class, or is a
+        subclass. If all events should have their phase changed, simply specify
+        FacesEvent as the value of this property.
+    </description>
+	<property-name>events</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+<property>
+	<description>
+		The name of the phase to change events to be broadcasted in. It can be 
+        one of: ANY, APPLY_REQUEST_VALUES, PROCESS_VALIDATIONS, 
+        UPDATE_MODEL_VALUES, INVOKE_APPLICATION.
+    </description>
+	<property-name>phase</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+<property>
+    <description>
+        Disable the altering of event phases. This will not disable child input components, though.
+    </description>
+    <property-name>disabled</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+    </property-extension>
+</property>

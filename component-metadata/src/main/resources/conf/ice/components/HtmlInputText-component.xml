@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlInputText</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlInputText</component-class>
+</component>  

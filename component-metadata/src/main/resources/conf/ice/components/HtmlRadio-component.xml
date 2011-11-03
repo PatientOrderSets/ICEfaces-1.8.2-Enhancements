@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlRadio</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlRadio</component-class>
+</component>  

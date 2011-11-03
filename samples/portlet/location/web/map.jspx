@@ -1,0 +1,38 @@
+<f:view xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <html>
+
+    <head>
+        <title>
+            ICEfaces Location - Map
+        </title>
+    </head>
+
+    <body>
+
+    <ice:portlet>
+
+        <ice:outputStyle href="/xmlhttp/css/rime/rime-portlet.css"/>
+        <ice:outputStyle href="/resources/css/location.css"/>
+        <f:loadBundle basename="org.icefaces.sample.location.resources.messages" var="msgs"/>
+
+        <ice:form>
+
+            <ice:panelGroup>
+
+                <ice:gMap id="gmap" address="#{cityMap.address}" locateAddress="#{cityMap.locateAddress}">
+                    <ice:gMapControl id="largectrl" name="GLargeMapControl" rendered="true"/>
+                    <ice:gMapControl id="scalectrl" name="GScaleControl" rendered="true"/>
+                    <ice:gMapControl id="typectrl" name="GMapTypeControl" rendered="true"/>
+                </ice:gMap>
+                
+            </ice:panelGroup>
+
+        </ice:form>
+    </ice:portlet>
+
+    </body>
+    </html>
+</f:view>

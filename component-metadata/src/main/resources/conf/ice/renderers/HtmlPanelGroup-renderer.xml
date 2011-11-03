@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Panel</component-family>
+    <renderer-type>com.icesoft.faces.Group</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.GroupRenderer</renderer-class>
+</renderer>

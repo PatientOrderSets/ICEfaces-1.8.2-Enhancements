@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+&base-props;
+&core-props;
+&actionsource-props;
+
+
+<property>
+    <description>
+        Title for the component. The value of this attribute can be defined
+        on the page or can be bound to the backing bean as String type.
+    </description>
+    <property-name>chartTitle</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>Default Chart title</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+		<![CDATA[
+		<p>Type of the chart. The valid values are as follows:
+        <ul>
+        	<li>area</li/>
+        	<li>areastacked</li/>
+        	<li>bar</li/>
+        	<li>barclustered</li/>
+        	<li>barstacked</li/>
+        	<li>line</li/>
+        	<li>pie2D</li/>
+        	<li>pie3D</li/>
+        	<li>point</li/>
+        	<li>stock</li/>        	        	        	        	        	        	        	        	        	
+        	<li>custom</li/>        	
+        </ul>
+        
+        Only one type can be set at a time. The value of this attribute can
+        be defined on the page or can be bound to the backing bean as String type.
+        </p> 
+        ]]>
+    </description>
+    <property-name>type</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>bar</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Title for x axis of the chart. Valid for all types of charts except 
+        pie2D and pie3D. The value of this attribute can
+        be defined on the page or can be bound to the backing bean as String type. 
+    </description>
+    <property-name>xaxisTitle</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>Default X title</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Title for y axis of the chart. Valid for all types of charts except 
+        pie2D and pie3D. The value of this attribute can
+        be defined on the page or can be bound to the backing bean as String type.
+    </description>
+    <property-name>yaxisTitle</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>Default Y title</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+		<![CDATA[
+		<p>     
+        This attribute can be used with all types of charts except pie2D and pie3D.
+        Each value of xaxisLabels is connected with a dataset.
+        It can be defined on page or bound to the backing bean.
+     	(e.g.)
+     	<pre>
+     	 &lt;ice:outputChart type="barstacked" 
+        		labels="pass, fail" 
+        		data="70, 30, 10 : 10, 50, 70" 
+        		colors="green, red"
+				xaxisLabels="2001, 2002, 2003"        		
+        		/&gt;   
+       </pre>
+        </p> 
+        ]]>       
+    </description>
+    <property-name>xaxisLabels</property-name>
+    <property-class>java.lang.Object</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+		<![CDATA[
+		<p>     
+        The value of this attribute can be defined on page or can be defined 
+        using the backing bean, the valid types for the bean is:
+        	<ul>
+			   <li> String array</li>
+        	   <li> List of java.awt.Color</li>
+			</ul>
+        </p> 
+        ]]> 
+    </description>
+    <property-name>colors</property-name>
+    <property-class>java.lang.Object</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+		<![CDATA[ <p>     
+        Data of the chart. The valud of this attribute can be defined on page or
+        can be bound to the backing bean:</br>
+		<b>(e.g.) defining on page</b>
+        <pre> 
+        &lt;ice:outputChart type="pie2d" 
+        		labels="pass, fail" 
+        		data="70, 30" 
+        		colors="green, red"/&gt;
+
+        dataset can be defined using the colon ":" 
+        &lt;ice:outputChart type="barstacked" 
+        		labels="pass, fail" 
+        		data="70, 30, 10 : 10, 50, 70" 
+        		colors="green, red"/&gt;
+        </pre><br/>
+       This attribute's value has correlation with the labels and color attribute.
+       <br/> if the value bounded with backing bean:
+           <ul>
+             <li>double or 2d double array</li>
+             <li>List of double or 2d double array</li>
+           </ul>
+        </p>   
+        ]]>           
+    </description>
+    <property-name>data</property-name>
+    <property-class>java.lang.Object</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>20, 30, 40</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Height of the chart. The value of this attribute can
+        be defined on the page or can be bound to the backing bean as String type.
+    </description>
+    <property-name>height</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>400</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Width of the chart. The value of this attribute can
+        be defined on the page or can be bound to the backing bean as String type.
+    </description>
+    <property-name>width</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>400</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+		<![CDATA[ <p>   
+        Legend label of the chart. This attribute can be used for any type of 
+        chart. The value of the labels attribute has correlation with the data 
+        and colors attribute.
+        <br/>
+        When used with pie2D and pie3D the number of values should be same for the
+        labels, data and color attributes. (e.g.)
+        <pre> 
+        &lt;ice:outputChart type="pie2d" 
+        		labels="pass, fail" 
+        		data="70, 30" 
+        		colors="green, red"/&gt;
+         </pre> 
+        When used with other charts except pie, then each labels' value should 
+        be mapped with a dataset. A dataset can be indicated by the colon ":" (e.g.)  
+        <pre>       
+        &lt;ice:outputChart type="barstacked" 
+        		labels="pass, fail" 
+        		data="70, 30, 10: 10, 50, 70" 
+        		colors="green, red"/&gt;
+        </pre> 		
+        The value of labels attribute can be defined on the page:
+        	<ul>
+			   <li> a single word </li>
+        	   <li> comma separated values </li>
+        	</ul>
+        The value of labels attribute can be defined using the backing bean:
+        	<ul>
+			   <li> as String array </li>
+        	   <li> as List of strings </li>
+			</ul>
+        </p> 
+        ]]>        
+    </description>
+    <property-name>labels</property-name>
+    <property-class>java.lang.Object</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+		<![CDATA[
+		<p>The placement of legend label can be set to one of the following:
+        <ul>
+        	<li>top</li>
+        	<li>bottom (default)</li>
+        	<li>left</li>
+        	<li>right</li>
+        	<li>none</li>          	  
+        </ul>
+        <pre> 
+		(e.g.)
+        &lt;ice:outputChart type="barstacked" 
+        		labels="pass, fail" 
+        		data="70, 30, 10: 10, 50, 70" 
+        		colors="green, red"
+        		legendPlacement="right"/&gt;
+         </pre>         
+         Note: This attribute does not apply to pie3D charts.
+         When the chart type is "custom", remember to read this attribute in
+         your custom charting code and set the chart legend placement accordingly.
+        </p> 
+        ]]>         
+    </description>
+    <property-name>legendPlacement</property-name>
+    <property-class>java.lang.Object</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>bottom</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+		<![CDATA[
+		<p>    
+        The number of columns for legend label.
+        <pre> 
+		(e.g.) To show legend columns vertically
+        &lt;ice:outputChart type="barstacked" 
+        		labels="pass, fail" 
+        		data="70, 30, 10: 10, 50, 70" 
+        		colors="green, red"
+        		legendPlacement="right"
+        		legendColumns="1"/&gt;
+         </pre>    
+        </p> 
+        ]]>                 
+    </description>
+    <property-name>legendColumns</property-name>
+    <property-class>java.lang.Object</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>0</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+		<![CDATA[
+		<p>     
+        The renderOnSubmit attribute lets the developer decide when to render 
+        the chart. However the chart component ensures that the chart image would 
+        be generated for first rendering phase but subsequent rendering of the
+        chart would be based on this attribute's value.<br/>
+        The value of this attribute can be defined on the page or can be bound 
+        to the backing bean as method binding.
+       <pre>
+       &lt;ice:outputChart  renderOnSubmit="true"/&gt;
+       or
+       &lt;ice:outputChart  renderOnSubmit="#{bean.render}"/&gt;
+       
+       method's signature:
+           public boolean render(OutputChart component)
+       </pre>
+        </p> 
+        ]]>        
+    </description>
+    <property-name>renderOnSubmit</property-name>
+    <property-class>javax.faces.el.MethodBinding</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+
+<property>
+    <description>
+		<![CDATA[
+		<p>     
+        This attribute can be used with the line and point chart. <br/>
+        The following are the valid values:
+        <ul>
+        	<li>circle</li>
+        	<li>diamond</li>
+        	<li>square</li>
+        	<li>triangle</li>
+        </ul>
+        The value of this attribute can be defined on page or can be defined 
+        using the backing bean, the valid types for the bean is:
+        	<ul>
+			   <li> String array containging above strings</li>
+        	   <li> List of java.awt.Shape</li>
+			</ul>
+        </p> 
+        ]]>        
+    </description>
+    <property-name>shapes</property-name>
+    <property-class>java.lang.Object</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+		<![CDATA[
+		<p>     
+        This attribute is valid only for the following types of charts:
+        <ul>
+        	<li>bar</li>
+        	<li>barclustered</li>
+            <li>barstacked</li>        	
+        </ul>  
+        <b>Note: </b> Negative values in Stacked Bar charts are not supported by 
+        the krysalis.jcharts.
+        </p> 
+        ]]>               
+    </description>
+    <property-name>horizontal</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>false</default-value>
+     </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        Space-separated list of CSS style class(es) to be applied when this 
+		element is rendered. This value is passed through as the "class" 
+		attribute on generated markup.
+		The base name for all style classes. Default value is <b>iceOutChrt</b>
+		if enabled and <b>iceOutChrt-dis</b> if disabled.
+		]]>		
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+        

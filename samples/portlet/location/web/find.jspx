@@ -1,0 +1,45 @@
+<f:view xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <html>
+
+    <head>
+        <title>
+            ICEfaces Location Find
+        </title>
+    </head>
+
+    <body>
+
+    <ice:portlet>
+
+        <ice:outputStyle href="/xmlhttp/css/rime/rime-portlet.css"/>
+        <ice:outputStyle href="/resources/css/location.css"/>
+        <f:loadBundle basename="org.icefaces.sample.location.resources.messages" var="msgs"/>
+
+        <ice:form>
+
+            <ice:panelGroup>
+
+                <ice:outputText value="#{msgs['find.instruction']}"/>
+
+                <ice:selectInputText id="location"
+                                     rows="#{citySelect.cityListLength}"
+                                     width="300"
+                                     value="#{citySelect.selectedCityValue}"
+                                     valueChangeListener="#{citySelect.selectInputValueChanged}"
+                                     styleClass="autoComplete">
+                    
+                    <f:selectItems id="locationItems"
+                                   value="#{citySelect.cityMatchPossibilities}"/>
+                </ice:selectInputText>
+
+            </ice:panelGroup>
+
+        </ice:form>
+    </ice:portlet>
+
+    </body>
+    </html>
+</f:view>

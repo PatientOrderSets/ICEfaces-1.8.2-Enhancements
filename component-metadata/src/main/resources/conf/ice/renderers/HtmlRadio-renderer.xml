@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.HtmlRadio</component-family>
+    <renderer-type>com.icesoft.faces.Radio</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.RadioRenderer</renderer-class>
+</renderer>

@@ -1,0 +1,200 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>selectInputDate Component</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h2 class="Heading2">selectInputDate</h2>
+<hr>
+
+<p >The selectInputDate component renders an inline or popup calendar date selector.
+Users may select a date by clicking a date in the displayed calendar. The
+month and year, of the calendar can be changed using navigation arrow buttons. In popup mode, an
+inputText component is rendered. It formats and displays the selected date of the calendar. Users may
+enter a date directly into the inputText component or click the popup
+button beside the inputText component to display the popup calendar view.
+Selecting a date in the popup calendar will close the popup calendar view and update
+the inputText with the selected date.</p>
+
+<p >The selectInputDate component can be used in cases where a
+date value must be selected, displayed or entered.<br>
+</p>
+
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Example <br>
+</div>
+
+<p >The following code shows how to create a basic popup
+calendar using the popupDateFormat attribute with an embedded message to display format exceptions.
+The specified popupDateFormat must conform to the Time Format Syntax of the java.text.SimpleDateFormat class.</p>
+<p>
+In this example we use the format "EEE, MMM d, yyyy"  which would output the date as "Wed, July 12, 2006".
+</p>
+<pre class="Preformatted">
+
+&lt;ice:form id="calendarForm2"&gt;
+	&lt;ice:selectInputDate id="calendar1"
+			popupDateFormat="EEE, MMM d, yyyy"
+			value="#{calendar.date1}" renderAsPopup="true" /&gt;
+	&lt;h:message style="color: red" for="calendar1"/&gt;
+&lt;/ice:form&gt;
+
+</pre>
+
+<p>The default calendar images can be overridden by using the imageDir attribute.
+To override the default images create an images directory in your application web directory.
+Then put your calendar images in this directory.</p>
+<p>
+The calendar images must be named as follows;
+<ul>
+<li>cal_arrow_right.gif - move next image.</li>
+<li>cal_arrow_left.gif - move previous image.</li>
+<li>cal_button.gif - open popup image.</li>
+<li>cal_off.gif - close popup image.</li>
+</ul>
+The following example shows how to override the default calendar images using the imageDir tag attribute.
+</p>
+
+<pre class="Preformatted">
+
+&lt;ice:selectInputDate id="calendar2"
+	value="#{testBean.date2}"
+	imageDir="./images/"
+	renderAsPopup="true" /&gt;
+
+</pre>
+<p>
+<div style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+ Time Entry: </div> When the f:convertDateTime is configured to show time, the calendar will include a time editing UI.
+ </p>
+<pre class="Preformatted">
+        &lt;ice:selectInputDate id="calendar"
+ 	value="#{testBean.date}"&gt;
+            &lt;f:convertDateTime pattern="MM/dd/yyyy hh:mm a"
+                               timeZone="#{testBean.timeZone}"/&gt;
+        &lt;/ice:selectInputDate&gt;
+
+</pre>
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption>
+  <tbody>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-name:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        &lt;ice:selectInputDate&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+         com.icesoft.faces.component.selectinputdate.SelectInputDateTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+         com.icesoft.faces.component.selectinputdate.SelectInputDate</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.SelectInputDate</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        <span
+        style="color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-decoration: none; text-transform: none; vertical-align: baseline;">c</span>component-family:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        javax.faces.Input</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+         com.icesoft.faces.component.selectinputdate.SelectInputDateRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.Calendar</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

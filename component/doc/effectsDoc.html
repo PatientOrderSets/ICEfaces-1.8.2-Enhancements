@@ -1,0 +1,231 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>Effects</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2"><span style="color: rgb(0, 0, 102);">Effects</span></h2>
+<hr>
+The Extended Standard Components in the ICEfaces Component Suite
+provide
+special attributes that can be used to invoke effects on the
+components, such as fade, highlight, pulsate, and move.
+Effects can either be server-initiated (Server) or client-initiated
+(Local). Server effects are
+invoked by dynamically changing the value of the 'effect' attribute on
+a component, usually by binding the attribute to a backing bean. Local
+effects are invoked by client-side browser events, such as
+"onMouseOver" or "onClick".<br>
+<br>
+Effects can be used to provide a richer user-interface experience to
+the user by dynamically manipulating components in interesting ways.<br>
+<br>
+Effects are located in the
+com.icesoft.faces.context.effects package.
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Example
+<br>
+</div>
+<p>The following code shows a outputText with a server
+effect:</p>
+<pre class="Preformatted">
+&lt;ice:outputText effect="#{bean.effect}"/&gt;
+
+</pre>
+<p class="Body">The following code shows a outputText with a local
+effect:</p>
+<pre class="Preformatted">
+&lt;ice:outputText onmouseovereffect="#{bean.effect}"/&gt;
+
+</pre>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Effect Types<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellHeading"> Effect</div>
+      </td>
+      <td>
+      <div class="CellHeading"> Description </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> Highlight</div>
+      </td>
+      <td>
+      <div class="CellBody"> Highlight a component to a selected color
+and then fade to the original color. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> Appear </div>
+      </td>
+      <td>
+      <div class="CellBody"> Fade in a component from invisible, to
+100% opacity </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> Fade</div>
+      </td>
+      <td>
+      <div class="CellBody"> Fade out a component to invisible from
+100% opacity </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> Pulsate</div>
+      </td>
+      <td>
+      <div class="CellBody"> Flash a component for a few seconds </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> Move </div>
+      </td>
+      <td>
+      <div class="CellBody"> Move a component to a new location</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> Scale </div>
+      </td>
+      <td>
+      <div class="CellBody"> Grow or Shrink a panel group by a specified percentage</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Puff </div>
+      </td>
+      <td>
+      <div class="CellBody"> Expand and fade a panel group</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Blind Up </div>
+      </td>
+      <td>
+      <div class="CellBody"> Roll up a panel group like a blind until it is hidden</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Blind Down </div>
+      </td>
+      <td>
+      <div class="CellBody"> Roll down a panel group like a blind from hidden to actual size</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Switch Off </div>
+      </td>
+      <td>
+      <div class="CellBody"> Pulsate once and then fold a panel group into itself</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Drop Out </div>
+      </td>
+      <td>
+      <div class="CellBody"> Drop a panel group off of the screen</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Shake </div>
+      </td>
+      <td>
+      <div class="CellBody"> Move from side to side </div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Slide Down </div>
+      </td>
+      <td>
+      <div class="CellBody"> Slide a panel group down</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Slide Up </div>
+      </td>
+      <td>
+      <div class="CellBody"> Slide a panel group up</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Squish </div>
+      </td>
+      <td>
+      <div class="CellBody"> Squish a panel group off of the screen</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Grow </div>
+      </td>
+      <td>
+      <div class="CellBody"> Grow a panel group from nothing to its full size</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Shrink </div>
+      </td>
+      <td>
+      <div class="CellBody"> Shrink a panel group until it is no longer visible</div>
+      </td>
+    </tr>    <tr>
+      <td>
+      <div class="CellBody"> Fold </div>
+      </td>
+      <td>
+      <div class="CellBody"> Fold a panel group from the bottom up to the top and then fold in the sides</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Input</component-family>
+    <renderer-type>com.icesoft.faces.Calendar</renderer-type>
+    <renderer-class>com.icesoft.faces.component.selectinputdate.SelectInputDateRenderer</renderer-class>
+</renderer>

@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.SortHeader</component-type>
+    <component-class>com.icesoft.faces.component.commandsortheader.CommandSortHeader</component-class>
+</component>  

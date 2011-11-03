@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.SetEventPhase</component-type>
+    <component-class>com.icesoft.faces.component.seteventphase.SetEventPhase</component-class>
+</component>  

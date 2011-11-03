@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.dragdrop.PanelPositionedFamily</component-family>
+    <renderer-type>com.icesoft.faces.dragdrop.PanelPositionedRenderer</renderer-type>
+    <renderer-class>com.icesoft.faces.component.panelpositioned.PanelPositionedRenderer</renderer-class>
+</renderer>

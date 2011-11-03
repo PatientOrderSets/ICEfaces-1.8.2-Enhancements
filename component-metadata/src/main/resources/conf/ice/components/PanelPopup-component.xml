@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.PanelPopup</component-type>
+    <component-class>com.icesoft.faces.component.panelpopup.PanelPopup</component-class>
+</component>  

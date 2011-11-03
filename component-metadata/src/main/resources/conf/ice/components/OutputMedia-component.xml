@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.OutputMedia</component-type>
+    <component-class>com.icesoft.faces.component.outputmedia.OutputMedia</component-class>
+</component>  

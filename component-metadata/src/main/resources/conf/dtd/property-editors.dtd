@@ -1,0 +1,95 @@
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+     
+
+<!--
+<!ENTITY numberEditor "org.netbeans.modules.visualweb.propertyeditors.IntegerPropertyEditor">
+<!ENTITY stringEditorWithShortDescription "com.sun.jsfcl.std.StringEditorWithShortDescription">
+-->
+<!ENTITY converterEditor "org.netbeans.modules.visualweb.propertyeditors.ConverterPropertyEditor">
+<!--
+<!ENTITY cssStyleEditor "org.netbeans.modules.visualweb.propertyeditors.css.CssStylePropertyEditor">
+-->
+<!ENTITY stringEditor "org.netbeans.modules.visualweb.propertyeditors.StringPropertyEditor">
+<!ENTITY integerEditor "org.netbeans.modules.visualweb.propertyeditors.IntegerPropertyEditor">
+<!ENTITY isoDatePropertyEdtior "org.netbeans.modules.visualweb.propertyeditors.DatePropertyEditor">
+<!ENTITY numberEditor "org.netbeans.modules.visualweb.propertyeditors.IntegerPropertyEditor">
+
+<!ENTITY styleClassEditor "com.sun.rave.propertyeditors.StyleClassPropertyEditor">
+
+<!ENTITY cssStyleEditor "com.sun.rave.propertyeditors.css.CssStylePropertyEditor">
+<!ENTITY urlEditor "org.netbeans.modules.visualweb.propertyeditors.UrlPropertyEditor">
+<!ENTITY lengthEditor "org.netbeans.modules.visualweb.propertyeditors.LengthPropertyEditor">
+
+<!ENTITY methodBindingEditor "org.netbeans.modules.visualweb.propertyeditors.MethodBindingPropertyEditor">
+<!ENTITY imageUrlEditor "org.netbeans.modules.visualweb.propertyeditors.ImageUrlPropertyEditor">
+<!ENTITY javascriptEditor "org.netbeans.modules.visualweb.propertyeditors.JavaScriptPropertyEditor">
+<!ENTITY valueBindingEditor "org.netbeans.modules.visualweb.faces.dt.std.ValueBindingPropertyEditor">
+<!ENTITY valueBindingOnlyEditor "org.netbeans.modules.visualweb.propertyeditors.binding.ValueBindingPropertyEditor">
+<!ENTITY validatorEditor "org.netbeans.modules.visualweb.propertyeditors.ValidatorPropertyEditor">
+
+<!ENTITY sunWebUrlEditor "org.netbeans.modules.visualweb.propertyeditors.UrlPropertyEditor">
+
+<!ENTITY dateEditor "org.netbeans.modules.visualweb.propertyeditors.DatePropertyEditor">
+
+<!ENTITY converterEditor "org.netbeans.modules.visualweb.propertyeditors.ConverterPropertyEditor">
+
+
+<!ENTITY selectOneDomainEditor "org.netbeans.modules.visualweb.propertyeditors.SelectOneDomainEditor">
+<!ENTITY domainClass "com.sun.rave.propertyeditors.DOMAIN_CLASS">
+
+<!ENTITY languagesDomain "com.sun.rave.propertyeditors.domains.LanguagesDomain.class">
+<!ENTITY localesDomain "com.sun.rave.propertyeditors.domains.LocalesDomain.class">
+<!ENTITY inputComponentIdsDomain "com.sun.rave.propertyeditors.domains.InputComponentIdsDomain.class">
+<!ENTITY eventComponentIdsDomain "com.sun.rave.propertyeditors.domains.EventComponentIdsDomain.class">
+<!ENTITY instanceVariableDomain "com.sun.rave.propertyeditors.domains.InstanceVariableDomain.class">
+<!ENTITY fieldKeysDomain "com.sun.rave.propertyeditors.domains.FieldKeyDomain.class">
+<!ENTITY alignDomain "com.sun.rave.propertyeditors.domains.HtmlAlignDomain.class">
+<!ENTITY horizontalAlignDomain "com.sun.rave.propertyeditors.domains.HtmlHorizontalAlignDomain.class">
+<!ENTITY verticalAlignDomain "com.sun.rave.propertyeditors.domains.HtmlVerticalAlignDomain.class">
+<!ENTITY frameTargetsDomain "com.sun.rave.propertyeditors.domains.HtmlFrameTargetsDomain.class">
+<!ENTITY layoutDomain "com.sun.rave.propertyeditors.domains.LayoutDomain.class">
+<!ENTITY linkTypesDomain "com.sun.rave.propertyeditors.domains.HtmlLinkTypesDomain.class">
+<!ENTITY mimeTypesDomain "com.sun.rave.propertyeditors.domains.MimeTypesDomain.class">
+<!ENTITY charSetsDomain "com.sun.rave.propertyeditors.domains.CharacterSetsDomain.class">
+<!ENTITY dateFormatPatternsDomain "com.sun.rave.propertyeditors.domains.DateFormatPatternsDomain.class">
+<!ENTITY inputComponentIdsDomain "com.sun.rave.propertyeditors.domains.InputComponentIdsDomain.class">
+<!ENTITY htmlCheckboxLayoutDomain "com.icesoft.faces.ide.vwp.propertyeditors.HtmlCheckboxLayoutStylesDomain.class">
+<!ENTITY htmlTableBordersDomain "com.sun.rave.propertyeditors.domains.HtmlTableBordersDomain.class">
+<!ENTITY htmlTableRulesDomain "com.sun.rave.propertyeditors.domains.HtmlTableRulesDomain.class">
+<!ENTITY componentIdsDomain "com.sun.rave.propertyeditors.domains.ComponentIdsDomain.class">
+<!ENTITY htmlCommandButtonTypesDomain "com.icesoft.faces.ide.vwp.propertyeditors.HtmlCommandButtonTypesDomain.class">
+<!ENTITY textDirectionDomain "com.sun.rave.propertyeditors.domains.TextDirectionDomain.class">
+<!ENTITY htmlRegionShapesDomain "com.sun.rave.propertyeditors.domains.HtmlRegionShapesDomain.class">
+<!ENTITY timeZonesDomain "com.sun.rave.propertyeditors.domains.TimeZonesDomain.class">

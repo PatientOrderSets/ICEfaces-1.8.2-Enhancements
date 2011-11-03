@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<property>
+	<description>alt</description>
+	<property-name>alt</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>bgColor</description>
+	<property-name>bgColor</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>border</description>
+	<property-name>border</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>cellPadding</description>
+	<property-name>cellPadding</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>cellSpacing</description>
+	<property-name>cellSpacing</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>cols</description>
+	<property-name>cols</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>columnClasses</description>
+	<property-name>columnClasses</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>errorClass</description>
+	<property-name>errorClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>errorStyle</description>
+	<property-name>errorStyle</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>fatalClass</description>
+	<property-name>fatalClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>fatalStyle</description>
+	<property-name>fatalStyle</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>footerClass</description>
+	<property-name>footerClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>for</description>
+	<property-name>for</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>globalOnly</description>
+	<property-name>globalOnly</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>headerClass</description>
+	<property-name>headerClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>infoClass</description>
+	<property-name>infoClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>infoStyle</description>
+	<property-name>infoStyle</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>layout</description>
+	<property-name>layout</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>showDetail</description>
+	<property-name>showDetail</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>showSummary</description>
+	<property-name>showSummary</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>rowClasses</description>
+	<property-name>rowClasses</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>row</description>
+	<property-name>row</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>rules</description>
+	<property-name>rules</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>size</description>
+	<property-name>size</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>style</description>
+	<property-name>style</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>styleClass</description>
+	<property-name>styleClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>summary</description>
+	<property-name>summary</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>title</description>
+	<property-name>title</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>tooltip</description>
+	<property-name>tooltip</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>warnClass</description>
+	<property-name>warnClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<property>
+	<description>warnStyle</description>
+	<property-name>warnStyle</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<property>
+	<description>width</description>
+	<property-name>width</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+	</property-extension>
+</property>
+
+

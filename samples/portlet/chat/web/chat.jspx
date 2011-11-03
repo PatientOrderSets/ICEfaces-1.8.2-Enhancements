@@ -1,0 +1,126 @@
+<f:view xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+<html>
+
+<head>
+    <title>
+        ICEfaces Portlet Chat
+    </title>
+</head>
+
+<body>
+
+<ice:portlet>
+
+<ice:outputStyle href="/resources/css/chat.css"/>
+<f:loadBundle basename="com.icesoft.tutorial.resources.messages" var="bundle"/>
+
+<!-- Login/Logout -->
+<ice:form>
+
+    <!-- Login -->
+    <ice:panelGrid columns="2"
+                   cellpadding="4"
+                   cellspacing="4"
+                   width="100%"
+                   rendered="#{not participant.registered}">
+        <ice:commandButton value="#{bundle.login}: "
+                           actionListener="#{participant.register}"/>
+        <ice:inputText value="#{participant.handle}"
+                       required="true"
+                       actionListener="#{participant.register}"/>
+    </ice:panelGrid>
+
+    <!-- Logout + Send Message -->
+    <ice:panelGrid columns="4"
+                   cellpadding="4"
+                   cellspacing="4"
+                   columnClasses="columns-four"
+                   width="100%"
+                   rendered="#{participant.registered}">
+
+        <!-- Logout -->
+        <ice:commandButton value="#{bundle.logout}: "
+                           actionListener="#{participant.logout}"
+                           partialSubmit="true"/>
+        <ice:outputText value="#{participant.handle}"/>
+
+        <!-- Send Message -->
+        <ice:commandButton value="#{bundle.send}: "
+                           actionListener="#{participant.sendMessage}"/>
+        <ice:inputText value="#{participant.message}"
+                       actionListener="#{participant.sendMessage}"/>
+    </ice:panelGrid>
+
+    <ice:messages/>
+
+    <!-- Participants and Messages -->
+    <ice:panelGrid columns="2"
+                   cellspacing="2"
+                   cellpadding="2"
+                   width="100%"
+                   rendered="#{participant.registered}"
+                   rowClasses="series-rows"
+                   columnClasses="columns-two">
+
+        <!-- Participants -->
+        <ice:panelGrid columns="1"
+                       rowClasses="series-rows">
+            <ice:outputText value="#{bundle.participants}: [#{chatRoom.numberOfParticipants}]"
+                            escape="false"/>
+            <ice:graphicImage alt="spacer"
+                              url="/resources/images/spacer.png"
+                              rendered="#{not participant.previousParticipants}"/>
+            <ice:commandButton image="/resources/images/up-arrow.png"
+                               rendered="#{participant.previousParticipants}"/>
+            <ice:panelSeries value="#{chatRoom.handles}"
+                             var="handle"
+                             rows="10"
+                             binding="#{participant.participantList}">
+                <ice:outputText value="#{handle}"/>
+                <br/>
+            </ice:panelSeries>
+            <ice:graphicImage alt="spacer"
+                              url="/resources/images/spacer.png"
+                              rendered="#{not participant.nextParticipants}"/>
+            <ice:commandButton image="/resources/images/down-arrow.png"
+                               rendered="#{participant.nextParticipants}"/>
+        </ice:panelGrid>
+
+        <!-- Messages -->
+        <ice:panelGrid columns="1"
+                       rowClasses="series-rows"
+                       columnClasses="series-columns">
+            <ice:outputText value="#{bundle.messages}: [#{chatRoom.numberOfMessages}]"
+                            escape="false"/>
+            <ice:graphicImage alt="spacer"
+                              url="/resources/images/spacer.png"
+                              rendered="#{not participant.previousMessages}"/>
+            <ice:commandButton image="/resources/images/up-arrow.png"
+                               rendered="#{participant.previousMessages}"
+                               actionListener="#{participant.goPreviousMessages}"/>
+            <ice:panelSeries value="#{chatRoom.messages}"
+                             var="message"
+                             rows="10"
+                             binding="#{participant.messageList}">
+                <ice:outputText value="#{message}"/>
+                <br/>
+            </ice:panelSeries>
+            <ice:graphicImage alt="spacer"
+                              url="/resources/images/spacer.png"
+                              rendered="#{not participant.nextMessages}"/>
+            <ice:commandButton image="/resources/images/down-arrow.png"
+                               rendered="#{participant.nextMessages}"
+                               actionListener="#{participant.goNextMessages}"/>
+        </ice:panelGrid>
+
+    </ice:panelGrid>
+
+</ice:form>
+</ice:portlet>
+
+</body>
+</html>
+</f:view>

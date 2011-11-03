@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Form</component-family>
+    <renderer-type>com.icesoft.faces.Form</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.FormRenderer</renderer-class>
+</renderer>

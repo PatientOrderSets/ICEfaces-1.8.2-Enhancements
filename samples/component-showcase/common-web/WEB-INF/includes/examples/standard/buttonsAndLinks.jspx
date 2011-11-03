@@ -1,0 +1,127 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, an input text field is used to test submission of 
+input by button and link components.
+-->
+
+<ice:panelGroup styleClass="componentBox"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:panelGroup styleClass="synopsisBox buttonsAndLinksContainer">
+        <ice:outputText value="#{msgs['page.buttonsAndLinks.synopsis']}"/>
+        <ice:outputText value="#{msgs['page.buttonsAndLinks.instructions']}"/>
+    </ice:panelGroup>
+
+    <!-- Layout the links and buttons. -->
+    <ice:panelGrid columns="2"
+                   styleClass="exampleBox buttonsAndLinksContainer"
+                   rowClasses="textFieldNameRow">
+        <ice:outputLabel for="BLTxt"
+                         value="#{msgs['page.buttonsAndLinks.inputTextLabel']}"/>
+        <ice:panelGroup>
+            <ice:inputText id="BLTxt" size="25" maxlength="25"
+                        valueChangeListener="#{buttonsAndLinks.effectChangeListener}"
+                        value="#{buttonsAndLinks.inputText}"/>
+            <ice:outputText
+                    value="#{msgs['page.buttonsAndLinks.inputTextNote']}"/>
+        </ice:panelGroup>
+
+        <ice:outputLabel for="BLCmdBtn"
+                         value="#{msgs['page.buttonsAndLinks.submitButtonLabel']}"/>
+        <ice:commandButton id="BLCmdBtn"
+                           value="Submit"
+                           actionListener="#{buttonsAndLinks.submitButtonListener}"/>
+
+        <ice:outputLabel for="BLRset"
+                         value="#{msgs['page.buttonsAndLinks.resetButtonLabel']}"/>
+        <ice:panelGroup>
+            <ice:commandButton id="BLRset"
+                               type="reset"
+                               value="Reset"/>
+            <ice:outputText
+                    value="#{msgs['page.buttonsAndLinks.resetButtonNote']}"/>
+        </ice:panelGroup>
+
+        <ice:outputLabel for="BLImg"
+                         value="#{msgs['page.buttonsAndLinks.imageButtonLabel']}"/>
+        <ice:commandButton id="BLImg"
+                           image="/images/button-submit.gif"
+                           actionListener="#{buttonsAndLinks.imageButtonListener}"/>
+
+        <ice:outputLabel for="BLCmdLnk"
+                         value="#{msgs['page.buttonsAndLinks.commandLinkLabel']}"/>
+        <ice:commandLink id="BLCmdLnk"
+                         value="Submit"
+                         actionListener="#{buttonsAndLinks.commandLinkListener}"/>
+
+        <ice:outputLabel for="BLOutLnk"
+                         value="#{msgs['page.buttonsAndLinks.outputLinkLabel']}"/>
+        <ice:outputLink id="BLOutLnk"
+                        value="http://www.icesoft.com"
+                        target="_blank">
+            <ice:outputText value="www.icesoft.com"/>
+        </ice:outputLink>
+    </ice:panelGrid>
+
+    <!-- Display the input value submitted. -->
+    <ice:panelGroup
+            styleClass="exampleBox firstChildTitle backBeanChangeContainer">
+
+        <!-- backing bean title box -->
+        <ice:panelGroup styleClass="backBeanChangeTitle">
+            <ice:outputText value="#{msgs['page.global.serverFeedback']}"/>
+        </ice:panelGroup>
+
+        <!-- actual backing bean values. -->
+        <ice:panelGroup styleClass="backBeanChangeBody"
+                        effect="#{buttonsAndLinks.valueChangeEffect}">
+            <ice:panelGroup>
+                <ice:panelGrid columns="2" styleClass="verticalAlignTop">
+                    <ice:outputLabel for="BLTxtout"
+                                     value="#{msgs['page.buttonsAndLinks.inputTextLabel']}"/>
+                    <ice:outputText id="BLTxtout"
+                                    value="#{buttonsAndLinks.inputText}"/>
+
+                    <ice:outputLabel for="BLClkd"
+                                     value="#{msgs['page.buttonsAndLinks.clickedLabel']}"/>
+                    <ice:outputText id="BLClkd"
+                                    value="#{buttonsAndLinks.clicked}"/>
+                </ice:panelGrid>
+            </ice:panelGroup>
+        </ice:panelGroup>
+    </ice:panelGroup>
+</ice:panelGroup>

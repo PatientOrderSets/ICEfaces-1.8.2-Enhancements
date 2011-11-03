@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HeaderRow</component-type>
+    <component-class>com.icesoft.faces.component.ext.HeaderRow</component-class>
+</component>  

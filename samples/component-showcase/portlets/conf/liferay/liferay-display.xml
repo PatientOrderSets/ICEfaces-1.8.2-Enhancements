@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 4.0.0//EN" "http://www.liferay.com/dtd/liferay-display_4_0_0.dtd">
+
+<display>
+
+    <category name="ICEfaces">
+
+        <portlet id="components_autocomplete"/>
+        <portlet id="components_buttonsAndLinks"/>
+        <portlet id="components_calendar"/>
+        <portlet id="components_charts"/>
+        <portlet id="components_connectionStatus"/>
+        <portlet id="components_dragAndDrop"/>
+        <portlet id="components_effects"/>
+        <portlet id="components_fileUpload"/>
+        <portlet id="components_gmap"/>
+        <portlet id="components_media_player"/>
+        <portlet id="components_menubar"/>
+        <portlet id="components_panel_border"/>
+        <portlet id="components_panel_collapsible"/>
+        <portlet id="components_panel_divider"/>
+        <portlet id="components_panel_popup"/>
+        <portlet id="components_panel_positioned"/>
+        <portlet id="components_panel_series"/>
+        <portlet id="components_panel_stack"/>
+        <portlet id="components_panel_tabset_dynamic"/>
+        <portlet id="components_panel_tabset_static"/>
+        <portlet id="components_panel_tooltip"/>
+        <portlet id="components_progressBar"/>
+        <portlet id="components_rich_text_editor"/>
+        <portlet id="components_selection"/>
+        <portlet id="components_setEventPhase"/>
+        <portlet id="components_table_columns"/>
+        <portlet id="components_table_dataPaging"/>
+        <portlet id="components_table_expandable"/>
+        <portlet id="components_table_grouping"/>
+        <portlet id="components_table_resizableColumns"/>
+        <portlet id="components_table_rowSelection"/>
+        <portlet id="components_table_sortableHeader"/>
+        <portlet id="components_textEntry"/>
+        <portlet id="components_tree"/>
+        <portlet id="components_output_resource"/>
+        
+    </category>
+
+</display>

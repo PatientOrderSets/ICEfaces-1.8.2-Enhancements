@@ -1,0 +1,202 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, ice:datadataPaginator is used to page through a table
+with more data than can be displayed in a single page.
+-->
+
+<ice:panelGroup styleClass="componentBox"
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:panelGroup styleClass="synopsisBox dataScrollingContainer">
+
+        <ice:outputText value="#{msgs['page.dataScrolling.synopsis']}"/>
+        <ice:outputText value="#{msgs['page.dataScrolling.description']}"/>
+
+    </ice:panelGroup>
+
+    <!-- Paginator layout, horizontal/vertical -->
+    <ice:panelGroup styleClass="exampleBox dataScrollingContainer">
+
+        <ice:selectOneRadio id="paginatorLayout"
+                            partialSubmit="true"
+                            valueChangeListener="#{dataScrollingModel.dataModelChangeListener}"
+                            value="#{dataScrollingModel.selectedDataScrollMode}">
+            <f:selectItem id="paging"
+                          itemLabel="#{msgs['page.scolling.paging']}"
+                          itemValue="paging"/>
+            <f:selectItem id="scrolling"
+                          itemLabel="#{msgs['page.scolling.scrolling']}"
+                          itemValue="scrolling"/>
+            <f:selectItem id="none"
+                          itemLabel="#{msgs['page.scolling.none']}"
+                          itemValue="none"/>
+        </ice:selectOneRadio>
+    </ice:panelGroup>
+
+	<ice:panelGroup styleClass="exampleBox dataScrollingContainer" style="clear: left;">
+        
+	    <!-- DataPaginator displaying information about the currently displayed
+	         page and location within the dataModel-->
+        <ice:panelGroup style="float:left;">
+            <ice:dataPaginator id="dataScroll_2"
+                       for="data"
+                       binding="#{dataScrollingModel.dataPaginatorBinding}"
+                       rendered="#{dataScrollingModel.selectedDataScrollModes[dataScrollingModel.selectedDataScrollMode].pagingEnabled}"
+                       rowsCountVar="rowsCount"
+                       displayedRowsCountVar="displayedRowsCountVar"
+                       firstRowIndexVar="firstRowIndex"
+                       lastRowIndexVar="lastRowIndex"
+                       pageCountVar="pageCount"
+                       pageIndexVar="pageIndex">
+                <ice:outputFormat value="#{msgs['page.dataScrolling.outputFormat.text']}"
+                                  styleClass="standard">
+                    <f:param value="#{rowsCount}"/>
+                    <f:param value="#{displayedRowsCountVar}"/>
+                    <f:param value="#{firstRowIndex}"/>
+                    <f:param value="#{lastRowIndex}"/>
+                    <f:param value="#{pageIndex}"/>
+                    <f:param value="#{pageCount}"/>
+                </ice:outputFormat>
+            </ice:dataPaginator>
+        </ice:panelGroup>
+
+        <ice:panelGroup styleClass="clearer" />
+
+        <!-- DataTable with 5 rows per page -->
+        <ice:dataTable id="data"
+               var="employee"
+               value="#{dataScrollingModel.employees}"
+               rows="#{dataScrollingModel.selectedDataScrollModes[dataScrollingModel.selectedDataScrollMode].rows}"
+               scrollable="#{dataScrollingModel.selectedDataScrollModes[dataScrollingModel.selectedDataScrollMode].scrollingEnabled}"
+               scrollHeight="250px"
+               style="float:left"
+               columnWidths="100px,100px,100px,100px"
+               styleClass="dataPaginatorDataTable"
+               cellpadding="0">
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column1"
+                                    value="#{msgs['page.dataTable.column1']}"/>
+                </f:facet>
+                <ice:outputText id="number"
+                                value="#{employee.id}"/>
+            </ice:column>
+
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column2"
+                                    value="#{msgs['page.dataTable.column2']}"/>
+                </f:facet>
+                <ice:outputText id="firstName"
+                                value="#{employee.firstName}"/>
+            </ice:column>
+
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column3"
+                                    value="#{msgs['page.dataTable.column3']}"/>
+                </f:facet>
+                <ice:outputText id="lastName"
+                                value="#{employee.lastName}"/>
+            </ice:column>
+
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column4"
+                                    value="#{msgs['page.dataTable.column4']}"/>
+                </f:facet>
+                <ice:outputText id="phoneNo"
+                                value="#{employee.phone}"/>
+            </ice:column>
+        </ice:dataTable>
+
+        <ice:panelGroup styleClass="clearer"/>
+
+        <!-- Set up the buttons and links for browsing through the table
+             fastStep means No. of pages to fast forward or rewind: 3
+             paginatorMaxPages means No. of direct links to pages: 4 -->
+		<ice:panelGroup style="float:left;width:420px;">
+            <center>
+            <ice:dataPaginator id="dataScroll_1"
+                   rendered="#{dataScrollingModel.selectedDataScrollModes[dataScrollingModel.selectedDataScrollMode].pagingEnabled}"
+                   for="data"
+                   vertical="#{dataTableBean.vertical}"
+                   fastStep="3"
+                   paginator="true"
+                   paginatorMaxPages="4">
+                <f:facet name="first">
+                    <ice:graphicImage id="firstpage_1"
+                                      url="#{styleBean.imageDirectory}arrow-first.gif"
+                                      style="border:none;"
+                                      title="#{msgs['page.dataScrolling.firstpage']}"/>
+                </f:facet>
+                <f:facet name="last">
+                    <ice:graphicImage id="lastpage_1"
+                                      url="#{styleBean.imageDirectory}arrow-last.gif"
+                                      style="border:none;"
+                                      title="#{msgs['page.dataScrolling.lastpage']}"/>
+                </f:facet>
+                <f:facet name="previous">
+                    <ice:graphicImage id="previouspage_1"
+                                      url="#{styleBean.imageDirectory}arrow-previous.gif"
+                                      style="border:none;"
+                                      title="#{msgs['page.dataScrolling.previouspage']}"/>
+                </f:facet>
+                <f:facet name="next">
+                    <ice:graphicImage id="nextpage_1"
+                                      url="#{styleBean.imageDirectory}arrow-next.gif"
+                                      style="border:none;"
+                                      title="#{msgs['page.dataScrolling.nextpage']}"/>
+                </f:facet>
+                <f:facet name="fastforward">
+                    <ice:graphicImage id="fastforward_1"
+                                      url="#{styleBean.imageDirectory}arrow-ff.gif"
+                                      style="border:none;"
+                                      title="#{msgs['page.dataScrolling.fastforward']}"/>
+                </f:facet>
+                <f:facet name="fastrewind">
+                    <ice:graphicImage id="fastrewind_1"
+                                      url="#{styleBean.imageDirectory}arrow-fr.gif"
+                                      style="border:none;"
+                                      title="#{msgs['page.dataScrolling.fastbackward']}"/>
+                </f:facet>
+            </ice:dataPaginator>
+            </center>
+        </ice:panelGroup>
+    </ice:panelGroup>
+
+</ice:panelGroup>

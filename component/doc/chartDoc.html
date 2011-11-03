@@ -1,0 +1,240 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>outputChart Component</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2">outputChart</h2>
+<hr>
+<p >
+The outputChart component uses the JCharts open source charting utility
+(http://jcharts.sourceforge.net/) to create charts.
+The two main types of charts that can be created with this component are pie charts and axis charts.
+<br/>
+</p>
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Usability
+<br>
+</div>
+<p>
+Summary of chart subtypes:
+<ul>
+  <li>pie <br/>
+	<ol>
+	  <li>pie2d</li>
+	  <li>pie3d</li>
+	</ol>
+  </li>
+  <li>axis<br/>
+	<ol>
+	  <li>area</li>
+	  <li>areastacked</li>
+	  <li>bar</li>
+	  <li>barclustered</li>
+	  <li>barstacked</li>
+	  <li>line</li>
+	  <li>point</li>
+	</ol>
+  </li>
+</ul>
+These various types of charts
+use the same underlying data structure which allows the chart type to be changed dynamically.<br/>
+</p>
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Interactivity
+<br>
+</div>
+
+<p>
+The participation of this component with the jsf lifecycle
+allows developers to hook actionListeners to a
+clientSideImageMap. This feature can be harnessed to provide drill
+down behavior.
+</p>
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Flexibility
+<br>
+</div>
+<p>
+The outputChart component provides a flexible way of defining component data.
+The data for the outputChart component can be defined statically in the
+jsf page or dynamically using a bean.
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defining the colors of the chart in the jsf page:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: monospace;">&lt;ice:outputChart colors="red, blue, green" .... /&gt;</span></span>
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defining the colors using a bean:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: monospace;">&lt;ice:outputChart colors="#{bean.colors}" ..../&gt;</span>
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The "colors" method of the bean may return either a java.util.List of java.awt.Color
+or an array of java.awt.Color.
+</br><br/>
+Axis type charts can be generated using many data sets. The data can be set using a two dimensional double array.
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defining the data for an axis type chart in the jsf page for two data sets:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: monospace;">&lt;ice:outputChart data="10, 30, 40, 33: 30, 20, 30, 40"/&gt;</span>
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: the colon(":") is used as the identifier for a new data set.
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defining the data for an axis type chart in the jsf page for three data sets:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: monospace;">&lt;ice:outputChart data="10, 30, 40, 33: 30, 20, 30, 40: 33, 44, 22, 55"/&gt;</span>
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defining the data for an axis type chart using a bean:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: monospace;">&lt;ice:outputChart data="#{bean.data}" ....../&gt;</span><br/>
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The "data" method of the bean may return either a java.util.List of
+double array for each pair value, or a double array.
+</p>
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Efficiency
+<br>
+</div>
+<p>
+By default the chart component renders only on the first render cycle and any further render requests will not cause
+it to be re-rendered unless specified. The rendering of a chart can be an expensive operation if it renders
+on every render phase. The renderOnSubmit attribute lets the developer decide when to render the chart.
+</p>
+
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Examples
+<br>
+</div>
+<p style="margin-left: 40px;"><span style="font-family: monospace;">
+//render the default chart with the default data (default type is bar)<br/>
+&lt;ice:outputChart /&gt;
+</span></p>
+
+
+<p style="margin-left: 40px;"><span style="font-family: monospace;">
+//render barstacked type of chart<br/>
+&lt;ice:outputChart type="barstacked"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chartTitle="Book Sales"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yaxisTitle="Sales"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xaxisTitle="Months"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xaxisLabels="Jan, Feb, Mar, Apr"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;labels="JSF, AJAX"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data="20, 55, 22, 44: 22, 33, 44, 55"<br/>
+                  /&gt;
+</span></p>
+
+<p style="margin-left: 40px;"><span style="font-family: monospace;">
+//render pie3d chart<br/>
+&lt;ice:outputChart type="pie3d"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chartTitle="Book Sales"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;labels="JSF, AJAX, Web Services"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data="99, 50, 20"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colors="blue, green, cyan"<br/>
+                   /&gt;
+</span></p>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-name:</div>
+      </td>
+      <td>
+      <div class="CellBody"> &lt;ice:outputChart&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.outputchart.OutputChartTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.outputchart.OutputChart</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-type:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.OutputChart</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-family:</div>
+      </td>
+      <td>
+      <div class="CellBody">javax.faces.Command</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.outputchart.OutputChartRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.OutputChartRenderer</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

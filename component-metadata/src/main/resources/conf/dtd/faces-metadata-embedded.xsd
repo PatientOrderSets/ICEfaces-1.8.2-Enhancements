@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:fmd="http://java.sun.com/xml/ns/javaee/faces/design-time-metadata"
+        targetNamespace="http://java.sun.com/xml/ns/javaee/faces/design-time-metadata"
+        elementFormDefault="qualified">
+        
+  <element name="global-metadata" type="fmd:globalMetadataType">
+    <annotation>
+      <appinfo>
+        <documentation>Container element for JSR 276 global metadata items. In a
+                       JSF 1.2 faces-config.xml file, this element should appear
+                       as a child of faces-config-extension.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+  
+  <element name="component-metadata" type="fmd:componentMetadataType">
+    <annotation>
+      <appinfo>
+        <documentation>Container element for JSR 276 component metadata items.
+                       In a JSF 1.2 faces-config.xml file, this element should
+                       appear as a child of component-extension.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="property-metadata" type="fmd:propertyAttributeMetadataType">
+    <annotation>
+      <appinfo>
+        <documentation>Container element for JSR 276 property metadata items. In
+                       a JSF 1.2 faces-config.xml file, this element should
+                       appear as a child of property-extension.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="attribute-metadata" type="fmd:propertyAttributeMetadataType">
+    <annotation>
+      <appinfo>
+        <documentation>Container element for JSR 276 attribute metadata items.
+                       In a JSF 1.2 faces-config.xml file, this element should
+                       appear as a child of attribute-extension.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="facet-metadata" type="fmd:facetMetadataType">
+    <annotation>
+      <appinfo>
+        <documentation>Container element for JSR 276 facet metadata items. In a
+                       JSF 1.2 faces-config.xml file, this element should appear
+                       as a child of facet-extension.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="renderer-metadata" type="fmd:rendererMetadataType">
+    <annotation>
+      <appinfo>
+        <documentation>Container element for JSR 276 renderer metadata items. In
+                       a JSF 1.2 faces-config.xml file, this element should
+                       appear as a child of renderer-extension.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="extended-global-metadata" abstract="true">
+    <annotation>
+      <appinfo>
+        <documentation>To enable third parties to extend JSR 276 with additional
+                       metadata items in their own namespaces, this abstract
+                       element is defined to serve as a substitution group. Any
+                       elements in the extended-global-metadata substitution
+                       group will be allowed inside of the global-metadata
+                       element.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="extended-component-metadata" abstract="true">
+    <annotation>
+      <appinfo>
+        <documentation>To enable third parties to extend JSR 276 with additional
+                       metadata items in their own namespaces, this abstract
+                       element is defined to serve as a substitution group. Any
+                       elements in the extended-component-metadata substitution
+                       group will be allowed inside of the component-metadata
+                       element.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="extended-property-attribute-metadata" abstract="true">
+    <annotation>
+      <appinfo>
+        <documentation>To enable third parties to extend JSR 276 with additional
+                       metadata items in their own namespaces, this abstract
+                       element is defined to serve as a substitution group. Any
+                       elements in the extended-property-attribute-metadata
+                       substitution group will be allowed inside of the
+                       property-metadata element and the attribute-metadata
+                       element.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="extended-facet-metadata" abstract="true">
+    <annotation>
+      <appinfo>
+        <documentation>To enable third parties to extend JSR 276 with additional
+                       metadata items in their own namespaces, this abstract
+                       element is defined to serve as a substitution group. Any
+                       elements in the extended-facet-metadata substitution
+                       group will be allowed inside of the facet-metadata
+                       element.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="extended-renderer-metadata" abstract="true">
+    <annotation>
+      <appinfo>
+        <documentation>To enable third parties to extend JSR 276 with additional
+                       metadata items in their own namespaces, this abstract
+                       element is defined to serve as a substitution group. Any
+                       elements in the extended-renderer-metadata substitution
+                       group will be allowed inside of the renderer-metadata
+                       element.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="extended-design-time-renderer" abstract="true">
+    <annotation>
+      <appinfo>
+        <documentation>To enable third parties to extend JSR 276 with additional
+                       design time rendering options in their own namespaces,
+                       this abstract element is defined to serve as a
+                       substitution group. Any elements in the
+                       extended-design-time-renderer substitution group will be
+                       allowed inside of the design-time-rendering element.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <element name="extended-category-metadata" abstract="true">
+    <annotation>
+      <appinfo>
+        <documentation>To enable third parties to extend JSR 276 with additional
+                       category metadata items in their own namespaces, this
+                       abstract element is defined to serve as a substitution
+                       group. Any elements in the extended-category-metadata
+                       substitution group will be allowed inside of the category
+                       element.</documentation>
+      </appinfo>
+    </annotation>
+  </element>
+
+  <complexType name="globalMetadataType">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <element name="contract-definitions" type="fmd:contractDefinitionsType"/>
+      <element name="component-category-definitions"
+               type="fmd:componentCategoryDefinitionsType"/>
+      <element name="property-category-definitions"
+               type="fmd:propertyCategoryDefinitionsType"/>
+      <element name="faces-taglib-definitions"
+               type="fmd:facesTaglibDefinitionsType"/>
+      <element ref="fmd:extended-global-metadata"/>
+    </choice>
+  </complexType>
+
+  <complexType name="componentMetadataType">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <element name="allowed-child-components"
+               type="fmd:allowedChildComponentsType" default="ALL"/>
+      <element name="base-component-type" type="fmd:componentType"/>
+      <element name="category-id" type="fmd:categoryIdentifierList"/>
+      <element name="component-family" type="fmd:componentFamily"/>
+      <element name="default-property" type="fmd:propertyName"/>
+      <element name="deprecated" type="string"/>
+      <element name="expert" type="boolean" default="false"/>
+      <element name="fixed-renderer-type" type="fmd:rendererType"/>
+      <element name="help-topic" type="fmd:relativeOrAbsoluteURL"/>
+      <element name="hidden" type="boolean" default="false"/>
+      <element name="instance-name" type="string"/>
+      <element name="preferred-child-components" type="fmd:componentTypeList"/>
+      <element name="property-category-order"
+               type="fmd:propertyCategoryIdentifierList"/>
+      <element name="required-ancestor-contracts"
+               type="fmd:contractIdentifierList"/>
+      <element name="satisfied-contracts" type="fmd:contractIdentifierList"/>
+      <element ref="fmd:extended-component-metadata"/>
+    </choice>
+  </complexType>
+
+  <complexType name="propertyAttributeMetadataType">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <element name="category-id" type="fmd:propertyCategoryIdentifierList"/>
+      <element name="deprecated" type="string"/>
+      <element name="expert" type="boolean" default="false"/>
+      <element name="help-topic" type="fmd:relativeOrAbsoluteURL"/>
+      <element name="hidden" type="boolean" default="false"/>
+      <element name="inline-editable" type="boolean" default="false"/>
+      <element name="method-signature" type="fmd:methodSignature"/>
+      <element name="preferred" type="boolean" default="false"/>
+      <element name="property-editor" type="fmd:propertyEditorType"/>
+      <element name="property-values" type="fmd:stringList"/>
+      <element name="read-only" type="boolean" default="false"/>
+      <element name="required" type="boolean" default="false"/>
+      <element name="value-expression" type="fmd:valueExpressionType"
+               default="ALLOWED"/>
+      <element ref="fmd:extended-property-attribute-metadata"/>
+    </choice>
+  </complexType>
+
+  <complexType name="facetMetadataType">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <element name="allowed-child-components"
+               type="fmd:facetAllowedChildComponentsType"/>
+      <element name="deprecated" type="string"/>
+      <element name="expert" type="boolean" default="false"/>
+      <element name="help-topic" type="fmd:relativeOrAbsoluteURL"/>
+      <element name="hidden" type="boolean" default="false"/>
+      <element name="preferred" type="boolean" default="false"/>
+      <element name="preferred-child-components" type="fmd:componentTypeList"/>
+      <element ref="fmd:extended-facet-metadata"/>
+    </choice>
+  </complexType>
+
+  <complexType name="rendererMetadataType">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <element name="content-type" type="fmd:mimeTypeList"/>
+      <element name="design-time-rendering" type="fmd:designTimeRenderingType"/>
+      <element ref="fmd:extended-renderer-metadata"/>
+    </choice>
+  </complexType>
+
+  <group name="j2eeStandardMetadata">
+    <sequence>
+      <!-- TODO: possibly reference J2EE type for this instead, and reconsider sequence -->
+      <element name="display-name" minOccurs="0" type="string"/>
+      <element name="description" minOccurs="0" type="string"/>
+      <element name="icon" minOccurs="0">
+        <complexType>
+          <all>
+            <element name="small-icon" minOccurs="0"
+                     type="fmd:relativeOrAbsoluteURL"/>
+            <element name="large-icon" minOccurs="0"
+                     type="fmd:relativeOrAbsoluteURL"/>
+          </all>
+        </complexType>
+      </element>
+    </sequence>
+  </group>
+
+  <complexType name="contractDefinitionsType">
+    <sequence>
+      <element name="contract" minOccurs="0" maxOccurs="unbounded">
+        <complexType>
+          <all>
+            <element name="display-name" minOccurs="0" type="string"/>
+            <element name="description" minOccurs="0" type="string"/>
+          </all>
+          <attribute name="id" type="fmd:contractIdentifier"/>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+
+  <complexType name="categoryType">
+    <sequence>
+      <!-- TODO: possibly reference J2EE type for this instead, and reconsider sequence -->
+      <group ref="fmd:j2eeStandardMetadata"/>
+      <element ref="fmd:extended-category-metadata" minOccurs="0"
+               maxOccurs="unbounded"/>
+      <element name="category" minOccurs="0" maxOccurs="unbounded"
+               type="fmd:categoryType"/>
+    </sequence>
+    <attribute name="id" type="fmd:categoryIdentifier"/>
+  </complexType>
+
+  <complexType name="componentCategoryDefinitionsType">
+    <sequence>
+      <element name="category" minOccurs="0" maxOccurs="unbounded"
+               type="fmd:categoryType"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="propertyCategoryDefinitionsType">
+    <sequence>
+      <element name="category" minOccurs="0" maxOccurs="unbounded"
+               type="fmd:categoryType"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="facesTaglibDefinitionsType">
+    <sequence>
+      <element name="faces-taglib" minOccurs="0" maxOccurs="unbounded">
+        <complexType>
+          <sequence>
+            <element name="uri" type="string"/>
+            <element name="short-name" type="string"/>
+            <group ref="fmd:j2eeStandardMetadata"/>
+            <element name="tag" maxOccurs="unbounded">
+              <complexType>
+                <sequence>
+                  <element name="name" type="string"/>
+                  <group ref="fmd:j2eeStandardMetadata"/>
+                  <choice>
+                    <sequence>
+                      <element name="component-type" type="fmd:componentType"/>
+                      <element name="renderer-type" type="fmd:rendererType"/>
+                    </sequence>
+                    <element name="validator-id" type="string"/>
+                    <element name="converter-id" type="string"/>
+                  </choice>
+                  <!-- TODO:  add overriding tag-metadata section if we want this -->
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+
+  <complexType name="designTimeRenderingType">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <element name="renderer">
+        <complexType>
+          <simpleContent>
+            <extension base="fmd:javaClassName">
+              <attribute name="content-type" type="fmd:mimeTypeList"/>
+            </extension>
+          </simpleContent>
+        </complexType>
+      </element>
+      <element name="file">
+        <complexType>
+          <simpleContent>
+            <extension base="fmd:relativeOrAbsoluteURL">
+              <attribute name="content-type" type="fmd:mimeTypeList"/>
+            </extension>
+          </simpleContent>
+        </complexType>
+      </element>
+      <element ref="fmd:extended-design-time-renderer"/>
+    </choice>
+  </complexType>
+
+  <simpleType name="categoryIdentifier">
+    <restriction base="string">
+      <!-- TODO:  define pattern for valid category identifier -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="categoryIdentifierList">
+    <list itemType="fmd:categoryIdentifier"/>
+  </simpleType>
+
+  <simpleType name="componentType">
+    <restriction base="string">
+      <!-- TODO:  define pattern or reference existing type -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="componentTypeList">
+    <list itemType="fmd:componentType"/>
+  </simpleType>
+
+  <simpleType name="componentFamily">
+    <restriction base="string">
+      <!-- TODO:  define pattern or reference existing type -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="contractIdentifier">
+    <restriction base="string">
+      <!-- TODO:  define pattern for valid contract identifier -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="contractIdentifierList">
+    <list itemType="fmd:contractIdentifier"/>
+  </simpleType>
+
+  <simpleType name="javaClassName">
+    <restriction base="string">
+      <!-- TODO:  define pattern or reference existing type -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="methodSignature">
+    <restriction base="string">
+      <!-- TODO:  define pattern or reference existing type -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="mimeType">
+    <restriction base="string">
+      <!-- TODO: provide enumeration of valid mime types -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="mimeTypeList">
+    <list itemType="fmd:mimeType"/>
+  </simpleType>
+
+  <simpleType name="propertyCategoryIdentifier">
+    <union memberTypes="fmd:categoryIdentifier">
+      <simpleType>
+        <restriction base="string">
+          <enumeration value="GENERAL"/>
+          <enumeration value="DATA"/>
+          <enumeration value="APPEARANCE"/>
+          <enumeration value="EVENTS"/>
+          <enumeration value="ADVANCED"/>
+        </restriction>
+      </simpleType>
+    </union>
+  </simpleType>
+
+  <simpleType name="propertyCategoryIdentifierList">
+    <list itemType="fmd:propertyCategoryIdentifier"/>
+  </simpleType>
+
+  <simpleType name="propertyName">
+    <restriction base="string">
+      <!-- TODO:  define pattern or reference existing type -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="rendererType">
+    <restriction base="string">
+      <!-- TODO:  define pattern or reference existing type -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="relativeOrAbsoluteURL">
+    <restriction base="string">
+      <!-- TODO:  define pattern or reference existing type -->
+    </restriction>
+  </simpleType>
+
+  <simpleType name="stringList">
+    <list itemType="string"/>
+  </simpleType>
+
+  <simpleType name="allowedChildComponentsType">
+    <union memberTypes="fmd:componentTypeList">
+      <simpleType>
+        <restriction base="string">
+          <enumeration value="ALL">
+            <annotation>
+              <documentation>All components are valid children</documentation>
+            </annotation>
+          </enumeration>
+          <enumeration value="NONE">
+            <annotation>
+              <documentation>No children are allowed</documentation>
+            </annotation>
+          </enumeration>
+        </restriction>
+      </simpleType>
+    </union>
+  </simpleType>
+
+  <simpleType name="facetAllowedChildComponentsType">
+    <union memberTypes="fmd:componentTypeList">
+      <simpleType>
+        <restriction base="string">
+          <enumeration value="ALL">
+            <annotation>
+              <documentation>All components are valid children</documentation>
+            </annotation>
+          </enumeration>
+        </restriction>
+      </simpleType>
+    </union>
+  </simpleType>
+
+  <simpleType name="propertyEditorType">
+    <union memberTypes="fmd:javaClassName">
+      <simpleType>
+        <restriction base="string">
+          <!-- TODO: provide descriptions, finalize list -->
+          <enumeration value="BIG_DECIMAL" />
+          <enumeration value="BIG_INTEGER" />
+          <enumeration value="BOOLEAN" />
+          <enumeration value="BYTE" />
+          <enumeration value="CHARACTER" />
+          <enumeration value="COLOR" />
+          <enumeration value="COMPONENT_ID" />
+          <enumeration value="COMPONENT_IDREF" />
+          <enumeration value="CSS_URI" />
+          <enumeration value="DOUBLE" />
+          <enumeration value="FLOAT" />
+          <enumeration value="FONT" />
+          <enumeration value="IMAGE_URI" />
+          <enumeration value="INLINE_STYLE" />
+          <enumeration value="INLINE_SCRIPT" />
+          <enumeration value="INTEGER" />
+          <enumeration value="JAVA_CLASS_NAME" />
+          <enumeration value="LONG" />
+          <enumeration value="SHORT" />
+          <enumeration value="STYLE_CLASS" />
+          <enumeration value="UNSIGNED_INTEGER" />
+          <enumeration value="URI " />
+        </restriction>
+      </simpleType>
+    </union>
+  </simpleType>
+
+  <simpleType name="valueExpressionType">
+    <restriction base="string">
+      <enumeration value="ALLOWED">
+        <annotation>
+          <documentation>Can be set with a value expression</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="REQUIRED">
+        <annotation>
+          <documentation>Must be set with a value expression</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PROHIBITED">
+        <annotation>
+          <documentation>Does not support value expression, must be set to a
+                         literal value.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  
+</schema>

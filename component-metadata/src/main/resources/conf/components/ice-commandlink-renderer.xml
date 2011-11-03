@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+	<description>
+		<![CDATA[<p>Render an HTML "a" anchor element that acts like a
+          form submit button when clicked.</p><p>General Behaviour</p><p>Both the encode and decode behavior require the ability to get
+          the id/name for a hidden field whose value is set by the
+          JavaScript form submit.  This name must be constructed as
+          follows:</p><ul><li><p>Get the clientId for the form of which this component is a
+          child.</p></li><li><p>Append
+          <code>NamingContainer.SEPARATOR_CHAR</code>.</p></li><li><p>Append a constant string that is the same for all command
+          link components in the tree.</p></li></ul><p>In the following text, this String is called
+          hiddenFieldName.</p><p>Decode Behavior</p><ul><p>Obtain the "clientId" property of the component.  Obtain the
+          <code>Map</code> from the "requestParameterMap" property of the
+          <code>ExternalContext</code>.  Derive hiddenFieldName as above.
+          Get the entry in the <code>Map</code> under the key that is the
+          hiddenFieldName.  If the there is no entry, or the entry is the
+          empty String, or the entry is not equal to the value of the
+          "clientId" property, return immediately.  If there is an entry,
+          and its value is equal to the value of the "clientId" property,
+          create a new <code>javax.faces.event.ActionEvent</code> instance
+          around the component and call <code>queueActionEvent()</code> on
+          the component, passing the event.</p></ul><p>Encode Behavior</p><ul><p>Render "#" as the value of the "href" attribute. Render the current 
+          value of the component as the link text if it is specified. Render 
+          javascript that is functionally equivalent to the following as the value 
+          of the "onclick" attribute:</p><p><code>document.forms['CLIENT_ID']['hiddenFieldName'].value='CLIENT_ID';
+          document.forms['CLIENT_ID']['PARAM1_NAME'].value='PARAM1_VALUE';
+          document.forms['CLIENT_ID']['PARAM2_NAME'].value='PARAM2_VALUE';
+          return false;</code></p><p>document.forms['CLIENT_ID'].submit()" where hiddenFieldName is
+          as described above, CLIENT_ID is the clientId of the UICommand
+          component, PARAM*_NAME and PARAM*_VALUE are the names and values,
+          respectively, of any nested UIParameter children.  The name and
+          the value must be URLEncoded.  If the "styleClass" attribute is
+          specified, render its value as the value of the "class" attribute.
+          Render any non-UIParameter children as normal inside of the "a"
+          element.  These will appear as the link text.  Allow the form
+          renderer to output a single "input" element (for the entire page,
+          regardless of how many command link components are in the page) of
+          "type" "hidden" whose "name" is the value of hiddenFieldName, and
+          which must not have a "value" attribute.  Multiple occurrences of
+          command link components in the tree should not cause multiple
+          hiddenFieldName hidden fields.  Allow the form renderer to output
+          an "input" element of "type" "hidden" for each of the nested
+          UIParameter children, taking the name property (but not the value)
+          from each one in turn.</p></ul>]]>
+	</description>
+
+	<component-family>javax.faces.Command</component-family>
+	<renderer-type>com.icesoft.faces.Link</renderer-type>
+
+	<renderer-extension>
+		<instance-name>commandLink</instance-name>
+		<is-container>true</is-container>
+		<renders-children>true</renders-children>
+		<tag-name>commandLink</tag-name>
+		<taglib-prefix>@taglib-prefix@</taglib-prefix>
+		<taglib-uri>@taglib-uri@</taglib-uri>
+	</renderer-extension>
+</renderer>

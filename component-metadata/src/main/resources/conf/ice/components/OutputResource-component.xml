@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.OutputResource</component-type>
+    <component-class>com.icesoft.faces.component.outputresource.OutputResource</component-class>
+</component>  

@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.OutputHtml</component-family>
+    <renderer-type>com.icesoft.faces.OutputHtml</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.OutputHtmlRenderer</renderer-class>
+</renderer>

@@ -1,0 +1,377 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<f:view
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+<ice:outputDeclaration doctypeRoot="HTML"
+                       doctypePublic="-//W3C//DTD XHTML 1.0 Transitional//EN"
+                       doctypeSystem="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+
+<html>
+<head><title>Auction Monitor - Direct-to-DOM (D2D) Version</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <ice:outputStyle href="./css/demo_template.css"/>
+    <ice:outputStyle href="./css/auction_styles.css"/>
+</head>
+
+<body>
+<div>
+    <div class="header_right">
+        <img src="./css/images/banner_logo.jpg" alt="ICEfaces" width="267"
+             height="159"/>
+    </div>
+    <div class="header_container">
+        <div class="header_left">
+            <img src="./css/images/banner_hdr_auction.jpg"
+                 width="463" height="100"
+                 title="Component Suite Showcase"
+                 alt="Component Suite Showcase"/>
+        </div>
+
+        <div class="clearer"/>
+    </div>
+</div>
+
+<!-- Item List Start -->
+<div id="auction_content">
+<ice:form id="iceForm">
+    <div id="hiddenDiv">
+        <ice:outputText value="#{AuctionBean.autoLoad}"/>
+        <ice:outputText value="#{LogBean.autoLoad}"/>
+        <ice:outputText value="#{UserBean.autoLoad}"/>
+        <ice:outputText value="#{ClockBean.autoLoad}"/>
+    </div>
+    <ice:commandButton id="default" image="./images/x.gif" value="Submit"/>
+
+    <div id="resultsDiv">
+        <ice:dataTable width="100%" cellspacing="1" styleClass="bidTable"
+                       value="#{AuctionBean.searchItems}" var="item"
+                       rowClasses="rowClass1,rowClass2" id="iceTable">
+            <ice:column>
+                <f:facet name="header">
+                    <ice:panelGrid columns="5" width="100%" cellspacing="1"
+                                   columnClasses="#{AuctionBean.titleTextStyle},#{AuctionBean.priceTextStyle},#{AuctionBean.bidsTextStyle},#{AuctionBean.timeLeftTextStyle},column5,column6">
+                        <center><ice:commandLink id="sortByTitle_click"
+                                                 immediate="true"
+                                                 action="#{AuctionBean.sortByTitle}">
+                            <ice:outputText value="Item Name"
+                                            title="Sort by the Item Name"/>
+                        </ice:commandLink></center>
+                        <center><ice:commandLink id="sortByPrice_click"
+                                                 immediate="true"
+                                                 action="#{AuctionBean.sortByPrice}">
+                            <h:outputText value="Price"
+                                          title="Sort by the Price"/>
+                        </ice:commandLink></center>
+                        <center><ice:commandLink id="sortByBides_click"
+                                                 immediate="true"
+                                                 action="#{AuctionBean.sortByBids}">
+                            <ice:outputText value="Bids"
+                                            title="Sort by the Bids"/>
+                        </ice:commandLink></center>
+                        <center><ice:commandLink id="sortByTimeLeft_click"
+                                                 immediate="true"
+                                                 action="#{AuctionBean.sortByTimeLeft}">
+                            <ice:outputText value="Time Left"
+                                            title="Sort by the Time Left"/>
+                        </ice:commandLink></center>
+                        <center><ice:outputText value="Action"
+                                                styleClass="tableTdAction"/>
+                        </center>
+                    </ice:panelGrid>
+                </f:facet>
+                <ice:panelGrid columns="5" width="100%" cellspacing="1"
+                               styleClass="#{item.expandedStyleClass}"
+                               columnClasses="column1,column2,column3,column4,column5,column6">
+                    <ice:panelGroup>
+                        <font face="helvetica" size="-1">
+                            <ice:commandButton id="item_expandTriangleImage"
+                                               immediate="true"
+                                               image="#{item.expandTriangleImage}"
+                                               title="Toggle the item details open or close"
+                                               action="#{item.pressExpandButton}"/>
+                            <ice:outputText value="#{item.title}" id="item_title"/>
+                        </font>
+                    </ice:panelGroup>
+
+                    <div align="right">
+                        <ice:panelGroup>
+                            <font face="helvetica" size="-1">
+                                <ice:outputText id="item_currentPrice"
+                                                value="#{item.currentPrice}"
+                                                effect="#{item.effect}">
+                                    <f:convertNumber type="currency"
+                                                     currencySymbol="$"/>
+                                </ice:outputText></font>
+                        </ice:panelGroup>
+                    </div>
+                    <ice:panelGroup>
+                        <font face="helvetica" size="-1"><center>
+                            <ice:outputText id="item_bidCount"
+                                            value="#{item.bidCount}"/>
+                        </center></font>
+                    </ice:panelGroup>
+                    <ice:panelGroup>
+                        <font face="helvetica" size="-1">
+                            <ice:graphicImage value="#{item.timeImageUrl}"/>
+                            <ice:outputText id="item_timeLeftString"
+                                            value="#{item.timeLeftString}"
+                                            styleClass="#{item.timeLeftStyleClass}"
+                                            style="display: inherit;"/>
+                        </font>
+                    </ice:panelGroup>
+                    <ice:commandButton id="image_button_bid" immediate="true"
+                                       action="#{item.pressBidButton}"
+                                       image="./images/button_bid.gif"
+                                       rendered="#{not item.bidExpanded}"
+                                       title="Place a bid on '#{item.title}'"
+                                       disabled="#{item.expired}"/>
+                    <ice:panelGroup rendered="#{item.bidExpanded}">
+                        <ice:inputText id="item_localBid"
+                                       value="#{item.tempLocalBid}" size="6"
+                                       style="text-align:right"/>
+                        <ice:commandButton id="image_button_bid_accept"
+                                           image="./images/button_bid_accept.gif"
+                                           action="#{item.setLocalBid}"
+                                           style="border: 0px;width: 15px;height:15px;"/>
+                        <ice:commandButton id="image_button_bid_decline"
+                                           immediate="true"
+                                           image="./images/button_bid_decline.gif"
+                                           action="#{item.pressBidButton}"
+                                           style="border: 0px;width: 15px;height:15px"/>
+                        <ice:outputText value="#{item.bidMessage}" escape="false" />
+                    </ice:panelGroup>
+                </ice:panelGrid>
+                <ice:panelGrid columns="3" width="100%"
+                               styleClass="#{item.expandedStyleClass}"
+                               columnClasses="expandedColumn1,expandedColumn2,expandedColumn3"
+                               rendered="#{item.expanded}">
+                    <ice:panelGroup>
+                        <ice:graphicImage id="item_siteHostedPictureUrl"
+                                          value="#{item.picture}" width="100"
+                                          height="75"/>
+                    </ice:panelGroup>
+                    <ice:panelGroup>
+                        <font face="helvetica" size="-1">
+                            <ice:outputText id="item_description"
+                                            value="#{item.description}"/>
+                        </font>
+                    </ice:panelGroup>
+                    <ice:panelGroup>
+                        <font face="helvetica" size="-1">
+                            <ice:outputText id="item_location"
+                                            value="Location: #{item.location}"/>
+                            <br/>
+                            <ice:outputText id="item_seller"
+                                            value="Seller: #{item.seller}"/>
+                        </font>
+                    </ice:panelGroup>
+                </ice:panelGrid>
+            </ice:column>
+        </ice:dataTable>
+    </div>
+    <span style="font-size: smaller;">* Item prices cannot be incremented by more then $1,000,000 per bid.</span>     
+</ice:form>
+</div>
+<!-- Item List End -->
+
+<!-- Chat Start -->
+<div id="chat_content">
+<ice:form id="chat">
+    <ice:commandButton id="default" image="./images/x.gif" value="Submit"/>
+
+    <div id="chatDiv">
+        <div align="center">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr style="background-image: url(images/button_bkgnd2.gif); background-position:top; background-repeat:repeat-x;">
+                    <td width="13%" valign="top"><img src="images/chat-icon.gif"
+                                                      width="49" height="35"/>
+                    </td>
+                    <ice:panelGroup rendered="#{UserBean.conversationStatus}">
+                        <td width="67%" align="left">
+                            <ice:commandButton id="button_switchMinimized"
+                                               immediate="true"
+                                               image="#{UserBean.buttonImage}"
+                                               action="#{UserBean.switchMinimized}"
+                                               title="Toggle the chat section open or close"
+                                               style="vertical-align: middle;"/>
+                            <ice:outputText value="#{UserBean.chatStatus}" id="chatStatus"
+                                            escape="false"
+                                            style="vertical-align: middle;"/>
+                        </td>
+                        <td width="20%" align="center"><ice:commandButton
+                                id="button_leaveConversation" immediate="true"
+                                actionListener="#{UserBean.leaveConversation}"
+                                value="Leave Chat" styleClass="endChatButtons"
+                                title="Leave this chat session"/></td>
+                    </ice:panelGroup>
+                    <ice:panelGroup
+                            rendered="#{not UserBean.conversationStatus}">
+                        <td align="right"><ice:outputText
+                                id="screen_name_join_chat"
+                                value="Enter a screen name to join the chat: "/>
+                            <ice:inputText id="text_nickname_chat"
+                                           value="#{UserBean.nick}"
+                                           title="Enter a nickname used in the chat"
+                                           styleClass="textField"
+                                           actionListener="#{UserBean.enterConversation}"/></td>
+                        <td align="center"><ice:commandButton
+                                id="join_chat_button" styleClass="orangeButtons"
+                                value="Join Chat"
+                                title="Join the chat conversation"
+                                actionListener="#{UserBean.enterConversation}"/></td>
+                    </ice:panelGroup>
+                </tr>
+                <ice:panelGrid id="chatWindow"
+                               rendered="#{not UserBean.minimized}"
+                               cellpadding="0" cellspacing="0"
+                               style="text-align: center;">
+                    <tr>
+                        <ice:column>
+                            <td align="right" valign="bottom">
+                                <ice:commandButton immediate="true"
+                                                   image="./images/button_arrow_top.gif"
+                                                   action="#{UserBean.moveToTop}"
+                                                   title="Move to the top of the log"
+                                                   alt="Move to the top of the log"
+                                                   style="border: 0px;width:20px;height:20px;"/>
+                                <ice:commandButton immediate="true"
+                                                   image="./images/button_arrow_up.gif"
+                                                   action="#{UserBean.moveUpMinor}"
+                                                   title="Move up one line in the log"
+                                                   alt="Move up one line in the log"
+                                                   style="border: 0px;width:20px;height:20px;"/>
+                            </td>
+                        </ice:column>
+                    </tr>
+                    <ice:dataTable value="#{UserBean.pageLog}" var="page"
+                                   cellspacing="0" cellpadding="0"
+                                   style="width: 700px;" id="pageLog">
+                        <ice:column>
+                            <div class="chatLine">
+                                <div class="chatName"><ice:outputText
+                                        value="#{page.sender}" escape="false"/>
+                                </div>
+
+                                <div class="chatTime"><ice:outputText
+                                        value="#{page.timestamp}"
+                                        escape="false"/></div>
+
+                                <div class="chatText"><ice:outputText
+                                        value="#{page.message}" escape="false"/>
+                                </div>
+                            </div>
+                        </ice:column>
+                    </ice:dataTable>
+                    <tr>
+                        <ice:column>
+                            <td align="right" valign="top">
+                                <ice:commandButton immediate="true"
+                                                   image="./images/button_arrow_bottom.gif"
+                                                   action="#{UserBean.moveToBottom}"
+                                                   title="Move to the bottom of the log"
+                                                   alt="Move to the bottom of the log"
+                                                   style="border: 0px;width:20px;height:20px;"/>
+                                <ice:commandButton immediate="true"
+                                                   image="./images/button_arrow_down.gif"
+                                                   action="#{UserBean.moveDownMinor}"
+                                                   title="Move down one line in the log"
+                                                   alt="Move to the bottom of the log"
+                                                   style="border: 0px;width:20px;height:20px;"/>
+                            </td>
+                        </ice:column>
+                    </tr>
+                </ice:panelGrid>
+                <ice:panelGroup rendered="#{not UserBean.minimized}">
+                    <ice:column>
+                        <ice:outputText value="#{UserBean.nickFormatted}"
+                                        escape="false"/>
+                        <ice:inputText immediate="false" id="messageIn" size="50"
+                                       value="#{UserBean.message}"
+                                       title="Enter your message text"
+                                       styleClass="textField"/>
+                        <ice:commandButton id="button_send_message"
+                                           value="Send Message" action="send"
+                                           styleClass="orangeButtons"
+                                           title="Send your message text"/>
+                    </ice:column>
+                </ice:panelGroup>
+            </table>
+        </div>
+    </div>
+</ice:form>
+</div>
+<!-- Chat End -->
+
+<!-- Readme Start -->
+<div id="readme_content">
+<h:form>
+    <div id="readmeDiv">
+        <ice:commandButton type="button" image="#{ReadmeBean.buttonLabel}"
+                           action="#{ReadmeBean.pressExpandButton}"
+                           title="Toggle the readme section open or closed"/>
+        <br/>
+        <ice:outputText value="#{ReadmeBean.readmeText}" escape="false"
+                        rendered="#{ReadmeBean.expanded}"/>
+    </div>
+</h:form>
+</div>
+
+<!-- Readme End -->
+<div class="footer_container">
+    <div class="footer_left">
+        <div style="display:inline;float:left">&#160; Copyright 2009
+            <a href="http://www.icesoft.com/"
+               target="_blank">ICEsoft Technologies Inc.</a></div>
+        <div style="display:inline;float:right"><i>Powered By
+            <a href="http://www.icefaces.org/" target="_blank">ICEfaces</a></i>
+        </div>
+
+    </div>
+    <div class="footer_right"><img src="./css/images/footer_faces.jpg"
+                                   alt="ICEfaces" width="121"
+                                   height="95" border="0"/></div>
+</div>
+
+
+<!-- PRELOAD TAB IMAGES -->
+<div style="display: none">
+    <img src="./images/button_bid_accept.gif"/>
+    <img src="./images/button_bid_decline.gif"/>
+</div>
+</body>
+</html>
+</f:view>

@@ -1,0 +1,192 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>outputProgress Component</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2">outputProgress</h2>
+<hr>
+<p >The outputProgress component can be used to report
+progress
+to users in cases where a long running server-side task is necessary.
+This component can be run in either of two modes; "determinate" and
+"indeterminate". <br>
+<br>
+Determinate mode should be used in cases where the number of steps or
+units of work in a long-running process are known. In determinate mode
+(default) the outputProgress component renders a outputprogress bar that
+indicates the completion
+percentage for a task. Typically, the outputprogress bar will gradually
+outputprogress from 0 to 100 % complete in incremental steps determined by
+the application. <br>
+<br>
+Indeterminate mode should be used in cases when it is not possible to
+predicate how long a long-running process will take to complete, or how
+many steps or units of work are required to complete the task. In
+indeterminate mode the outputProgress component renders an animated
+icon or outputprogress bar that indicates generally that&nbsp; activity is
+taking
+place.
+</p>
+<div
+ style="margin: 0pt; color: rgb(0, 0, 0); font-style: normal; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline; font-weight: bold;">
+Example of a determinate mode outputProgress</div>
+<p >The following code shows how to create a determinate
+outputProgress
+component:</p>
+<pre class="Preformatted">
+&lt;ice:outputProgress
+	value="#{progress.percent}" label="#{progressProperty.progressLabelAfter}"
+	labelComplete="#{progressProperty.progressCompleteLabelAfter}"
+	labelPosition="#{progressProperty.labelPosition}"
+	binding="#{progress.progressBar}" /&gt;
+
+</pre>
+<div
+ style="margin: 0pt; color: rgb(0, 0, 0); font-style: normal; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline; font-weight: bold;">
+Example of a indeterminate mode outputProgress</div>
+<p >The following code shows how to create an indeterminate
+outputProgress
+component:</p>
+<pre class="Preformatted">
+
+&lt;ice:outputProgress
+	indeterminate="true"
+	label="#{progressProperty.progressLabelAfter}"
+	labelComplete="#{progressProperty.progressCompleteLabelAfter}"
+	labelPosition="#{progressProperty.labelPosition}"
+	value="#{progressIndeterminate.percent}" /&gt;
+</pre>
+
+<br><div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary</div>
+<br>
+<table border="1" cellpadding="5" cellspacing="0">
+
+  <tbody>
+    <tr>
+      <td>
+        <div
+ class="CellBody">
+        tag-name:</div>
+      </td>
+      <td>
+        <div
+ class="CellBody">
+        &lt;ice:outputProgress&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+ class="CellBody">
+        tag-class:</div>
+      </td>
+      <td>
+        <div
+ class="CellBody">
+        com.icesoft.faces.component.outputprogress.OutputProgressTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+ class="CellBody">
+        component-class:</div>
+      </td>
+      <td>
+        <div
+ class="CellBody">
+        com.icesoft.faces.component.outputprogress.OutputProgress</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+ class="CellBody">
+        component-type:</div>
+      </td>
+      <td>
+        <div
+ class="CellBody">
+        com.icesoft.faces.Progress</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+ class="CellBody">
+        component-family:</div>
+      </td>
+      <td>
+        <div
+ class="CellBody">
+        com.icesoft.faces.Progress</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+ class="CellBody">
+        renderer-class:</div>
+      </td>
+      <td>
+        <div
+ class="CellBody">
+        com.icesoft.faces.component.outputprogress.OutputProgressRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+ class="CellBody">
+        renderer-type:</div>
+      </td>
+      <td>
+        <div
+ class="CellBody">
+        com.icesoft.faces.Bar</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

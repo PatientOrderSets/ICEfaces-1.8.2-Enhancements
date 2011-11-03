@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<project name="bridge" default="build">
+    <property file="build.properties"/>
+    <property name="src.dir" location="${basedir}/src"/>
+    <property name="src.dir.java" location="${src.dir}/java"/>
+    <property name="build.dir" location="${basedir}/build"/>
+    <property name="build.dir.java" location="${build.dir}/java"/>
+    <property name="script" location="${build.dir}/bridge.js"/>
+    <property name="extras.script.open.ajax"
+              location="${build.dir}/lib/openajax/bridge.extras.open.ajax.js"/>
+    <property name="script.open.ajax"
+              location="${build.dir}/lib/openajax/bridge.open.ajax.js"/>
+    <property name="extras.script" location="${build.dir}/bridge.extras.js"/>
+    <property name="open.ajax.script" location="${build.dir}/openajax.js"/>
+
+    <macrodef name="yui-compress">
+        <attribute name="todir"/>
+        <attribute name="yui-switches" default="--type js"/>
+        <element name="files" implicit="yes"/>
+        <sequential>
+            <apply executable="java">
+                <arg value="-jar"/>
+                <arg value="compressor.jar"/>
+                <arg line="@{yui-switches}"/>
+                <arg value="-o"/>
+                <targetfile/>
+                <mapper type="glob" from="*.js" to="@{todir}/*.js"/>
+                <files/>
+            </apply>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="register">
+        <attribute name="src" description="The source file"/>
+        <attribute name="depends" description="a dependency"/>
+        <attribute name="dest" description="The destination file"/>
+        <attribute name="libName" default="@{libName}" description="Lib name"/>
+        <attribute name="libUrl" default="@{libUrl}" description="Lib url"/>
+        <attribute name="libVersion" default="@{libVersion}"
+                   description="Lib Version"/>
+        <sequential>
+            <java classname="RegisterProperties" output="@{dest}" fork="yes">
+                <arg value="@{libName}"/>
+                <arg value="@{libUrl}"/>
+                <arg value="@{libVersion}"/>
+                <arg file="@{src}"/>
+                <arg file="@{depends}"/>
+                <classpath>
+                    <pathelement location="compressor.jar"/>
+                    <pathelement path="${java.class.path}"/>
+                    <pathelement location="${build.dir.java}"/>
+                </classpath>
+            </java>
+        </sequential>
+    </macrodef>
+
+    <target name="prepare">
+        <tstamp/>
+        <mkdir dir="${build.dir}/src"/>
+        <mkdir dir="${build.dir}/lib/prototype"/>
+        <mkdir dir="${build.dir}/lib/extras"/>
+        <mkdir dir="${build.dir}/lib/scriptaculous"/>
+        <mkdir dir="${build.dir}/lib/openajax"/>
+        <mkdir dir="${build.dir}/component"/>
+        <mkdir dir="${build.dir.java}"/>
+    </target>
+
+    <fileset id="munge.js.files" dir=".">
+        <include name="src/**/*.js"/>
+        <include name="lib/**/*.js"/>
+        <include name="component/**/*.js"/>
+        <exclude name="component/keyboardNavigator.js"/>
+        <exclude name="component/resizblePanelGrid.js"/>
+        <exclude name="lib/prototype/ajax.js"/>
+        <exclude name="lib/prototype/base.js"/>
+        <exclude name="lib/prototype/form.js"/>
+        <exclude name="lib/scriptaculous/controls.js"/>
+    </fileset>
+
+    <fileset id="no-munge.js.files" dir=".">
+        <include name="component/keyboardNavigator.js"/>
+        <include name="component/resizblePanelGrid.js"/>
+        <include name="lib/prototype/ajax.js"/>
+        <include name="lib/prototype/base.js"/>
+        <include name="lib/prototype/form.js"/>
+        <include name="lib/scriptaculous/controls.js"/>
+    </fileset>
+
+    <target name="copy" depends="prepare" if="no-compress">
+        <copy todir="${build.dir}">
+            <fileset refid="munge.js.files"/>
+            <fileset refid="no-munge.js.files"/>
+        </copy>
+    </target>
+
+    <target name="compress" depends="prepare" unless="no-compress">
+        <echo message="Compressing ..."/>
+        <yui-compress todir="${build.dir}" yui-switches="--preserve-semi">
+            <fileset refid="munge.js.files"/>
+        </yui-compress>
+        <yui-compress todir="${build.dir}" yui-switches="--nomunge">
+            <fileset refid="no-munge.js.files"/>
+        </yui-compress>
+    </target>
+
+    <target name="build.RegisterProperties" depends="prepare">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.dir.java}"/>
+        <javac srcdir="${src.dir.java}" destdir="${build.dir.java}" debug="on">
+            <classpath>
+                <pathelement path="${java.class.path}"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="build.bridge" depends="copy, compress" description="Collate bridge code">
+        <delete file="${script}"/>
+        <concat destfile="${script}" append="yes" fixlastline="yes" force="no">
+            <filelist dir="${build.dir}/lib/prototype">
+                <file name="prototype.js"/>
+                <file name="base.js"/>
+                <file name="string.js"/>
+                <file name="enumerable.js"/>
+                <file name="array.js"/>
+                <file name="number.js"/>
+                <file name="hash.js"/>
+                <file name="range.js"/>
+            </filelist>
+            <filelist dir="${build.dir}/lib">
+                <file name="namespace.js"/>
+                <file name="object.js"/>
+                <file name="boolean.js"/>
+                <file name="date.js"/>
+                <file name="string.js"/>
+                <file name="array.js"/>
+                <file name="function.js"/>
+                <file name="window.js"/>
+                <file name="enumerator.js"/>
+                <file name="logger.js"/>
+                <file name="ajax.js"/>
+                <file name="parameters.js"/>
+                <file name="geometry.js"/>
+                <file name="element.js"/>
+                <file name="event.js"/>
+                <file name="cookie.js"/>
+            </filelist>
+            <filelist dir="${build.dir}/src">
+                <file name="submit.js"/>
+                <file name="synchronizer.js"/>
+                <file name="command.js"/>
+                <file name="script.js"/>
+                <file name="focus.js"/>
+                <file name="status.js"/>
+                <file name="connection.js"/>
+                <file name="namespace.js"/>
+                <file name="heartbeat.js"/>
+                <file name="connection.async.js"/>
+                <file name="application.js"/>
+                <file name="callback.js"/>
+            </filelist>
+            <path location="${script.open.ajax}"/>
+        </concat>
+    </target>
+
+    <target name="build.extras" depends="copy, compress"
+            description="Collate extra libraries used by specialized components.">
+        <delete file="${extras.script}"/>
+        <concat destfile="${extras.script}" append="yes" fixlastline="yes">
+            <filelist dir="${build.dir}/lib/prototype">
+                <file name="ajax.js"/>
+                <file name="dom.js"/>
+                <file name="selector.js"/>
+                <file name="event.js"/>
+                <file name="form.js"/>
+                <file name="deprecated.js"/>
+            </filelist>
+            <filelist dir="${build.dir}/lib/scriptaculous">
+                <file name="builder.js"/>
+                <file name="effects.js"/>
+                <file name="dragdrop.js"/>
+                <file name="controls.js"/>
+                <file name="slider.js"/>
+                <file name="sound.js"/>
+            </filelist>
+            <filelist dir="${build.dir}/lib/extras">
+                <file name="extras.js"/>
+                <file name="extras_util.js"/>
+                <file name="state_mon.js"/>
+                <file name="style.js"/>
+                <file name="initializer.js"/>
+                <file name="delimitedProperties.js"/> 
+                <file name="dragdrop_custom.js"/>
+                <file name="draggable_ext.js"/>
+                <file name="droppable_ext.js"/>
+                <file name="sortable_ext.js"/>
+                <file name="autocomplete_ext.js"/>
+                <file name="effects_ext.js"/>
+                <file name="bootstrap.js"/>
+                <file name="gmap.js"/>
+                <file name="repository.js"/>
+                <file name="tooltip_panelpopup.js"/>
+                <file name="resizablePanelGrid.js"/>
+                <file name="keyboardNavigator.js"/>
+                <file name="dataTable.js"/>
+                <file name="panelConfirmation.js"/>
+                <file name="calendar.js"/>
+                <file name="treeNavigator.js"/>
+            </filelist>
+            <filelist dir="${build.dir}/component">
+                <file name="menu.js"/>
+            </filelist>
+        </concat>
+    </target>
+
+    <target name="build" depends="build.bridge, build.extras, build.open.ajax"/>
+
+    <target name="update.open.ajax.globals" depends="build,build.extras"
+            description="update bridge and extras open ajax hub registration code">
+        <delete file="${script.open.ajax}"/>
+        <touch file="${script.open.ajax}"/>
+        <delete file="${extras.script.open.ajax}"/>
+        <touch file="${extras.script.open.ajax}"/>
+        <register libName="icefaces-d2d"
+                  libUrl="http://www.icefaces.org/"
+                  libVersion="1.7.0"
+                  src="${script}"
+                  depends=""
+                  dest="${script.open.ajax}"/>
+        <register libName="ice-extras"
+                  libUrl="http://www.icefaces.org/"
+                  libVersion="1.7.0"
+                  src="${extras.script}"
+                  depends="${script}"
+                  dest="${extras.script.open.ajax}"/>
+
+    </target>
+
+    <target name="build.open.ajax" depends="copy, compress" description="Compress the open ajax lib">
+        <copy tofile="${open.ajax.script}">
+            <fileset dir="${build.dir}/lib/openajax">
+                <include name="**/OpenAjax.js"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="register.icefaces-d2d" depends="build.bridge, build.RegisterProperties">
+        <register libName="icefaces-d2d"
+                  libUrl="http://www.icefaces.org/"
+                  libVersion="1.7.0"
+                  src="${script}"
+                  depends=""
+                  dest="register.icefaces-d2d.js"/>
+    </target>
+
+    <target name="register.ice-extras" depends="build.bridge, build.extras, build.RegisterProperties">
+        <register libName="ice-extras"
+                  libUrl="http://www.icefaces.org/"
+                  libVersion="1.7.0"
+                  src="${extras.script}"
+                  depends="${script}"
+                  dest="register.ice-extras.js"/>
+    </target>
+
+    <target name="build.open.ajax.test"
+            description="Build bridge libs for Open Ajax hub tests"
+            depends="build.bridge, build.extras"/>
+</project>

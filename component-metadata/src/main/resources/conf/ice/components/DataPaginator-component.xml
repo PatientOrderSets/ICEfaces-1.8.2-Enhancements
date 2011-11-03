@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.DataScroller</component-type>
+    <component-class>com.icesoft.faces.component.datapaginator.DataPaginator</component-class>
+</component>  

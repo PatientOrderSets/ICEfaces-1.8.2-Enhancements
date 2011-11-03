@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+	"http://www.w3.org/TR/html4/loose.dtd">
+<!--
+/*******************************************************************************
+ * HubTest-BasicConformance.html:
+ *		Test case for Ajax libraries that verifies whether a given library
+ *		supports the most basic requirements from the OpenAjax Hub Specification.
+ *
+ *		To use this test case against a given Ajax library, this test case
+ *		needs to be customized. At a minimum, you will need to replace the
+ *		following line:
+ *
+ *			<script language="JavaScript" type="text/javascript" src="SampleAjaxLibrary.js"></script>
+ *
+ *		with a <script> element that loads your Ajax library instead of SampleAjaxLibrary.js.
+ *
+ *		Libraries can make other modifications, but the <div> block
+ *		with id=HubTest_BasicConformance" must be left intact.
+ *
+ *		Other customization instructions are included within the comments in the
+ *		various files.
+ *
+ * Copyright 2007 OpenAjax Alliance
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not 
+ * use this file except in compliance with the License. You may obtain a copy 
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0 . Unless 
+ * required by applicable law or agreed to in writing, software distributed 
+ * under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
+ * specific language governing permissions and limitations under the License.
+ *
+ ******************************************************************************/
+-->
+
+<!--	****************************************************************************
+			The xmlns declarations are included in this test case below because they are required
+			by the OpenAjax Hub Specification which is forward looking to when browsers
+			support XML/XHTML properly. Note, however, that xmlns declarations generally have 
+			no effect with browsers shipping at the time this test case was developed (early 2007).
+
+			The xmlns:SampleAjaxLibrary declaration should be changed such that
+				- "SampleAjaxLibrary" is changed to the prefix used by the given library
+				- "http://example.com/SampleAjaxLibrary" is changed to the namespaceURI for the library
+			(See documentation on OpenAjax.registerLibrary() for more about prefix and namespaceURI.)
+			**************************************************************************** -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:SampleAjaxLibrary="http://example.com/SampleAjaxLibrary">
+<head>
+	<!--	****************************************************************************
+				THE CONTENTS OF THE FOLLOWING HEAD ELEMENTS MUST NOT BE CHANGED
+				(except it  is OK to change the location of the referenced files). 
+				**************************************************************************** -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>OpenAjax Hub Basic Conformance Test</title>
+	<link rel="StyleSheet" href="stylesheets/hubtest.css" type="text/css" />
+
+	<!--	****************************************************************************
+				YOU MUST CUSTOMIZE THE FOLLOWING SCRIPT.
+					1- Change HubTest-BasicConformance-MyPrefix from "SampleAjaxLibrary"
+							to the prefix used by your library.
+					2- (Only if you are using a different implementation of the Hub than the 
+							Alliance's reference implementation at http://openajaxallianc.sourceforge.net)
+							Replace function HubTest_BasicConformance_Verify_Load() with
+							appropriate logic that verifies that your library registered
+							its load handlers via the Hub.
+				**************************************************************************** -->
+	<script language="JavaScript" type="text/javascript">
+		var HubTest_BasicConformance_MyPrefix = "icefaces-d2d";
+		function HubTest_BasicConformance_Verify_Load() {
+			return (OpenAjax._libraryLoadCBs.length || OpenAjax._componentLoadCBs.length);
+		}
+	</script>
+
+	<!--	****************************************************************************
+				YOU MAY CUSTOMIZE THE SCRIPT ELEMENTS BELOW:
+					- You probably will want to change the 'src' attribute to point
+						to the location of where the Hub is implemented. (Or maybe the Hub code
+						is embedded within your library, in which case you might just delete
+						this SCRIPT tag.)
+				**************************************************************************** -->
+	<script language="JavaScript" type="text/javascript" src="../lib/openajax/OpenAjax.js"></script>
+
+	<!--	****************************************************************************
+				YOU MUST REMOVE/REPLACE THE FOLLOWING SCRIPT ELEMENT.
+				The <script> tag below that references SampleAjaxLibrary.js must be removed and 
+				instead you will need to have your own Ajax library loaded instead.
+				**************************************************************************** -->
+	<script language="JavaScript" type="text/javascript" src="../build/bridge.js"></script>
+
+	<!--	****************************************************************************
+				YOU MUST LOAD THE FOLLOWING JS FILE AS THE LAST JAVASCRIPT FILE LOADED.
+				**************************************************************************** -->
+	<script language="JavaScript" type="text/javascript" src="HubTest-BasicConformance.js"></script>
+
+</head>
+
+<body>
+	<!--	****************************************************************************
+				THE CONTENTS OF THE FOLLOWING DIV BLOCK MUST NOT BE CHANGED.
+				(But it's OK if your library needs to move this block elsewhere
+				within the document hierarchy and OK if you need to add other
+				elements to the BODY.)
+				**************************************************************************** -->
+	<div id="HubTest_BasicConformance">
+		<p id="OpenAjaxBanner" class="imageContainer">
+			<a href="http://www.openajax.org">
+				<img id="OpenAjaxBanner" src="images/OpenAjaxAllianceBanner.jpg" width="846px" alt="OpenAjax Alliance banner"/>
+			</a>
+		</p>
+		<h1 class="HubTestTitle">OpenAjax Hub Basic Conformance Test</h1>
+		<p id="LibraryName">For library: (unknown)</p>
+		<table id="HubTestResults" class="HubTestResults">
+			<tbody>
+				<tr>
+					<td class="HubTestNumber">1</td>
+					<td class="HubTestLabel">OpenAjax Conformance Requirement (Libraries): Library Registration</td>
+					<td class="HubTestResult" id="registerLibraryResult"><span style="color:red">TEST NOT SUCCESSFUL</span></td>
+				</tr>
+				<tr>
+					<td class="HubTestNumber">2</td>
+					<td class="HubTestLabel">OpenAjax Conformance Requirement (Libraries): Globals Registration</td>
+					<td class="HubTestResult" id="registerGlobalsResult"><span style="color:red">TEST NOT SUCCESSFUL</span></td>
+				</tr>
+				<tr>
+					<td class="HubTestNumber">3</td>
+					<td class="HubTestLabel">OpenAjax Conformance Requirement (Libraries): Load/Unload Handlers Registered Indirectly Through the Hub</td>
+					<td class="HubTestResult" id="addOnLoadResult"><span style="color:blue">TEST NOT APPLICABLE</span></td>
+				</tr>
+				<tr>
+					<td class="HubTestNumber">4</td>
+					<td class="HubTestLabel">OpenAjax Hub Publish/Subscribe Test</td>
+					<td class="HubTestResult" id="PublishSubscribeResult"><span style="color:red">TEST NOT SUCCESSFUL</span></td>
+				</tr>
+				<tr>
+					<td class="HubTestNumber">5</td>
+					<td class="HubTestLabel">OpenAjax Hub Markup Scanner Test</td>
+					<td class="HubTestResult" id="MarkupScannerResult"><span style="color:red">TEST NOT SUCCESSFUL</span></td>
+				</tr>
+			</tbody>
+		</table>
+		<p>Notes:</p>
+		<ul>
+			<li>A library completely passes this test if all boxes say TEST SUCCEEDED.</li>
+			<li>Uncommon exceptional situation: If a library does not register a 'load' event handler, then it is OK if
+					the load/unload test case says TEST NOT APPLICABLE.</li>
+		</ul>
+	</div>
+
+	<!--	****************************************************************************
+				Extra credit: A library developer might want to include a snippet of content that uses
+				his Ajax library to include extra graphical content in order spice up the 
+				visual result from the test.
+				**************************************************************************** -->
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>Dynamic charts</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2">Dynamic charts</h2>
+<hr>
+<p>
+The outputChart component can be used to dynamically generate and manipulate charts.
+The data, label and the paint properties can each be bound to Lists in a backing bean.
+This feature allows developers to easily manipulate the chart properties in their backing bean.</p>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Example
+<br>
+</div>
+<p style="margin-left: 40px;"><span style="font-family: monospace;">
+// jsf page snippet<br/>
+// render a dynamic 3d pie chart<br/>
+&lt;ice:outputChart type="pie3d"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chartTitle="Pie3D Chart"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;labels="#{pieChart.labels}"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width="350"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height="350"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data="#{pieChart.data}"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colors="#{pieChart.paints}"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;renderOnSubmit="#{pieChart.renderOnSubmit}"<br/>
+                  /&gt;
+</span></p>
+<p style="margin-left: 40px;"><span style="font-family: monospace;">
+// snippet from bean<br/>
+// List declarations in the bean<br/>
+private List labels = new ArrayList();<br/>
+private List data = new ArrayList();<br/>
+private List paints = new ArrayList();<br/>
+</span></p>
+
+</body>
+</html>

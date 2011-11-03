@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.OutputChart</component-type>
+    <component-class>com.icesoft.faces.component.outputchart.OutputChart</component-class>
+</component>  

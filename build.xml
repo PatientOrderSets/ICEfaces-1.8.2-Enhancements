@@ -1,0 +1,176 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<project default="build.all" xmlns:ice="urn:ICEsoft">
+
+<property file="build.properties"/>
+
+<property name="build.dir" location="build"/>
+<property name="dist.dir" location="dist"/>
+
+<condition property="release.type.suffix" value="-${release.type}" else="">
+    <not><equals arg1="${release.type}" arg2="" trim="true"/></not>
+</condition>
+<property name="bundle.name" value="${product}-${version.primary}.${version.secondary}.${version.tertiary}${release.type.suffix}"/>
+
+<property name="bin.bundle.name" value="${bundle.name}-bin"/>
+<property name="bin.bundle.prefix" value="${bin.bundle.name}/icefaces"/>
+<property name="bin.bundle.file" location="${dist.dir}/${bin.bundle.name}.zip"/>
+
+<property name="src.bundle.name" value="${bundle.name}-src"/>
+<property name="src.bundle.prefix" value="${src.bundle.name}/icefaces"/>
+<property name="src.bundle.file" location="${dist.dir}/${src.bundle.name}.zip"/>
+
+<propertyset id="product.info">
+    <propertyref name="company"/>
+    <propertyref name="product"/>
+    <propertyref name="version.primary"/>
+    <propertyref name="version.secondary"/>
+    <propertyref name="version.tertiary"/>
+    <propertyref name="release.type"/>
+    <propertyref name="build.number"/>
+    <propertyref name="revision"/>
+</propertyset>
+
+<presetdef name="ant" uri="urn:ICEsoft">
+    <ant inheritall="false"/>
+</presetdef>
+
+<presetdef name="subant" uri="urn:ICEsoft">
+    <subant inheritall="false" failonerror="true" verbose="true"/>
+</presetdef>
+
+<presetdef name="zip" uri="urn:ICEsoft">
+    <zip duplicate="fail" whenempty="fail"/>
+</presetdef>
+
+<target name="build.all">
+
+    <ice:subant>
+        <filelist dir="." files="core, component, component-metadata"/>
+        <propertyset refid="product.info"/>
+    </ice:subant>
+
+    <ice:ant antfile="core/build.xml">
+        <target name="javadoc"/>
+        <target name="just-ice.jar"/>
+        <propertyset refid="product.info"/>
+    </ice:ant>
+
+    <ice:ant antfile="component/build.xml">
+        <target name="javadoc"/>
+        <target name="tlddoc"/>
+    </ice:ant>
+
+    <ice:ant antfile="push-server/build.xml">
+    	<target name="build.war"/>
+        <property name="product" value="ICEfaces Push Server" />
+        <propertyset refid="product.info"/>
+    </ice:ant>
+
+    <ice:subant target="tomcat6.0">
+        <fileset dir="samples" includes="**/build.xml"/>
+        <propertyset refid="product.info"/>
+    </ice:subant>
+
+    <delete dir="${dist.dir}/samples"/>
+    <copy todir="${dist.dir}/samples" flatten="true">
+        <fileset dir="samples" includes="**/*.war" excludes="component-showcase/"/>
+        <fileset file="samples/component-showcase/facelets-enh/dist/component-showcase.war"/>
+    </copy>
+</target>
+
+<target name="zip.src">
+    <touch  file="${bin.bundle.file}" mkdirs="true"/>
+    <delete file="${bin.bundle.file}"/>
+
+    <ice:zip destfile="${bin.bundle.file}">
+        <zipfileset dir="." includes="README.txt, samples/" excludes="**/bin.bundle.properties" prefix="${bin.bundle.prefix}"/>
+        <zipfileset file="samples/component-showcase/facelets-enh/bin.bundle.properties"
+                    fullpath="${bin.bundle.prefix}/samples/component-showcase/facelets-enh/build.properties"/>
+        <zipfileset file="samples/tutorial/bin.bundle.properties"
+                    fullpath="${bin.bundle.prefix}/samples/tutorial/build.properties"/>
+    </ice:zip>
+</target>
+
+<target name="build.bin.bundle" depends="zip.src, build.all">
+    <ice:zip destfile="${bin.bundle.file}" update="true">
+        <zipfileset dir="docs" prefix="${bin.bundle.prefix}/docs"/>
+
+        <zipfileset dir="component/doc" prefix="${bin.bundle.prefix}/docs/components"/>
+        <zipfileset dir="component/build/doc" includes="api/" prefix="${bin.bundle.prefix}/docs/javadocs/components"/>
+        <zipfileset dir="core/build/javadocs" prefix="${bin.bundle.prefix}/docs/javadocs/icefaces/api"/>
+        <zipfileset dir="component/build/doc" includes="tld/" prefix="${bin.bundle.prefix}/docs"/>
+
+        <zipfileset dir="lib" excludes="freemarker-2.3.14.jar, grizzly-comet.jar, org.springframework.*.jar, catalina-comet.jar, jetty-util-6.0.1.jar, jsf-metadata.jar, tlddoc.jar, catalina-comet.jar, spring-beans.jar, spring-context.jar, spring-core.jar, spring-web.jar, spring-webflow.jar, jms.jar, jsf-extensions-test-time-0.1-rc8.jar, jsf-metadata-resources-1.1.1.jar" prefix="${bin.bundle.prefix}/lib"/>
+        <!--
+        <zipfileset file="core/dist/just-ice.jar" prefix="${bin.bundle.prefix}/lib"/>
+	-->
+        <zipfileset dir="core/src/com/icesoft/faces" includes="resources/css/" prefix="${bin.bundle.prefix}"/>
+
+        <zipfileset dir="${dist.dir}/samples" includes="address.war, auctionMonitor.war, component-showcase.war" prefix="${bin.bundle.prefix}/samples"/>
+
+        <zipfileset dir="push-server" includes="push-server.war" prefix="${bin.bundle.prefix}/push-server"/>
+    </ice:zip>
+
+    <!--delete dir="${build.dir}/${bin.bundle.name}"/>
+    <unzip src="${bin.bundle.file}" dest="${build.dir}"/-->
+</target>
+
+<target name="build.common">
+    <ice:subant>
+           <filelist dir="." files="core, component, component-metadata"/>
+    </ice:subant>
+</target>
+
+<target name="build.src.bundle">
+    <touch  file="${src.bundle.file}" mkdirs="true"/>
+    <delete file="${src.bundle.file}"/>
+
+    <ice:zip destfile="${src.bundle.file}">
+        <zipfileset dir="." excludes="dist/" prefix="${src.bundle.prefix}"/>
+    </ice:zip>
+
+    <!--delete dir="${build.dir}/${src.bundle.name}"/>
+    <unzip src="${src.bundle.file}" dest="${build.dir}"/-->
+</target>
+
+<target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+    <ice:subant target="clean">
+        <fileset dir="." includes="*/**/build.xml"/>
+    </ice:subant>
+</target>
+
+</project>

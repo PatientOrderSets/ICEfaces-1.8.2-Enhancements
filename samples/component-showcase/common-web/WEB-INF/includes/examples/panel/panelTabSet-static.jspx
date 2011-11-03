@@ -1,0 +1,189 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<ice:panelGroup styleClass="componentBox"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+<ice:panelGroup styleClass="synopsisBox panelTabSetContainer">
+    <ice:outputText value="#{msgs['page.panelTabSet.static.synopsis']}"/>
+    <ice:outputText value="#{msgs['page.panelTabSet.static.instructions']}"/>
+</ice:panelGroup>
+
+<!-- Controls for Static Tab Set -->
+<ice:panelGroup styleClass="exampleBox tabsetControls panelTabSetContainer">
+
+    <!-- Tab Visibility Controls -->
+    <ice:panelGroup style="float:left;width:200px;" >
+
+        <ice:panelGroup style="float:left;width:190px;" styleClass="firstChildTitle">
+            <ice:outputLabel value="#{msgs['page.panelTabSet.tabVisibility']}"/>
+        </ice:panelGroup>
+
+        <ice:panelGroup styleClass="clearer"/>
+
+        <ice:panelGroup style="float:left;">
+            <ice:selectBooleanCheckbox id="tab1Visibility"
+                                       partialSubmit="true"
+                                       value="#{staticTabbedPaneExample.tabbedPane1Visible}"
+                                       title="#{msgs['page.panelTabSet.static.accessibility.chkBox1']}"/>
+            <ice:outputLabel value="#{msgs['page.panelTabSet.tab1']}"
+                             for="tab1Visibility"/>
+
+            <ice:selectBooleanCheckbox id="tab2Visibility"
+                                       partialSubmit="true"
+                                       value="#{staticTabbedPaneExample.tabbedPane2Visible}"
+                                       title="#{msgs['page.panelTabSet.static.accessibility.chkBox2']}"/>
+            <ice:outputLabel value="#{msgs['page.panelTabSet.tab2']}"
+                             for="tab2Visibility"/>
+
+            <ice:selectBooleanCheckbox id="tab3Visibility"
+                                       partialSubmit="true"
+                                       value="#{staticTabbedPaneExample.tabbedPane3Visible}"
+                                       title="#{msgs['page.panelTabSet.static.accessibility.chkBox3']}"/>
+            <ice:outputLabel value="#{msgs['page.panelTabSet.tab3']}"
+                             for="tab3Visibility"/>
+        </ice:panelGroup>
+    </ice:panelGroup>
+
+    <!-- Tab Focus Controls -->
+    <ice:panelGroup style="float:left;width:200px;">
+
+        <ice:panelGroup style="float:left;" styleClass="firstChildTitle">
+            <ice:outputLabel value="#{msgs['page.panelTabSet.tabFocus']}"/>
+        </ice:panelGroup>
+
+        <ice:panelGroup styleClass="clearer"/>
+
+        <ice:panelGroup style="float:left;">
+            <ice:selectOneRadio id="tabFocusRadioBtns"
+                                partialSubmit="true"
+                                value="#{staticTabbedPaneExample.selectedIndex}"
+                                title="#{msgs['page.panelTabSet.static.accessibility.focusRadio']}">
+                <f:selectItem itemValue="0"
+                              itemLabel="#{msgs['page.panelTabSet.tab1']}"/>
+                <f:selectItem itemValue="1"
+                              itemLabel="#{msgs['page.panelTabSet.tab2']}"/>
+                <f:selectItem itemValue="2"
+                              itemLabel="#{msgs['page.panelTabSet.tab3']}"/>
+            </ice:selectOneRadio>
+        </ice:panelGroup>
+    </ice:panelGroup>
+
+    <!-- Tab Placement Controls -->
+    <ice:panelGroup style="float:left;width:200px;">
+
+        <ice:panelGroup style="float:left;" styleClass="firstChildTitle">
+            <ice:outputLabel value="#{msgs['page.panelTabSet.tabPlacement']}"/>
+        </ice:panelGroup>
+
+        <ice:panelGroup styleClass="clearer"/>
+
+        <ice:panelGroup style="float:left;">
+            <ice:selectOneRadio id="tabPlacementRadioBtns"
+                                value="#{staticTabbedPaneExample.tabPlacement}"
+                                partialSubmit="true"
+                                title="#{msgs['page.panelTabSet.static.accessibility.placementRadio']}">
+                <f:selectItem itemLabel="#{msgs['page.panelTabSet.top']}"
+                              itemValue="top"/>
+                <f:selectItem itemLabel="#{msgs['page.panelTabSet.bottom']}"
+                              itemValue="bottom"/>
+            </ice:selectOneRadio>
+        </ice:panelGroup>
+    </ice:panelGroup>
+    <ice:messages />
+</ice:panelGroup>
+
+
+<!-- Static Tab Set -->
+<ice:panelGroup id="tabSetTabs"
+                styleClass="exampleBox panelTabSetContainer">
+    <ice:panelTabSet id="icePnlTbSet"
+            selectedIndex="#{staticTabbedPaneExample.focusIndex}"
+            tabPlacement="#{staticTabbedPaneExample.tabPlacement}"
+            tabChangeListener="#{staticTabbedPaneExample.processTabChange}"
+            title="#{msgs['page.panelTabSet.static.accessibility.tabSetTitle']}"
+            summary="#{msgs['page.panelTabSet.static.accessibility.tabSetSummary']}">
+
+        <!-- Panel Tab 1 defined with some basic content -->
+        <ice:panelTab rendered="#{staticTabbedPaneExample.tabbedPane1Visible}"
+                      label="#{msgs['page.panelTabSet.tab1']}"
+                      icon="images/menu/recent.gif"
+                      title="#{msgs['page.panelTabSet.static.accessibility.tabOneTitle']}'">
+            <div style="height:150px;">
+                <ice:outputText
+                        value="#{msgs['page.panelTabSet.example.iceFaces.title']}"
+                        style="font-weight:bold;"/>
+                <ice:outputText
+                        value="#{msgs['page.panelTabSet.example.iceFaces.description']}"/>
+                <br/>
+            </div>
+        </ice:panelTab>
+
+        <!-- Panel Tab 2 defined with some basic content -->
+        <ice:panelTab rendered="#{staticTabbedPaneExample.tabbedPane2Visible}"
+                      label="#{msgs['page.panelTabSet.tab2']}"
+                      title="#{msgs['page.panelTabSet.static.accessibility.tabTwoTitle']}'">
+            <div style="height:150px;">
+                <ice:outputText
+                        value="#{msgs['page.panelTabSet.example.iceBrowser.title']}"
+                        style="font-weight:bold;"/>
+                <ice:outputText
+                        value="#{msgs['page.panelTabSet.example.iceBrowser.description']}"/>
+                <br/>
+            </div>
+        </ice:panelTab>
+
+        <!-- Panel Tab 3 defined with some basic content -->
+        <ice:panelTab rendered="#{staticTabbedPaneExample.tabbedPane3Visible}"
+                      label="#{msgs['page.panelTabSet.tab3']}"
+                      icon="images/menu/recent.gif"
+                      iconAlignRight="true"
+                      title="#{msgs['page.panelTabSet.static.accessibility.tabThreeTitle']}'">
+            <div style="height:150px;">
+                <ice:outputText
+                        value="#{msgs['page.panelTabSet.example.icePdf.title']}"
+                        style="font-weight:bold;"/>
+                <ice:outputText
+                        value="#{msgs['page.panelTabSet.example.icePdf.description']}"/>
+            </div>
+        </ice:panelTab>
+
+        <!-- This text is not part of a panelTab and therefore will be displayed on every tab -->
+        <ice:outputText value="#{msgs['page.panelTabSet.persistantText']}"/>
+
+    </ice:panelTabSet>
+</ice:panelGroup>
+
+</ice:panelGroup>              

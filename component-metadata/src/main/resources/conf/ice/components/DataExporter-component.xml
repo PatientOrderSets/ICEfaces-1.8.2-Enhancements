@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.DataExporter</component-type>
+    <component-class>com.icesoft.faces.component.dataexporter.DataExporter</component-class>
+</component>  

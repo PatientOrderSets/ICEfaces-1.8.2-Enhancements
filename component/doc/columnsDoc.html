@@ -1,0 +1,151 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>columns Component</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2">columns</h2>
+<hr>
+<p >
+The columns component provides a dynamic model for adding and deleting columns
+at run time. It uses the standard var and value attributes.
+</p>
+
+<p>
+The columns component works in conjunction with the ice:dataTable. The headerClass
+and columnClasses defined on the dataTable component will be applied to all
+generated columns as it does on a single column.
+</p>
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Examples
+<br>
+</div>
+
+
+
+<p style="margin-left: 40px;"><span style="font-family: monospace;">
+&lt;ice:dataTable var="item" value="#{columnsBean.rowDataModel}"
+                        columnClasses="columnsColumn" &gt;</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:columns value="#{columnsBean.columnDataModel}" var="column"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;f:facet name="header"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:outputText value="#{column}" /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/f:facet/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:outputText id="intCell" value="#{columnsBean.intValue}"/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ice:columns&gt;<br/>
+&lt;/ice:dataTable&gt;
+</span></p>
+
+<p>
+The columns component can be used in conjunction with a column component (e.g.)
+</p>
+
+<p style="margin-left: 40px;"><span style="font-family: monospace;">
+&lt;ice:dataTable var="item" value="#{columnsBean.rowDataModel}"
+                        columnClasses="columnsColumn" &gt;</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:column&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;f:facet name="header"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:outputText value="id" /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/f:facet/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:outputText value="#{item.id}"/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ice:column&gt;<br/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:columns value="#{columnsBean.columnDataModel}" var="column"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;f:facet name="header"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:outputText value="#{column}" /&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/f:facet/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ice:outputText value="#{columnsBean.intValue}"/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ice:columns&gt;<br/>
+&lt;/ice:dataTable&gt;
+</span></p>
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-name:</div>
+      </td>
+      <td>
+      <div class="CellBody"> &lt;ice:columns&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.ext.taglib.UIColumnTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.ext.UIColumns</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-type:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.Columns</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-family:</div>
+      </td>
+      <td>
+      <div class="CellBody">javax.faces.Columns</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

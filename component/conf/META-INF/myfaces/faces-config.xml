@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE faces-config PUBLIC
+ "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+ "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+  
+<faces-config>
+
+       <component>
+           <component-type>org.apache.myfaces.HtmlTree</component-type>
+           <component-class>com.icesoft.faces.renderkit.myfaces.custom.tree.HtmlTree</component-class>
+       </component>
+     
+       <component>
+           <component-type>org.apache.myfaces.HtmlTreeNode</component-type>
+           <component-class>com.icesoft.faces.renderkit.myfaces.custom.tree.HtmlTreeNode</component-class>
+       </component>
+     
+       <component>
+           <component-type>org.apache.myfaces.HtmlTreeImageCommandLink</component-type>
+           <component-class>com.icesoft.faces.renderkit.myfaces.custom.tree.HtmlTreeImageCommandLink</component-class>
+       </component>
+     
+       <component>
+           <component-type>org.apache.myfaces.HtmlTreeColumn</component-type>
+           <component-class>com.icesoft.faces.renderkit.myfaces.custom.tree.HtmlTreeColumn</component-class>
+       </component>
+
+  <render-kit>
+     <description>
+            Custom Components
+     </description>
+<!-- standard extended renderers -->  
+       
+      <renderer>
+            <component-family>javax.faces.Command</component-family>
+            <renderer-type>org.apache.myfaces.Button</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.ButtonRenderer</renderer-class>
+      </renderer>
+        
+       <renderer>
+            <component-family>javax.faces.Command</component-family>
+            <renderer-type>org.apache.myfaces.Link</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.LinkRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>org.apache.myfaces.Text</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.TextRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>org.apache.myfaces.Textarea</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.TextareaRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Output</component-family>
+            <renderer-type>org.apache.myfaces.Text</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.TextRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.SelectMany</component-family>
+            <renderer-type>org.apache.myfaces.Checkbox</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.SelectManyCheckboxListRenderer</renderer-class>
+        </renderer>
+
+        <renderer>
+            <component-family>javax.faces.SelectOne</component-family>
+            <renderer-type>org.apache.myfaces.Menu</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.MenuRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.SelectOne</component-family>
+            <renderer-type>org.apache.myfaces.Radio</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.RadioRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.SelectBoolean</component-family>
+            <renderer-type>org.apache.myfaces.Checkbox</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.CheckboxRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Message</component-family>
+            <renderer-type>org.apache.myfaces.Message</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.MessageRenderer</renderer-class>
+        </renderer>
+
+        <renderer>
+            <component-family>javax.faces.Messages</component-family>
+            <renderer-type>org.apache.myfaces.Messages</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.MessagesRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Data</component-family>
+            <renderer-type>org.apache.myfaces.Table</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.ext.TableRenderer</renderer-class>
+        </renderer>
+
+                            <!-- Custom components -->
+        
+        <renderer>
+             <component-family>org.apache.myfaces.Checkbox</component-family>
+             <renderer-type>org.apache.myfaces.Checkbox</renderer-type>
+             <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.CheckboxRenderer</renderer-class>
+        </renderer>
+        
+        
+        <renderer>
+             <component-family>javax.faces.Command</component-family>
+             <renderer-type>org.apache.myfaces.SortHeader</renderer-type>
+             <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.SortHeaderRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Panel</component-family>
+            <renderer-type>org.apache.myfaces.DataScroller</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.DataScrollerRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Graphic</component-family>
+            <renderer-type>org.apache.myfaces.SwapImage</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.SwapImageRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Command</component-family>
+            <renderer-type>org.apache.myfaces.Navigation</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.NavigationRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Panel</component-family>
+            <renderer-type>org.apache.myfaces.Navigation</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.NavigationRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Panel</component-family>
+            <renderer-type>org.apache.myfaces.TabbedPane</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.TabbedPaneRenderer</renderer-class>
+        </renderer>
+
+       <renderer>
+          <component-family>org.apache.myfaces.HtmlTree</component-family>
+          <renderer-type>org.apache.myfaces.HtmlTree</renderer-type>
+          <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.tree.HtmlTreeRenderer</renderer-class>
+       </renderer>
+
+       <renderer>
+          <component-family>org.apache.myfaces.HtmlTree</component-family>
+          <renderer-type>org.apache.myfaces.HtmlTreeImageCommandLink</renderer-type>
+          <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.tree.HtmlTreeImageCommandLinkRenderer</renderer-class>
+       </renderer>
+
+       <renderer>
+          <component-family>javax.faces.Command</component-family>
+          <renderer-type>org.apache.myfaces.HtmlTreeNode</renderer-type>
+          <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.tree.HtmlTreeNodeRenderer</renderer-class>
+       </renderer>
+      
+        <renderer>
+            <component-family>javax.faces.Panel</component-family>
+            <renderer-type>org.apache.myfaces.Layout</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.LayoutRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Panel</component-family>
+            <renderer-type>org.apache.myfaces.PanelStack</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.PanelStackRenderer</renderer-class>
+        </renderer>
+
+      <renderer>
+          <component-family>javax.faces.Output</component-family>
+          <renderer-type>org.apache.myfaces.Stylesheet</renderer-type>
+          <renderer-class>com.icesoft.faces.renderkit.myfaces.custom.StylesheetRenderer</renderer-class>
+      </renderer>              
+      
+   
+  </render-kit>
+</faces-config>

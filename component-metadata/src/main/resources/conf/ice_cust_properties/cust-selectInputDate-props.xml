@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+&base-props;
+&input-value-props;
+&ice-ext-core-styled-props;
+&ice-att-autoComplete-props;
+&ice-att-userrole-enabled-props;
+&ice-att-immediate-props;
+&ice-att-partialsubmit-true-props;
+&required-props;
+&validator-props;
+&valuechangelistener-props;
+&events-props;
+&pass-thru-dir-props;
+&pass-thru-lang-props;
+&pass-thru-title-props;
+&pass-thru-tabindex-props;
+&actionsource-props;
+&pass-thru-readonly-props;
+<property>
+	<description>
+		Set directory for location of the button images. Deprecated. Use styleClass instead.
+        The style class name for a button is made up of the styleClass name plus a predefined name.
+        For example: with a styleClass name of "myCalendar", the button class names would be:
+        myCalendarMovePrev, myCalendarMoveNext, myCalendarOpenPopup, myCalendarClosePopup.
+        Override the images with the background-image property.
+    </description>
+	<property-name>imageDir</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+		<default-value>"/xmlhttp/css/xp/css-images/"</default-value>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+        <![CDATA[DEPRECATED
+        Now one should instead use an f:convertDateTime tag with its pattern attribute.
+        This is the pattern of the simple date format used in the text input, when renderAsPopup = true
+        Also, if the <b>title</b> attribute is not specified, then <b>popupDateFormat</b> will be used to describe the date format, in the title attribute rendered on the text input field, when renderAsPopup = true]]>
+    </description>
+	<property-name>popupDateFormat</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+        <default-value>"MM/dd/yyyy"</default-value>  		
+	</property-extension>
+</property>
+
+<property>
+    <description>
+		Converter instance registered with this component.
+        Converter must be a javax.faces.convert.DateTimeConverter instance, or subclass,
+        which can be accomplished by using the f:convertDateTime tag.
+        Note: DateTimeConverter's default timeZone, if none is specified, is GMT.
+    </description>
+    <property-name>converter</property-name>
+    <property-class>javax.faces.convert.Converter</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+    </property-extension>
+</property>
+
+<property>
+
+	<property-name>navDate</property-name>
+	<property-class>java.util.Date</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&dateEditor;
+		</editor-class>
+		<is-bindable>false</is-bindable>
+		<is-hidden>true</is-hidden>
+		<tag-attribute>false</tag-attribute>
+	</property-extension>
+</property>
+
+
+
+<property>
+	<description>
+		If true, render the selectInputDate as an inputText field with a button,
+        which when pressed, displays a popup calendar. Else if false,
+        only render the calendar, in-place.
+    </description>
+	<property-name>renderAsPopup</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<is-bindable>true</is-bindable>
+		<is-hidden>false</is-hidden>
+	</property-extension>
+</property>
+        
+<property>
+	<description>
+		If true, the list of months is rendered in a dropdown list.
+        If false (the default), only the specified month is rendered,
+        with left and right arrow buttons to navigate to other months.
+    </description>
+	<property-name>renderMonthAsDropdown</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<is-bindable>true</is-bindable>
+		<is-hidden>false</is-hidden>
+	</property-extension>
+</property>
+        
+<property>
+	<description>
+		If true, a list of 11 years is rendered in a dropdown list, with the specified year in the middle,
+        plus a "previous" item and a "next" item to navigate to other years.
+        If false (the default), only the specified year is rendered, with left
+        and right arrow buttons to navigate to other years.
+    </description>
+	<property-name>renderYearAsDropdown</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<is-bindable>true</is-bindable>
+		<is-hidden>false</is-hidden>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+		This attribute defines class(s) for days to be highlighted.
+		
+		<br/>Note: In order to highlight a day, following three attributes need to be 
+             set with corresponding values:
+            <ol>
+                <li> highlightClass
+            	<li> highlightUnit   
+            	<li> highlightValue
+            </ol> 
+        </p>]]>	            
+	</description>
+	<property-name>highlightClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>This attribute defines the level where highlight need to
+		be applied. The valid values can be set using the following 
+		java.util.Calendar constants:
+		<UL>
+			<LI>YEAR
+        	<LI>MONTH
+        	<LI>WEEK_OF_YEAR
+        	<LI>WEEK_OF_MONTH
+        	<LI>DATE
+        	<LI>DAY_OF_YEAR
+        	<LI>DAY_OF_WEEK
+        	<LI>DAY_OF_WEEK_IN_MONTH
+        </UL>
+		
+		Above units can be defined using String representation or as constant
+		as well (e.g.) <br/>
+		*.jsp<br/>
+		&lt;ice:selectInputDate highlightUnit="YEAR".. /&gt; <br/>
+		equivalent to <br/>
+		&lt;ice:selectInputDate highlightUnit="1".. /&gt; <br/>
+		bean </br>
+		public String getHighlightUnit() {
+			return String.valueOf(Calendar.YEAR); 
+		}		
+		<br/>
+		Note: In order to highlight a day, following three attributes need to be 
+             set with corresponding values:
+            <ol>
+                <li> highlightClass
+            	<li> highlightUnit   
+            	<li> highlightValue
+            </ol>
+        </p>]]>		
+	</description>
+	<property-name>highlightUnit</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+		This attribute defines the value to be highlighted appropriate to 
+		the corresponding highlightUnit attribute.
+		(e.g.) <br/>
+		MONTH = 1 to 12<br/>
+		DAY_OF_WEEK = 1 to 7
+		
+		<br/>
+		Note: In order to highlight a day, following three attributes need to be 
+             set with corresponding values:		
+            <ol>
+                <li> highlightClass
+            	<li> highlightUnit   
+            	<li> highlightValue
+            </ol>             
+        </p>]]>				
+	</description>
+	<property-name>highlightValue</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+              <p>Defines the base class name for all style classes. Default value is <b>iceSelInpDate</b></p>
+              if enabled
+              <ul>
+                <li>iceSelInpDate</li>
+                <li>iceSelInpDateInput</li>
+                <li>iceSelInpDateMonthYear</li>
+                <li>iceSelInpDateMoYrDropdown</li>
+                <li>iceSelInpDateWeek</li>
+                <li>iceSelInpDateDay</li>
+                <li>iceSelInpDateCur</li>
+                <li>iceSelInpDatePopup</li>
+                <li>iceSelInpDateOpenPopup</li>
+                <li>iceSelInpDateClosePopup</li>                
+              </ul>
+              
+              if disabled
+              <ul>
+                <li>iceSelInpDate-dis</li>
+                <li>iceSelInpDateInput-dis</li>
+                <li>iceSelInpDateMonthYear-dis</li>
+                <li>iceSelInpDateMovePrev-dis</li>
+                <li>iceSelInpDateMoveNext-dis</li>
+                <li>iceSelInpDateWeek-dis</li>
+                <li>iceSelInpDateDay-dis</li>
+                <li>iceSelInpDatePopup-dis</li>
+                <li>iceSelInpDateOpenPopup-dis</li>
+              </ul> 
+		]]>		
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>Tooltip for the text input field.</description>
+    <property-name>inputTitle</property-name>
+    <property-extension>
+        <category>ADVANCED</category>
+    </property-extension>
+</property>
+        

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+	<description>
+	<![CDATA[Renders an HTML "table" element, conforming to the
+          rules in the HTML 401 specification.  If the "styleClass"
+          attribute is specified, render its value as the value of the
+          "class" attribute.  Render the pass-through attributes in the
+          table below.  Render the "header" facet, if present, inside of
+          "thead", "tr", and "th" elements, nested in that order.  If the
+          "headerClass" attribute is specified, render its value as the value
+          of the "class" attribute on the "th" element.  Render "colgroup"
+          as the value of the "scope" attribute.  Render the value of the
+          "columns" attribute as the value of the "colspan" attribute on the
+          "th" element.  Render the "footer" facet if present, using similar
+          logic to the rendering of the "header", but replacing "thead" with
+          "tfoot", "th" with "td", and "headerClass" with "footerClass".
+          Render the children of the <code>UIPanel</code> component inside
+          of a "tbody" element.  Render the children based on the value of
+          the "columns" attribute, creating a new row each time a "columns"
+          worth of children have been rendered.  Each child is rendered
+          inside of a "td" element.  If a child has "rendered==false" it is
+          not rendered, and the column counter must not be incremented.
+          ]]>
+	</description>
+	<component-family>javax.faces.Panel</component-family>
+
+	<renderer-type>com.icesoft.faces.Grid</renderer-type>
+
+	<renderer-extension>
+		<instance-name>panelGrid</instance-name>
+		<is-container>true</is-container>
+		<renders-children>true</renders-children>
+		<tag-name>panelGrid</tag-name>
+		<taglib-prefix>@taglib-prefix@</taglib-prefix>
+		<taglib-uri>@taglib-uri@</taglib-uri>
+	</renderer-extension>
+
+</renderer>

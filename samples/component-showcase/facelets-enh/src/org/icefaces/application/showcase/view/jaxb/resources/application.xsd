@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified" jaxb:version="2.0">
+
+    <xs:element name="application">
+
+        <xs:annotation>
+            <xs:appinfo source="http://component-showcase.icefaces.org">
+                Component-Showcase content description. Application uses
+                this schema to build a variety of different UI screens.
+            </xs:appinfo>
+        </xs:annotation>
+
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="navigation" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Application navigation hierarchy, one-to-one
+                            relationship with content-descriptor
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+
+                <xs:element ref="content">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Default content declaration and resources
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="content">
+        <xs:annotation>
+            <xs:documentation>Definition of a content example, usually consists
+                of a base reference for a content include followed by other
+                includes for documentation and source code.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="content-descriptor" maxOccurs="unbounded"/>
+                <xs:element ref="content-resources" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="content-descriptor">
+        <xs:annotation>
+            <xs:documentation>Definition of a content example, usually consists
+                of a base reference for a content include followed by other
+                includes for documentation and source code.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="example" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="source-code" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="documentation" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:ID" use="required"/>
+            <xs:attribute name="title" type="xs:string" use="required"/>
+            <xs:attribute name="templateRef" type="xs:IDREF" use="optional">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="templateRef">
+                            <jaxb:baseType name="ResourceType"/>
+                        </jaxb:property>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="example">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="resource-reference" minOccurs="1"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="templateRef" type="xs:IDREF" use="optional">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="templateRef">
+                            <jaxb:baseType name="ResourceType"/>
+                        </jaxb:property>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="source-code">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element ref="jspx-pages" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="beans" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="templateRef" type="xs:IDREF" use="optional">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="templateRef">
+                            <jaxb:baseType name="ResourceType"/>
+                        </jaxb:property>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="jspx-pages">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="resource-reference" minOccurs="1"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="beans">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="resource-reference" minOccurs="1"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="documentation">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence>
+                <xs:element ref="documents" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="tlds" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="tutorials" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="templateRef" type="xs:IDREF" use="optional">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="templateRef">
+                            <jaxb:baseType name="ResourceType"/>
+                        </jaxb:property>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="documents">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence>
+                <xs:element ref="resource-reference" minOccurs="1"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tlds">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence>
+                <xs:element ref="resource-reference" minOccurs="1"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tutorials">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence>
+                <xs:element ref="resource-reference" minOccurs="1"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="content-resources">
+        <xs:annotation>
+            <xs:documentation>Definition of a content associated with this
+                application. All defined resources are then referenced by
+                content-descriptors
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence>
+                <xs:element ref="resource" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="navigation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="navigation-default" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Default navigation link and thus default content
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element ref="node" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="label" use="required"/>
+
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="navigation-default">
+        <xs:complexType>
+            <xs:attribute name="nodeRef" type="xs:IDREF" use="required">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="navigationNode">
+                            <jaxb:baseType name="Node"/>
+                        </jaxb:property>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="node">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="node" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:ID" use="required"/>
+            <xs:attribute name="label" type="xs:string" use="required"/>
+            <xs:attribute name="leaf" type="xs:boolean" default="true">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="leaf">
+                            <jaxb:baseType name="boolean"/>
+                        </jaxb:property>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="link" type="xs:boolean" default="true">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="link">
+                            <jaxb:baseType name="boolean"/>
+                        </jaxb:property>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="expanded" type="xs:boolean" default="true">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="expanded">
+                            <jaxb:baseType name="boolean"/>
+                        </jaxb:property>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="contentRef" type="xs:IDREF" use="required">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="contentDescriptor">
+                            <jaxb:baseType name="ContentDescriptor"/>
+                        </jaxb:property>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="resource-reference" type="ReferenceType"/>
+
+    <xs:complexType name="ReferenceType">
+        <xs:annotation>
+            <xs:documentation>Definition of simple resource
+            </xs:documentation>
+            <xs:appinfo>
+                <jaxb:class name="ReferenceType"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:attribute name="label" type="xs:string" use="optional" />
+        <xs:attribute name="resourceRef" type="xs:IDREF" use="required">
+            <xs:annotation>
+                <xs:appinfo>
+                    <jaxb:property name="resourceRef">
+                        <jaxb:baseType name="ResourceType"/>
+                    </jaxb:property>
+                </xs:appinfo>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:element name="resource" type="ResourceType"/>
+
+    <xs:complexType name="ResourceType" abstract="false">
+        <xs:annotation>
+            <xs:documentation>Definition of simple resource
+            </xs:documentation>
+            <xs:appinfo>
+                <jaxb:class name="ResourceType"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="path" type="xs:anyURI" use="required"/>
+        <xs:attribute name="pathType" default="include">
+            <xs:simpleType id="pathType">
+                <xs:restriction base="xs:NCName">
+                    <xs:enumeration value="include"/>
+                    <xs:enumeration value="link"/>
+                    <xs:enumeration value="external"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+
+    </xs:complexType>
+
+</xs:schema>

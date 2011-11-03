@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE faces-config PUBLIC
+ "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+ "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<faces-config>
+
+    <application>
+        <view-handler>com.icesoft.faces.application.D2DViewHandler</view-handler>
+        <default-render-kit-id>ICEfacesRenderKit</default-render-kit-id>
+        <state-manager>com.icesoft.faces.application.ViewRootStateManagerImpl</state-manager>
+    </application>
+    
+    <factory>
+        <faces-context-factory>
+            com.icesoft.faces.context.FacesContextFactoryImpl
+        </faces-context-factory>
+    </factory>
+
+   <lifecycle>
+      <phase-listener>com.icesoft.faces.application.PartialSubmitPhaseListener</phase-listener>
+      <phase-listener>com.icesoft.faces.component.inputfile.FileUploadPhaseListener</phase-listener>
+   </lifecycle>
+
+    
+    <render-kit>
+        <description>The ICEsoft Renderers.</description>
+        <render-kit-id>ICEfacesRenderKit</render-kit-id>
+        <render-kit-class>com.icesoft.faces.renderkit.D2DRenderKit</render-kit-class>
+        <renderer>
+            <component-family>javax.faces.Command</component-family>
+            <renderer-type>javax.faces.Link</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.CommandLinkRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Output</component-family>
+            <renderer-type>javax.faces.Link</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.OutputLinkRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Command</component-family>
+            <renderer-type>javax.faces.Button</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.ButtonRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Output</component-family>
+            <renderer-type>javax.faces.Text</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.OutputTextRenderer</renderer-class>
+        </renderer>
+        
+        <renderer>
+            <component-family>javax.faces.Output</component-family>
+            <renderer-type>com.icesoft.faces.PlainText</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.OutputTextRenderer</renderer-class>
+        </renderer>         
+        <renderer>
+            <component-family>javax.faces.Form</component-family>
+            <renderer-type>javax.faces.Form</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.FormRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.SelectBoolean</component-family>
+            <renderer-type>javax.faces.Checkbox</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.CheckboxRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Data</component-family>
+            <renderer-type>javax.faces.Table</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.TableRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Graphic</component-family>
+            <renderer-type>javax.faces.Image</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.ImageRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>javax.faces.Hidden</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.HiddenRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>javax.faces.Textarea</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.TextareaRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>javax.faces.Secret</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.SecretRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Output</component-family>
+            <renderer-type>javax.faces.Label</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.LabelRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>javax.faces.Text</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.InputTextRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Output</component-family>
+            <renderer-type>javax.faces.Format</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.OutputMessageRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Message</component-family>
+            <renderer-type>javax.faces.Message</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.MessageRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Panel</component-family>
+            <renderer-type>javax.faces.Grid</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.GridRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Panel</component-family>
+            <renderer-type>javax.faces.Group</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.GroupRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.SelectOne</component-family>
+            <renderer-type>javax.faces.Menu</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.MenuRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.SelectMany</component-family>
+            <renderer-type>javax.faces.Checkbox</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.SelectManyCheckboxListRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.SelectOne</component-family>
+            <renderer-type>javax.faces.Radio</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.RadioRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.SelectOne</component-family>
+            <renderer-type>javax.faces.Listbox</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.ListboxRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.SelectMany</component-family>
+            <renderer-type>javax.faces.Listbox</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.ListboxRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Messages</component-family>
+            <renderer-type>javax.faces.Messages</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.MessagesRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.SelectMany</component-family>
+            <renderer-type>javax.faces.Menu</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.MenuRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>com.icesoft.faces.XhtmlComponent</component-family>
+            <renderer-type>com.icesoft.domXhtml</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.XMLRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>com.icesoft.faces.XhtmlComponent</component-family>
+            <renderer-type>com.icesoft.faces.Xhtml</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.XMLRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+
+    <component>
+        <component-type>com.icesoft.faces.XhtmlComponent</component-type>
+        <component-class>com.icesoft.faces.component.UIXhtmlComponent</component-class>
+        <component-extension>
+            <component-family>com.icesoft.faces.XhtmlComponent</component-family>
+        </component-extension>
+    </component>
+
+   <render-kit>
+        <render-kit-id>ICEfacesRenderKit</render-kit-id>
+        <render-kit-class>com.icesoft.faces.renderkit.D2DRenderKit</render-kit-class>
+        <renderer>
+            <component-family>javax.faces.Output</component-family>
+            <renderer-type>com.icesoft.faces.component.Include</renderer-type>
+            <renderer-class>com.icesoft.faces.renderkit.IncludeRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+    
+    
+</faces-config>

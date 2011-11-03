@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<project name="push-server" default="build.war">
+    <property name="src.dir" location="src" />
+    <property name="build.dir" location="build" />
+    <property name="build.classes.dir" location="${build.dir}/classes" />
+    <property name="dist.dir" location="dist" />
+    <property name="web.xml" location="web/WEB-INF/web.xml" />
+    
+    <property name="productinfo.src" location="conf/org/icesoft/faces/push/server" />
+    <property name="productinfo.dest" location="src/org/icefaces/push/server" />
+    <property name="productinfo.file" value="ProductInfo.java" />
+    <property name="company" value="ICEsoft Technologies, Inc." />
+    <property name="product" value="ICEfaces Push Server" />
+    <property name="version.primary" value="x" />
+    <property name="version.secondary" value="x" />
+    <property name="version.tertiary" value="x" />
+    <property name="release.type" value="x" />
+    <property name="revision" value="x" />
+    <property name="build.number" value="x" />
+
+    <property name="compile.debug" value="true" />
+    
+    <path id="compile.run.classpath">
+        <pathelement location="${build.classes.dir}" />
+        <fileset dir="../lib" includes="**/*.jar" />
+        <pathelement location="${icefaces.jar}" />
+    </path>
+     
+    <target name="compile" depends="update.product.info">
+        <delete dir="${build.classes.dir}" />
+        <mkdir dir="${build.classes.dir}" />
+        <javac source="1.4" target="1.4" srcdir="${src.dir}" destdir="${build.classes.dir}" debug="${compile.debug}">
+            <classpath refid="compile.run.classpath" />
+        </javac>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${src.dir}" includes="**/*.dtd" />
+        </copy>
+    </target>    
+    
+    <target name="jar" depends="compile">
+        <mkdir dir="${dist.dir}" />
+        <jar destfile="${dist.dir}/${ant.project.name}.jar" basedir="${build.classes.dir}" duplicate="preserve">
+            <manifest>
+                <section name="com.icesoft.faces">
+                    <attribute name="Implementation-Title" value="${product}" />
+                    <attribute name="Implementation-Version" value="${release.type} ${version.primary}.${version.secondary}.${version.tertiary}_${build.number} (${buildtime})" />
+                    <attribute name="Implementation-Vendor" value="${company}" />
+                </section>
+            </manifest>
+            <fileset dir="${src.dir}">
+                <include name="**/*.properties" />
+            </fileset>
+        </jar>
+        <copy file="${dist.dir}/${ant.project.name}.jar" todir="../lib" />
+    </target>    
+    
+    <target name="clean">
+        <delete dir="${build.dir}" />
+        <delete dir="${dist.dir}" />
+        <delete>
+            <fileset dir="." includes="**/${ant.project.name}.war"/>
+        </delete>
+    </target>
+    
+    <target name="build.war" depends="clean, jar">
+        <war destfile="${dist.dir}/${ant.project.name}.war" basedir="web" excludes="WEB-INF/web*.xml" webxml="${web.xml}" duplicate="fail">
+            <lib dir="../lib">
+                <include name="commons-logging.jar" />
+                <include name="icefaces.jar" />
+                <include name="backport-util-concurrent.jar" />
+            </lib>
+            
+            <lib file="${dist.dir}/${ant.project.name}.jar" />
+        </war>
+        <copy file="${dist.dir}/push-server.war" todir="." />
+    </target>
+    
+    <target name="update.product.info">
+        <copy file="${productinfo.src}/${productinfo.file}" todir="${productinfo.dest}" overwrite="true" />
+        <replace file="${productinfo.dest}/${productinfo.file}">
+            <replacefilter token="@company@" value="${company}" />
+            <replacefilter token="@product@" value="${product}" />
+            <replacefilter token="@version.primary@" value="${version.primary}" />
+            <replacefilter token="@version.secondary@" value="${version.secondary}" />
+            <replacefilter token="@version.tertiary@" value="${version.tertiary}" />
+            <replacefilter token="@release.type@" value="${release.type}" />
+            <replacefilter token="@build.number@" value="${build.number}" />
+            <replacefilter token="@revision@" value="${revision}" />
+        </replace>
+    </target>
+</project>

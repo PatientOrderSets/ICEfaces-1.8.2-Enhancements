@@ -1,0 +1,116 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~                                                                     sorry
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, ice:datadataPaginator is used to page through a table
+with more data than can be displayed in a single page.
+-->
+
+<ice:panelGroup styleClass="componentBox"
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:panelGroup styleClass="synopsisBox dataScrollingContainer">
+
+        <ice:outputText value="#{msgs['page.dataExporter.synopsis']}"/>
+        <ice:outputText value="#{msgs['page.dataExporter.description']}"/>
+
+    </ice:panelGroup>
+
+    <!-- Paginator layout, horizontal/vertical -->
+    <ice:panelGroup styleClass="exampleBox dataScrollingContainer">
+        <ice:selectOneMenu id="type" value="#{dataExporter.type}" partialSubmit="true"
+            valueChangeListener="#{dataExporter.typeChangeListener}" >
+            <f:selectItem itemLabel="Select a type" itemValue=""/>
+            <f:selectItem itemLabel="MS Excel" itemValue="excel"/>
+            <f:selectItem itemLabel="CSV (comma separated values)" itemValue="csv"/>
+        </ice:selectOneMenu>
+        <br/>
+       <ice:panelGroup effect="#{dataExporter.changeEffect}" style="width:180px;">
+            <ice:dataExporter for="dataExportTable"
+                label="Click to download #{dataExporter.type} file"
+                type="#{dataExporter.type}"
+                popupBlockerLabel="Popup Blocker detected - click here to resume download..."
+                clickToCreateFileText="Click to create #{dataExporter.type} file "/>
+       </ice:panelGroup>
+ </ice:panelGroup>
+
+    <ice:panelGroup styleClass="exampleBox dataScrollingContainer" style="clear: left;">
+
+        <ice:dataTable id="dataExportTable"
+               var="employee"
+               value="#{dataExportData.employees}"
+               rows="10"
+               styleClass="dataPaginatorDataTable"
+               cellpadding="0">
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column1"
+                                    value="#{msgs['page.dataTable.column1']}"/>
+                </f:facet>
+                <ice:outputText id="number"
+                                value="#{employee.id}"/>
+            </ice:column>
+
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column2"
+                                    value="#{msgs['page.dataTable.column2']}"/>
+                </f:facet>
+                <ice:outputText id="firstName"
+                                value="#{employee.firstName}"/>
+            </ice:column>
+
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column3"
+                                    value="#{msgs['page.dataTable.column3']}"/>
+                </f:facet>
+                <ice:outputText id="lastName"
+                                value="#{employee.lastName}"/>
+            </ice:column>
+
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column4"
+                                    value="#{msgs['page.dataTable.column4']}"/>
+                </f:facet>
+                <ice:outputText id="phoneNo"
+                                value="#{employee.phone}"/>
+            </ice:column>
+        </ice:dataTable>
+
+    </ice:panelGroup>
+
+</ice:panelGroup>

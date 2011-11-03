@@ -1,0 +1,164 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title> Component</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2">outputConnectionStatus</h2>
+<hr>
+<p >The  component displays
+information about the status of the network
+connection between the client browser and the server. The component
+displays one of 4 possible states, which are as follows.</p>
+<ol>
+  <li><b>Active:</b> The connection is alive and there is a request pending</li>
+  <li><b>Inactive:</b> The connection is alive and there is no pending activity</li>
+  <li><b>Caution:</b> The connection request/response latency has exceeded the
+    configured threshold. Indicates that asynchronous updates from the server
+    may not be received in a timely manner</li>
+  <li><b>Disconnected:</b> The connection has been lost, either due to network
+    or application error (session expiry, etc.). </li>
+</ol>
+The  component provides an ideal mechanism to
+provide continuous real-time feedback to users of the status of their
+ICEfaces application. It is particularly important to inform users when
+the application is busy sending and receiving data in response to a
+user-initiated action to manage their expectations with respect to
+application readiness for additional user input. Generally, the
+ component should be located in a consistent
+location throughout an ICEfaces application.<br>
+<br>
+NOTE: A web-page should only contain a single
+component. Using more than one  component on the
+same web page will result in erratic results.
+<br>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Example with labels<br>
+</div>
+<span style="font-family: monospace;">&lt;ice:outputConnectionStatus</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+cautionLabel="Caution: Connection in danger."</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+activeLabel="Active: Working."</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+disconnectedLabel="Disconnected."</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+inactiveLabel="Active: Idle."</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">/&gt;
+</span>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Example
+without labels<br>
+</div>
+<span style="font-family: monospace;">&lt;ice:outputConnectionStatus/&gt;</span><br>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary</div>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-name:</div>
+      </td>
+      <td>
+      <div class="CellBody"> &lt;ice:outputConnectionStatus&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.OutputConnectionStatusTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.OutputConnectionStatus</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.OutputConnectionStatus</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-family:</div>
+      </td>
+      <td>
+      <div class="CellBody"> javax.faces.Panel</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component..Renderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-type:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.OutputConnectionStatusRenderer</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>rowSelector Component</title>
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h2 class="Heading2">rowSelector</h2>
+<hr>
+
+<p >The Row Selector tag enables row selection for DataTables. The Row Selector has the following
+attributes</p>
+
+<ul>
+  <li><b>value</b> The boolean value that indicate this row is selected. This value must be defined
+  in the 'var' of the dataTable. Required</li>
+  <li><b>multiple</b> When true more then one row can be selected. Default is false</li>
+  <li><b>enhancedMultiple</b> When true offers following selection model:
+		<ul>
+		  <li>"Click" selects clicked row and deselects rest</li>
+    	  <li>"Click + Ctrl" flip the selection of clicked row and keeps previous selection intact</li>
+          <li>"Click + Shift" selects all rows from last clicked row to newly clicked row, and deselect rest</li>
+          <li>"Click + Shift + Ctrl" selects all rows from last clicked row to newly clicked row and keeps previous selection intact </li>
+		</ul>
+  </li>
+  <li><b>selectionListener</b> The listener method to call when a row is clicked</li>
+  <li><b>selectedClass</b> The CSS style to apply when a row is selected</li>
+  <li><b>mouseOverClass</b> The CSS style to apply when the mouse is over a row.</li>
+  <li><b>toggleOnClick</b> Disable row selection on mouse click.</li>
+</ul>
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+  Example</div>
+
+<p>The following code shows how to create a rowSelector component with either single or multiple selection, custom styling, and a selectionListener that is invoked in the INVOKE_APPLICATION phase:</p>
+<pre class="Preformatted">
+    &lt;ice:dataTable var="person" value="#{scrollerList.persons}"
+                   rows="15" columnClasses="tableCol"&gt;
+        &lt;ice:column rendered="#{table.renderFirstName}"&gt;
+            &lt;ice:rowSelector value="#{person.selected}" multiple="#{table.multipleSelection}"
+                             selectedClass="tableRowSelected" mouseOverClass="tableRowMouseOver"
+                             immediate="false" selectionListener="#{table.rowSelection}"/&gt;
+            &lt;f:facet name="header"&gt;
+                &lt;ice:outputText value="#{msgs['component.table.column1']}"/&gt;
+            &lt;/f:facet&gt;
+            &lt;ice:outputText value="#{person.firstName}"/&gt;
+        &lt;/ice:column&gt;
+    &lt;/ice:dataTable&gt;
+</pre>
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-name:</div>
+      </td>
+      <td>
+      <div class="CellBody"> &lt;ice:rowSelector&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-class:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.component.RowSelectorTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-class:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.component.ext.RowSelector</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.RowSelector</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-family:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.RowSelectorFamily</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.component.ext.renderkit.TableRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.Table</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Input</component-family>
+    <renderer-type>com.icesoft.faces.InputRichTextRenderer</renderer-type>
+    <renderer-class>com.icesoft.faces.component.inputrichtext.InputRichTextRenderer</renderer-class>
+</renderer>

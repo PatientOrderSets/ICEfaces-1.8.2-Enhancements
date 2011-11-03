@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+  
+&ice-ext-core-styled-props;
+&ice-effects-props;
+&base-props;
+&events-props;
+&value-props;
+&pass-thru-alt-props;
+&pass-thru-dir-props;
+&pass-thru-lang-props;
+<property>
+          <description>
+
+              Context-relative URL to retrieve the resource associated with
+              this component.  This is an alias for the "value" property.
+
+          </description>
+	<property-name>url</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>DATA</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		Override for the height of this image.
+	</description>
+    <property-name>height</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		Override for the width of this image.
+	</description>
+    <property-name>width</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+</property>
+
+
+<property>
+	<description>
+		URI to a long description of the image represented by this element.
+	</description>
+    <property-name>longdesc</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+</property>
+
+
+  <property>
+    <description>
+        <![CDATA[    
+		Space-separated list of CSS style class(es) to be applied when this 
+		element is rendered. This value must be passed through as the "class" 
+		attribute on generated markup.<br/>
+		The default class rendered as <b>iceGphImg</b>
+		]]>
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		The name of a client side image map (an HTML "map" element) for which 
+		this element provides the image.
+	</description>
+    <property-name>usemap</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		The MIME type of the image that is rendered dynamically (by means of a 
+		byte array) by this element.
+	</description>
+    <property-name>mimeType</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ADVANCED</category>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+    <![CDATA[   
+          The value of this component can be set to one of the following type:
+          <ul>
+            <li>String</li>
+            <li>byte[]</li>
+            <li>com.icesoft.faces.context.Resource
+                 <ul>
+                    <li>com.icesoft.faces.context.JarResource</li>
+                    <li>com.icesoft.faces.context.FileResource</li>
+                    <li>com.icesoft.faces.context.ByteArrayResource</li>
+                 </ul>
+            </li>
+          </ul>          
+    ]]>
+    </description>
+    <property-name>value</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>DATA</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+

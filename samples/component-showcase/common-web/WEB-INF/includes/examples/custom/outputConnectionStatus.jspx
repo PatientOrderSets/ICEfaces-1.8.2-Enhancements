@@ -1,0 +1,110 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration ice:connectionStatus different icons are displayed.
+-->
+
+<ice:panelGroup styleClass="componentBox"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+    <ice:panelGroup styleClass="synopsisBox outputConnectionStatusContainer">
+        <ice:outputText
+                value="#{msgs['page.connectionStatus.synopsis']}"/>
+       <ice:outputText
+                value="#{msgs['page.connectionStatus.instructions']}"/>
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="clearer" />
+
+    <!-- display of all connnection status icons for -->
+    <ice:panelGroup styleClass="exampleBox centerBox outputConnectionStatus" >
+        <ice:panelGrid columns="5" cellspacing="15"
+                       styleClass="connectionStatusGraphics">
+
+            <ice:outputText value="#{msgs['page.connectionStatus.theme.label']}"/>
+            <ice:outputText
+                    value="#{msgs['page.connectionStatus.status1.value']}"/>
+            <ice:outputText
+                    value="#{msgs['page.connectionStatus.status2.value']}"/>
+            <ice:outputText
+                    value="#{msgs['page.connectionStatus.status3.value']}"/>
+            <ice:outputText
+                    value="#{msgs['page.connectionStatus.status4.value']}"/>
+
+            <ice:outputText value="#{msgs['page.connectionStatus.theme1.value']}"/>
+            <ice:graphicImage id="xpIdle"
+                    width="25" height="25"
+                    url="/xmlhttp/css/xp/css-images/connect_idle.gif"/>
+            <ice:graphicImage id="xpActive"
+                    width="25" height="25"
+                    url="/xmlhttp/css/xp/css-images/connect_active.gif"/>
+            <ice:graphicImage id="xpCaution"
+                    width="25" height="25"
+                    url="/xmlhttp/css/xp/css-images/connect_caution.gif"/>
+            <ice:graphicImage id="xpDisconnected"
+                    width="25" height="25"
+                    url="/xmlhttp/css/xp/css-images/connect_disconnected.gif"/>
+
+            <ice:outputText value="#{msgs['page.connectionStatus.theme2.value']}"/>
+            <ice:graphicImage id="royaleIdle"
+                    width="60" height="25"
+                    url="/xmlhttp/css/royale/css-images/connect_idle.gif"/>
+            <ice:graphicImage id="royaleActive"
+                    width="60" height="25"
+                    url="/xmlhttp/css/royale/css-images/connect_active.gif"/>
+            <ice:graphicImage id="royalCaution"
+                    width="60" height="25"
+                    url="/xmlhttp/css/royale/css-images/connect_caution.gif"/>
+            <ice:graphicImage id="royaleDisconnected"
+                    width="60" height="25"
+                    url="/xmlhttp/css/royale/css-images/connect_disconnected.gif"/>
+
+            <ice:outputText value="#{msgs['page.connectionStatus.theme3.value']}"/>
+            <ice:graphicImage id="rimeIdle"
+                    width="26" height="26"
+                    url="/xmlhttp/css/rime/css-images/connect_idle.gif"/>
+            <ice:graphicImage id="rimeActive"
+                    width="26" height="26"
+                    url="/xmlhttp/css/rime/css-images/connect_active.gif"/>
+            <ice:graphicImage id="rimeCaution"
+                    width="26" height="26"
+                    url="/xmlhttp/css/rime/css-images/connect_caution.gif"/>
+            <ice:graphicImage id="rimeDisconnected"
+                    width="26" height="26"
+                    url="/xmlhttp/css/rime/css-images/connect_disconnected.gif"/>
+
+        </ice:panelGrid>
+    </ice:panelGroup>
+</ice:panelGroup>

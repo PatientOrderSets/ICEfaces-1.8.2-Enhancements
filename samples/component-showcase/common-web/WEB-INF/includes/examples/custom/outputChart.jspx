@@ -1,0 +1,199 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<ice:panelGroup styleClass="componentBox"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:panelGroup styleClass="synopsisBox chartsContainer">
+
+        <ice:outputText value="#{msgs['page.outputChart.synopsis']}"/>
+        <ice:outputText value="#{msgs['page.outputChart.description']}"/>
+
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="clearer"/>
+
+    <!-- dynamic controlls for charts -->
+    <ice:panelGroup styleClass="exampleBox firstChildTitle chartsContainer">
+
+        <ice:panelGrid columns="4"
+                       cellpadding="4"
+                       styleClass="chartConfigurationContainer verticalAlignTop chartsContainer">
+
+             <!-- Horizontal/ vertical layout of axial data -->
+            <ice:panelGroup styleClass="firstChildTitle"
+                            rendered="#{chartController.currentChartModel.axisOrientationEnabled}">
+                <ice:panelGroup>
+                    <ice:outputLabel
+                            for="axialOrientation"
+                            value="#{msgs['page.outputChart.orientation.label']}"/>
+                </ice:panelGroup>
+                <ice:panelGroup>
+                    <ice:selectOneRadio
+                            id="axialOrientation"
+                            value="#{chartController.currentChartModel.barChartOrientationHorizontal}"
+                            partialSubmit="true" >
+                        <f:selectItem itemValue="#{true}"
+                                      itemLabel="#{msgs['page.outputChart.orientation.horiz.label']}"/>
+                        <f:selectItem itemValue="#{false}"
+                                      itemLabel="#{msgs['page.outputChart.orientation.vert.label']}"/>
+                    </ice:selectOneRadio>
+                </ice:panelGroup>
+            </ice:panelGroup>
+
+            <!-- legend Placement -->
+            <ice:panelGroup styleClass="firstChildTitle">
+                <ice:panelGroup>
+                    <ice:outputLabel
+                            for="legedPosition"
+                            value="#{msgs['page.outputChart.legend.position.label']}"/>
+                </ice:panelGroup>
+                <ice:panelGroup>
+                    <ice:selectOneMenu
+                            id="legedPosition"
+                            disabled="#{not chartController.currentChartModel.enabledLengendPosition}"
+                            value="#{chartController.currentChartModel.legendPlacement}"
+                            partialSubmit="true">
+                        <f:selectItem itemValue="bottom"
+                                      itemLabel="#{msgs['page.outputChart.legend.position.bottom.label']}"/>
+                        <f:selectItem itemValue="top"
+                                      itemLabel="#{msgs['page.outputChart.legend.position.top.label']}"/>
+                        <f:selectItem itemValue="left"
+                                      itemLabel="#{msgs['page.outputChart.legend.position.left.label']}"/>
+                        <f:selectItem itemValue="right"
+                                      itemLabel="#{msgs['page.outputChart.legend.position.right.label']}"/>
+                        <f:selectItem itemValue="none"
+                                      itemLabel="#{msgs['page.outputChart.legend.position.none.label']}"/>
+                    </ice:selectOneMenu>
+                </ice:panelGroup>
+            </ice:panelGroup>
+
+             <!-- Area Map display values -->
+            <ice:panelGroup styleClass="firstChildTitle">
+                <ice:panelGroup>
+                    <ice:outputLabel for="areaMap"
+                            value="#{msgs['page.outputChart.imageMap.label']}" />
+                </ice:panelGroup>
+                <ice:panelGroup>
+                    <ice:inputText id="areaMap"
+                        style="border: none;"
+                        readonly="true"
+                        disabled="#{not chartController.currentChartModel.areaMapEnabled}"
+                        value="#{chartController.currentChartModel.areaMapClickValue}" />
+                </ice:panelGroup>
+            </ice:panelGroup>
+
+            <!-- Modify Data values -->
+            <ice:panelGroup styleClass="firstChildTitle">
+                <ice:panelGroup>
+                    <ice:outputLabel value="#{msgs['page.outputChart.data.label']}" />
+                </ice:panelGroup>
+                <ice:panelGroup>
+                    <ice:commandButton
+                            disabled="#{not chartController.currentChartModel.enableDynamicValues}"
+                            value="#{msgs['page.outputChart.data.add.label']}"
+                            actionListener="#{chartController.addChartData}" />
+                    <ice:commandButton
+                            disabled="#{not chartController.currentChartModel.enableDynamicValues}"
+                            value="#{msgs['page.outputChart.data.remove.label']}"
+                            actionListener="#{chartController.removeChartData}" />
+                    <ice:commandButton
+                            disabled="#{not chartController.currentChartModel.enableDynamicValues}"
+                            value="#{msgs['page.outputChart.data.reset.label']}"
+                            actionListener="#{chartController.resetChartData}" />
+                </ice:panelGroup>
+            </ice:panelGroup>
+
+        </ice:panelGrid>
+
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="clearer" />
+
+    <ice:panelGroup styleClass="exampleBox firstChildTitle" >
+
+        <!-- list of available chart to view -->
+        <ice:outputText
+            value="#{msgs['page.outputChart.types.title']}"/>
+        <br /><br />
+        <ice:selectOneListbox
+                   value="#{chartController.currentChartType}"
+                   valueChangeListener="#{chartController.chartTypeChange}"
+                   partialSubmit="true" >
+            <f:selectItems value="#{chartController.chartList}"/>
+        </ice:selectOneListbox>
+
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="exampleBox"  >
+        <!-- chart type axial -->
+        <ice:outputChart id="axialOutputChart"
+                 rendered="#{chartController.currentChartModel.chartType == 0}"
+                 type="#{chartController.currentChartType}"
+                 chartTitle="#{chartController.currentChartModel.chartTitle} Chart"
+                 xaxisTitle="#{chartController.currentChartModel.XAxisTitle}"
+                 yaxisTitle="#{chartController.currentChartModel.YAxisTitle}"
+                 labels="#{chartController.currentChartModel.legendLabels}"
+                 legendPlacement="#{chartController.currentChartModel.legendPlacement}"
+                 colors="#{chartController.currentChartModel.colors}"
+                 xaxisLabels="#{chartController.currentChartModel.XAxisLabels}"
+                 data="#{chartController.currentChartModel.chartData}"
+                 renderOnSubmit="#{chartController.currentChartModel.renderOnSubmit}"
+                 actionListener="#{chartController.chartAreaClicked}"
+                 horizontal="#{chartController.currentChartModel.barChartOrientationHorizontal}"
+                 width="450" height="300"/>
+        <!-- chart type radial -->
+        <ice:outputChart id="radialOuputChart"
+                 rendered="#{chartController.currentChartModel.chartType == 1}"
+                 type="#{chartController.currentChartType}"
+                 chartTitle="#{chartController.currentChartModel.chartTitle} Chart"
+                 legendPlacement="#{chartController.currentChartModel.legendPlacement}"
+                 data="#{chartController.currentChartModel.chartData}"
+                 colors="#{chartController.currentChartModel.colors}"
+                 renderOnSubmit="#{chartController.currentChartModel.renderOnSubmit}"
+                 width="450" height="300"/>
+
+        <!-- chart type custom -->
+        <ice:outputChart id="customOuputChart"
+                 rendered="#{chartController.currentChartModel.chartType == 2}"
+                 type="#{chartController.currentChartType}"
+                 renderOnSubmit="#{chartController.currentChartModel.renderOnSubmit}"
+                 actionListener="#{chartController.chartAreaClicked}"
+                 width="450" height="300"/>
+
+    </ice:panelGroup>
+
+
+</ice:panelGroup>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+  
+&ice-ext-core-props;
+&ice-effects-props;
+&events-props;
+&ice-att-menuPopup-props;
+&ice-att-contextValue-props;
+&pass-thru-title-props;
+<property>
+	<description>
+		The drop value of this panel, for use in DnDEvents. This value
+		can be a string or a value binding expression.
+	</description>
+	<property-name>dragValue</property-name>
+	<property-class>java.lang.Object</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&valueBindingEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		Drop mask is used to prevent drop events from propagating to the
+		server. For example if your backing bean is not interested in
+		HOVER_START events then adding hover_start to the mask will stop
+		the event from being sent. Multiple values are specified in a
+		comma separated list. Possible values are. dropped,hover_start
+	</description>
+	<property-name>dropMask</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		When set to true this panel is a dropTarget for draggable
+		panels. Drop targets detect when a draggable has been dropped on
+		a specific region of the page. Note: all Drop Target panels must
+		be contained in a form.
+	</description>
+	<property-name>dropTarget</property-name>
+	<property-class>java.lang.Object</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		When set to 'true' this panel is draggable. The user will be
+		able to drag the panel to any position on the page. Note: all
+		Draggable panels must be contained in a form.
+	</description>
+	<property-name>draggable</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<property-name>renderedStyle</property-name>
+
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		The dragListener specifies a method on a backing bean that will
+		accept DnDEvents. This value must be a method binding
+		expression.
+	</description>
+	
+	<property-name>dragListener</property-name>
+	<property-class>javax.faces.el.MethodBinding</property-class>
+		<property-extension>
+		<category>DRAGANDDROP</category>
+		<editor-class>
+			&methodBindingEditor;
+		</editor-class>
+		<is-bindable>true</is-bindable>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		The drop value of this panel, for use in DnDEvents. This value can 
+		be a string or a value binding expression. 
+	</description>
+	<property-name>dropValue</property-name>
+	<property-class>java.lang.Object</property-class>
+	<property-extension>
+		<category>DRAGANDDROP</category>
+		<editor-class>
+			&valueBindingEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		The dropListener specifies a method on a backing bean that will
+		accept DnDEvents. This value must be a method binding
+		expression. This method will be called when a droppable is
+		dropped or hovered on this panel unless masked.
+	</description>
+	<property-name>dropListener</property-name>
+	<property-class>javax.faces.el.MethodBinding</property-class>
+		<property-extension>
+		<category>DRAGANDDROP</category>
+		<editor-class>
+			&methodBindingEditor;
+		</editor-class>
+		<is-bindable>true</is-bindable>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		Optional effects for draggable panels. List in a coma seperated
+		string. (revert,ghosting,solid) revert - When a draggable is
+		dropped the draggable will move back to it's starting position.
+		ghosting - When a draggable is dragged a ghost copy is left in
+		the original position. solid - Do not make transparent when
+		dragging.
+	</description>
+	<property-name>dragOptions</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>DRAGANDDROP</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+
+<property>
+	<description>
+		Drag mask is used to prevent drag events from propagating to the
+		server. For example if your backing bean is not interested in
+		HOVER_START events then adding hover_start to the mask will stop
+		the event from being sent. Multiple values are specified in a
+		comma separated list. Possible values are. dragging,
+		drag_cancel,dropped,hover_start,hover_end
+	</description>
+	<property-name>dragMask</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>DRAGANDDROP</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+        <![CDATA[
+        Height for scrollable panel. You must need to define the measurement unit without any space (e.g.) <br/>
+        &lt;ice:panelGroup scrollHeight="50em" &gt; <br/> or <br/>
+        &lt;ice:panelGroup scrollHeight="50px" &gt; <br/>
+        ]]> 
+	</description>
+	<property-name>scrollHeight</property-name>
+
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&integerEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+        <![CDATA[
+        Width for scrollable panel. You must need to define the measurement unit without any space (e.g.) <br/>
+        &lt;ice:panelGroup scrollWidth="50em" &gt; <br/> or <br/>
+        &lt;ice:panelGroup scrollWidth="50px" &gt; <br/>
+        ]]> 
+	</description>
+	<property-name>scrollWidth</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&integerEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+	</description>
+	<property-name>renderedStyle</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+        <is-hidden>true</is-hidden>
+	</property-extension>
+</property>
+
+
+
+<property>
+	<description>
+    Hover class
+	</description>
+	<property-name>hoverclass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+        <is-hidden>true</is-hidden>
+	</property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        Space-separated list of CSS style class(es) to be applied when this 
+		element is rendered. This value is passed through as the "class" 
+		attribute on generated markup.
+		The base name for all style classes. Default value is <b>icePnlGrp</b>.
+		]]>		
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &styleClassEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+    Hover class
+    </description>
+    <property-name>panelTooltip</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_COMPONENT</category>
+        <is-hidden>true</is-hidden>
+    </property-extension>
+</property>
+
+<property>
+<description>
+    Id of scrollable div containing drop target.
+    Not needed if drop target is not in a scrollable div.
+</description>
+<property-name>dropTargetScrollerId</property-name>
+<property-class>java.lang.String</property-class>
+<property-extension>
+    <category>ICE_COMPONENT</category>
+    <editor-class>
+        &stringEditor;
+    </editor-class>
+</property-extension>
+</property>

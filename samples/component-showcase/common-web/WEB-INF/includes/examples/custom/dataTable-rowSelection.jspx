@@ -1,0 +1,163 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, ice:dataTable is used to display data. There is
+a control on the data to hide/show the table columns.
+-->
+<ice:panelGroup styleClass="componentBox"
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:panelGroup styleClass="synopsisBox">
+        <ice:outputText value="#{msgs['page.rowSelector.synopsis']}"/>
+        <ice:outputText value="#{msgs['page.rowSelector.instructions']}"/>
+    </ice:panelGroup>
+
+    <!-- Multiple Selection Checkbox -->
+    <ice:panelGroup styleClass="exampleBox rowSelectorContainer">
+
+        <ice:panelGroup>
+            <!-- clear the list if some change the multiselect state -->
+            <ice:outputLabel value="#{msgs['page.rowSelector.multiple']}"/>
+
+            <ice:selectOneRadio id="multipleSelection"
+                                       value="#{rowSelectController.multiRowSelect}"
+                                       partialSubmit="true"
+                                       valueChangeListener="#{rowSelectController.changeSelectionMode}">
+                <f:selectItem itemLabel="#{msgs['page.rowSelector.ItemSingle']}" itemValue="#{msgs['page.rowSelector.ItemSingle']}" />
+                <f:selectItem itemLabel="#{msgs['page.rowSelector.ItemMultiple']}" itemValue="#{msgs['page.rowSelector.ItemMultiple']}" />
+                <f:selectItem itemLabel="#{msgs['page.rowSelector.ItemEnhancedMultiple']}" itemValue="#{msgs['page.rowSelector.ItemEnhancedMultiple']}" />
+            </ice:selectOneRadio> 
+            <ice:panelGroup rendered="#{rowSelectController.enhancedMultiple}">                          
+	            <ice:outputLabel value="#{msgs['page.rowSelector.enhancedMultipleHeading']}"/> <br/>
+	            <ice:outputLabel value="#{msgs['page.rowSelector.enhancedMultipleDoc1']}"/><br/>
+	            <ice:outputLabel value="#{msgs['page.rowSelector.enhancedMultipleDoc2']}"/><br/>
+	            <ice:outputLabel value="#{msgs['page.rowSelector.enhancedMultipleDoc3']}"/><br/>
+	            <ice:outputLabel value="#{msgs['page.rowSelector.enhancedMultipleDoc4']}"/><br/>                               
+            </ice:panelGroup>
+        </ice:panelGroup>
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="clearer" />
+
+    <ice:panelGroup styleClass="rowSelectorContainer">
+
+    <!-- DataTable with RowSelector Component -->
+    <ice:panelGroup styleClass="exampleBox " >
+                            
+        <ice:dataTable id="employeeList"
+                       var="employee"
+                       value="#{rowSelectController.employees}"
+                       rows="15" 
+                       columnClasses="tableCol" >
+            <ice:column>
+<!--
+ It is a good practice to use immediate parameter of the rowSelector. If unset, or set to true, it will work with the
+ results of the selection in APPLY_REQUEST_VALUE phase before validation occurs. If set to false it will defer event
+ processing until INVOKE_APPLICATION phase, after validation. If validation fails, selection event will not fire with
+ immediate=false.
+ -->
+                <ice:rowSelector id="selected"
+                                 value="#{employee.selected}"
+                                 multiple="#{rowSelectController.multiple}"
+                                 enhancedMultiple="#{rowSelectController.enhancedMultiple}"                                 
+                                 selectionListener="#{rowSelectController.rowSelectionListener}"
+                                 preStyleOnSelection="true"/>
+                <f:facet name="header">
+                    <ice:outputText id="column1"
+                                    value="#{msgs['page.dataTable.column1']}"/>
+                </f:facet>
+                <ice:outputText id="Number"
+                                value="#{employee.id}"/>
+            </ice:column>
+
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column2"
+                                    value="#{msgs['page.dataTable.column2']}"/>
+                </f:facet>
+                <ice:outputText id="FirstName"
+                                value="#{employee.firstName}"/>
+            </ice:column>
+
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column3"
+                                    value="#{msgs['page.dataTable.column3']}"/>
+                </f:facet>
+                <ice:outputText id="LastName"
+                                value="#{employee.lastName}"/>
+            </ice:column>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="column4"
+                                    value="#{msgs['page.dataTable.column4']}"/>
+                </f:facet>
+                <ice:outputText id="Phone"
+                                value="#{employee.phone}"/>
+            </ice:column>
+        </ice:dataTable>
+    </ice:panelGroup>
+
+    <!-- Selected Values DataTable -->
+    <ice:panelGroup styleClass="exampleBox">
+        <ice:outputLabel id="results"
+                        value="#{msgs['page.rowSelector.results']}"/>
+        <ice:dataTable id="selectedRows" 
+                       var="employee"
+                       value="#{rowSelectController.selectedEmployees}"
+                       rows="15" 
+                       columnClasses="tableCol" >
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="selectedColumn1"
+                                    value="#{msgs['page.dataTable.column2']}"/>
+                </f:facet>
+                    <ice:outputText id="selectedFirstName"
+                                    value="#{employee.firstName}"/>
+            </ice:column>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText id="selectedColumn2"
+                                    value="#{msgs['page.dataTable.column3']}"/>
+                </f:facet>
+                <ice:outputText id="selectedLastName"
+                                value="#{employee.lastName}"/>
+            </ice:column>
+        </ice:dataTable>
+    </ice:panelGroup>
+        
+</ice:panelGroup>
+</ice:panelGroup>

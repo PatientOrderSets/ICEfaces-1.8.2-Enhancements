@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.ApplyEffectFamily</component-family>
+    <renderer-type>com.icesoft.faces.ApplyEffectRenderer</renderer-type>
+    <renderer-class>com.icesoft.faces.component.effect.ApplyEffectRenderer</renderer-class>
+</renderer>

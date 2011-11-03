@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.Portlet</component-type>
+    <component-class>com.icesoft.faces.component.portlet.Portlet</component-class>
+</component>  

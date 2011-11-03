@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.SelectMany</component-family>
+    <renderer-type>com.icesoft.faces.Menu</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.MenuRenderer</renderer-class>
+</renderer>

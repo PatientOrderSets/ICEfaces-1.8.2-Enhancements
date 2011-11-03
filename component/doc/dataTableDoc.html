@@ -1,0 +1,204 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>dataTable Component</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2">dataTable</h2>
+<hr>
+<p >The dataTable component provides a tabular view of a UIData structure. It
+  supports table Header and Footer facets, embedded column components, which in
+  turn may contain column header, footer, and commandSortHeader facets. The dataTable
+  component may also optionally be used with a dataPaginator to provide a paged
+  table view.</p>
+<p>The dataTable component can be used in cases where a tablular view
+of a
+data-set is required.</p>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Example<br>
+</div>
+<p >The followings code shows how to create a basic
+dataTable
+component:</p>
+<pre class="Preformatted">&lt;ice:dataTable<br>        var="car"<br>         value="#{list.cars}"<br>         sortColumn="#{list.sort}"<br>         sortAscending="#{list.ascending}"<br>         &gt;<br>  <br>        &lt;f:facet name="header"&gt;<br>                 &lt;ice:outputText value="(header table)"  /&gt;<br>         &lt;/f:facet&gt;<br> <br>        &lt;f:facet name="footer"&gt;<br>                 &lt;ice:outputText value="(footer table)"  /&gt;<br>         &lt;/f:facet&gt;<br>  <br>        &lt;ice:column&gt;<br>                &lt;f:facet name="header"&gt;<br>                         &lt;ice:outputText value="Type" /&gt;<br>                 &lt;/f:facet&gt;<br>                &lt;ice:outputText value="#{car.type}" /&gt;<br>                &lt;f:facet name="footer"&gt;<br>                         &lt;ice:outputText id="ftr1" value="(footer col1)"  /&gt;<br>                 &lt;/f:facet&gt;<br>        &lt;/ice:column&gt;<br>  <br>        &lt;ice:column&gt;<br>                &lt;f:facet name="header"&gt;<br>                         &lt;ice:outputText value="Color" /&gt;<br>                &lt;/f:facet&gt;<br>                &lt;ice:outputText value="#{car.color}" /&gt;<br>                &lt;f:facet name="footer"&gt;<br>                        &lt;ice:outputText id="ftr2" value="(footer col2)"  /&gt;<br>                &lt;/f:facet&gt;<br>        &lt;/ice:column&gt;<br> <br>&lt;/ice:dataTable&gt;<br>  <br></pre>
+
+<p> The following code shows how to create multiple columns. </p>
+
+ <pre class="Preformatted">
+ &lt;ice:dataTable ..&gt;
+ 	&lt;f:facet name="header"&gt;
+                    &lt;ice:columnGroup&gt;
+                        &lt;ice:headerRow&gt;
+                            &lt;ice:column rowspan="2"&gt;
+                                &lt;ice:outputText value="First Name"/&gt;
+                            &lt;/ice:column&gt;
+                            &lt;ice:column rowspan="2"&gt;
+                                &lt;ice:outputText value="Last Name"/&gt;
+                            &lt;/ice:column&gt;
+                            &lt;ice:column colspan="2"&gt;
+                                &lt;ice:outputText value="Contact Info"/&gt;
+                            &lt;/ice:column&gt;
+                        &lt;/ice:headerRow&gt;
+
+                        &lt;ice:headerRow&gt;
+                            &lt;ice:column&gt;
+                                &lt;ice:outputText value="Phone"/&gt;
+                            &lt;/ice:column&gt;
+                            &lt;ice:column&gt;
+                                &lt;ice:outputText value="Email"/&gt;
+                            &lt;/ice:column&gt;
+
+                        &lt;/ice:headerRow&gt;
+                    &lt;/ice:columnGroup&gt;
+                &lt;/f:facet&gt;
+                ......
+                ......
+&lt;/ice:dataTable&gt;
+
+<br></pre>
+
+<p> The following code shows how to make columns resizable.  </p>
+ <pre class="Preformatted">
+ &lt;ice:dataTable resizable="true" ..&gt;
+<br></pre>
+
+<p> The following code shows how to do logical row grouping.  </p>
+ <pre class="Preformatted">
+               &lt;ice:dataTable id="groupingData"
+                               value="#{groupBean.employees}"
+                               var="employee"
+                        &gt;
+                    &lt;f:facet name="header"&gt;
+                        &lt;ice:columnGroup&gt;
+                            &lt;ice:headerRow&gt;
+                                &lt;ice:column&gt;Department &lt;/ice:column&gt;
+                                &lt;ice:column&gt;Sub Department &lt;/ice:column&gt;
+                                &lt;ice:column&gt;Name&lt;/ice:column&gt;
+                            &lt;/ice:headerRow&gt;
+                        &lt;/ice:columnGroup&gt;
+                    &lt;/f:facet&gt;
+                    &lt;ice:column groupOn="#{employee.deptName}"&gt;
+                        &lt;ice:outputText id="deptname" value="#{employee.deptName}"/&gt;
+                    &lt;/ice:column&gt;
+
+                    &lt;ice:column&gt;
+                        &lt;ice:outputText id="subdeptname" value="#{employee.subDeptName}"/&gt;
+                    &lt;/ice:column&gt;
+
+                    &lt;ice:column&gt;
+                        &lt;ice:outputText id="employeeName" value="#{employee.name}"/&gt;
+                    &lt;/ice:column&gt;
+               &lt;/ice:dataTable&gt;
+
+<br></pre>
+
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-name:</div>
+      </td>
+      <td>
+      <div class="CellBody"> &lt;ice:dataTable&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.ext.taglib.DataTableTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.ext.HtmlDataTable</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.HtmlDataTable</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-family:</div>
+      </td>
+      <td>
+      <div class="CellBody"> javax.faces.Command</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.ext.renderkit.TableRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-type:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+			com.icesoft.faces.Table</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

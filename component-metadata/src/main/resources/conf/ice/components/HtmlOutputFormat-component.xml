@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlOutputFormat</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlOutputFormat</component-class>
+</component>  

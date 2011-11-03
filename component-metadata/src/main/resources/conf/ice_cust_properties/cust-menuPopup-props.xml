@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+&ice-cust-menu-props;
+&ice-att-displayListener-props;
+<property>
+    <description>
+        <![CDATA[
+      
+              Space-separated list of CSS style class(es) to be applied when this
+              element is rendered. This value must be passed through as the 
+              "class" attribute on generated markup.<br/>
+              The base name for all style classes. Default value is <b>iceMnuPop</b></p>
+              if enabled
+              <ul>                
+                <li>iceMnuPopVrt</li>
+                <li>iceMnuPopVrtItem</li>
+                <li>iceMnuPopVrtItemLabel</li>
+                <li>iceMnuPopVrtItemImage</li>
+                <li>iceMnuPopVrtSubMenu</li>
+                <li>iceMnuPopVrtSubMenuInd</li>
+              </ul>   
+              if disabled
+              <ul>                
+                <li>iceMnuPopVrt-dis</li>
+                <li>iceMnuPopVrtItem-dis</li>
+                <li>iceMnuPopVrtItemLabel-dis</li>
+                <li>iceMnuPopVrtItemImage-dis</li>                
+                <li>iceMnuPopVrtSubMenu-dis</li>
+                <li>iceMnuPopVrtSubMenuInd-dis</li>
+              </ul>                          
+             
+		]]>
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Defines the orientation of the top-level menu items. For menuPopup, 
+        the only valid orientation is vertical, where each subsequent top-level 
+        menu item is below the previous. Sub menus appear to the side. 
+    </description>
+    <property-name>orientation</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <default-value>vertical</default-value>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+            <p>
+        The following are the valid values for the hideOn attribute:
+            <ul>
+                <li> mouseout </li>
+                <li> mousedown </li>
+            </ul> 
+            </p>
+            <p>
+            <h3>  mouseout :</h3> the popup menu will be hidden when the user moves the mouse out of any part of the menu. 
+            </p>
+            
+            <p>
+            <h3>  mousedown :</h3> the popup menu will be hidden when the user clicks any area outside of the menu. 
+            </p>  
+        ]]>        
+    </description>
+    <property-name>hideOn</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <default-value>"mousedown"</default-value>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Enables keyboard support, default value is true.
+    </description>
+    <property-name>keyboardNavigationEnabled</property-name>
+    <property-class>boolean</property-class>    
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>

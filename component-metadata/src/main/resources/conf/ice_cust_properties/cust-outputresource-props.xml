@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+&ice-att-userrole-rendered-props;
+&core-props;
+&base-props;
+<property>
+	<description>
+		The label to be displayed for the resource. The label will be used for the text of the link or button. 
+		If an image is used, the label will be used as the alt attribute value of the image element.
+	</description>
+	<property-name>label</property-name>
+	<property-class>java.lang.String</property-class>
+	 <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+	<description>
+		The file name to be used for the attachment header. If the label is not specified the file name will be used.
+        See also the resource attribute.
+	</description>
+	<property-name>fileName</property-name>
+	<property-class>java.lang.String</property-class>
+	 <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+	<description>
+		The mime-type for the resource. If not specified, and available from the backing
+		Resource, the Resource's mime-type will be used. See also the resource attribute.
+	</description>
+	<property-name>mimeType</property-name>
+	<property-class>java.lang.String</property-class>
+	 <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		The object of type com.icesoft.faces.context.Resource that will be used.
+        It can be use to override the attachment, fileName, lastModified and mimeType
+        attributes via the withOptions() method.
+	</description>
+	<property-name>resource</property-name>
+	<property-class>com.icesoft.faces.context.Resource</property-class>
+	 <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		The java.util.Data object specifying the last modified header that will be sent to the 
+		browser for this resource. See also the resource attribute.
+	</description>
+	<property-name>lastModified</property-name>
+	<property-class>java.util.Date</property-class>
+	 <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		The image path that will be used to display an image for link instead of text. 
+	</description>
+	<property-name>image</property-name>
+	<property-class>java.lang.String</property-class>
+	 <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		The type of link to render:
+		link (default)
+        image: renders a link with an image (must be used with the image attribute)
+        button: renders a button with the text from value
+	</description>
+	<property-name>type</property-name>
+	<property-class>java.lang.String</property-class>
+	 <property-extension>
+        <category>ICE_COMPONENT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        Space-separated list of CSS style class(es) to be applied when this 
+		element is rendered. This value is passed through as the "class" 
+		attribute on generated markup.
+		The base name for all style classes. Default value is <b>iceOutLnk</b>
+		if rendered as a link, or <b>iceCmdBtn</b> if rendered as a button.
+		]]>		
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        If true, specifies that the resource should be downloaded as an attachment. See also the resource attribute.
+		]]>		
+    </description>
+    <property-name>attachment</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>true</default-value>  
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        If true (default), specifies that the resource should be cached by the 
+        resource registry. If cached, resources having the same signature (@see
+        Resource.calculateDigest() ) will be registered only once, and the same
+        response will be be provided for that resource by the ResourceServer. 
+        Therefore, if the developer has to dynamically set any properties on 
+        the outputResource component, and have those properties applied dynamically
+        to individual users, then the 'shared' attribute should be set to false.
+		]]>		
+    </description>
+    <property-name>shared</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>true</default-value>         
+    </property-extension>
+</property>
+<property>
+<description>
+    Value of the target attribute when resource is rendered as a link. Default is "_blank".
+</description>
+<property-name>target</property-name>
+<property-class>java.lang.String</property-class>
+<property-extension>
+    <category>ICE_COMPONENT</category>
+    <editor-class>
+        &stringEditor;
+    </editor-class>
+    <default-value>"_blank"</default-value>
+</property-extension>
+</property>

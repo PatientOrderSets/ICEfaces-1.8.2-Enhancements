@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlSelectManyListbox</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlSelectManyListbox</component-class>
+</component>  

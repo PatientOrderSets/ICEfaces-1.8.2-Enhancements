@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+&base-props;
+&input-value-props;
+&ice-att-immediate-props;
+&required-props;
+<property>
+    <description>
+        CSS style(s) to be applied when this component is rendered.
+    </description>
+    <property-name>style</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+    <![CDATA[
+        Space-separated list of CSS style class(es) to be applied when this element is rendered. This value must be passed through as the "class" attribute on generated markup.
+        <br/><br/>
+        The base name for all style classes. Default value is iceInpRchTxt        
+         ]]>
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &styleClassEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <property-name>valueChangeListener</property-name>
+    <!-- Work around typo in JSF 1.1 metadata -->
+    <property-class>javax.faces.el.MethodBinding</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &methodBindingEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+       <![CDATA[
+		<p>
+        The support of multi-language can use the following 54 languages. (e.g.) To set the French language use language="fr"
+        <ul>
+        <li>Afrikaans (af)</li><li>Arabic (ar)</li><li>Basque (eu)</li><li>Bengali/Bangla (bn)</li><li>Bosnian (bs)</li><li>Bulgarian (bg)</li><li>Catalan (ca)</li><li>Chinese Simplified (zh-cn)</li><li>Chinese Traditional (zh)</li><li>Croatian (hr)</li><li>Czech (cs)</li><li>Danish (da)</li><li>Dutch (nl)</li><li>English (en)</li><li>English (Australia) (en-au)</li><li>English (Canadian) (en-ca)</li><li>English (United Kingdom) (en-uk)</li><li>Esperanto (eo)</li><li>Estonian (et)</li><li>Faroese (fo)</li><li>Finnish (fi)</li><li>French (fr)</li><li>Galician (gl)</li><li>German (de)</li><li>Greek (el)</li><li>Hebrew (he)</li><li>Hindi (hi)</li><li>Hungarian (hu)</li><li>Italian (it)</li><li>Japanese (ja)</li><li>Khmer (km)</li><li>Korean (ko)</li><li>Latvian (lv)</li><li>Lithuanian (lt)</li><li>Malay (ms)</li><li>Mongolian (mn)</li><li>Norwegian (no)</li><li>Norwegian Bokmal (nb)</li><li>Persian (fa)</li><li>Polish (pl)</li><li>Portuguese (Brazil) (pt-br)</li><li>Portuguese (Portugal) (pt)</li><li>Romanian (ro)</li><li>Russian (ru)</li><li>Serbian (Cyrillic) (sr)</li><li>Serbian (Latin) (sr-latn)</li><li>Slovak (sk)</li><li>Slovenian (sl)</li><li>Spanish (es)</li><li>Swedish (sv)</li><li>Thai (th)</li><li>Turkish (tr)</li><li>Ukrainian (uk)</li><li>Vietnamese (vi)</li>
+        </ul>
+		</p>
+		]]>
+    </description>
+    <property-name>language</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <default-value>"en"</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        The for attribute references the id of the inputRichText which toolbarOnly attribute is set to "true".
+    </description>
+    <property-name>for</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+        Width.
+    </description>
+    <property-name>width</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <default-value>"100%"</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        height.
+    </description>
+    <property-name>height</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+         <default-value>"200"</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+       <![CDATA[    
+        There are two valid values for this field and its case sensitive.
+        <ul>
+            <li> Default </li>
+            <li> Basic </li>            
+        </ul>
+        ]]>
+    </description>
+    <property-name>toolbar</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &selectOneDomainEditor;
+        </editor-class>
+        <default-value>"Default"</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+       <![CDATA[    
+            This attribute defines the path of the custom config file, the path 
+            is relative to the web app.
+        ]]>
+    </description>
+    <property-name>customConfigPath</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+        Disable the component
+    </description>
+    <property-name>disabled</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+    </property-extension>
+</property>
+<property>
+    <description>
+       <![CDATA[
+        <p>
+        The following skins can be set to the component.
+        <ul>
+        <li> default </li>
+        <li> office2003 </li>
+        <li> silver </li>
+        </ul>
+        </p>
+        ]]>        
+    </description>
+    <property-name>skin</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <default-value>"default"</default-value>        
+    </property-extension>
+</property>
+<property>
+    <description>
+        By default the data of the inputRichText will only be saved, when its 
+        "save" button being clicked. Any other submit request will not save its
+        data.
+        In order to save its data on any submit request like inputText does, this 
+        attribute can be set to true. 
+    </description>
+    <property-name>saveOnSubmit</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+    </property-extension>
+</property>

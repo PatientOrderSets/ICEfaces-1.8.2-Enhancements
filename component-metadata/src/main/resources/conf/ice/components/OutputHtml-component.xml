@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.OutputHtml</component-type>
+    <component-class>com.icesoft.faces.component.ext.OutputHtml</component-class>
+</component>  

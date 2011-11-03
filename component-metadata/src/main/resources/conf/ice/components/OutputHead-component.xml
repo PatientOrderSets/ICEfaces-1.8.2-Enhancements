@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.OutputHead</component-type>
+    <component-class>com.icesoft.faces.component.ext.OutputHead</component-class>
+</component>  

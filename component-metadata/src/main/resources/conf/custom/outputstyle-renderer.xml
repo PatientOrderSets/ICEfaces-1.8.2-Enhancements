@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+         <description>
+         <![CDATA[
+         <p>The outputStyle component is used to link the desired ICEfaces 
+            theme CSS stylesheets into the page to style the ICEfaces 
+            Component Suite components.</p>
+         <p>Inserting the outputStyle component into the HEAD region of a 
+            page will link both the default CSS stylesheet for the theme and 
+            optionally an additional stylesheet that alters the default 
+            styles to accommodate differences in CSS rendering in various 
+            user-agents/browsers.</p>
+         <p>The additional style sheet will have a different extension for 
+            each browser.</p>
+            <ul>
+              <li>Internet Explorer < 7 = _ie.css</li>
+              <li>Internet Explorer 7 = _ie7.css</li>
+              <li>Internet Explorer 8 = _ie8.css</li>
+              <li>Safari = _safari.css</li>
+              <li>Sun Studio Creator = _dt.css</li>
+            </ul>
+         <p>This extension replaces the .css value of the href attribute.
+            So when href is 'xp.css' and the page is rendered in Internet 
+            Explorer 6 or less, an additional style sheet will be included 
+            called 'xp_ie.css'.</p>
+		]]>
+         </description>
+	<component-family>com.icesoft.faces.OutputStyle</component-family>
+	<renderer-type>com.icesoft.faces.style.OutputStyleRenderer</renderer-type>	
+
+	<renderer-extension>
+		<instance-name>outputStyle</instance-name>
+		<is-container>false</is-container>
+		<renders-children>false</renders-children>
+		<tag-name>outputStyle</tag-name>
+		<taglib-prefix>@taglib-prefix@</taglib-prefix>
+		<taglib-uri>@taglib-uri@</taglib-uri>
+	</renderer-extension>
+</renderer>

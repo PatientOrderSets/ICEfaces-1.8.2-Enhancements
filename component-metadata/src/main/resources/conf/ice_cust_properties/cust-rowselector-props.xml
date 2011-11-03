@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+  
+<!--  TODO: -->
+&base-props;
+&ice-att-userrole-rendered-props;
+<property>
+	<description>
+		<![CDATA[<p> When true, more then one row can be selected. Default is false.
+                </p>
+             ]]>
+	</description>
+	<property-name>multiple</property-name>
+	<property-class>boolean</property-class>	
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+        <default-value>false</default-value>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+           The table row that was last clicked. Setting this to some value will not effect row selection.
+                </p>
+             ]]>
+	</description>
+	<property-name>clickedRow</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+        <default-value>-1</default-value>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+				 This method has been deprecated in 1.6. Please use the styleClass
+				 instead.
+                </p>
+             ]]>
+	</description>
+	<property-name>mouseOverClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+				 This method has been deprecated in 1.6. Please use the styleClass
+				 instead.
+                </p>
+             ]]>
+	</description>
+	<property-name>selectedClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+				 This method has been deprecated in 1.6. Please use the styleClass
+				 instead.
+                </p>
+             ]]>
+	</description>
+	<property-name>selectedMouseOverClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+             Listener method to call with a RowSelectorEvent when a row is (de)selected 
+                </p>
+             ]]>
+	</description>
+	<property-name>selectionListener</property-name>
+	<property-class>javax.faces.el.MethodBinding</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&methodBindingEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+              Space-separated list of CSS style class(es) to be applied when this
+              element is rendered. This value must be passed through as the 
+              "class" attribute on generated markup.<br/>
+                Default value is <b>iceRowSel</b>:<br/>        
+               Style Classes Used:
+                     <ul>
+                       <li>iceRowSelMouseOver</li>
+                       <li>iceRowSelSelected</li>                      
+                       <li>iceRowSelSelectedMouseOver</li> 
+                     </ul>  
+                </p>
+             ]]>
+	</description>
+	<property-name>styleClass</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+             Action method to call when a row is clicked
+                </p>
+             ]]>
+	</description>
+	<property-name>selectionAction</property-name>
+	<property-class>javax.faces.el.MethodBinding</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&methodBindingEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+		Do row selection on mouse click. When false, row (de)selection will not 
+        happen when the user clicks on a table row. Default value is true.
+                </p>
+             ]]>
+    </description>
+	<property-name>toggleOnClick</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+		Do row selection, even when the user clicks on an input field or link 
+		in a table cell. Default value is true. When false, row (de)selection
+		will not happen when the user clicks inside an input field, list,
+		menu, button, or link.</p> ]]>
+    </description>
+	<property-name>toggleOnInput</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+    
+<property>
+	<description>
+		<![CDATA[<p>A ValueBinding to a per dataTable row java.lang.Boolean 
+		property, which determines if that row is selected. Typically the 
+		ValueBinding refers to a property of the dataTable's <i>var</i>
+		attribute, but another strategy is to use a smart java.util.Map to 
+		centrally maintain the selection state.</p>]]>
+    </description>
+	<property-name>value</property-name>
+	<property-class>java.lang.Object</property-class>
+	<property-extension>
+		<category>DATA</category>
+		<editor-class>
+			&valueBindingEditor;
+		</editor-class>
+		<named-value>
+			<name>ignoreIsBound</name>
+			<value>true</value>
+		</named-value>
+        <default-value>false</default-value>
+    </property-extension>
+</property>
+<property>
+	<description>
+		<![CDATA[<p>If true, the selectionListener and selectionAction will be 
+        executed immediately, during Apply Request Values phase of the request 
+        processing lifecycle, and if false, during the Invoke Application phase. 
+        The default value is true, for backwards compatibility.</p>
+        ]]>
+	</description>
+	<property-name>immediate</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        <![CDATA[<p> When enhancedMultiple is true, it allows following selection
+        behaviour:
+            <ul>
+                <li> "Click" selects clicked row and deselects rest </li>
+                <li> "Click + Ctrl" flip the selection of clicked row and keeps 
+                previous selection intact</li>
+                <li> "Click + Shift" selects all rows from last clicked row to 
+                newly clicked row, and deselect rest</li>
+                <li> "Click + Shift + Ctrl" selects all rows from last clicked 
+                row to newly clicked row and keeps previous selection intact</li>
+            </ul>          
+        </p>]]>
+    </description>
+    <property-name>enhancedMultiple</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+             Listener method to call with a ClickActionEvent when a row is clicked or double-clicked. This listener
+             is fired independently of selectionListener. The ClickActionEvent object contains a reference to
+             a RowSelectorEvent if the click or double click resulted in (de)selection of the row, otherwise
+             it will be null. ClickActionEvent.isDblClick() determines whether the click event was
+             a single click or a double click.
+                </p>
+             ]]>
+	</description>
+	<property-name>clickListener</property-name>
+	<property-class>javax.faces.el.MethodBinding</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&methodBindingEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[<p>
+             Action method to call when a row is clicked or double-clicked. 
+                </p>
+             ]]>
+	</description>
+	<property-name>clickAction</property-name>
+	<property-class>javax.faces.el.MethodBinding</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&methodBindingEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		<![CDATA[
+            <p>
+            The delay or timeout in milliseconds to wait for a second click (after a first click has been made on a row) to notify 
+            the server whether the ClickActionEvent was a single click or a double click. This attribute only applies 
+            when clickListener and/or clickAction are specified. Valid values are 0 to 1000. Default is 200.
+            </p>
+        ]]>
+	</description>
+	<property-name>dblClickDelay</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+        <default-value>200</default-value>
+    </property-extension>
+</property>
+<property>
+	<description>
+		<![CDATA[<p> When the user (de)selects a row, there can be a latency 
+		             with the network communication with the server, and the 
+		             JSF lifecycle executing, before the client will be updated
+		             to depict the row selection. When <b>preStyleOnSelection</b>
+		             is true, the table row's styling will be updated immediately,
+		             improving the application's perceived responsiveness. When
+		             applications directly manage row selection, on the server 
+		             side, to implement specific rules for (de)selection, they
+		             should see this to false, to avoid styling being set and 
+		             reset. For backwards compatibility with such applications,
+		             the default value is false.</p>]]>
+	</description>
+	<property-name>preStyleOnSelection</property-name>
+	<property-class>boolean</property-class>	
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+        <default-value>false</default-value>
+    </property-extension>
+</property>

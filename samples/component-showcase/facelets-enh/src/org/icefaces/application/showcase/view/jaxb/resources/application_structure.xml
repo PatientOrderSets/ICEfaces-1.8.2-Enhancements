@@ -1,0 +1,2466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="application.xsd"
+             name="Example Application">
+
+    <navigation label="Component Showcase">
+
+        <navigation-default nodeRef="extendedComponentNode"/>
+
+        <node id="extendedComponentNode"
+              label="node.extendedComponents.label" leaf="false" link="true"
+              expanded="false"
+              contentRef="splashPageDesc">
+            <node id="buttonsLinksNode"
+                  label="node.buttonLinks.label" leaf="true" link="true"
+                  contentRef="buttonsAndLinksContentDesc"/>
+            <node id="textEntryNode"
+                  label="node.textFields.label" leaf="true" link="true"
+                  contentRef="textFieldsContentDesc"/>
+            <node id="selectionNode"
+                  label="node.selection.label" leaf="true" link="true"
+                  contentRef="selectionContentDesc"/>
+        </node>
+        <node id="customComponentNode"
+              label="node.customComponents.label" expanded="true"
+              leaf="false" link="false"
+              contentRef="splashPageDesc">
+            <node id="ComponentNode"
+                  label="node.components.label" expanded="true"
+                  leaf="false" link="false"
+                  contentRef="splashPageDesc">
+                <node id="selectInputTextNode"
+                      label="node.selectInputText.label"
+                      leaf="true" link="true"
+                      contentRef="selectInputTextContentDesc"/>
+                <node id="selectInputDateNode"
+                      label="node.selectInputDate.label"
+                      leaf="true" link="true"
+                      contentRef="selectInputDateContentDesc"/>
+                <node id="outputChartNode"
+                      label="node.outputChart.label"
+                      leaf="true" link="true"
+                      contentRef="outputChartContentDesc"/>
+                <node id="outputConnectionStatusNode"
+                      label="node.outputConnectionStatus.label"
+                      leaf="true" link="true"
+                      contentRef="outputConnectionStatusContentDesc"/>
+                <node id="outputResourceNode"
+                      label="node.outputResource.label"
+                      leaf="true" link="true"
+                      contentRef="outputResourceContentDesc"/>
+                <node id="dragDropNode"
+                      label="node.dragDrop.label"
+                      leaf="true" link="true"
+                      contentRef="dragDropContentDesc"/>
+                <node id="effectsNode"
+                      label="node.effects.label"
+                      leaf="true" link="true"
+                      contentRef="effectsContentDesc"/>
+                 <node id="inputFileNode"
+                      label="node.inputFile.label"
+                      leaf="true" link="true"
+                      contentRef="inputFileContentDesc"/>
+                <node id="gMapNode"
+                      label="node.gMap.label"
+                      leaf="true" link="true"
+                      contentRef="gMapContentDesc"/>
+                <node id="outputMediaNode"
+                      label="node.outputMedia.label"
+                      leaf="true" link="true"
+                      contentRef="outputMediaContentDesc"/>
+                <node id="menuBarNode"
+                      label="node.menuBar.label"
+                      leaf="true" link="true"
+                      contentRef="menuBarContentDesc"/>
+                <node id="menuPopupNode"
+                      label="node.menuPopup.label"
+                      leaf="true" link="true"
+                      contentRef="menuPopupContentDesc"/>
+                <node id="outputProgressNode"
+                      label="node.outputProgress.label"
+                      leaf="true" link="true"
+                      contentRef="outputProgressContentDesc"/>
+                <node id="inputRichTextNode"
+                      label="node.inputRichText.label"
+                      leaf="true" link="true"
+                      contentRef="inputRichTextContentDesc"/>
+                <node id="setEventPhaseNode"
+                      label="node.setEventPhase.label"
+                      leaf="true" link="true"
+                      contentRef="setEventPhaseContentDesc"/>
+                <node id="treeNode"
+                      label="node.tree.label"
+                      leaf="true" link="true"
+                      contentRef="treeContentDesc"/>
+            </node>
+            <node id="dataTableParentNode"
+                  label="node.dataTableParent.label" expanded="false"
+                  leaf="false" link="false"
+                  contentRef="splashPageDesc">
+                <node id="columnsNode"
+                      label="node.columns.label"
+                      leaf="true" link="true"
+                      contentRef="columnsContentDesc"/>
+                <node id="dataExporterNode"
+                      label="node.dataExporter.label"
+                      leaf="true" link="true"
+                      contentRef="dataExportContentDesc"/>
+                <node id="dataScrollingNode"
+                      label="node.dataScrolling.label"
+                      leaf="true" link="true"
+                      contentRef="dataScrollingContentDesc"/>
+                <node id="expandableDataTableNode"
+                      label="node.expandableDataTable.label"
+                      leaf="true" link="true"
+                      contentRef="expandableDataTableContentDesc"/>
+                <node id="groupingNode"
+                      label="node.grouping.label"
+                      leaf="true" link="true"
+                      contentRef="groupingContentDesc"/>
+                <node id="rowSelectorNode"
+                      label="node.rowSelector.label"
+                      leaf="true" link="true"
+                      contentRef="rowSelectorContentDesc"/>
+                <node id="resizableNode"
+                      label="node.resizable.label"
+                      leaf="true" link="true"
+                      contentRef="resizableContentDesc"/>
+                <node id="commandSortHeaderNode"
+                      label="node.commandSortHeader.label"
+                      leaf="true" link="true"
+                      contentRef="commandSortHeaderContentDesc"/>
+                
+            </node>
+        </node>
+        <node id="layoutPanelsNode"
+              label="node.layoutPanels.label"
+              leaf="false" link="false" expanded="false"
+              contentRef="splashPageDesc">
+            <node id="panelBorderNode"
+                  label="node.panelBorder.label"
+                  leaf="true" link="true"
+                  contentRef="panelBorderContentDesc"/>
+            <node id="panelCollapsibleNode"
+                  label="node.panelCollapsible.label"
+                  leaf="true" link="true"
+                  contentRef="panelCollapsibleContentDesc"/>
+            <node id="panelPopupNode"
+                  label="node.panelPopup.label"
+                  leaf="true" link="true"
+                  contentRef="panelPopupContentDesc"/>
+            <node id="panelPositionedNode"
+                  label="node.panelPositioned.label"
+                  leaf="true" link="true"
+                  contentRef="panelPositionedContentDesc"/>
+            <node id="panelDividerNode"
+                  label="node.panelDivider.label"
+                  leaf="true" link="true"
+                  contentRef="panelDividerContentDesc"/>
+            <node id="panelSeriesNode"
+                  label="node.panelSeries.label"
+                  leaf="true" link="true"
+                  contentRef="panelSeriesContentDesc"/>
+            <node id="panelStackNode"
+                  label="node.panelStack.label"
+                  leaf="true" link="true"
+                  contentRef="panelStackContentDesc"/>
+            <node id="panelTabSetStaticNode"
+                  label="node.panelTabSetStatic.label"
+                  leaf="true" link="true"
+                  contentRef="panelTabSetStaticContentDesc"/>
+            <node id="panelTabSetDynamicNode"
+                  label="node.panelTabSetDynamic.label"
+                  leaf="true" link="true"
+                  contentRef="panelTabSetDynamicContentDesc"/>
+            <node id="panelTooltipNode"
+                  label="node.panelTooltip.label"
+                  leaf="true" link="true"
+                  contentRef="panelTooltipContentDesc"/>
+            <node id="panelConfirmationNode"
+                  label="node.panelConfirmation.label"
+                  leaf="true" link="true"
+                  contentRef="panelConfirmationContentDesc"/>
+        </node>
+    </navigation>
+
+
+    <content>
+        <content-descriptor
+                id="splashPageDesc" title="node.splashPage.title"
+                templateRef="plainContainer">
+            <example>
+                <resource-reference
+                        resourceRef="splashPage"/>
+            </example>
+            <source-code templateRef="documentationContainer"/>
+            <documentation templateRef="documentationContainer"/>
+
+        </content-descriptor>
+
+        <!-- Standard Extended Components -->
+        <content-descriptor
+                id="selectionContentDesc" title="node.selection.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="selectionExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                <jspx-pages>
+                    <resource-reference
+                            label="selectionTags.jspx"
+                            resourceRef="selectionExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="SelectionTagsBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.selection.SelectionTagsBean"/>
+                </beans>
+            </source-code>
+
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Selection"
+                            resourceRef="selectionDoc"/>
+                </documents>
+                <tlds>
+                     <resource-reference
+                            label="selectBooleanCheckbox"
+                            resourceRef="selectBooleanCheckboxTld"/>
+                     <resource-reference
+                            label="selectManyCheckbox"
+                            resourceRef="selectManyCheckboxTld"/>
+                     <resource-reference
+                            label="selectManyListbox"
+                            resourceRef="selectManyListboxTld"/>
+                     <resource-reference
+                            label="selectManyMenu"
+                            resourceRef="selectManyMenuTld"/>
+                     <resource-reference
+                            label="selectOneListbox"
+                            resourceRef="selectOneListboxTld"/>
+                     <resource-reference
+                            label="selectOneMenu"
+                            resourceRef="selectOneMenuTld"/>
+                    <resource-reference
+                            label="selectOneRadio"
+                            resourceRef="selectOneRadioTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="buttonsAndLinksContentDesc" title="node.buttonLinks.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="buttonsAndLinksExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="buttonsAndLinks.jspx"
+                            resourceRef="buttonsAndLinksExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="ButtonsAndLinksBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.buttonsAndLinks.ButtonsAndLinksBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Button and Links"
+                            resourceRef="buttonAndLinksDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="commandButton"
+                            resourceRef="commandButtonTld"/>
+                     <resource-reference
+                            label="commandLink"
+                            resourceRef="commandLinkTld"/>
+                     <resource-reference
+                            label="outputLink"
+                            resourceRef="outputLinkTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="textFieldsContentDesc" title="node.textFields.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="textFieldsExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="textFields.jspx"
+                            resourceRef="textFieldsExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="TextFieldsBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.textEntry.TextFieldsBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Text Entry"
+                            resourceRef="textEntryDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="commandButton"
+                            resourceRef="commandButtonTld"/>
+                     <resource-reference
+                            label="commandLink"
+                            resourceRef="commandLinkTld"/>
+                     <resource-reference
+                            label="outputLink"
+                            resourceRef="outputLinkTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Validation"
+                            resourceRef="validatorsTutorial"/>
+                    <resource-reference
+                            label="Converters"
+                            resourceRef="convertersTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <!-- Layout Panel Components -->
+        <content-descriptor
+                id="panelBorderContentDesc" title="node.panelBorder.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelBorderExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="panelBorder.jspx"
+                            resourceRef="panelBorderExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="PanelBorderBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelBorder.PanelBorderBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Border"
+                            resourceRef="panelBorderDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelBorder"
+                            resourceRef="panelBorderTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="panelCollapsibleContentDesc"
+                title="node.panelCollapsible.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelCollapsibleExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="panelCollapsible.jspx"
+                            resourceRef="panelCollapsibleExplResc"/>
+                </jspx-pages>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Collapsible"
+                            resourceRef="panelCollapsibleDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelCollapsible"
+                            resourceRef="panelCollapsibleTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="panelPopupContentDesc" title="node.panelPopup.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelPopupExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="panelPopup.jspx"
+                            resourceRef="panelPopupExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="PopupBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelPopup.PopupBean"/>
+                </beans>                
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Popup"
+                            resourceRef="panelPopupDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelPopup"
+                            resourceRef="panelPopupTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Panel Popup"
+                            resourceRef="panelPopupTutorial"/>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="panelPositionedContentDesc"
+                title="node.panelPositioned.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelPositionedExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="panelPositioned.jspx"
+                            resourceRef="panelPositionedExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="PositionedPanelBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelPositioned.PositionedPanelBean"/>
+                    <resource-reference
+                            label="PostionedPanelPerson.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelPositioned.PostionedPanelPerson"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Positioned"
+                            resourceRef="panelPositionedDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelPositioned"
+                            resourceRef="panelPositionedTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="panelDividerContentDesc" title="node.panelDivider.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelDividerExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                <jspx-pages>
+                    <resource-reference
+                            label="panelDivider.jspx"
+                            resourceRef="panelDividerExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="PanelDividerBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelDivider.PanelDividerBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Divider"
+                            resourceRef="panelDividerDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelDivider"
+                            resourceRef="panelDividerTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="panelSeriesContentDesc" title="node.panelSeries.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelSeriesExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="panelSeries.jspx"
+                            resourceRef="panelSeriesExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="PanelSeriesController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelSeries.PanelSeriesController"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Series"
+                            resourceRef="panelSeriesDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelSeries"
+                            resourceRef="panelSeriesTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="panelStackContentDesc" title="node.panelStack.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelStackExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="panelStack.jspx"
+                            resourceRef="panelStackExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="PanelStackBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelStack.PanelStackBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Stack"
+                            resourceRef="panelStackDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelStack"
+                            resourceRef="panelStackTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="panelTabSetStaticContentDesc"
+                title="node.panelTabSetStatic.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelTabSetStaticExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="panelTabSet-static.jspx"
+                            resourceRef="panelTabSetStaticExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="StaticTabSetBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelTabset.StaticTabSetBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Tab Set"
+                            resourceRef="panelTabSetDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelTabSet"
+                            resourceRef="panelTabSetTld"/>
+                    <resource-reference
+                            label="panelTab"
+                            resourceRef="panelTabTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="panelTabSetDynamicContentDesc"
+                title="node.panelTabSetDynamic.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelTabSetDynamicExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="panelTabSet-dynamic.jspx"
+                            resourceRef="panelTabSetDynamicExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="DynamicTabSetBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelTabset.DynamicTabSetBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Tab Set"
+                            resourceRef="panelTabSetDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelTabSet"
+                            resourceRef="panelTabSetTld"/>
+                    <resource-reference
+                            label="panelTab"
+                            resourceRef="panelTabTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="panelTooltipContentDesc" title="node.panelTooltip.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelTooltipExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="panelTooltip.jspx"
+                            resourceRef="panelTooltipExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="PanelToolTipBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelToolTip.PanelToolTipBean"/>
+                    <resource-reference
+                            label="PanelToolTipController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelToolTip.PanelToolTipController"/>
+                    <resource-reference
+                            label="PanelToolTipModel.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelToolTip.PanelToolTipModel"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Tooltip"
+                            resourceRef="panelTooltipDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelTooltip"
+                            resourceRef="panelTooltipTld"/>
+                    <resource-reference
+                            label="panelGroup"
+                            resourceRef="panelGroupTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        
+        <content-descriptor
+                id="panelConfirmationContentDesc" title="node.panelConfirmation.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="panelConfirmationExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                <jspx-pages>
+                    <resource-reference
+                            label="panelConfirmation.jspx"
+                            resourceRef="panelConfirmationExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="ConfirmationPanelBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelConfirmation.ConfirmationBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Panel Confirmation"
+                            resourceRef="panelConfirmationDoc"/>
+                </documents>                                                                                          
+                <tlds>
+                    <resource-reference
+                            label="panelConfirmation"
+                            resourceRef="panelConfirmationTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <!-- Custom Components -->
+        <content-descriptor
+                id="selectInputTextContentDesc"
+                title="node.selectInputText.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="selectInputTextExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="selectInputText.jspx"
+                            resourceRef="selectInputTextExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="City.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.selectInputText.City"/>
+                    <resource-reference
+                            label="CityDictionary.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.selectInputText.CityDictionary"/>
+                    <resource-reference
+                            label="SelectInputTextController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.selectInputText.SelectInputTextController"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="selectInputText"
+                            resourceRef="selectInputTextDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="selectInputText"
+                            resourceRef="selectInputTextTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="selectInputDateContentDesc"
+                title="node.selectInputDate.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="selectInputDateExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="selectInputDate.jspx"
+                            resourceRef="selectInputDateExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="SelectInputDateBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.selectInputDate.SelectInputDateBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="selectInputDate"
+                            resourceRef="selectInputDateDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="selectInputDate"
+                            resourceRef="selectInputDateTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="inputRichTextContentDesc" title="node.inputRichText.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="inputRichTextExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="inputRichText.jspx"
+                            resourceRef="inputRichTextExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="InputRichTextBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.inputRichText.InputRichTextBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Rich Text"
+                            resourceRef="inputRichTextDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="inputRichText"
+                            resourceRef="inputRichTextTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="menuBarContentDesc" title="node.menuBar.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="menuBarExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="menuBar.jspx"
+                            resourceRef="menuBarExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="MenuBarBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.menuBar.MenuBarBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Menu Bar"
+                            resourceRef="menuBarDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="menuBar"
+                            resourceRef="menuBarTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="menuPopupContentDesc" title="node.menuPopup.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="menuPopupExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="menuPopup.jspx"
+                            resourceRef="menuPopupExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="MenuPopupBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.menuPopup.MenuPopupBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Menu Popup"
+                            resourceRef="menuPopupContentDesc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="menuPopup"
+                            resourceRef="menuPopupTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="outputProgressContentDesc"
+                title="node.outputProgress.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="outputProgressExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="outputProgress.jspx"
+                            resourceRef="outputProgressExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="OutputProgressController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.progressBar.OutputProgressController"/>
+                    <resource-reference
+                            label="OutputProgressModel.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.progressBar.OutputProgressModel"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Output Progress"
+                            resourceRef="outputProgressDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="outputProgress"
+                            resourceRef="outputProgressTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="inputFileContentDesc" title="node.inputFile.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="inputFileExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="inputFile.jspx"
+                            resourceRef="inputFileExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="InputFileController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.inputFile.InputFileController"/>
+                    <resource-reference
+                            label="InputFileData.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.inputFile.InputFileData"/>
+                    <resource-reference
+                            label="InputFileSessionCleaner.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.inputFile.InputFileSessionCleaner"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Input File"
+                            resourceRef="inputFileDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="inputFile"
+                            resourceRef="inputFileTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="dragDropContentDesc" title="node.dragDrop.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="dragDropExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="dragDrop.jspx"
+                            resourceRef="dragDropExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="DragDropController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dragDrop.DragDropController"/>
+                    <resource-reference
+                            label="Inventory.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.common.inventory.Inventory"/>
+                    <resource-reference
+                            label="InventoryInterface.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.common.inventory.InventoryInterface"/>
+                    <resource-reference
+                            label="InventoryItem.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.common.inventory.InventoryItem"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Drag and Drop"
+                            resourceRef="dragDropDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="panelGroup"
+                            resourceRef="panelGroupTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Drag and Drop"
+                            resourceRef="dragDropTutorial"/>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="effectsContentDesc" title="node.effects.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="effectsExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="effects.jspx"
+                            resourceRef="effectsExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="EffectsController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.effects.EffectsController"/>
+                    <resource-reference
+                            label="EffectsModel.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.effects.EffectsModel"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Effects"
+                            resourceRef="effectsDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="Effects"
+                            resourceRef="effectTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="outputMediaContentDesc" title="node.outputMedia.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="outputMediaExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="outputMedia.jspx"
+                            resourceRef="outputMediaExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="Media.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.outputMedia.Media"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="OutputMedia"
+                            resourceRef="outputMediaDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="outputMedia"
+                            resourceRef="outputMediaTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        
+         <content-descriptor
+                id="outputResourceContentDesc" title="node.outputResource.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="outputResourceExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="outputResource.jspx"
+                            resourceRef="outputResourceExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="OutputResourceBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.outputResource.OutputResourceBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="OutputResource"
+                            resourceRef="outputResourceDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="outputResource"
+                            resourceRef="outputResourceTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="treeContentDesc" title="node.tree.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="treeExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="tree.jspx"
+                            resourceRef="treeExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="EmployeeUserObject.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.tree.EmployeeUserObject"/>
+                    <resource-reference
+                            label="NodeUserObject.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.tree.NodeUserObject"/>
+                    <resource-reference
+                            label="TreeController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.tree.TreeController"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Tree"
+                            resourceRef="treeDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="Tree"
+                            resourceRef="treeTld"/>
+                    <resource-reference
+                            label="TreeNode"
+                            resourceRef="treeNodeTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tree"
+                            resourceRef="treeTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="setEventPhaseContentDesc" title="node.setEventPhase.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="setEventPhaseExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="setEventPhase.jspx"
+                            resourceRef="setEventPhaseExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="SetEventPhaseBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.setEventPhase.SetEventPhaseBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Set Event Phase"
+                            resourceRef="setEventPhaseDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="Set Event Phase"
+                            resourceRef="setEventPhaseTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="outputConnectionStatusContentDesc"
+                title="node.outputConnectionStatus.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="outputConnectionStatusExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="outputConnectionStatus.jspx"
+                            resourceRef="outputConnectionStatusJspx"/>
+                </jspx-pages>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="outputConnection"
+                            resourceRef="outputConnectionStatusDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="outputConnection"
+                            resourceRef="outputConnectionStatusTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="dataScrollingContentDesc" title="node.dataScrolling.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="dataPaginatorExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="dataTable-dataScrolling.jspx"
+                            resourceRef="dataPaginatorExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="DataTableBase.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dataTable.DataTableBase"/>
+                    <resource-reference
+                            label="DataScrollingModel.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dataPaginator.DataScrollingModel"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Data Paginator"
+                            resourceRef="dataPaginatorDoc"/>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="Data Paginator"
+                            resourceRef="dataPaginatorTld"/>
+                    <resource-reference
+                            label="dataTable"
+                            resourceRef="dataTableTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-descriptor
+                id="commandSortHeaderContentDesc"
+                title="node.commandSortHeader.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="commandSortHeaderExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="dataTable-commandSortHeader.jspx"
+                            resourceRef="commandSortHeaderExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="DataTableBase.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dataTable.DataTableBase"/>
+                    <resource-reference
+                            label="SortHeaderModel.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.commandSortHeader.SortHeaderModel"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Command Sort Header"
+                            resourceRef="commandSortheaderDoc"/>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="Command Sort Header"
+                            resourceRef="commandSortHeaderTld"/>
+                    <resource-reference
+                            label="dataTable"
+                            resourceRef="dataTableTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableTutorial"/>
+
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="rowSelectorContentDesc" title="node.rowSelector.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="rowSelectorExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="dataTable-rowSelection.jspx"
+                            resourceRef="rowSelectorExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="DataTableBase.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dataTable.DataTableBase"/>
+                    <resource-reference
+                            label="RowSelectController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.rowSelector.RowSelectController"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Row Selector"
+                            resourceRef="tableRowSelectionDoc"/>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="rowSelector"
+                            resourceRef="rowSelectorTld"/>
+                    <resource-reference
+                            label="dataTable"
+                            resourceRef="dataTableTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableTutorial"/>
+
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="expandableDataTableContentDesc"
+                title="node.expandableDataTable.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="expandableDataTableExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="dataTable-expandable.jspx"
+                            resourceRef="expandableDataTableExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="FilesGroupRecord.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.expandableTable.FilesGroupRecord"/>
+                    <resource-reference
+                            label="FilesGroupRecordBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.expandableTable.FilesGroupRecordBean"/>
+                    <resource-reference
+                            label="FilesRecord.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.expandableTable.FilesRecord"/>
+                    <resource-reference
+                            label="FilesRecordsManager.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.expandableTable.FilesRecordsManager"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Expandable Table"
+                            resourceRef="expandableDoc"/>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="dataTable"
+                            resourceRef="dataTableTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="columnsContentDesc" title="node.columns.title"
+                templateRef="tabbedContainer" >
+            <example>
+                <resource-reference
+                        resourceRef="columnsExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="dataTable-columns.jspx"
+                            resourceRef="columnsExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="ColumnsBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.columns.ColumnsBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Columns"
+                            resourceRef="columnsDoc"/>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="Columns"
+                            resourceRef="columnsTld"/>
+                    <resource-reference
+                            label="dataTable"
+                            resourceRef="dataTableTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableTutorial"/>
+                    <resource-reference
+                            label="Columns"
+                            resourceRef="columnsTutorial"/>
+
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="dataExportContentDesc" title="node.dataExporter.title"
+                templateRef="tabbedContainer" >
+            <example>
+                <resource-reference
+                        resourceRef="dataExportExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="dataTable-dataExporter.jspx"
+                            resourceRef="dataExportExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="DataExporter.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dataExporter.DataExporter"/>
+                    <resource-reference
+                            label="DataTableBase.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dataTable.DataTableBase"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="dataExport"
+                            resourceRef="dataExportTld"/>
+                    <resource-reference
+                            label="dataTable"
+                            resourceRef="dataTableTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="groupingContentDesc" title="node.grouping.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="groupingExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="dataTable-grouping.jspx"
+                            resourceRef="groupingExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="DataTableBase.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dataTable.DataTableBase"/>
+                    <resource-reference
+                            label="GroupingModel.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.columnGroup.GroupingModel"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="Columns Group"
+                            resourceRef="columnGroupTld"/>
+                    <resource-reference
+                            label="dataTable"
+                            resourceRef="dataTableTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableTutorial"/>
+
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="resizableContentDesc" title="node.resizable.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="resizableExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="dataTable-resizableColumns.jspx"
+                            resourceRef="resizableExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="DataTableBase.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dataTable.DataTableBase"/>
+                    <resource-reference
+                            label="ResizeableColumnModel.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.dataTable.ResizeableColumnModel"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="dataTable"
+                            resourceRef="dataTableTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Data Table"
+                            resourceRef="dataTableTutorial"/>
+
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="outputChartContentDesc" title="node.outputChart.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="outputChartExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="outputChart.jspx"
+                            resourceRef="outputChartExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="AbstractChartData.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.outputChart.AbstractChartData"/>
+                    <resource-reference
+                            label="ChartController.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.outputChart.ChartController"/>
+                    <resource-reference
+                            label="ChartModelAxial.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.outputChart.ChartModelAxial"/>
+                    <resource-reference
+                            label="ChartModelCustom.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.outputChart.ChartModelCustom"/>
+                    <resource-reference
+                            label="ChartModelRadial.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.outputChart.ChartModelRadial"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Output Chart"
+                            resourceRef="chartDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="outputChart"
+                            resourceRef="outputChartTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+        <content-descriptor
+                id="gMapContentDesc"
+                title="node.gMap.title"
+                templateRef="tabbedContainer">
+            <example>
+                <resource-reference
+                        resourceRef="gMapExplResc"/>
+            </example>
+            <source-code templateRef="documentationContainer">
+                 <jspx-pages>
+                    <resource-reference
+                            label="gmap.jspx"
+                            resourceRef="gMapExplResc"/>
+                </jspx-pages>
+                <beans>
+                    <resource-reference
+                            label="GmapBean.java"
+                            resourceRef="org.icefaces.application.showcase.view.bean.examples.component.gmap.GmapBean"/>
+                </beans>
+            </source-code>
+            <documentation templateRef="documentationContainer">
+                <documents>
+                    <resource-reference
+                            label="Google Maps"
+                            resourceRef="gmapDoc"/>
+                </documents>
+                <tlds>
+                    <resource-reference
+                            label="gMap"
+                            resourceRef="gMapTld"/>
+                </tlds>
+                <tutorials>
+                    <resource-reference
+                            label="Tutorials"
+                            resourceRef="generalTutorial"/>
+                </tutorials>
+            </documentation>
+        </content-descriptor>
+
+        <content-resources>
+            <!-- content -->
+            <resource id="splashPage"
+                      path="/WEB-INF/includes/content/splash.jspx"/>
+
+            <!-- facelet templates -->
+            <resource id="plainContainer" pathType="include"
+                      path="/WEB-INF/includes/templates/plain_container.jspx"/>
+            <resource id="tabbedContainer" pathType="include"
+                      path="/WEB-INF/includes/templates/tabbed_container.jspx"/>
+            <resource id="documentationContainer" pathType="include"
+                      path="/WEB-INF/includes/templates/docView_container.jspx"/>
+
+            <!-- examples -->
+            <!-- Standard Extended Components -->
+            <resource id="selectionExplResc"
+                      pathType="include"
+                      path="/WEB-INF/includes/examples/standard/selectionTags.jspx"/>
+            <resource id="buttonsAndLinksExplResc"
+                      path="/WEB-INF/includes/examples/standard/buttonsAndLinks.jspx"/>
+            <resource id="textFieldsExplResc"
+                      path="/WEB-INF/includes/examples/standard/textFields.jspx"/>
+            <!-- Custom Components -->
+            <resource id="selectInputTextExplResc"
+                      path="/WEB-INF/includes/examples/custom/selectInputText.jspx"/>
+            <resource id="selectInputDateExplResc"
+                      path="/WEB-INF/includes/examples/custom/selectInputDate.jspx"/>
+            <resource id="inputRichTextExplResc"
+                      path="/WEB-INF/includes/examples/custom/inputRichText.jspx"/>
+            <resource id="menuBarExplResc"
+                      path="/WEB-INF/includes/examples/custom/menuBar.jspx"/>
+            <resource id="menuPopupExplResc"
+                      path="/WEB-INF/includes/examples/custom/menuPopup.jspx"/>
+            <resource id="outputProgressExplResc"
+                      path="/WEB-INF/includes/examples/custom/outputProgress.jspx"/>
+            <resource id="inputFileExplResc"
+                      path="/WEB-INF/includes/examples/custom/inputFile.jspx"/>
+            <resource id="dragDropExplResc"
+                      path="/WEB-INF/includes/examples/custom/dragDrop.jspx"/>
+            <resource id="effectsExplResc"
+                      path="/WEB-INF/includes/examples/custom/effects.jspx"/>
+            <resource id="outputMediaExplResc"
+                      path="/WEB-INF/includes/examples/custom/outputMedia.jspx"/>
+             <resource id="outputResourceExplResc"
+                      path="/WEB-INF/includes/examples/custom/outputResource.jspx"/>
+            <resource id="treeExplResc"
+                      path="/WEB-INF/includes/examples/custom/tree.jspx"/>
+            <resource id="setEventPhaseExplResc"
+                      path="/WEB-INF/includes/examples/custom/setEventPhase.jspx"/>
+            <resource id="outputConnectionStatusExplResc"
+                      path="/WEB-INF/includes/examples/custom/outputConnectionStatus.jspx"/>
+            <resource id="dataPaginatorExplResc"
+                      path="/WEB-INF/includes/examples/custom/dataTable-dataScrolling.jspx"/>
+            <resource id="commandSortHeaderExplResc"
+                      path="/WEB-INF/includes/examples/custom/dataTable-commandSortHeader.jspx"/>
+            <resource id="rowSelectorExplResc"
+                      path="/WEB-INF/includes/examples/custom/dataTable-rowSelection.jspx"/>
+            <resource id="expandableDataTableExplResc"
+                      path="/WEB-INF/includes/examples/custom/dataTable-expandable.jspx"/>
+            <resource id="columnsExplResc"
+                      path="/WEB-INF/includes/examples/custom/dataTable-columns.jspx"/>
+            <resource id="dataExportExplResc"
+                      path="/WEB-INF/includes/examples/custom/dataTable-dataExporter.jspx"/>
+            <resource id="groupingExplResc"
+                      path="/WEB-INF/includes/examples/custom/dataTable-grouping.jspx"/>
+            <resource id="resizableExplResc"
+                      path="/WEB-INF/includes/examples/custom/dataTable-resizableColumns.jspx"/>
+            <resource id="outputChartExplResc"
+                      path="/WEB-INF/includes/examples/custom/outputChart.jspx"/>
+            <resource id="gMapExplResc"
+                      path="/WEB-INF/includes/examples/custom/gmap.jspx"/>
+            <!-- Layout Panels Components -->
+            <resource id="panelBorderExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelBorder.jspx"/>
+            <resource id="panelCollapsibleExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelCollapsible.jspx"/>
+            <resource id="panelPopupExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelPopup.jspx"/>
+            <resource id="panelPositionedExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelPositioned.jspx"/>
+            <resource id="panelDividerExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelDivider.jspx"/>
+            <resource id="panelSeriesExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelSeries.jspx"/>
+            <resource id="panelStackExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelStack.jspx"/>
+            <resource id="panelTabSetStaticExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelTabSet-static.jspx"/>
+            <resource id="panelTabSetDynamicExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelTabSet-dynamic.jspx"/>
+            <resource id="panelTooltipExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelTooltip.jspx"/>
+            <resource id="panelConfirmationExplResc"
+                      path="/WEB-INF/includes/examples/panel/panelConfirmation.jspx"/>
+
+            <!--              -->
+            <!-- source code  -->
+            <!--              -->
+            <!-- selection -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.selection.SelectionTagsBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/selection/SelectionTagsBean.java"/>
+            <!-- buttons and links-->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.buttonsAndLinks.ButtonsAndLinksBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/buttonsAndLinks/ButtonsAndLinksBean.java"/>
+            <!-- text fields-->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.textEntry.TextFieldsBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/textEntry/TextFieldsBean.java"/>
+            <!-- selectInputText-->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.selectInputText.City"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/selectInputText/City.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.selectInputText.CityDictionary"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/selectInputText/CityDictionary.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.selectInputText.SelectInputTextController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/selectInputText/SelectInputTextController.java"/>
+            <!-- selectInputDate-->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.selectInputDate.SelectInputDateBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/selectInputDate/SelectInputDateBean.java"/>
+            <!-- charts -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.outputChart.AbstractChartData"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/outputChart/AbstractChartData.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.outputChart.ChartController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/outputChart/ChartController.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.outputChart.ChartModelAxial"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/outputChart/ChartModelAxial.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.outputChart.ChartModelCustom"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/outputChart/ChartModelCustom.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.outputChart.ChartModelRadial"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/outputChart/ChartModelRadial.java"/>
+            <!-- outputConnectionStatus -->
+            <resource id="outputConnectionStatusJspx"
+                      path="/WEB-INF/includes/examples/custom/outputConnectionStatus.jspx"/>
+            <!-- Drag and drop-->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.dragDrop.DragDropController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/dragDrop/DragDropController.java"/>
+            <!-- effects -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.effects.EffectsModel"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/effects/EffectsModel.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.effects.EffectsController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/effects/EffectsController.java"/>
+            <!-- inputFile-->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.inputFile.InputFileController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/inputFile/InputFileController.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.inputFile.InputFileData"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/inputFile/InputFileData.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.inputFile.InputFileSessionCleaner"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/inputFile/InputFileSessionCleaner.java"/>
+            <!-- google maps -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.gmap.GmapBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/gmap/GmapBean.java"/>
+            <!-- output Media -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.outputMedia.Media"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/outputMedia/Media.java"/>
+            <!-- output Resource -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.outputResource.OutputResourceBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/outputResource/OutputResourceBean.java"/>
+            <!-- Menu Bar-->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.menuBar.MenuBarBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/menuBar/MenuBarBean.java"/>
+            <!-- Menu Popup -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.menuPopup.MenuPopupBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/menuPopup/MenuPopupBean.java"/>
+             <!-- Input Rich Text -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.inputRichText.InputRichTextBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/inputRichText/InputRichTextBean.java"/>
+            <!-- Output Progress Bar -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.progressBar.OutputProgressController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/progressBar/OutputProgressController.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.progressBar.OutputProgressModel"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/progressBar/OutputProgressModel.java"/>
+            <!-- tree -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.tree.EmployeeUserObject"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/tree/EmployeeUserObject.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.tree.NodeUserObject"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/tree/NodeUserObject.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.tree.TreeController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/tree/TreeController.java"/>
+            <!-- setEventPhase -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.setEventPhase.SetEventPhaseBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/setEventPhase/SetEventPhaseBean.java"/>
+            <!-- DataTable Paging example -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.dataPaginator.DataScrollingModel"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/dataPaginator/DataScrollingModel.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.dataTable.DataTableBase"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/dataTable/DataTableBase.java"/>
+            <!-- DataTable sortable header-->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.commandSortHeader.SortHeaderModel"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/commandSortHeader/SortHeaderModel.java"/>
+            <!-- DataTable row selection -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.rowSelector.RowSelectController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/rowSelector/RowSelectController.java"/>
+            <!-- DataTable expandable table -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.expandableTable.FilesGroupRecord"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/expandableTable/FilesGroupRecord.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.expandableTable.FilesGroupRecordBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/expandableTable/FilesGroupRecordBean.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.expandableTable.FilesRecord"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/expandableTable/FilesRecord.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.expandableTable.FilesRecordsManager"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/expandableTable/FilesRecordsManager.java"/>
+            <!-- DataTable columns -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.columns.ColumnsBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/columns/ColumnsBean.java"/>
+            <!-- DataTable data export -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.dataExporter.DataExporter"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/dataExporter/DataExporter.java"/>
+            <!-- DataTable columns -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.columnGroup.GroupingModel"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/columnGroup/GroupingModel.java"/>
+            <!-- DataTable resizeable -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.component.dataTable.ResizeableColumnModel"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/component/dataTable/ResizeableColumnModel.java"/>
+
+            <!-- Panel Border -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelBorder.PanelBorderBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelBorder/PanelBorderBean.java"/>
+            <!-- Panel Popup -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelPopup.PopupBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelPopup/PopupBean.java"/>
+            <!-- Panel Popup -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelStack.PanelStackBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelStack/PanelStackBean.java"/>
+            <!-- Panel positioned -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelPositioned.PositionedPanelBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelPositioned/PositionedPanelBean.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelPositioned.PostionedPanelPerson"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelPositioned/PostionedPanelPerson.java"/>
+            <!-- Panel Series -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelSeries.PanelSeriesController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelSeries/PanelSeriesController.java"/>
+            <!-- Panel Series -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelDivider.PanelDividerBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelDivider/PanelDividerBean.java"/>
+            <!-- Panel Tabset -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelTabset.DynamicTabSetBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelTabset/DynamicTabSetBean.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelTabset.StaticTabSetBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelTabset/StaticTabSetBean.java"/>
+            <!-- Panel Tooltip -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelToolTip.PanelToolTipBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelToolTip/PanelToolTipBean.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelToolTip.PanelToolTipController"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelToolTip/PanelToolTipController.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelToolTip.PanelToolTipModel"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelToolTip/PanelToolTipModel.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.layoutPanel.panelConfirmation.ConfirmationBean"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/layoutPanel/panelConfirmation/ConfirmationPanelBean.java"/>
+
+            <!-- common inventory classes -->
+            <resource id="org.icefaces.application.showcase.view.bean.examples.common.inventory.InventoryInterface"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/common/inventory/InventoryInterface.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.common.inventory.InventoryItem"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/common/inventory/InventoryItem.java"/>
+            <resource id="org.icefaces.application.showcase.view.bean.examples.common.inventory.Inventory"
+                      path="/WEB-INF/classes/org/icefaces/application/showcase/view/bean/examples/common/inventory/Inventory.java"/>
+
+            <!--           -->
+            <!-- documents -->
+            <!--           -->
+            <resource id="buttonAndLinksDoc"
+                      pathType="include"
+                      path="/docs/buttonAndLinksDoc.html"/>
+            <resource id="chartDoc"
+                      pathType="include"
+                      path="/docs/chartDoc.html"/>
+            <resource id="columnsDoc"
+                      pathType="include"
+                      path="/docs/columnsDoc.html"/>
+            <resource id="combinedChartDoc"
+                      pathType="include"
+                      path="/docs/combinedChartDoc.html"/>
+            <resource id="commandSortheaderDoc"
+                      pathType="include"
+                      path="/docs/commandSortheaderDoc.html"/>
+            <resource id="customComponentsDoc"
+                      pathType="include"
+                      path="/docs/customComponents.htm"/>
+            <resource id="dataPaginatorDoc"
+                      pathType="include"
+                      path="/docs/dataPaginatorDoc.html"/>
+            <resource id="dataTableDoc"
+                      pathType="include"
+                      path="/docs/dataTableDoc.html"/>
+            <resource id="dragDropDoc"
+                      pathType="include"
+                      path="/docs/dragDropDoc.html"/>
+            <resource id="dynamicChartDoc"
+                      pathType="include"
+                      path="/docs/dynamicChartDoc.html"/>
+            <resource id="effectsDoc"
+                      pathType="include"
+                      path="/docs/effectsDoc.html"/>
+            <resource id="enhancedComponentsDoc"
+                      pathType="include"
+                      path="/docs/enhancedComponents.htm"/>
+            <resource id="expandableDoc"
+                      pathType="include"
+                      path="/docs/expandableDoc.html"/>
+            <resource id="gmapDoc"
+                      pathType="include"
+                      path="/docs/gmapDoc.html"/>
+            <resource id="iceComponentsCommonAttributesDoc"
+                      pathType="include"
+                      path="/docs/iceComponentsCommonAttributesDoc.html"/>
+            <resource id="inputFileDoc"
+                      pathType="include"
+                      path="/docs/inputFileDoc.html"/>
+            <resource id="inputRichTextDoc"
+                      pathType="include"
+                      path="/docs/inputRichTextDoc.html"/>
+            <resource id="menuBarDoc"
+                      pathType="include"
+                      path="/docs/menuBarDoc.html"/>
+            <resource id="outputConnectionStatusDoc"
+                      pathType="include"
+                      path="/docs/outputConnectionStatusDoc.html"/>
+            <resource id="outputMediaDoc"
+                      pathType="include"
+                      path="/docs/outputMediaDoc.html"/>
+             <resource id="outputResourceDoc"
+                      pathType="include"
+                      path="/docs/outputResourceDoc.html"/>
+            <resource id="outputProgressDoc"
+                      pathType="include"
+                      path="/docs/outputProgressDoc.html"/>
+            <resource id="outputStyleDoc"
+                      pathType="include"
+                      path="/docs/outputStyleDoc.html"/>
+            <resource id="panelBorderDoc"
+                      pathType="include"
+                      path="/docs/panelBorderDoc.html"/>
+            <resource id="panelCollapsibleDoc"
+                      pathType="include"
+                      path="/docs/panelCollapsibleDoc.html"/>
+            <resource id="panelDividerDoc"
+                      pathType="include"
+                      path="/docs/panelDividerDoc.html"/>
+            <resource id="panelGroupDoc"
+                      pathType="include"
+                      path="/docs/panelGroupDoc.html"/>
+            <resource id="panelPopupDoc"
+                      pathType="include"
+                      path="/docs/panelPopupDoc.html"/>
+            <resource id="panelPositionedDoc"
+                      pathType="include"
+                      path="/docs/panelPositionedDoc.html"/>
+            <resource id="panelSeriesDoc"
+                      pathType="include"
+                      path="/docs/panelSeriesDoc.html"/>
+            <resource id="panelStackDoc"
+                      pathType="include"
+                      path="/docs/panelStackDoc.html"/>
+            <resource id="panelTabSetDoc"
+                      pathType="include"
+                      path="/docs/panelTabSetDoc.html"/>
+            <resource id="panelTooltipDoc"
+                      pathType="include"
+                      path="/docs/panelTooltipDoc.html"/>
+            <resource id="panelConfirmationDoc"
+                      pathType="include"
+                      path="/docs/panelConfirmationDoc.html"/>
+            <resource id="selectInputDateDoc"
+                      pathType="include"
+                      path="/docs/selectInputDateDoc.html"/>
+            <resource id="selectInputTextDoc"
+                      pathType="include"
+                      path="/docs/selectInputTextDoc.html"/>
+            <resource id="selectionDoc"
+                      pathType="include"
+                      path="/docs/selectionDoc.html"/>
+            <resource id="tableRowSelectionDoc"
+                      pathType="include"
+                      path="/docs/tableRowSelectionDoc.html"/>
+            <resource id="textEntryDoc"
+                      pathType="include"
+                      path="/docs/textEntryDoc.html"/>
+            <resource id="treeDoc"
+                      pathType="include"
+                      path="/docs/treeDoc.html"/>
+            <resource id="setEventPhaseDoc"
+                      pathType="include"
+                      path="/docs/setEventPhase.html"/>
+            <!-- tutorials -->
+            <resource id="generalTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/"/>
+            <resource id="columnsTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/columns-tutorial.html"/>
+            <resource id="connectionStatusTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/connectionstatus-tutorial.html"/>
+            <resource id="convertersTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/converter-tutorial.html"/>
+            <resource id="dataTableTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/dataTable-tutorial.html"/>
+            <resource id="dragDropTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/dragDrop-tutorial.html"/>
+            <resource id="focusTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/focusManage-tutorial.html"/>
+            <resource id="inputTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/inputFile-tutorial.html"/>
+            <resource id="panelPopupTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/panelPopup-tutorial.html"/>
+            <resource id="seriesPanelTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/seriesPanel-tutorial.html"/>
+            <resource id="stackingPanelTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/stackingPanel-tutorial.html"/>
+            <resource id="tabsetTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/tabset-tutorial.html"/>
+            <resource id="treeTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/tree-tutorial.html"/>
+            <resource id="validatorsTutorial"
+                      pathType="external"
+                      path="http://facestutorials.icefaces.org/tutorial/validators-tutorial.html"/>
+
+            <!-- tlds -->
+            <resource id="checkboxTld"
+                      pathType="include"
+                      path="/docs/tld/ice/checkbox.html"/>
+            <resource id="columnTld"
+                      pathType="include"
+                      path="/docs/tld/ice/column.html"/>
+            <resource id="columnGroupTld"
+                      pathType="include"
+                      path="/docs/tld/ice/columnGroup.html"/>
+            <resource id="columnsTld"
+                      pathType="include"
+                      path="/docs/tld/ice/columns.html"/>
+            <resource id="dataExportTld"
+                      pathType="include"
+                      path="/docs/tld/ice/dataExporter.html"/>
+            <resource id="commandButtonTld"
+                      pathType="include"
+                      path="/docs/tld/ice/commandButton.html"/>
+            <resource id="commandLinkTld"
+                      pathType="include"
+                      path="/docs/tld/ice/commandLink.html"/>
+            <resource id="commandSortHeaderTld"
+                      pathType="include"
+                      path="/docs/tld/ice/commandSortHeader.html"/>
+            <resource id="dataPaginatorTld"
+                      pathType="include"
+                      path="/docs/tld/ice/dataPaginator.html"/>
+            <resource id="dataTableTld"
+                      pathType="include"
+                      path="/docs/tld/ice/dataTable.html"/>
+            <resource id="effectTld"
+                      pathType="include"
+                      path="/docs/tld/ice/effect.html"/>
+            <resource id="formTld"
+                      pathType="include"
+                      path="/docs/tld/ice/form.html"/>
+            <resource id="gMapTld"
+                      pathType="include"
+                      path="/docs/tld/ice/gMap.html"/>
+            <resource id="graphicImageTld"
+                      pathType="include"
+                      path="/docs/tld/ice/graphicImage.html"/>
+            <resource id="headerRowTld"
+                      pathType="include"
+                      path="/docs/tld/ice/headerRow.html"/>
+            <resource id="inputFileTld"
+                      pathType="include"
+                      path="/docs/tld/ice/inputFile.html"/>
+            <resource id="inputHiddenTld"
+                      pathType="include"
+                      path="/docs/tld/ice/inputHidden.html"/>
+            <resource id="inputRichTextTld"
+                      pathType="include"
+                      path="/docs/tld/ice/inputRichText.html"/>
+            <resource id="inputSecretTld"
+                      pathType="include"
+                      path="/docs/tld/ice/inputSecret.html"/>
+            <resource id="inputTextTld"
+                      pathType="include"
+                      path="/docs/tld/ice/inputText.html"/>
+            <resource id="inputTextareaTld"
+                      pathType="include"
+                      path="/docs/tld/ice/inputTextarea.html"/>
+            <resource id="menuBarTld"
+                      pathType="include"
+                      path="/docs/tld/ice/menuBar.html"/>
+            <resource id="menuItemTld"
+                      pathType="include"
+                      path="/docs/tld/ice/menuItem.html"/>
+            <resource id="menuItemsTld"
+                      pathType="include"
+                      path="/docs/tld/ice/menuItems.html"/>
+            <resource id="menuItemSeparatorTld"
+                      pathType="include"
+                      path="/docs/tld/ice/menuItemSeparator.html"/>
+            <resource id="menuPopupTld"
+                      pathType="include"
+                      path="/docs/tld/ice/menuPopup.html"/>
+            <resource id="messagesTld"
+                      pathType="include"
+                      path="/docs/tld/ice/messages.html"/>
+            <resource id="outputChartTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputChart.html"/>
+            <resource id="outputConnectionStatusTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputConnectionStatus.html"/>
+            <resource id="outputDeclarationTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputDeclaration.html"/>
+            <resource id="outputFormatTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputFormat.html"/>
+            <resource id="outputLabelTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputLabel.html"/>
+            <resource id="outputLinkTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputLink.html"/>
+            <resource id="outputMediaTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputMedia.html"/>
+            <resource id="outputResourceTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputResource.html"/>
+            <resource id="outputProgressTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputProgress.html"/>
+            <resource id="outputStyleTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputStyle.html"/>
+            <resource id="outputTextTld"
+                      pathType="include"
+                      path="/docs/tld/ice/outputText.html"/>
+            <resource id="panelBorderTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelBorder.html"/>
+            <resource id="panelCollapsibleTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelCollapsible.html"/>
+            <resource id="panelDividerTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelDivider.html"/>
+            <resource id="panelGridTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelGrid.html"/>
+            <resource id="panelGroupTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelGroup.html"/>
+            <resource id="panelPopupTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelPopup.html"/>
+            <resource id="panelPositionedTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelPositioned.html"/>
+            <resource id="panelSeriesTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelSeries.html"/>
+            <resource id="panelStackTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelStack.html"/>
+            <resource id="panelTabTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelTab.html"/>
+            <resource id="panelTabSetTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelTabSet.html"/>
+            <resource id="panelTooltipTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelTooltip.html"/>
+            <resource id="panelConfirmationTld"
+                      pathType="include"
+                      path="/docs/tld/ice/panelConfirmation.html"/>
+            <resource id="portletTld"
+                      pathType="include"
+                      path="/docs/tld/ice/portlet.html"/>
+            <resource id="radioTld"
+                      pathType="include"
+                      path="/docs/tld/ice/radio.html"/>
+            <resource id="rowSelectorTld"
+                      pathType="include"
+                      path="/docs/tld/ice/rowSelector.html"/>
+            <resource id="selectBooleanCheckboxTld"
+                      pathType="include"
+                      path="/docs/tld/ice/selectBooleanCheckbox.html"/>
+             <resource id="selectInputDateTld"
+                      pathType="include"
+                      path="/docs/tld/ice/selectInputDate.html"/>
+            <resource id="selectInputTextTld"
+                      pathType="include"
+                      path="/docs/tld/ice/selectInputText.html"/>
+            <resource id="selectManyCheckboxTld"
+                      pathType="include"
+                      path="/docs/tld/ice/selectManyCheckbox.html"/>
+            <resource id="selectManyListboxTld"
+                      pathType="include"
+                      path="/docs/tld/ice/selectManyListbox.html"/>
+            <resource id="selectManyMenuTld"
+                      pathType="include"
+                      path="/docs/tld/ice/selectManyMenu.html"/>
+            <resource id="selectOneListboxTld"
+                      pathType="include"
+                      path="/docs/tld/ice/selectOneListbox.html"/>
+            <resource id="selectOneMenuTld"
+                      pathType="include"
+                      path="/docs/tld/ice/selectOneMenu.html"/>
+            <resource id="selectOneRadioTld"
+                      pathType="include"
+                      path="/docs/tld/ice/selectOneRadio.html"/>
+            <resource id="tabChangeListenerTld"
+                      pathType="include"
+                      path="/docs/tld/ice/tabChangeListener.html"/>
+            <resource id="treeTld"
+                      pathType="include"
+                      path="/docs/tld/ice/tree.html"/>
+            <resource id="setEventPhaseTld"
+                      pathType="include"
+                      path="/docs/tld/ice/setEventPhase.html"/>
+            <resource id="treeNodeTld"
+                      pathType="include"
+                      path="/docs/tld/ice/treeNode.html"/>
+
+        </content-resources>
+    </content>
+
+</application>

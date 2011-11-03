@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Panel</component-family>
+    <renderer-type>com.icesoft.faces.PanelPopup</renderer-type>
+    <renderer-class>com.icesoft.faces.component.panelpopup.PanelPopupRenderer</renderer-class>
+</renderer>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+
+&ice-inputText-props;
+&ice-att-autoComplete-props;
+
+<property>
+	<description>
+		The number of rows to display, starting with the one identified
+		by the "first" property. If this value is set to zero, all
+		available rows in the underlying data model will be displayed.
+	</description>
+	<display-name>Rows To Display</display-name>
+	<icon></icon>
+	<property-name>rows</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&integerEditor;
+		</editor-class>
+        <default-value>10</default-value>		
+	</property-extension>
+</property>
+
+<!--  width attribute  drop down list, not pass through attribute-->
+<property>
+	<description>
+		Sets the width of both, inputText and associated drop down list.
+	</description>
+	<display-name>Table Width</display-name>
+	<icon></icon>
+	<property-name>width</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+        <default-value>"150"</default-value>        
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		Name of a request-scope attribute under which the model data for
+		the row selected by the current value of the "rowIndex" property
+		(i.e. also the current value of the "rowData" property) will be
+		exposed.
+	</description>
+	<display-name>list var</display-name>
+	<icon></icon>
+	<property-name>listVar</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&valueBindingEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>The list of selectItem components.</description>
+	<display-name>selectItem component list</display-name>
+	<icon></icon>
+	<property-name>listValue</property-name>
+	<property-class>java.util.List</property-class>
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+	</property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+              <p>Base name for the style classes. Deafult is <b>iceSelInpTxt</b>.</p>
+                if enabled
+                <ul>
+                    <li>iceSelInpTxt</li>
+                    <li>iceSelInpTxtTxt</li>
+                    <li>iceSelInpTxtList</li>
+                    <li>iceSelInpTxtRow</li>
+                    <li>iceSelInpTxtSelRow</li>
+                </ul>
+                
+                if disabled
+                <ul>
+                    <li>iceSelInpTxt-dis</li>
+                    <li>iceSelInpTxtTxt-dis</li>
+                </ul>   
+                
+                
+		]]>		
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+		<p>MethodBinding behaving similarly to valueChangeListener. 
+		The target bean method will receive an argument of type 
+		com.icesoft.faces.component.selectinputtext.TextChangeEvent, 
+		which is a subclass of ValueChangeEvent. The new value in the 
+		event is the submittedValue of the SelectInputText component.</p>
+		<p>The purpose of textChangeListener is to notify when the user 
+		has manually typed in text into the SelectInputText component, as 
+		opposed to selecting a list entry. This way, the application can 
+		refine the selection list, from the entered text.</p>
+		<p>The MethodBinding is invoked in the APPLY_REQUEST_VALUES phase, 
+		much like RowSelector's selectionListener, allowing for the bean 
+		method to call FacesContext.getCurrentInstance().renderResponse(), 
+		and keep validation from happenning, on partially inputted text 
+		which would be known to fail validation.</p>
+		]]>
+    </description>
+    <property-name>textChangeListener</property-name>
+    <property-class>javax.faces.el.MethodBinding</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &methodBindingEditor;
+        </editor-class>
+    </property-extension>
+</property>
+<property>
+    <description>
+        <![CDATA[
+           <p>
+            The value of this attribute will be passed to the "options" param of the
+            Autocompleter.js. Which allows to set different options to the autoCompleter object.         
+            For example the server call delay frequency can be changed to 100 Milliseconds (e.g.)<br/>
+
+            &nbsp;&nbsp;&lt;ice:selectInputText options="{frequency:0.1}" ... &gt;<br/>
+            The default delay is 0.4 Seconds (400 Milliseconds)<br/>
+            Please see the scriptaculous doc to find out more options that can be set.               
+                
+        ]]>     
+    </description>
+    <property-name>options</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &stringEditor;
+        </editor-class>
+    </property-extension>
+</property>

@@ -1,0 +1,1819 @@
+
+<!--the entity declarations may be overridden in the internal subset-->
+<!--namespace prefixes-->
+<!ENTITY % javaee_prefix "javaee">
+<!ENTITY % xml_prefix "xml">
+<!--namespace prefix to namespace uri mappings-->
+<!ENTITY % javaee_prefix.. "">
+<!ENTITY % xml_prefix.. "%xml_prefix;:">
+<!--namespaces attributes for root element-->
+<!ENTITY % documentElementAttributes " xmlns:%javaee_prefix; CDATA 'http://java.sun.com/xml/ns/javaee' xmlns:%xml_prefix; CDATA 'http://www.w3.org/XML/1998/namespace'">
+<!--the declarations below should not be modified-->
+<!--element name mappings-->
+<!ENTITY % javaee..service-endpoint-interface "%javaee_prefix..;service-endpoint-interface">
+<!ENTITY % javaee..enable-mtom "%javaee_prefix..;enable-mtom">
+<!ENTITY % javaee..port-component-link "%javaee_prefix..;port-component-link">
+<!ENTITY % javaee..service-ref "%javaee_prefix..;service-ref">
+<!ENTITY % javaee..service-ref-name "%javaee_prefix..;service-ref-name">
+<!ENTITY % javaee..service-interface "%javaee_prefix..;service-interface">
+<!ENTITY % javaee..service-ref-type "%javaee_prefix..;service-ref-type">
+<!ENTITY % javaee..wsdl-file "%javaee_prefix..;wsdl-file">
+<!ENTITY % javaee..jaxrpc-mapping-file "%javaee_prefix..;jaxrpc-mapping-file">
+<!ENTITY % javaee..service-qname "%javaee_prefix..;service-qname">
+<!ENTITY % javaee..port-component-ref "%javaee_prefix..;port-component-ref">
+<!ENTITY % javaee..handler "%javaee_prefix..;handler">
+<!ENTITY % javaee..handler-chains "%javaee_prefix..;handler-chains">
+<!ENTITY % javaee..service-name-pattern "%javaee_prefix..;service-name-pattern">
+<!ENTITY % javaee..port-name-pattern "%javaee_prefix..;port-name-pattern">
+<!ENTITY % javaee..protocol-bindings "%javaee_prefix..;protocol-bindings">
+<!ENTITY % javaee..handler "%javaee_prefix..;handler">
+<!ENTITY % javaee..handler-chain "%javaee_prefix..;handler-chain">
+<!ENTITY % javaee..handler-name "%javaee_prefix..;handler-name">
+<!ENTITY % javaee..handler-class "%javaee_prefix..;handler-class">
+<!ENTITY % javaee..init-param "%javaee_prefix..;init-param">
+<!ENTITY % javaee..soap-header "%javaee_prefix..;soap-header">
+<!ENTITY % javaee..soap-role "%javaee_prefix..;soap-role">
+<!ENTITY % javaee..port-name "%javaee_prefix..;port-name">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..display-name "%javaee_prefix..;display-name">
+<!ENTITY % javaee..icon "%javaee_prefix..;icon">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..ejb-ref-name "%javaee_prefix..;ejb-ref-name">
+<!ENTITY % javaee..ejb-ref-type "%javaee_prefix..;ejb-ref-type">
+<!ENTITY % javaee..local-home "%javaee_prefix..;local-home">
+<!ENTITY % javaee..local "%javaee_prefix..;local">
+<!ENTITY % javaee..ejb-link "%javaee_prefix..;ejb-link">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..ejb-ref-name "%javaee_prefix..;ejb-ref-name">
+<!ENTITY % javaee..ejb-ref-type "%javaee_prefix..;ejb-ref-type">
+<!ENTITY % javaee..home "%javaee_prefix..;home">
+<!ENTITY % javaee..remote "%javaee_prefix..;remote">
+<!ENTITY % javaee..ejb-link "%javaee_prefix..;ejb-link">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..env-entry-name "%javaee_prefix..;env-entry-name">
+<!ENTITY % javaee..env-entry-type "%javaee_prefix..;env-entry-type">
+<!ENTITY % javaee..env-entry-value "%javaee_prefix..;env-entry-value">
+<!ENTITY % javaee..small-icon "%javaee_prefix..;small-icon">
+<!ENTITY % javaee..large-icon "%javaee_prefix..;large-icon">
+<!ENTITY % javaee..injection-target-class "%javaee_prefix..;injection-target-class">
+<!ENTITY % javaee..injection-target-name "%javaee_prefix..;injection-target-name">
+<!ENTITY % javaee..env-entry "%javaee_prefix..;env-entry">
+<!ENTITY % javaee..ejb-ref "%javaee_prefix..;ejb-ref">
+<!ENTITY % javaee..ejb-local-ref "%javaee_prefix..;ejb-local-ref">
+<!ENTITY % javaee..resource-ref "%javaee_prefix..;resource-ref">
+<!ENTITY % javaee..resource-env-ref "%javaee_prefix..;resource-env-ref">
+<!ENTITY % javaee..message-destination-ref "%javaee_prefix..;message-destination-ref">
+<!ENTITY % javaee..persistence-context-ref "%javaee_prefix..;persistence-context-ref">
+<!ENTITY % javaee..persistence-unit-ref "%javaee_prefix..;persistence-unit-ref">
+<!ENTITY % javaee..post-construct "%javaee_prefix..;post-construct">
+<!ENTITY % javaee..pre-destroy "%javaee_prefix..;pre-destroy">
+<!ENTITY % javaee..lifecycle-callback-class "%javaee_prefix..;lifecycle-callback-class">
+<!ENTITY % javaee..lifecycle-callback-method "%javaee_prefix..;lifecycle-callback-method">
+<!ENTITY % javaee..listener-class "%javaee_prefix..;listener-class">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..message-destination-ref-name "%javaee_prefix..;message-destination-ref-name">
+<!ENTITY % javaee..message-destination-type "%javaee_prefix..;message-destination-type">
+<!ENTITY % javaee..message-destination-usage "%javaee_prefix..;message-destination-usage">
+<!ENTITY % javaee..message-destination-link "%javaee_prefix..;message-destination-link">
+<!ENTITY % javaee..message-destination-name "%javaee_prefix..;message-destination-name">
+<!ENTITY % javaee..mapped-name "%javaee_prefix..;mapped-name">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..param-name "%javaee_prefix..;param-name">
+<!ENTITY % javaee..param-value "%javaee_prefix..;param-value">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..persistence-context-ref-name "%javaee_prefix..;persistence-context-ref-name">
+<!ENTITY % javaee..persistence-unit-name "%javaee_prefix..;persistence-unit-name">
+<!ENTITY % javaee..persistence-context-type "%javaee_prefix..;persistence-context-type">
+<!ENTITY % javaee..persistence-property "%javaee_prefix..;persistence-property">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..persistence-unit-ref-name "%javaee_prefix..;persistence-unit-ref-name">
+<!ENTITY % javaee..persistence-unit-name "%javaee_prefix..;persistence-unit-name">
+<!ENTITY % javaee..name "%javaee_prefix..;name">
+<!ENTITY % javaee..value "%javaee_prefix..;value">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..resource-env-ref-name "%javaee_prefix..;resource-env-ref-name">
+<!ENTITY % javaee..resource-env-ref-type "%javaee_prefix..;resource-env-ref-type">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..res-ref-name "%javaee_prefix..;res-ref-name">
+<!ENTITY % javaee..res-type "%javaee_prefix..;res-type">
+<!ENTITY % javaee..res-auth "%javaee_prefix..;res-auth">
+<!ENTITY % javaee..res-sharing-scope "%javaee_prefix..;res-sharing-scope">
+<!ENTITY % javaee..mapped-name "%javaee_prefix..;mapped-name">
+<!ENTITY % javaee..injection-target "%javaee_prefix..;injection-target">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..role-name "%javaee_prefix..;role-name">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..role-name "%javaee_prefix..;role-name">
+<!ENTITY % javaee..role-link "%javaee_prefix..;role-link">
+<!ENTITY % javaee..description "%javaee_prefix..;description">
+<!ENTITY % javaee..role-name "%javaee_prefix..;role-name">
+<!ENTITY % javaee..faces-config "%javaee_prefix..;faces-config">
+<!ENTITY % javaee..application "%javaee_prefix..;application">
+<!ENTITY % javaee..factory "%javaee_prefix..;factory">
+<!ENTITY % javaee..component "%javaee_prefix..;component">
+<!ENTITY % javaee..converter "%javaee_prefix..;converter">
+<!ENTITY % javaee..managed-bean "%javaee_prefix..;managed-bean">
+<!ENTITY % javaee..navigation-rule "%javaee_prefix..;navigation-rule">
+<!ENTITY % javaee..referenced-bean "%javaee_prefix..;referenced-bean">
+<!ENTITY % javaee..render-kit "%javaee_prefix..;render-kit">
+<!ENTITY % javaee..lifecycle "%javaee_prefix..;lifecycle">
+<!ENTITY % javaee..validator "%javaee_prefix..;validator">
+<!ENTITY % javaee..faces-config-extension "%javaee_prefix..;faces-config-extension">
+<!ENTITY % javaee..action-listener "%javaee_prefix..;action-listener">
+<!ENTITY % javaee..default-render-kit-id "%javaee_prefix..;default-render-kit-id">
+<!ENTITY % javaee..message-bundle "%javaee_prefix..;message-bundle">
+<!ENTITY % javaee..navigation-handler "%javaee_prefix..;navigation-handler">
+<!ENTITY % javaee..view-handler "%javaee_prefix..;view-handler">
+<!ENTITY % javaee..state-manager "%javaee_prefix..;state-manager">
+<!ENTITY % javaee..el-resolver "%javaee_prefix..;el-resolver">
+<!ENTITY % javaee..property-resolver "%javaee_prefix..;property-resolver">
+<!ENTITY % javaee..variable-resolver "%javaee_prefix..;variable-resolver">
+<!ENTITY % javaee..locale-config "%javaee_prefix..;locale-config">
+<!ENTITY % javaee..resource-bundle "%javaee_prefix..;resource-bundle">
+<!ENTITY % javaee..application-extension "%javaee_prefix..;application-extension">
+<!ENTITY % javaee..base-name "%javaee_prefix..;base-name">
+<!ENTITY % javaee..var "%javaee_prefix..;var">
+<!ENTITY % javaee..application-factory "%javaee_prefix..;application-factory">
+<!ENTITY % javaee..faces-context-factory "%javaee_prefix..;faces-context-factory">
+<!ENTITY % javaee..lifecycle-factory "%javaee_prefix..;lifecycle-factory">
+<!ENTITY % javaee..render-kit-factory "%javaee_prefix..;render-kit-factory">
+<!ENTITY % javaee..factory-extension "%javaee_prefix..;factory-extension">
+<!ENTITY % javaee..attribute-name "%javaee_prefix..;attribute-name">
+<!ENTITY % javaee..attribute-class "%javaee_prefix..;attribute-class">
+<!ENTITY % javaee..default-value "%javaee_prefix..;default-value">
+<!ENTITY % javaee..suggested-value "%javaee_prefix..;suggested-value">
+<!ENTITY % javaee..attribute-extension "%javaee_prefix..;attribute-extension">
+<!ENTITY % javaee..component-type "%javaee_prefix..;component-type">
+<!ENTITY % javaee..component-class "%javaee_prefix..;component-class">
+<!ENTITY % javaee..facet "%javaee_prefix..;facet">
+<!ENTITY % javaee..attribute "%javaee_prefix..;attribute">
+<!ENTITY % javaee..property "%javaee_prefix..;property">
+<!ENTITY % javaee..component-extension "%javaee_prefix..;component-extension">
+<!ENTITY % javaee..facet-name "%javaee_prefix..;facet-name">
+<!ENTITY % javaee..facet-extension "%javaee_prefix..;facet-extension">
+<!ENTITY % javaee..converter-id "%javaee_prefix..;converter-id">
+<!ENTITY % javaee..converter-for-class "%javaee_prefix..;converter-for-class">
+<!ENTITY % javaee..converter-class "%javaee_prefix..;converter-class">
+<!ENTITY % javaee..attribute "%javaee_prefix..;attribute">
+<!ENTITY % javaee..property "%javaee_prefix..;property">
+<!ENTITY % javaee..converter-extension "%javaee_prefix..;converter-extension">
+<!ENTITY % javaee..phase-listener "%javaee_prefix..;phase-listener">
+<!ENTITY % javaee..lifecycle-extension "%javaee_prefix..;lifecycle-extension">
+<!ENTITY % javaee..default-locale "%javaee_prefix..;default-locale">
+<!ENTITY % javaee..supported-locale "%javaee_prefix..;supported-locale">
+<!ENTITY % javaee..managed-bean-name "%javaee_prefix..;managed-bean-name">
+<!ENTITY % javaee..managed-bean-class "%javaee_prefix..;managed-bean-class">
+<!ENTITY % javaee..managed-bean-scope "%javaee_prefix..;managed-bean-scope">
+<!ENTITY % javaee..managed-property "%javaee_prefix..;managed-property">
+<!ENTITY % javaee..map-entries "%javaee_prefix..;map-entries">
+<!ENTITY % javaee..list-entries "%javaee_prefix..;list-entries">
+<!ENTITY % javaee..managed-bean-extension "%javaee_prefix..;managed-bean-extension">
+<!ENTITY % javaee..property-name "%javaee_prefix..;property-name">
+<!ENTITY % javaee..property-class "%javaee_prefix..;property-class">
+<!ENTITY % javaee..map-entries "%javaee_prefix..;map-entries">
+<!ENTITY % javaee..null-value "%javaee_prefix..;null-value">
+<!ENTITY % javaee..value "%javaee_prefix..;value">
+<!ENTITY % javaee..list-entries "%javaee_prefix..;list-entries">
+<!ENTITY % javaee..key "%javaee_prefix..;key">
+<!ENTITY % javaee..null-value "%javaee_prefix..;null-value">
+<!ENTITY % javaee..value "%javaee_prefix..;value">
+<!ENTITY % javaee..key-class "%javaee_prefix..;key-class">
+<!ENTITY % javaee..value-class "%javaee_prefix..;value-class">
+<!ENTITY % javaee..map-entry "%javaee_prefix..;map-entry">
+<!ENTITY % javaee..from-action "%javaee_prefix..;from-action">
+<!ENTITY % javaee..from-outcome "%javaee_prefix..;from-outcome">
+<!ENTITY % javaee..to-view-id "%javaee_prefix..;to-view-id">
+<!ENTITY % javaee..redirect "%javaee_prefix..;redirect">
+<!ENTITY % javaee..from-view-id "%javaee_prefix..;from-view-id">
+<!ENTITY % javaee..navigation-case "%javaee_prefix..;navigation-case">
+<!ENTITY % javaee..navigation-rule-extension "%javaee_prefix..;navigation-rule-extension">
+<!ENTITY % javaee..property-name "%javaee_prefix..;property-name">
+<!ENTITY % javaee..property-class "%javaee_prefix..;property-class">
+<!ENTITY % javaee..default-value "%javaee_prefix..;default-value">
+<!ENTITY % javaee..suggested-value "%javaee_prefix..;suggested-value">
+<!ENTITY % javaee..property-extension "%javaee_prefix..;property-extension">
+<!ENTITY % javaee..referenced-bean-name "%javaee_prefix..;referenced-bean-name">
+<!ENTITY % javaee..referenced-bean-class "%javaee_prefix..;referenced-bean-class">
+<!ENTITY % javaee..render-kit-id "%javaee_prefix..;render-kit-id">
+<!ENTITY % javaee..render-kit-class "%javaee_prefix..;render-kit-class">
+<!ENTITY % javaee..renderer "%javaee_prefix..;renderer">
+<!ENTITY % javaee..render-kit-extension "%javaee_prefix..;render-kit-extension">
+<!ENTITY % javaee..component-family "%javaee_prefix..;component-family">
+<!ENTITY % javaee..renderer-type "%javaee_prefix..;renderer-type">
+<!ENTITY % javaee..renderer-class "%javaee_prefix..;renderer-class">
+<!ENTITY % javaee..facet "%javaee_prefix..;facet">
+<!ENTITY % javaee..attribute "%javaee_prefix..;attribute">
+<!ENTITY % javaee..renderer-extension "%javaee_prefix..;renderer-extension">
+<!ENTITY % javaee..validator-id "%javaee_prefix..;validator-id">
+<!ENTITY % javaee..validator-class "%javaee_prefix..;validator-class">
+<!ENTITY % javaee..attribute "%javaee_prefix..;attribute">
+<!ENTITY % javaee..property "%javaee_prefix..;property">
+<!ENTITY % javaee..validator-extension "%javaee_prefix..;validator-extension">
+<!ENTITY % javaee..value-class "%javaee_prefix..;value-class">
+<!ENTITY % javaee..null-value "%javaee_prefix..;null-value">
+<!ENTITY % javaee..value "%javaee_prefix..;value">
+<!--element and attribute declarations-->
+<!--
+
+	    The service-endpoint-interface element defines a fully qualified
+	    Java class that represents the Service Endpoint Interface of a
+	    WSDL port.
+
+	  -->
+<!ELEMENT %javaee..service-endpoint-interface; (#PCDATA)>
+<!ATTLIST %javaee..service-endpoint-interface;
+	id ID #IMPLIED
+>
+<!--
+
+            Used to enable or disable SOAP MTOM/XOP mechanism on the client
+	    side for a port-component.
+
+	    Not to be specified for JAX-RPC runtime
+          -->
+<!ELEMENT %javaee..enable-mtom; (#PCDATA)>
+<!ATTLIST %javaee..enable-mtom;
+	id ID #IMPLIED
+>
+<!--
+
+	    The port-component-link element links a port-component-ref
+	    to a specific port-component required to be made available
+	    by a service reference.
+
+	    The value of a port-component-link must be the
+	    port-component-name of a port-component in the same module
+	    or another module in the same application unit. The syntax
+	    for specification follows the syntax defined for ejb-link
+	    in the EJB 2.0 specification.
+
+	  -->
+<!ELEMENT %javaee..port-component-link; (#PCDATA)>
+<!ATTLIST %javaee..port-component-link;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..service-ref; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..service-ref-name;, %javaee..service-interface;, %javaee..service-ref-type;?, %javaee..wsdl-file;?, %javaee..jaxrpc-mapping-file;?, %javaee..service-qname;?, %javaee..port-component-ref;*, (%javaee..handler;* | %javaee..handler-chains;?), (%javaee..mapped-name;?, %javaee..injection-target;*))>
+<!ATTLIST %javaee..service-ref;
+	id ID #IMPLIED
+>
+<!--
+
+	    The service-ref-name element declares logical name that the
+	    components in the module use to look up the Web service. It
+	    is recommended that all service reference names start with
+	    &quot;service/&quot;.
+
+	  -->
+<!ELEMENT %javaee..service-ref-name; (#PCDATA)>
+<!ATTLIST %javaee..service-ref-name;
+	id ID #IMPLIED
+>
+<!--
+
+	    The service-interface element declares the fully qualified class
+	    name of the JAX-RPC Service interface the client depends on.
+	    In most cases the value will be javax.xml.rpc.Service.  A JAX-RPC
+	    generated Service Interface class may also be specified.
+
+	  -->
+<!ELEMENT %javaee..service-interface; (#PCDATA)>
+<!ATTLIST %javaee..service-interface;
+	id ID #IMPLIED
+>
+<!--
+
+	    The service-ref-type element declares the type of the service-ref
+	    element that is injected or returned when a JNDI lookup is done.
+	    This must be either a fully qualified name of Service class or
+	    the fully qualified name of service endpoint interface class.
+	    This is only used with JAX-WS runtime where the corresponding
+	    @WebServiceRef annotation can be used to denote both a Service
+	    or a Port.
+
+	    If this is not specified, then the type of service-ref element
+	    that is injected or returned when a JNDI lookup is done is
+	    always a Service interface/class.
+	  -->
+<!ELEMENT %javaee..service-ref-type; (#PCDATA)>
+<!ATTLIST %javaee..service-ref-type;
+	id ID #IMPLIED
+>
+<!--
+
+	    The wsdl-file element contains the URI location of a WSDL
+	    file. The location is relative to the root of the module.
+
+	  -->
+<!ELEMENT %javaee..wsdl-file; (#PCDATA)>
+<!ATTLIST %javaee..wsdl-file;
+	id ID #IMPLIED
+>
+<!--
+
+	    The jaxrpc-mapping-file element contains the name of a file that
+	    describes the JAX-RPC mapping between the Java interaces used by
+	    the application and the WSDL description in the wsdl-file.  The
+	    file name is a relative path within the module file.
+
+	    This is not required when JAX-WS based runtime is used.
+
+	  -->
+<!ELEMENT %javaee..jaxrpc-mapping-file; (#PCDATA)>
+<!ATTLIST %javaee..jaxrpc-mapping-file;
+	id ID #IMPLIED
+>
+<!--
+
+	    The service-qname element declares the specific WSDL service
+	    element that is being refered to.  It is not specified if no
+	    wsdl-file is declared.
+
+	  -->
+<!ELEMENT %javaee..service-qname; (#PCDATA)>
+<!ATTLIST %javaee..service-qname;
+	id ID #IMPLIED
+>
+<!--
+
+	    The port-component-ref element declares a client dependency
+	    on the container for resolving a Service Endpoint Interface
+	    to a WSDL port. It optionally associates the Service Endpoint
+	    Interface with a particular port-component. This is only used
+	    by the container for a Service.getPort(Class) method call.
+
+	  -->
+<!ELEMENT %javaee..port-component-ref; (%javaee..service-endpoint-interface;, %javaee..enable-mtom;?, %javaee..port-component-link;?)>
+<!ATTLIST %javaee..port-component-ref;
+	id ID #IMPLIED
+>
+<!--
+
+		Declares the handler for a port-component. Handlers can
+		access the init-param name/value pairs using the
+		HandlerInfo interface. If port-name is not specified, the
+		handler is assumed to be associated with all ports of the
+		service.
+
+		To be used with JAX-RPC based runtime only.
+
+	      -->
+<!ELEMENT %javaee..handler; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..handler-name;, %javaee..handler-class;, %javaee..init-param;*, %javaee..soap-header;*, %javaee..soap-role;*, %javaee..port-name;*)>
+<!ATTLIST %javaee..handler;
+	id ID #IMPLIED
+>
+<!--
+		 To be used with JAX-WS based runtime only.
+	      -->
+<!ELEMENT %javaee..handler-chains; (%javaee..handler-chain;*)>
+<!ATTLIST %javaee..handler-chains;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..service-name-pattern; (#PCDATA)>
+<!ELEMENT %javaee..port-name-pattern; (#PCDATA)>
+<!ELEMENT %javaee..protocol-bindings; (#PCDATA)>
+<!ELEMENT %javaee..handler; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..handler-name;, %javaee..handler-class;, %javaee..init-param;*, %javaee..soap-header;*, %javaee..soap-role;*, %javaee..port-name;*)>
+<!ATTLIST %javaee..handler;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..handler-chain; ((%javaee..service-name-pattern; | %javaee..port-name-pattern; | %javaee..protocol-bindings;)?, %javaee..handler;+)>
+<!ATTLIST %javaee..handler-chain;
+	id ID #IMPLIED
+>
+<!--
+
+	    Defines the name of the handler. The name must be unique
+	    within the module.
+
+	  -->
+<!ELEMENT %javaee..handler-name; (#PCDATA)>
+<!ATTLIST %javaee..handler-name;
+	id ID #IMPLIED
+>
+<!--
+
+	    Defines a fully qualified class name for the handler
+	    implementation.
+
+	  -->
+<!ELEMENT %javaee..handler-class; (#PCDATA)>
+<!ATTLIST %javaee..handler-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..init-param; (%javaee..description;*, %javaee..param-name;, %javaee..param-value;)>
+<!ATTLIST %javaee..init-param;
+	id ID #IMPLIED
+>
+<!--
+
+	    Defines the QName of a SOAP header that will be processed
+	    by the handler.
+
+	  -->
+<!ELEMENT %javaee..soap-header; (#PCDATA)>
+<!ATTLIST %javaee..soap-header;
+	id ID #IMPLIED
+>
+<!--
+
+	    The soap-role element contains a SOAP actor definition that
+	    the Handler will play as a role.
+
+	  -->
+<!ELEMENT %javaee..soap-role; (#PCDATA)>
+<!ATTLIST %javaee..soap-role;
+	id ID #IMPLIED
+>
+<!--
+
+	    The port-name element defines the WSDL port-name that a
+	    handler should be associated with.
+
+	  -->
+<!ELEMENT %javaee..port-name; (#PCDATA)>
+<!ATTLIST %javaee..port-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!ELEMENT %javaee..display-name; (#PCDATA)>
+<!ATTLIST %javaee..display-name;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!ELEMENT %javaee..icon; (%javaee..small-icon;?, %javaee..large-icon;?)>
+<!ATTLIST %javaee..icon;
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!ELEMENT %javaee..ejb-ref-name; (#PCDATA)>
+<!ATTLIST %javaee..ejb-ref-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..ejb-ref-type; (#PCDATA)>
+<!ATTLIST %javaee..ejb-ref-type;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..local-home; (#PCDATA)>
+<!ATTLIST %javaee..local-home;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..local; (#PCDATA)>
+<!ATTLIST %javaee..local;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..ejb-link; (#PCDATA)>
+<!ATTLIST %javaee..ejb-link;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!ELEMENT %javaee..ejb-ref-name; (#PCDATA)>
+<!ATTLIST %javaee..ejb-ref-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..ejb-ref-type; (#PCDATA)>
+<!ATTLIST %javaee..ejb-ref-type;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..home; (#PCDATA)>
+<!ATTLIST %javaee..home;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..remote; (#PCDATA)>
+<!ATTLIST %javaee..remote;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..ejb-link; (#PCDATA)>
+<!ATTLIST %javaee..ejb-link;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!--
+
+	      The env-entry-name element contains the name of a
+	      Deployment Component&apos;s environment entry.  The name
+	      is a JNDI name relative to the java:comp/env
+	      context.  The name must be unique within a
+	      Deployment Component. The uniqueness
+	      constraints must be defined within the declared
+	      context.
+
+	      Example:
+
+	      &lt;env-entry-name&gt;minAmount&lt;/env-entry-name&gt;
+
+	      -->
+<!ELEMENT %javaee..env-entry-name; (#PCDATA)>
+<!ATTLIST %javaee..env-entry-name;
+	id ID #IMPLIED
+>
+<!--
+
+	      The env-entry-type element contains the Java language
+	      type of the environment entry.  If an injection target
+	      is specified for the environment entry, the type may
+	      be omitted, or must match the type of the injection
+	      target.  If no injection target is specified, the type
+	      is required.
+
+	      Example:
+
+	      &lt;env-entry-type&gt;java.lang.Integer&lt;/env-entry-type&gt;
+
+	      -->
+<!ELEMENT %javaee..env-entry-type; (#PCDATA)>
+<!ATTLIST %javaee..env-entry-type;
+	id ID #IMPLIED
+>
+<!--
+
+	      The env-entry-value designates the value of a
+	      Deployment Component&apos;s environment entry. The value
+	      must be a String that is valid for the
+	      constructor of the specified type that takes a
+	      single String parameter, or for java.lang.Character,
+	      a single character.
+
+	      Example:
+
+	      &lt;env-entry-value&gt;100.00&lt;/env-entry-value&gt;
+
+	      -->
+<!ELEMENT %javaee..env-entry-value; (#PCDATA)>
+<!ATTLIST %javaee..env-entry-value;
+	id ID #IMPLIED
+>
+<!--
+
+	      The small-icon element contains the name of a file
+	      containing a small (16 x 16) icon image. The file
+	      name is a relative path within the Deployment
+	      Component&apos;s Deployment File.
+
+	      The image may be in the GIF, JPEG, or PNG format.
+	      The icon can be used by tools.
+
+	      Example:
+
+	      &lt;small-icon&gt;employee-service-icon16x16.jpg&lt;/small-icon&gt;
+
+	      -->
+<!ELEMENT %javaee..small-icon; (#PCDATA)>
+<!ATTLIST %javaee..small-icon;
+	id ID #IMPLIED
+>
+<!--
+
+	      The large-icon element contains the name of a file
+	      containing a large
+	      (32 x 32) icon image. The file name is a relative
+	      path within the Deployment Component&apos;s Deployment
+	      File.
+
+	      The image may be in the GIF, JPEG, or PNG format.
+	      The icon can be used by tools.
+
+	      Example:
+
+	      &lt;large-icon&gt;employee-service-icon32x32.jpg&lt;/large-icon&gt;
+
+	      -->
+<!ELEMENT %javaee..large-icon; (#PCDATA)>
+<!ATTLIST %javaee..large-icon;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..injection-target-class; (#PCDATA)>
+<!ATTLIST %javaee..injection-target-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..injection-target-name; (#PCDATA)>
+<!ATTLIST %javaee..injection-target-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..env-entry; (%javaee..description;*, %javaee..env-entry-name;, %javaee..env-entry-type;?, %javaee..env-entry-value;?, (%javaee..mapped-name;?, %javaee..injection-target;*))>
+<!ATTLIST %javaee..env-entry;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..ejb-ref; (%javaee..description;*, %javaee..ejb-ref-name;, %javaee..ejb-ref-type;?, %javaee..home;?, %javaee..remote;?, %javaee..ejb-link;?, (%javaee..mapped-name;?, %javaee..injection-target;*))>
+<!ATTLIST %javaee..ejb-ref;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..ejb-local-ref; (%javaee..description;*, %javaee..ejb-ref-name;, %javaee..ejb-ref-type;?, %javaee..local-home;?, %javaee..local;?, %javaee..ejb-link;?, (%javaee..mapped-name;?, %javaee..injection-target;*))>
+<!ATTLIST %javaee..ejb-local-ref;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..resource-ref; (%javaee..description;*, %javaee..res-ref-name;, %javaee..res-type;?, %javaee..res-auth;?, %javaee..res-sharing-scope;?, (%javaee..mapped-name;?, %javaee..injection-target;*))>
+<!ATTLIST %javaee..resource-ref;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..resource-env-ref; (%javaee..description;*, %javaee..resource-env-ref-name;, %javaee..resource-env-ref-type;?, (%javaee..mapped-name;?, %javaee..injection-target;*))>
+<!ATTLIST %javaee..resource-env-ref;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..message-destination-ref; (%javaee..description;*, %javaee..message-destination-ref-name;, %javaee..message-destination-type;?, %javaee..message-destination-usage;?, %javaee..message-destination-link;?, (%javaee..mapped-name;?, %javaee..injection-target;*))>
+<!ATTLIST %javaee..message-destination-ref;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..persistence-context-ref; (%javaee..description;*, %javaee..persistence-context-ref-name;, %javaee..persistence-unit-name;?, %javaee..persistence-context-type;?, %javaee..persistence-property;*, (%javaee..mapped-name;?, %javaee..injection-target;*))>
+<!ATTLIST %javaee..persistence-context-ref;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..persistence-unit-ref; (%javaee..description;*, %javaee..persistence-unit-ref-name;, %javaee..persistence-unit-name;?, (%javaee..mapped-name;?, %javaee..injection-target;*))>
+<!ATTLIST %javaee..persistence-unit-ref;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..post-construct; (%javaee..lifecycle-callback-class;?, %javaee..lifecycle-callback-method;)>
+<!ELEMENT %javaee..pre-destroy; (%javaee..lifecycle-callback-class;?, %javaee..lifecycle-callback-method;)>
+<!ELEMENT %javaee..lifecycle-callback-class; (#PCDATA)>
+<!ATTLIST %javaee..lifecycle-callback-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..lifecycle-callback-method; (#PCDATA)>
+<!ATTLIST %javaee..lifecycle-callback-method;
+	id ID #IMPLIED
+>
+<!--
+
+	    The listener-class element declares a class in the
+	    application must be registered as a web
+	    application listener bean. The value is the fully
+	    qualified classname of the listener class.
+
+	  -->
+<!ELEMENT %javaee..listener-class; (#PCDATA)>
+<!ATTLIST %javaee..listener-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!--
+
+	    The message-destination-ref-name element specifies
+	    the name of a message destination reference; its
+	    value is the environment entry name used in
+	    Deployment Component code.  The name is a JNDI name
+	    relative to the java:comp/env context and must be
+	    unique within an ejb-jar (for enterprise beans) or a
+	    Deployment File (for others).
+
+	  -->
+<!ELEMENT %javaee..message-destination-ref-name; (#PCDATA)>
+<!ATTLIST %javaee..message-destination-ref-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..message-destination-type; (#PCDATA)>
+<!ATTLIST %javaee..message-destination-type;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..message-destination-usage; (#PCDATA)>
+<!ATTLIST %javaee..message-destination-usage;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..message-destination-link; (#PCDATA)>
+<!ATTLIST %javaee..message-destination-link;
+	id ID #IMPLIED
+>
+<!--
+
+	    The message-destination-name element specifies a
+	    name for a message destination.  This name must be
+	    unique among the names of message destinations
+	    within the Deployment File.
+
+	  -->
+<!ELEMENT %javaee..message-destination-name; (#PCDATA)>
+<!ATTLIST %javaee..message-destination-name;
+	id ID #IMPLIED
+>
+<!--
+
+	      A product specific name that this message destination
+	      should be mapped to.  Each message-destination-ref
+	      element that references this message destination will
+	      define a name in the namespace of the referencing
+	      component.  (It&apos;s a name in the JNDI java:comp/env
+	      namespace.)  Many application servers provide a way to
+	      map these local names to names of resources known to the
+	      application server.  This mapped name is often a global
+	      JNDI name, but may be a name of any form.  Each of the
+	      local names should be mapped to this same global name.
+
+	      Application servers are not required to support any
+	      particular form or type of mapped name, nor the ability
+	      to use mapped names.  The mapped name is
+	      product-dependent and often installation-dependent.  No
+	      use of a mapped name is portable.
+
+	      -->
+<!ELEMENT %javaee..mapped-name; (#PCDATA)>
+<!ATTLIST %javaee..mapped-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!--
+
+	    The param-name element contains the name of a
+	    parameter.
+
+	  -->
+<!ELEMENT %javaee..param-name; (#PCDATA)>
+<!ATTLIST %javaee..param-name;
+	id ID #IMPLIED
+>
+<!--
+
+	    The param-value element contains the value of a
+	    parameter.
+
+	  -->
+<!ELEMENT %javaee..param-value; (#PCDATA)>
+<!ATTLIST %javaee..param-value;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!--
+
+	    The persistence-context-ref-name element specifies
+	    the name of a persistence context reference; its
+	    value is the environment entry name used in
+	    Deployment Component code.  The name is a JNDI name
+	    relative to the java:comp/env context.
+
+	  -->
+<!ELEMENT %javaee..persistence-context-ref-name; (#PCDATA)>
+<!ATTLIST %javaee..persistence-context-ref-name;
+	id ID #IMPLIED
+>
+<!--
+
+            The Application Assembler(or BeanProvider) may use the
+            following syntax to avoid the need to rename persistence
+            units to have unique names within a Java EE application.
+
+            The Application Assembler specifies the pathname of the
+            root of the persistence.xml file for the referenced
+            persistence unit and appends the name of the persistence
+            unit separated from the pathname by #. The pathname is
+            relative to the referencing application component jar file.
+            In this manner, multiple persistence units with the same
+            persistence unit name may be uniquely identified when the
+            Application Assembler cannot change persistence unit names.
+
+	  -->
+<!ELEMENT %javaee..persistence-unit-name; (#PCDATA)>
+<!ATTLIST %javaee..persistence-unit-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..persistence-context-type; (#PCDATA)>
+<!ATTLIST %javaee..persistence-context-type;
+	id ID #IMPLIED
+>
+<!--
+
+            Used to specify properties for the container or persistence
+            provider.  Vendor-specific properties may be included in
+            the set of properties.  Properties that are not recognized
+            by a vendor must be ignored.  Entries that make use of the
+            namespace javax.persistence and its subnamespaces must not
+            be used for vendor-specific properties.  The namespace
+            javax.persistence is reserved for use by the specification.
+
+	  -->
+<!ELEMENT %javaee..persistence-property; (%javaee..name;, %javaee..value;)>
+<!ATTLIST %javaee..persistence-property;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!--
+
+	    The persistence-unit-ref-name element specifies
+	    the name of a persistence unit reference; its
+	    value is the environment entry name used in
+	    Deployment Component code.  The name is a JNDI name
+	    relative to the java:comp/env context.
+
+	  -->
+<!ELEMENT %javaee..persistence-unit-ref-name; (#PCDATA)>
+<!ATTLIST %javaee..persistence-unit-ref-name;
+	id ID #IMPLIED
+>
+<!--
+
+            The Application Assembler(or BeanProvider) may use the
+            following syntax to avoid the need to rename persistence
+            units to have unique names within a Java EE application.
+
+            The Application Assembler specifies the pathname of the
+            root of the persistence.xml file for the referenced
+            persistence unit and appends the name of the persistence
+            unit separated from the pathname by #. The pathname is
+            relative to the referencing application component jar file.
+            In this manner, multiple persistence units with the same
+            persistence unit name may be uniquely identified when the
+            Application Assembler cannot change persistence unit names.
+
+	  -->
+<!ELEMENT %javaee..persistence-unit-name; (#PCDATA)>
+<!ATTLIST %javaee..persistence-unit-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..name; (#PCDATA)>
+<!ATTLIST %javaee..name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..value; (#PCDATA)>
+<!ATTLIST %javaee..value;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!--
+
+	    The resource-env-ref-name element specifies the name
+	    of a resource environment reference; its value is
+	    the environment entry name used in
+	    the Deployment Component code.  The name is a JNDI
+	    name relative to the java:comp/env context and must
+	    be unique within a Deployment Component.
+
+	  -->
+<!ELEMENT %javaee..resource-env-ref-name; (#PCDATA)>
+<!ATTLIST %javaee..resource-env-ref-name;
+	id ID #IMPLIED
+>
+<!--
+
+	    The resource-env-ref-type element specifies the type
+	    of a resource environment reference.  It is the
+	    fully qualified name of a Java language class or
+	    interface.
+
+	  -->
+<!ELEMENT %javaee..resource-env-ref-type; (#PCDATA)>
+<!ATTLIST %javaee..resource-env-ref-type;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!--
+
+	    The res-ref-name element specifies the name of a
+	    resource manager connection factory reference.
+	    The name is a JNDI name relative to the
+	    java:comp/env context.
+	    The name must be unique within a Deployment File.
+
+	  -->
+<!ELEMENT %javaee..res-ref-name; (#PCDATA)>
+<!ATTLIST %javaee..res-ref-name;
+	id ID #IMPLIED
+>
+<!--
+
+	    The res-type element specifies the type of the data
+	    source. The type is specified by the fully qualified
+	    Java language class or interface
+	    expected to be implemented by the data source.
+
+	  -->
+<!ELEMENT %javaee..res-type; (#PCDATA)>
+<!ATTLIST %javaee..res-type;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..res-auth; (#PCDATA)>
+<!ATTLIST %javaee..res-auth;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..res-sharing-scope; (#PCDATA)>
+<!ATTLIST %javaee..res-sharing-scope;
+	id ID #IMPLIED
+>
+<!--
+
+	      A product specific name that this resource should be
+	      mapped to.  The name of this resource, as defined by the
+	      resource&apos;s name element or defaulted, is a name that is
+	      local to the application component using the resource.
+	      (It&apos;s a name in the JNDI java:comp/env namespace.)  Many
+	      application servers provide a way to map these local
+	      names to names of resources known to the application
+	      server.  This mapped name is often a global JNDI name,
+	      but may be a name of any form.
+
+	      Application servers are not required to support any
+	      particular form or type of mapped name, nor the ability
+	      to use mapped names.  The mapped name is
+	      product-dependent and often installation-dependent.  No
+	      use of a mapped name is portable.
+
+	      -->
+<!ELEMENT %javaee..mapped-name; (#PCDATA)>
+<!ATTLIST %javaee..mapped-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..injection-target; (%javaee..injection-target-class;, %javaee..injection-target-name;)>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!ELEMENT %javaee..role-name; (#PCDATA)>
+<!ATTLIST %javaee..role-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!--
+
+	    The value of the role-name element must be the String used
+	    as the parameter to the
+	    EJBContext.isCallerInRole(String roleName) method or the
+	    HttpServletRequest.isUserInRole(String role) method.
+
+	  -->
+<!ELEMENT %javaee..role-name; (#PCDATA)>
+<!ATTLIST %javaee..role-name;
+	id ID #IMPLIED
+>
+<!--
+
+	    The role-link element is a reference to a defined
+	    security role. The role-link element must contain
+	    the name of one of the security roles defined in the
+	    security-role elements.
+
+	  -->
+<!ELEMENT %javaee..role-link; (#PCDATA)>
+<!ATTLIST %javaee..role-link;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..description; (#PCDATA)>
+<!ATTLIST %javaee..description;
+	id ID #IMPLIED
+	%default_NS_1_prefix;lang CDATA #IMPLIED
+>
+<!ELEMENT %javaee..role-name; (#PCDATA)>
+<!ATTLIST %javaee..role-name;
+	id ID #IMPLIED
+>
+<!--
+
+                The &quot;faces-config&quot; element is the root of the configuration
+                information hierarchy, and contains nested elements for all
+                of the other configuration settings.
+
+            -->
+<!ELEMENT %javaee..faces-config; (%javaee..application; | %javaee..factory; | %javaee..component; | %javaee..converter; | %javaee..managed-bean; | %javaee..navigation-rule; | %javaee..referenced-bean; | %javaee..render-kit; | %javaee..lifecycle; | %javaee..validator; | %javaee..faces-config-extension;*)*>
+<!ATTLIST %javaee..faces-config;
+	id ID #IMPLIED
+	version (1.2) #REQUIRED
+	%documentElementAttributes;
+>
+<!ELEMENT %javaee..application; (%javaee..action-listener; | %javaee..default-render-kit-id; | %javaee..message-bundle; | %javaee..navigation-handler; | %javaee..view-handler; | %javaee..state-manager; | %javaee..el-resolver; | %javaee..property-resolver; | %javaee..variable-resolver; | %javaee..locale-config; | %javaee..resource-bundle; | %javaee..application-extension;*)*>
+<!ATTLIST %javaee..application;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..factory; (%javaee..application-factory; | %javaee..faces-context-factory; | %javaee..lifecycle-factory; | %javaee..render-kit-factory; | %javaee..factory-extension;*)*>
+<!ATTLIST %javaee..factory;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..component; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..component-type;, %javaee..component-class;, %javaee..facet;*, %javaee..attribute;*, %javaee..property;*, %javaee..component-extension;*)>
+<!ATTLIST %javaee..component;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..converter; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), (%javaee..converter-id; | %javaee..converter-for-class;), %javaee..converter-class;, %javaee..attribute;*, %javaee..property;*, %javaee..converter-extension;*)>
+<!ATTLIST %javaee..converter;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..managed-bean; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..managed-bean-name;, %javaee..managed-bean-class;, %javaee..managed-bean-scope;, (%javaee..managed-property;* | %javaee..map-entries; | %javaee..list-entries;), %javaee..managed-bean-extension;*)>
+<!ATTLIST %javaee..managed-bean;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..navigation-rule; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..from-view-id;?, %javaee..navigation-case;*, %javaee..navigation-rule-extension;*)>
+<!ATTLIST %javaee..navigation-rule;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..referenced-bean; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..referenced-bean-name;, %javaee..referenced-bean-class;)>
+<!ATTLIST %javaee..referenced-bean;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..render-kit; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..render-kit-id;?, %javaee..render-kit-class;?, %javaee..renderer;*, %javaee..render-kit-extension;*)>
+<!ATTLIST %javaee..render-kit;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..lifecycle; (%javaee..phase-listener;*, %javaee..lifecycle-extension;*)>
+<!ATTLIST %javaee..lifecycle;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..validator; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..validator-id;, %javaee..validator-class;, %javaee..attribute;*, %javaee..property;*, %javaee..validator-extension;*)>
+<!ATTLIST %javaee..validator;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..faces-config-extension; (#PCDATA)>
+<!ATTLIST %javaee..faces-config-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;action-listener&quot; element contains the fully
+                            qualified class name of the concrete
+                            ActionListener implementation class that will be
+                            called during the Invoke Application phase of the
+                            request processing lifecycle.
+
+                    -->
+<!ELEMENT %javaee..action-listener; (#PCDATA)>
+<!ATTLIST %javaee..action-listener;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;default-render-kit-id&quot; element allows the
+                            application to define a renderkit to be used other
+                            than the standard one.
+
+                    -->
+<!ELEMENT %javaee..default-render-kit-id; (#PCDATA)>
+<!ATTLIST %javaee..default-render-kit-id;
+	id ID #IMPLIED
+>
+<!--
+
+                            The base name of a resource bundle representing
+                            the message resources for this application.  See
+                            the JavaDocs for the &quot;java.util.ResourceBundle&quot;
+                            class for more information on the syntax of
+                            resource bundle names.
+
+                    -->
+<!ELEMENT %javaee..message-bundle; (#PCDATA)>
+<!ATTLIST %javaee..message-bundle;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;navigation-handler&quot; element contains the
+                            fully qualified class name of the concrete
+                            NavigationHandler implementation class that will
+                            be called during the Invoke Application phase
+                            of the request processing lifecycle, if the
+                            default ActionListener (provided by the JSF
+                            implementation) is used.
+
+                    -->
+<!ELEMENT %javaee..navigation-handler; (#PCDATA)>
+<!ATTLIST %javaee..navigation-handler;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;view-handler&quot; element contains the fully
+                            qualified class name of the concrete ViewHandler
+                            implementation class that will be called during
+                            the Restore View and Render Response phases of the
+                            request processing lifecycle.  The faces
+                            implementation must provide a default
+                            implementation of this class.
+
+                    -->
+<!ELEMENT %javaee..view-handler; (#PCDATA)>
+<!ATTLIST %javaee..view-handler;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;state-manager&quot; element contains the fully
+                            qualified class name of the concrete StateManager
+                            implementation class that will be called during
+                            the Restore View and Render Response phases of the
+                            request processing lifecycle.  The faces
+                            implementation must provide a default
+                            implementation of this class.
+
+                    -->
+<!ELEMENT %javaee..state-manager; (#PCDATA)>
+<!ATTLIST %javaee..state-manager;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;el-resolver&quot; element contains the fully
+                            qualified class name of the concrete
+                            javax.el.ELResolver implementation class
+                            that will be used during the processing of
+                            EL expressions.
+
+                    -->
+<!ELEMENT %javaee..el-resolver; (#PCDATA)>
+<!ATTLIST %javaee..el-resolver;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;property-resolver&quot; element contains the fully
+                            qualified class name of the concrete
+                            PropertyResolver implementation class that will
+                            be used during the processing of value binding
+                            expressions.
+
+                    -->
+<!ELEMENT %javaee..property-resolver; (#PCDATA)>
+<!ATTLIST %javaee..property-resolver;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;variable-resolver&quot; element contains the fully
+                            qualified class name of the concrete
+                            VariableResolver implementation class that will
+                            be used during the processing of value binding
+                            expressions.
+
+                    -->
+<!ELEMENT %javaee..variable-resolver; (#PCDATA)>
+<!ATTLIST %javaee..variable-resolver;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..locale-config; (%javaee..default-locale;?, %javaee..supported-locale;*)>
+<!ATTLIST %javaee..locale-config;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..resource-bundle; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..base-name;, %javaee..var;)>
+<!ATTLIST %javaee..resource-bundle;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..application-extension; (#PCDATA)>
+<!ATTLIST %javaee..application-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The fully qualified class name of the
+                        java.util.ResourceBundle instance.
+
+                    -->
+<!ELEMENT %javaee..base-name; (#PCDATA)>
+<!ATTLIST %javaee..base-name;
+	id ID #IMPLIED
+>
+<!--
+
+                        The name by which this ResourceBundle instance
+                        is retrieved by a call to
+                        Application.getResourceBundle().
+
+                    -->
+<!ELEMENT %javaee..var; (#PCDATA)>
+<!ATTLIST %javaee..var;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;application-factory&quot; element contains the
+                        fully qualified class name of the concrete
+                        ApplicationFactory implementation class that will
+                        be called when
+                        FactoryFinder.getFactory(APPLICATION_FACTORY) is
+                        called.
+
+                    -->
+<!ELEMENT %javaee..application-factory; (#PCDATA)>
+<!ATTLIST %javaee..application-factory;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;faces-context-factory&quot; element contains the
+                        fully qualified class name of the concrete
+                        FacesContextFactory implementation class that will
+                        be called when
+                        FactoryFinder.getFactory(FACES_CONTEXT_FACTORY)
+                        is called.
+
+                    -->
+<!ELEMENT %javaee..faces-context-factory; (#PCDATA)>
+<!ATTLIST %javaee..faces-context-factory;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;lifecycle-factory&quot; element contains the fully
+                        qualified class name of the concrete LifecycleFactory
+                        implementation class that will be called when
+                        FactoryFinder.getFactory(LIFECYCLE_FACTORY) is called.
+
+                    -->
+<!ELEMENT %javaee..lifecycle-factory; (#PCDATA)>
+<!ATTLIST %javaee..lifecycle-factory;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;render-kit-factory&quot; element contains the fully
+                        qualified class name of the concrete RenderKitFactory
+                        implementation class that will be called when
+                        FactoryFinder.getFactory(RENDER_KIT_FACTORY) is
+                        called.
+
+                    -->
+<!ELEMENT %javaee..render-kit-factory; (#PCDATA)>
+<!ATTLIST %javaee..render-kit-factory;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..factory-extension; (#PCDATA)>
+<!ATTLIST %javaee..factory-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;attribute-name&quot; element represents the name under
+                        which the corresponding value will be stored, in the
+                        generic attributes of the UIComponent we are related
+                        to.
+
+                    -->
+<!ELEMENT %javaee..attribute-name; (#PCDATA)>
+<!ATTLIST %javaee..attribute-name;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;attribute-class&quot; element represents the Java type
+                        of the value associated with this attribute name.
+
+                    -->
+<!ELEMENT %javaee..attribute-class; (#PCDATA)>
+<!ATTLIST %javaee..attribute-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..default-value; (#PCDATA)>
+<!ATTLIST %javaee..default-value;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..suggested-value; (#PCDATA)>
+<!ATTLIST %javaee..suggested-value;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..attribute-extension; (#PCDATA)>
+<!ATTLIST %javaee..attribute-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;component-type&quot; element represents the name under
+                        which the corresponding UIComponent class should be
+                        registered.
+
+                    -->
+<!ELEMENT %javaee..component-type; (#PCDATA)>
+<!ATTLIST %javaee..component-type;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;component-class&quot; element represents the fully
+                        qualified class name of a concrete UIComponent
+                        implementation class.
+
+                    -->
+<!ELEMENT %javaee..component-class; (#PCDATA)>
+<!ATTLIST %javaee..component-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..facet; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..facet-name;, %javaee..facet-extension;*)>
+<!ATTLIST %javaee..facet;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..attribute; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..attribute-name;, %javaee..attribute-class;, %javaee..default-value;?, %javaee..suggested-value;?, %javaee..attribute-extension;*)>
+<!ATTLIST %javaee..attribute;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..property; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..property-name;, %javaee..property-class;, %javaee..default-value;?, %javaee..suggested-value;?, %javaee..property-extension;*)>
+<!ATTLIST %javaee..property;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..component-extension; (#PCDATA)>
+<!ATTLIST %javaee..component-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;facet-name&quot; element represents the facet name
+                        under which a UIComponent will be added to its parent.
+                        It must be of type &quot;Identifier&quot;.
+
+                    -->
+<!ELEMENT %javaee..facet-name; (#PCDATA)>
+<!ATTLIST %javaee..facet-name;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..facet-extension; (#PCDATA)>
+<!ATTLIST %javaee..facet-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;converter-id&quot; element represents the
+                            identifier under which the corresponding
+                            Converter class should be registered.
+
+                        -->
+<!ELEMENT %javaee..converter-id; (#PCDATA)>
+<!ATTLIST %javaee..converter-id;
+	id ID #IMPLIED
+>
+<!--
+
+                            The &quot;converter-for-class&quot; element represents the
+                            fully qualified class name for which a Converter
+                            class will be registered.
+
+                        -->
+<!ELEMENT %javaee..converter-for-class; (#PCDATA)>
+<!ATTLIST %javaee..converter-for-class;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;converter-class&quot; element represents the fully
+                        qualified class name of a concrete Converter
+                        implementation class.
+
+                    -->
+<!ELEMENT %javaee..converter-class; (#PCDATA)>
+<!ATTLIST %javaee..converter-class;
+	id ID #IMPLIED
+>
+<!--
+
+                       Nested &quot;attribute&quot; elements identify generic
+                       attributes that may be configured on the
+                       corresponding UIComponent in order to affect the
+                       operation of the Converter.  This attribute is
+                       primarily for design-time tools and is not
+                       specified to have any meaning at runtime.
+
+                    -->
+<!ELEMENT %javaee..attribute; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..attribute-name;, %javaee..attribute-class;, %javaee..default-value;?, %javaee..suggested-value;?, %javaee..attribute-extension;*)>
+<!ATTLIST %javaee..attribute;
+	id ID #IMPLIED
+>
+<!--
+
+                       Nested &quot;property&quot; elements identify JavaBeans
+                       properties of the Converter implementation class
+                       that may be configured to affect the operation of
+                       the Converter.  This attribute is primarily for
+                       design-time tools and is not specified to have
+                       any meaning at runtime.
+
+                    -->
+<!ELEMENT %javaee..property; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..property-name;, %javaee..property-class;, %javaee..default-value;?, %javaee..suggested-value;?, %javaee..property-extension;*)>
+<!ATTLIST %javaee..property;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..converter-extension; (#PCDATA)>
+<!ATTLIST %javaee..converter-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;phase-listener&quot; element contains the fully
+                        qualified class name of the concrete PhaseListener
+                        implementation class that will be registered on
+                        the Lifecycle.
+
+                    -->
+<!ELEMENT %javaee..phase-listener; (#PCDATA)>
+<!ATTLIST %javaee..phase-listener;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..lifecycle-extension; (#PCDATA)>
+<!ATTLIST %javaee..lifecycle-extension;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..default-locale; (#PCDATA)>
+<!ATTLIST %javaee..default-locale;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..supported-locale; (#PCDATA)>
+<!ATTLIST %javaee..supported-locale;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;managed-bean-name&quot; element represents the
+                        attribute name under which a managed bean will
+                        be searched for, as well as stored (unless the
+                        &quot;managed-bean-scope&quot; value is &quot;none&quot;).
+
+                    -->
+<!ELEMENT %javaee..managed-bean-name; (#PCDATA)>
+<!ATTLIST %javaee..managed-bean-name;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;managed-bean-class&quot; element represents the fully
+                        qualified class name of the Java class that will be
+                        used`to instantiate a new instance if creation of the
+                        specified`managed bean is requested.
+
+                        The specified class must conform to standard JavaBeans
+                        conventions.  In particular, it must have a public
+                        zero-arguments constructor, and zero or more public
+                        property setters.
+
+                    -->
+<!ELEMENT %javaee..managed-bean-class; (#PCDATA)>
+<!ATTLIST %javaee..managed-bean-class;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;managed-bean-scope&quot; element represents the scope
+                        into which a newly created instance of the specified
+                        managed bean will be stored (unless the value is
+                        &quot;none&quot;).
+
+                    -->
+<!ELEMENT %javaee..managed-bean-scope; (#PCDATA)>
+<!ATTLIST %javaee..managed-bean-scope;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..managed-property; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..property-name;, %javaee..property-class;?, (%javaee..map-entries; | %javaee..null-value; | %javaee..value; | %javaee..list-entries;))>
+<!ATTLIST %javaee..managed-property;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..map-entries; (%javaee..key-class;?, %javaee..value-class;?, %javaee..map-entry;*)>
+<!ATTLIST %javaee..map-entries;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..list-entries; (%javaee..value-class;?, (%javaee..null-value; | %javaee..value;)*)>
+<!ATTLIST %javaee..list-entries;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..managed-bean-extension; (#PCDATA)>
+<!ATTLIST %javaee..managed-bean-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;property-name&quot; element represents the JavaBeans
+                        property name under which the corresponding value may
+                        be stored.
+
+                    -->
+<!ELEMENT %javaee..property-name; (#PCDATA)>
+<!ATTLIST %javaee..property-name;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;property-class&quot; element represents the Java type
+                        of the value associated with this property name.
+                        If not specified, it can be inferred from existing
+                        classes; however, this element should be specified
+                        if the configuration file is going to be the source
+                        for generating the corresponding classes.
+
+                    -->
+<!ELEMENT %javaee..property-class; (#PCDATA)>
+<!ATTLIST %javaee..property-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..map-entries; (%javaee..key-class;?, %javaee..value-class;?, %javaee..map-entry;*)>
+<!ATTLIST %javaee..map-entries;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..null-value; EMPTY>
+<!ATTLIST %javaee..null-value;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..value; (#PCDATA)>
+<!ELEMENT %javaee..list-entries; (%javaee..value-class;?, (%javaee..null-value; | %javaee..value;)*)>
+<!ATTLIST %javaee..list-entries;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;key&quot; element is the String representation of a
+                        map key that will be stored in a managed property of
+                        type java.util.Map.
+
+                    -->
+<!ELEMENT %javaee..key; (#PCDATA)>
+<!ATTLIST %javaee..key;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..null-value; EMPTY>
+<!ATTLIST %javaee..null-value;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..value; (#PCDATA)>
+<!--
+
+                        The &quot;key-class&quot; element defines the Java type to which
+                        each &quot;key&quot; element in a set of &quot;map-entry&quot; elements
+                        will be converted to.  If omitted, &quot;java.lang.String&quot;
+                        is assumed.
+
+                    -->
+<!ELEMENT %javaee..key-class; (#PCDATA)>
+<!ATTLIST %javaee..key-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..value-class; (#PCDATA)>
+<!ATTLIST %javaee..value-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..map-entry; (%javaee..key;, (%javaee..null-value; | %javaee..value;))>
+<!ATTLIST %javaee..map-entry;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..from-action; (#PCDATA)>
+<!ATTLIST %javaee..from-action;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;from-outcome&quot; element contains a logical outcome
+                        string returned by the execution of an application
+                        action method selected via an &quot;actionRef&quot; property
+                        (or a literal value specified by an &quot;action&quot; property)
+                        of a UICommand component.  If specified, this rule
+                        will be relevant only if the outcome value matches
+                        this element&apos;s value.  If not specified, this rule
+                        will be relevant no matter what the outcome value was.
+
+                    -->
+<!ELEMENT %javaee..from-outcome; (#PCDATA)>
+<!ATTLIST %javaee..from-outcome;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;to-view-id&quot; element contains the view identifier
+                        of the next view that should be displayed if this
+                        navigation rule is matched.
+
+                    -->
+<!ELEMENT %javaee..to-view-id; (#PCDATA)>
+<!ATTLIST %javaee..to-view-id;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..redirect; EMPTY>
+<!ATTLIST %javaee..redirect;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..from-view-id; (#PCDATA)>
+<!ATTLIST %javaee..from-view-id;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..navigation-case; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..from-action;?, %javaee..from-outcome;?, %javaee..to-view-id;, %javaee..redirect;?)>
+<!ATTLIST %javaee..navigation-case;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..navigation-rule-extension; (#PCDATA)>
+<!ATTLIST %javaee..navigation-rule-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;property-name&quot; element represents the JavaBeans
+                        property name under which the corresponding value
+                        may be stored.
+
+                    -->
+<!ELEMENT %javaee..property-name; (#PCDATA)>
+<!ATTLIST %javaee..property-name;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;property-class&quot; element represents the Java type
+                        of the value associated with this property name.
+                        If not specified, it can be inferred from existing
+                        classes; however, this element should be specified if
+                        the configuration file is going to be the source for
+                        generating the corresponding classes.
+
+                    -->
+<!ELEMENT %javaee..property-class; (#PCDATA)>
+<!ATTLIST %javaee..property-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..default-value; (#PCDATA)>
+<!ATTLIST %javaee..default-value;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..suggested-value; (#PCDATA)>
+<!ATTLIST %javaee..suggested-value;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..property-extension; (#PCDATA)>
+<!ATTLIST %javaee..property-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;referenced-bean-name&quot; element represents the
+                        attribute name under which the corresponding
+                        referenced bean may be assumed to be stored, in one
+                        of &apos;request&apos;, &apos;session&apos;, or &apos;application&apos; scopes.
+
+                    -->
+<!ELEMENT %javaee..referenced-bean-name; (#PCDATA)>
+<!ATTLIST %javaee..referenced-bean-name;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;referenced-bean-class&quot; element represents the
+                        fully qualified class name of the Java class
+                        (either abstract or concrete) or Java interface
+                        implemented by the corresponding referenced bean.
+
+                    -->
+<!ELEMENT %javaee..referenced-bean-class; (#PCDATA)>
+<!ATTLIST %javaee..referenced-bean-class;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;render-kit-id&quot; element represents an identifier
+                        for the RenderKit represented by the parent
+                        &quot;render-kit&quot; element.
+
+                    -->
+<!ELEMENT %javaee..render-kit-id; (#PCDATA)>
+<!ATTLIST %javaee..render-kit-id;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;render-kit-class&quot; element represents the fully
+                        qualified class name of a concrete RenderKit
+                        implementation class.
+
+                    -->
+<!ELEMENT %javaee..render-kit-class; (#PCDATA)>
+<!ATTLIST %javaee..render-kit-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..renderer; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..component-family;, %javaee..renderer-type;, %javaee..renderer-class;, %javaee..facet;*, %javaee..attribute;*, %javaee..renderer-extension;*)>
+<!ATTLIST %javaee..renderer;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..render-kit-extension; (#PCDATA)>
+<!ATTLIST %javaee..render-kit-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;component-family&quot; element represents the
+                        component family for which the Renderer represented
+                        by the parent &quot;renderer&quot; element will be used.
+
+                    -->
+<!ELEMENT %javaee..component-family; (#PCDATA)>
+<!ATTLIST %javaee..component-family;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;renderer-type&quot; element represents a renderer type
+                        identifier for the Renderer represented by the parent
+                        &quot;renderer&quot; element.
+
+                    -->
+<!ELEMENT %javaee..renderer-type; (#PCDATA)>
+<!ATTLIST %javaee..renderer-type;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;renderer-class&quot; element represents the fully
+                        qualified class name of a concrete Renderer
+                        implementation class.
+
+                    -->
+<!ELEMENT %javaee..renderer-class; (#PCDATA)>
+<!ATTLIST %javaee..renderer-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..facet; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..facet-name;, %javaee..facet-extension;*)>
+<!ATTLIST %javaee..facet;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..attribute; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..attribute-name;, %javaee..attribute-class;, %javaee..default-value;?, %javaee..suggested-value;?, %javaee..attribute-extension;*)>
+<!ATTLIST %javaee..attribute;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..renderer-extension; (#PCDATA)>
+<!ATTLIST %javaee..renderer-extension;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;validator-id&quot; element represents the identifier
+                        under which the corresponding Validator class should
+                        be registered.
+
+                    -->
+<!ELEMENT %javaee..validator-id; (#PCDATA)>
+<!ATTLIST %javaee..validator-id;
+	id ID #IMPLIED
+>
+<!--
+
+                        The &quot;validator-class&quot; element represents the fully
+                        qualified class name of a concrete Validator
+                        implementation class.
+
+                    -->
+<!ELEMENT %javaee..validator-class; (#PCDATA)>
+<!ATTLIST %javaee..validator-class;
+	id ID #IMPLIED
+>
+<!--
+
+                       Nested &quot;attribute&quot; elements identify generic
+                       attributes that may be configured on the
+                       corresponding UIComponent in order to affect the
+                       operation of the Validator.  This attribute is
+                       primarily for design-time tools and is not
+                       specified to have any meaning at runtime.
+
+                    -->
+<!ELEMENT %javaee..attribute; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..attribute-name;, %javaee..attribute-class;, %javaee..default-value;?, %javaee..suggested-value;?, %javaee..attribute-extension;*)>
+<!ATTLIST %javaee..attribute;
+	id ID #IMPLIED
+>
+<!--
+
+                       Nested &quot;property&quot; elements identify JavaBeans
+                       properties of the Validator implementation class
+                       that may be configured to affect the operation of
+                       the Validator.  This attribute is primarily for
+                       design-time tools and is not specified to have
+                       any meaning at runtime.
+
+                    -->
+<!ELEMENT %javaee..property; ((%javaee..description;*, %javaee..display-name;*, %javaee..icon;*), %javaee..property-name;, %javaee..property-class;, %javaee..default-value;?, %javaee..suggested-value;?, %javaee..property-extension;*)>
+<!ATTLIST %javaee..property;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..validator-extension; (#PCDATA)>
+<!ATTLIST %javaee..validator-extension;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..value-class; (#PCDATA)>
+<!ATTLIST %javaee..value-class;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..null-value; EMPTY>
+<!ATTLIST %javaee..null-value;
+	id ID #IMPLIED
+>
+<!ELEMENT %javaee..value; (#PCDATA)>
+

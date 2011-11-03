@@ -1,0 +1,93 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+    <head> <title>ICESoft JSFX Demos</title>
+    <link rel="stylesheet" type="text/css" href="css/auction_styles.css" />
+    <script type="text/javascript">
+    var newwin1;
+    var newwin2;
+    function makeNewWins(url1,url2) {
+    	if (!newwin1 || newwin1.closed) {
+    		newwin1 = window.open(url1,"win1","scrollbars=1,toolbar=1,menubar=1,status=1,width=850,height=400,resizable=1,left=0,top=0");
+    	} else {
+    		newwin1.focus();
+    	}
+    	if (!newwin2 || newwin2.closed) {
+    		newwin2 = window.open(url2,"win2","scrollbars=1,toolbar=1,menubar=1,status=1,width=850,height=400,resizable=1,left=0,top=420");
+    	} else {
+    		newwin2.focus();
+    	}
+    }
+    </script>
+    </head>
+    <body bgcolor="white">
+    <center>
+	<table width=80%>
+	<tr><td><img src="images/poweredbyicesoft.gif" width="185" height="50" align="right" /><img src="images/monitor_logo.gif" width="315" height="60" align="left">
+	</td></tr>
+	<tr>
+	  <td align="left"><div id="bandDiv"></div></td>
+	  </tr>
+	<tr><td align="left">
+	<p>&nbsp;</p>
+	<table width="100%"  border="0" cellspacing="1" cellpadding="1">
+      <tr>
+        <td width="72%" class="headLine">ICEsoft JSF Auction Monitor Demo <br>
+          <span style="font-size:.7em;">Featuring D2D Technology</span></td>
+        <td width="28%" align="right"><img src="images/D2D_button.gif" width="82" height="82" align="absmiddle"></td>
+      </tr>
+    </table>
+	</td></tr>
+	<tr>
+	  <td><br />
+	    You are about to interact with a JSF application powered by ICEsoft's Direct-to-DOM (D2D) rendering technology. 
+        <p>D2D rendering provides unparalleled richness to JSF applications through incremental browser DOM updates and a fine-grained partial submit mechanism, all delivered via a lightweight JavaScript bridge to any modern commercial browser. This is not an ad hoc AJAX implementation requiring intricate and torturous JavaScript programming to achieve richness, but a pure JSF application (using only standard JSF components) that benefits directly, and transparently from the underlying D2D mechanism.</p>
+	<p>As you will notice immediately from the ticking clocks in the "Time Left" column, asynchronous, real time, presentation layer updates are delivered to the client browser. You will see that as bids are generated from one client, other client presentations are updated to reflect the changes. You will also notice that there are no full page refreshes required, and your user context (scroll bars, input focus, etc...) is preserved even as the presentation changes before your eyes. </p>
+	<p>After only a brief interaction with this application you will begin to realize that D2D delivers richness not possible in standard web applications, and that D2D opens up a whole new class of rich web-based applications.</p>
+	<div id="nifty">
+	<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>	
+		&nbsp; &nbsp; <a href="javascript:makeNewWins('/auctionMonitor/auctionItems.iface','/auctionMonitorStatic/auctionItems.jspx')"><img src="images/go_button.gif" width="30" height="29" border="0" align="absmiddle"> Compare the D2D enriched  JSF Dynamic Auction Monitor to the traditional HTML version here.</a> 
+	<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b>
+	</div>	
+	<br />
+	</td></tr>
+	<tr><td align="right">
+	<br />	<br />
+	</td></tr>
+	</table>
+	</center>
+    </body>
+</html>

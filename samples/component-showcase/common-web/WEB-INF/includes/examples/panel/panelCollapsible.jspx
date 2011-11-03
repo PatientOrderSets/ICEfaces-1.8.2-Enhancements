@@ -1,0 +1,165 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+<ice:panelGroup styleClass="componentBox"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component" >
+    <ice:panelGroup styleClass="synopsisBox panelCollapsible">
+        <ice:outputText value="#{msgs['page.panelCollapsible.synopsis']}"/>
+        <ice:outputText value="#{msgs['page.panelCollapsible.description']}"/>
+    </ice:panelGroup>
+    <ice:panelGroup styleClass="clearer"/>
+
+    <!-- Link based expandable panel demo -->
+    <ice:panelGroup styleClass="pnlClpsblWrapper panelCollapsible">
+
+        <ice:panelCollapsible id="linkPanel" expanded="true" >
+            <f:facet name="header">
+                <ice:panelGroup>
+                    <ice:outputText id="linkHeader"
+                            value="#{msgs['page.panelCollapsible.links.header']}"/>
+                </ice:panelGroup>
+            </f:facet>
+            <ice:panelGrid columns="3" cellpadding="4" cellspacing="4" width="100%">
+                <!-- icfaces.org -->
+                <ice:outputLink target="_blank" styleClass="navPnlClpsblLnks"
+                                value="http://icefaces.org/main/home/index.jsp">
+                    <ice:outputText id="icefacesOrgLink" value="ICEfaces.org"/>
+                </ice:outputLink>
+
+                <!-- icfaces.org downloads-->
+                <ice:outputLink target="_blank" styleClass="navPnlClpsblLnks"
+                                value="http://icefaces.org/main/downloads/os-downloads.iface">
+                    <ice:outputText id="downloadsLink" value="ICEfaces Downloads"/>
+                </ice:outputLink>
+
+                <!-- icfaces.org JForumn-->
+                <ice:outputLink target="_blank" styleClass="navPnlClpsblLnks"
+                                value="http://www.icefaces.org/JForum/">
+                    <ice:outputText id="jforumLink" value="ICEfaces JForum"/>
+                </ice:outputLink>
+
+
+                <!-- icfaces.org SVN-->
+                <ice:outputLink target="_blank" styleClass="navPnlClpsblLnks"
+                                value="http://icefaces.org/main/downloads/svninfo.iface">
+                    <ice:outputText id="svnLink" value="ICEfaces SVN"/>
+                </ice:outputLink>
+
+                <!-- icfaces.org Projects-->
+                <ice:outputLink target="_blank" styleClass="navPnlClpsblLnks"
+                                value="http://icefaces.org/main/downloads/project-downloads.iface">
+                    <ice:outputText id="projectsLink" value="ICEfaces Projects"/>
+                </ice:outputLink>
+
+                <!-- icfaces.org Tutorials -->
+                <ice:outputLink target="_blank" styleClass="navPnlClpsblLnks"
+                                value="http://icefaces.org/main/resources/tutorials.iface">
+                    <ice:outputText id="tutorialsLink" value="ICEfaces Tutorials"/>
+                </ice:outputLink>
+
+                <!-- icfaces.org Time Zone -->
+                <ice:outputLink target="_blank" styleClass="navPnlClpsblLnks"
+                                value="http://timezone.icefaces.org/timezone5/">
+                    <ice:outputText id="timezoneLink" value="Time Zone"/>
+                </ice:outputLink>
+
+                <!-- icfaces.org Component Showcase -->
+                <ice:outputLink target="_blank" styleClass="navPnlClpsblLnks"
+                                value="http://webmc.icefaces.org/">
+                    <ice:outputText id="webmcLink" value="WebMC"/>
+                </ice:outputLink>
+
+                <!-- icfaces.org  Auction Monitor -->
+                <ice:outputLink target="_blank" styleClass="navPnlClpsblLnks"
+                                value="http://auctionmonitor.icefaces.org/">
+                    <ice:outputText id="auctionMonitorLink" value="Auction Monitor"/>
+                </ice:outputLink>
+            </ice:panelGrid>
+        </ice:panelCollapsible>
+        <!-- Form input based expandable panel demo -->
+        <ice:panelCollapsible id="formPanel" expanded="true">
+            <f:facet name="header">
+                <ice:panelGroup>
+                    <ice:outputText id="formHeader" value="#{msgs['page.panelCollapsible.form.header']}"/>
+                </ice:panelGroup>
+            </f:facet>
+            <ice:panelGroup >
+                <ice:panelGrid columns="2">
+                    <!-- first Name-->
+                    <ice:outputLabel for="formFirstName"
+                                     value="#{msgs['page.panelCollapsible.form.firstName']}"/>
+                    <ice:inputText id="formFirstName"
+                                   value="#{panelCollapsibleBean.firstName}"/>
+
+                    <!-- Phone Name-->
+                    <ice:outputLabel for="formPhone"
+                                     value="#{msgs['page.panelCollapsible.form.phone']}"/>
+                    <ice:inputText id="formPhone" value="#{panelCollapsibleBean.phone}"/>
+
+                    <!-- Last Name-->
+                    <ice:outputLabel for="formLastName"
+                                     value="#{msgs['page.panelCollapsible.form.lastName']}"/>
+                    <ice:inputText id="formLastName" value="#{panelCollapsibleBean.lastName}"/>
+                </ice:panelGrid>
+            </ice:panelGroup>
+        </ice:panelCollapsible>
+        <ice:panelCollapsible id="imagePanel" expanded="false" >
+            <f:facet name="header">
+                <ice:panelGroup>
+                    <ice:outputText id="imageHeader"
+                            value="#{msgs['page.panelCollapsible.image.header']}"/>
+                </ice:panelGroup>
+            </f:facet>
+            <ice:panelGroup style="text-align: center;">
+                <ice:graphicImage id="iceGphImg" value="/images/panelCollapsible/pnlClpsbl_logo.png"
+                    alt="ICEfaces" title="ICEfaces" width="369" height="230"/>
+            </ice:panelGroup>
+        </ice:panelCollapsible>
+        <!-- Text output based expandable panel demo -->
+        <ice:panelGroup styleClass="pnlClpsblEnd" >
+            <ice:panelCollapsible id="textPanel" expanded="true" >
+                <f:facet name="header">
+                    <ice:panelGroup>
+                        <ice:outputText id="textHeader" value="#{msgs['page.panelCollapsible.text.header']}"/>
+                    </ice:panelGroup>
+                </f:facet>
+                <ice:panelGroup >
+                        <ice:outputText id="textDesc"
+                            escape="false"
+                            value="#{msgs['page.panelCollapsible.text.description']}"/>
+                </ice:panelGroup>
+            </ice:panelCollapsible>
+        </ice:panelGroup>
+    </ice:panelGroup>
+</ice:panelGroup>

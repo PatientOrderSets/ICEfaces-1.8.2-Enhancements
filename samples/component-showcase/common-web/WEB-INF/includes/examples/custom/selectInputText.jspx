@@ -1,0 +1,150 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, selectInputText elements are used to autocomplete
+information from a database of USA Address information.
+-->
+
+<ice:panelGroup styleClass="componentBox"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:panelGroup styleClass="synopsisBox selectInputTextContainer">
+
+        <ice:outputText value="#{msgs['page.selectInputText.synopsis']}"/>
+        <ice:outputText
+                value="#{msgs['page.selectInputText.instructions']}"/>
+
+    </ice:panelGroup>
+
+    <!-- selectInputText showing simple list of selectItems -->
+    <ice:panelGroup styleClass="exampleBox firstChildTitle selectInputTextContainer">
+
+        <ice:outputText
+                value="#{msgs['page.selectInputText.plainDirections']}"/>
+
+        <!-- //The server call delay frequency can be configured using the "options" attribute,
+        the default delay is 0.4 Seconds (400 Milliseconds)
+        (e.g.)
+        //set delay to 100 Milliseconds
+        <ice:selectInputText id="AutoCmpTxt"
+                             options="{frequency:0.1}"
+                             rows="#{selectInputText.cityListLength}"
+                             width="300"
+                             value="#{selectInputText.selectedCityValue1}"
+        -->
+        <ice:selectInputText id="AutoCmpTxt"
+                             rows="#{selectInputText.cityListLength}"
+                             width="300"
+                             value="#{selectInputText.selectedCityValue1}"
+                             valueChangeListener="#{selectInputText.selectInputValueChanged}">
+            <f:selectItems id="AutoCmpTxtItms"
+                           value="#{selectInputText.cityMatchPossibilities}"/>
+        </ice:selectInputText>
+    </ice:panelGroup>
+
+    <!-- selectInputText showing panel grid list of items. -->
+    <ice:panelGroup styleClass="exampleBox firstChildTitle selectInputTextContainer">
+
+        <ice:outputText
+                value="#{msgs['page.selectInputText.htmlDirections']}"/>
+
+        <ice:selectInputText id="AutoCmpTxtFace"
+                             rows="#{selectInputText.cityListLength}"
+                             width="300"
+                             value="#{selectInputText.selectedCityValue2}"
+                             valueChangeListener="#{selectInputText.selectInputValueChanged}"
+                             listVar="city"
+                             listValue="#{selectInputText.cityMatchPossibilities}">
+            <!-- facet is used to define area used in popup -->
+            <f:facet name="selectInputText">
+                <ice:panelGrid columns="3"
+                               columnClasses="cityCol,stateCol,zipCol">
+                    <ice:outputText id="AutoCmpCty" value="#{city.city}"/>
+                    <ice:outputText id="AutoCmpSt" value="#{city.state}"/>
+                    <ice:outputText id="AutoCmpZip" value="#{city.zip}"/>
+                </ice:panelGrid>
+            </f:facet>
+
+        </ice:selectInputText>
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="clearer"/>
+
+    <!-- Server-side values-->
+    <ice:panelGroup
+            styleClass="exampleBox firstChildTitle backBeanChangeContainer">
+
+        <!-- backing bean title box -->
+        <ice:panelGroup styleClass="backBeanChangeTitle">
+            <ice:outputText value="#{msgs['page.global.serverFeedback']}"/>
+        </ice:panelGroup>
+
+        <!-- actual backing bean values. -->
+        <ice:panelGroup styleClass="backBeanChangeBody"
+                        effect="#{selectInputText.valueChangeEffect}">
+
+            <ice:panelGroup>
+                <ice:outputText value="#{msgs['page.global.serverFeedback']}"/>
+                <ice:panelGrid columns="2" >
+                    <ice:outputLabel for="city"
+                                     value="#{msgs['page.selectInputText.resultCityLabel']}"/>
+                    <ice:outputText id="city"
+                                    value="#{selectInputText.selectedCity.city}"/>
+
+                    <ice:outputLabel for="state"
+                                     value="#{msgs['page.selectInputText.resultStateLabel']}"/>
+                    <ice:outputText id="state"
+                                    value="#{selectInputText.selectedCity.state} #{selectInputText.selectedCity.stateCode}"/>
+
+                    <ice:outputLabel for="country"
+                                     value="#{msgs['page.selectInputText.resultCountyLabel']}"/>
+                    <ice:outputText id="country"
+                                    value="#{selectInputText.selectedCity.country}"/>
+
+                    <ice:outputLabel for="zip"
+                                     value="#{msgs['page.selectInputText.resultZipLabel']}"/>
+                    <ice:outputText id="zip"
+                                    value="#{selectInputText.selectedCity.zip}"/>
+
+                    <ice:outputLabel for="areaCode"
+                                     value="#{msgs['page.selectInputText.resultAreaCodeLabel']}"/>
+                    <ice:outputText id="areaCode"
+                                    value="#{selectInputText.selectedCity.areaCode}"/>
+                </ice:panelGrid>
+            </ice:panelGroup>
+        </ice:panelGroup>
+    </ice:panelGroup>
+</ice:panelGroup>

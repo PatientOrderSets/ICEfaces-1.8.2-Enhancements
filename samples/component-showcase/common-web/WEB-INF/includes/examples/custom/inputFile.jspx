@@ -1,0 +1,123 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, ice:inputFile is used to upload a file to the server.
+Once the file is uploaded, information about the file is displayed.
+-->
+<ice:panelGroup styleClass="componentBox"
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:panelGroup styleClass="synopsisBox inputFileContainer">
+        <ice:outputText value="#{msgs['page.inputFile.synopsis']}"/>
+        <ice:outputText value="#{msgs['page.inputFile.instructions']}"/>
+    </ice:panelGroup>
+
+    <!-- file upload example -->
+    <ice:panelGroup styleClass="exampleBox inputFileContainer">
+        <ice:panelGrid columns="2">
+            <ice:outputText value="Auto upload"/>
+            <ice:selectBooleanCheckbox partialSubmit="true" value="#{inputFileController.autoUpload}" />
+          
+        </ice:panelGrid>
+        <!-- file upload usage with progress callback. -->
+        <ice:inputFile id="inputFileName" width="600" autoUpload="#{inputFileController.autoUpload}"
+                       progressListener="#{inputFileController.fileUploadProgress}"
+                       actionListener="#{inputFileController.uploadFile}"/>
+        <!-- progress bar, percent value is upated via progressListener-->
+        
+        <ice:outputProgress value="#{inputFileController.fileProgress}"
+                            styleClass="uploadProgressBar"/>
+
+        <!-- Dipslay File Upload messages -->
+        <!--<ice:outputText value="#{msgs['page.inputFile.messages.label']}"/>-->
+        
+        <!-- Wrap h:messages in panelGroup, since (removed) messages cause a 
+             table to be (un)rendered, which would DOM diff the parent, and
+             we don't the inputFile's parent to be updated, since swapping
+             the inputFile's IFRAME might abort the current upload -->
+        <ice:panelGroup>
+            <h:messages layout="table"
+                    globalOnly="false"
+                    showDetail="true"
+                    showSummary="false"/>
+        </ice:panelGroup>
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="exampleBox firstChildTitle inputFileContainer">
+
+        <ice:outputText
+                value="#{msgs['page.inputFile.history.label']}"/>
+
+        <ice:dataTable
+                width="450px"
+                value="#{inputFileController.fileList}"
+                var="file">
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputLabel
+                            value="#{msgs['page.inputFile.history.name.label']}"/>
+                </f:facet>
+                <ice:outputText value="#{file.fileInfo.fileName}"/>
+            </ice:column>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputLabel
+                            value="#{msgs['page.inputFile.history.size.label']}"/>
+                </f:facet>
+                <ice:outputText value="#{file.sizeFormatted}"/>
+            </ice:column>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText
+                            value="#{msgs['page.inputFile.history.content.label']}"/>
+                </f:facet>
+                <ice:outputText value="#{file.fileInfo.contentType}"/>
+            </ice:column>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText
+                            value="#{msgs['page.inputFile.history.remove.label']}"/>
+                </f:facet>
+                <ice:commandLink
+                        value="#{msgs['page.inputFile.history.remove.label']}"
+                        actionListener="#{inputFileController.removeUploadedFile}">
+                    <f:param name="fileName" value="#{file.fileInfo.fileName}"/>
+                </ice:commandLink>
+            </ice:column>
+        </ice:dataTable>
+
+    </ice:panelGroup>
+</ice:panelGroup>

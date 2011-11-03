@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.PanelConfirmation</component-family>
+    <renderer-type>com.icesoft.faces.PanelConfirmationRenderer</renderer-type>
+    <renderer-class>com.icesoft.faces.component.panelconfirmation.PanelConfirmationRenderer</renderer-class>
+</renderer>

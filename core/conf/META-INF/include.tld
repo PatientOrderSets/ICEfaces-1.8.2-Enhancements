@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+
+
+<taglib>
+
+  <tlib-version>1.0.1</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>JSF_Support_for_JSP_Include</short-name>
+  <uri>http://www.icesoft.com/icefaces</uri>
+  <description>
+    This tag library contains tags for supporting jsp:include directly
+    with JSF components. 
+  </description>
+
+  <listener>
+      <listener-class>com.icesoft.faces.util.event.servlet.ContextEventRepeater</listener-class>
+  </listener>
+    
+  <tag>
+
+    <name>include</name>
+    <tag-class>com.icesoft.faces.webapp.IncludeTag</tag-class>
+    <body-content>empty</body-content>
+
+    <attribute>
+      <name>page</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description>
+        Page to include.
+      </description>
+    </attribute>
+
+    <attribute>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description>
+        Component id of this component.
+      </description>
+    </attribute>
+
+  </tag>
+
+</taglib>

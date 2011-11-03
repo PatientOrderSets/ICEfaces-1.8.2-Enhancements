@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlDataTable</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlDataTable</component-class>
+</component>  

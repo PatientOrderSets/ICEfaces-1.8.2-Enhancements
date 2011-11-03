@@ -1,0 +1,227 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+<f:view xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component"
+        xmlns:c="http://java.sun.com/jstl/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        locale="#{localeBean.usedLocale}" >
+
+    <ice:loadBundle
+          basename="org.icefaces.application.showcase.view.resources.messages"
+          var="msgs"/>
+
+    <ice:outputDeclaration doctypeRoot="HTML"
+          doctypePublic="-//W3C//DTD XHTML 1.0 Transitional//EN"
+          doctypeSystem="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+
+    <html>
+    <head >
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+        <title id="dynamicTitle"><ui:insert name="title" >#{msgs[applicationModel.currentNode.contentDescriptor.title]}</ui:insert>
+        </title>
+        <h:outputText style="padding-top:0; padding-bottom:0;"
+                      value="#{styleBean.style}" escape="false" />
+        <link rel='stylesheet' type='text/css' href='./css/showcase_style.css' />
+        <link rel='stylesheet' type='text/css' href='./css/showcase_overrides.css' />
+        <link rel='stylesheet' type='text/css' href='./css/showcase_layout.css' />
+        <link href="./css/images/favicon.ico" rel="shortcut icon" type="image/x-icon"></link>
+        <link href="./css/images/favicon.ico" rel="icon" type="image/x-icon"></link>
+    </head>
+    <body>
+
+        <ui:insert name="header">
+            <ui:include src="/WEB-INF/includes/content/header.jspx" />
+        </ui:insert>
+
+
+        <div class="body_container">
+
+            <div class="body_content">
+
+                <ice:outputConnectionStatus id="connectStat"
+                            styleClass="navConnectionStatus"
+                            showPopupOnDisconnect="true"/>
+
+                <div class="navigationContainer">
+                    <ui:insert name="navigation">
+                        <ui:include src="/WEB-INF/includes/content/languageThemeControl.jspx" />
+                        <ui:include src="/WEB-INF/includes/content/navigation.jspx" />
+                    </ui:insert>
+                </div>
+
+                <div class="contentContainer">
+
+                    <!--
+                       Main Component content;
+                       controls which content to display for the respective navigation
+                    -->
+                    <ice:form id="iceform">
+
+                        <ui:insert name="page-content"/>
+
+                        <ice:panelGroup styleClass="clearer" />
+
+                    </ice:form>
+
+                </div>
+            </div>
+
+        </div>
+
+         <ui:insert name="footer">
+            <ui:include src="/WEB-INF/includes/content/footer.jspx"/>
+         </ui:insert>
+          <!--
+          PRELOAD IMAGES need for roleovers and layout in general, javascript is only
+          loaded once per refresh which is good enough.  This improves overall user
+          experience as they shouldn't have to wait for images to show up after the
+          initial load.
+          -->
+            <script language="JavaScript" type="text/javascript">
+            var preloaded = new Array();
+            function preload_images() {
+                for (var i = 0; i &lt; arguments.length; i++) {
+                    preloaded[i] = document.createElement('img');
+                    preloaded[i].setAttribute('src', arguments[i]);
+                }
+            }
+            preload_images(
+                    './xmlhttp/css/rime/css-images/arrow-ff.gif',
+                    './xmlhttp/css/rime/css-images/arrow-ff-dis.gif',
+                    './xmlhttp/css/rime/css-images/arrow-first.gif',
+                    './xmlhttp/css/rime/css-images/arrow-first-dis.gif',
+                    './xmlhttp/css/rime/css-images/arrow-fr.gif',
+                    './xmlhttp/css/rime/css-images/arrow-fr-dis.gif',
+                    './xmlhttp/css/rime/css-images/arrow-last.gif',
+                    './xmlhttp/css/rime/css-images/arrow-last-dis.gif',
+                    './xmlhttp/css/rime/css-images/arrow-next.gif',
+                    './xmlhttp/css/rime/css-images/arrow-next-dis.gif',
+                    './xmlhttp/css/rime/css-images/arrow-previous.gif',
+                    './xmlhttp/css/rime/css-images/arrow-previous-dis.gif',
+                    './xmlhttp/css/rime/css-images/bottom_menu_bg.png',
+                    './xmlhttp/css/rime/css-images/bottom_menu_btn_bg_on.png',
+                    './xmlhttp/css/rime/css-images/bullet.gif',
+                    './xmlhttp/css/rime/css-images/cal_arrow_left.gif',
+                    './xmlhttp/css/rime/css-images/cal_arrow_left_dis.gif',
+                    './xmlhttp/css/rime/css-images/cal_arrow_right.gif',
+                    './xmlhttp/css/rime/css-images/cal_arrow_right_dis.gif',
+                    './xmlhttp/css/rime/css-images/cal_button.gif',
+                    './xmlhttp/css/rime/css-images/cal_off.gif',
+                    './xmlhttp/css/rime/css-images/column_sort_asc.gif',
+                    './xmlhttp/css/rime/css-images/column_sort_desc.gif',
+                    './xmlhttp/css/rime/css-images/connect_active.gif',
+                    './xmlhttp/css/rime/css-images/connect_caution.gif',
+                    './xmlhttp/css/rime/css-images/connect_disconnected.gif',
+                    './xmlhttp/css/rime/css-images/connect_idle.gif',
+                    './xmlhttp/css/rime/css-images/contentContainer_bg.gif',
+                    './xmlhttp/css/rime/css-images/contentContainer_bg_up.gif',
+                    './xmlhttp/css/rime/css-images/off-left-bot.gif',
+                    './xmlhttp/css/rime/css-images/off-left-top-dis.gif',
+                    './xmlhttp/css/rime/css-images/off-mid-bot.gif',
+                    './xmlhttp/css/rime/css-images/off-mid-top-dis.gif',
+                    './xmlhttp/css/rime/css-images/off-right-bot.gif',
+                    './xmlhttp/css/rime/css-images/off-right-top-dis.gif',
+                    './xmlhttp/css/rime/css-images/PnlClpsblCnt_bullet.gif',
+                    './xmlhttp/css/rime/css-images/PnlHdr_bgslice.gif',
+                    './xmlhttp/css/rime/css-images/PnlHdr_collapsed.gif',
+                    './xmlhttp/css/rime/css-images/PnlHdr_down.gif',
+                    './xmlhttp/css/rime/css-images/ProgFill_bg.gif',
+                    './xmlhttp/css/rime/css-images/ProgFill_Indet_Bg_active.gif',
+                    './xmlhttp/css/rime/css-images/ProgFill_Indet_Bg_inactive.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_LftBtm.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_LftBtm_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_LftMid.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_LftMid_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_MidBtm.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_MidBtm_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_MidMid.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_MidMid_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_RtBtm.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_RtBtm_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_RtMid.gif',
+                    './xmlhttp/css/rime/css-images/Tab_Btm_RtMid_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_LftMid.gif',
+                    './xmlhttp/css/rime/css-images/Tab_LftMid_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_LftTop.gif',
+                    './xmlhttp/css/rime/css-images/Tab_LftTop_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_MidMid.gif',
+                    './xmlhttp/css/rime/css-images/Tab_MidMid_bullet.gif',
+                    './xmlhttp/css/rime/css-images/Tab_MidMid_bullet_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_MidMid_bullet_over.gif',
+                    './xmlhttp/css/rime/css-images/Tab_MidMid_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_MidTop.gif',
+                    './xmlhttp/css/rime/css-images/Tab_MidTop_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_RtMid.gif',
+                    './xmlhttp/css/rime/css-images/Tab_RtMid_off.gif',
+                    './xmlhttp/css/rime/css-images/Tab_RtTop.gif',
+                    './xmlhttp/css/rime/css-images/Tab_RtTop_off.gif',
+                    './xmlhttp/css/rime/css-images/table-border.gif',
+                    './xmlhttp/css/rime/css-images/table_col_header.gif',
+                    './xmlhttp/css/rime/css-images/theme_bg.gif',
+                    './xmlhttp/css/rime/css-images/theme_change_bg.gif',
+                    './xmlhttp/css/rime/css-images/tree_close.gif',
+                    './xmlhttp/css/rime/css-images/tree_document.gif',
+                    './xmlhttp/css/rime/css-images/tree_folder_closed.gif',
+                    './xmlhttp/css/rime/css-images/tree_folder_doc.gif',
+                    './xmlhttp/css/rime/css-images/tree_folder_open.gif',
+                    './xmlhttp/css/rime/css-images/tree_line_blank.gif',
+                    './xmlhttp/css/rime/css-images/tree_line_last_node.gif',
+                    './xmlhttp/css/rime/css-images/tree_line_middle_node.gif',
+                    './xmlhttp/css/rime/css-images/tree_line_vertical.gif',
+                    './xmlhttp/css/rime/css-images/tree_nav_bottom_close.gif',
+                    './xmlhttp/css/rime/css-images/tree_nav_bottom_open.gif',
+                    './xmlhttp/css/rime/css-images/tree_nav_middle_close.gif',
+                    './xmlhttp/css/rime/css-images/tree_nav_middle_open.gif',
+                    './xmlhttp/css/rime/css-images/tree_nav_top_close.gif',
+                    './xmlhttp/css/rime/css-images/tree_nav_top_close_no_siblings.gif',
+                    './xmlhttp/css/rime/css-images/tree_nav_top_open.gif',
+                    './xmlhttp/css/rime/css-images/tree_nav_top_open_no_siblings.gif',
+                    './xmlhttp/css/rime/css-images/tree_open.gif',
+                    
+                    './css/images/navigation-tree/tree_folder_closed.gif',
+                    './css/images/navigation-tree/tree_folder_open.gif',
+                    './css/images/navigation-tree/tree_node.gif',
+                    './css/images/navigation-tree/tree_node_rollover.gif',
+                    './css/images/navigation-tree/tree_node_selected.gif',
+
+                    './images/panelStack/address-thumb.png',
+                    './images/panelStack/auction-thumb.png',
+                    './images/panelStack/mobility-thumb.png',
+                    './images/panelStack/timezone-thumb.png'
+
+                    );
+              </script>
+          </body>
+      </html>
+  </f:view>

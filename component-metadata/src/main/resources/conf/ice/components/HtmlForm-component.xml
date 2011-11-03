@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlForm</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlForm</component-class>
+</component>  

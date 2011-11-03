@@ -1,0 +1,117 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<f:view
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:outputDeclaration doctypeRoot="HTML"
+                           doctypePublic="-//W3C//DTD XHTML 1.0 Transitional//EN"
+                           doctypeSystem="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+<html>
+    <head><title>Auction Monitor Control</title>
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=utf-8"></meta>
+        <ice:outputStyle href="./css/demo_template.css"/>
+        <ice:outputStyle href="./css/auction_styles.css"/>
+    </head>
+    <body>
+    <ice:form>
+        <div id="hiddenDiv">
+            <ice:outputText value="#{LogBean.autoLoad}"/>
+        </div>
+        <div id="bandDiv" style="color:#000000">
+            Free memory: <ice:outputText value="#{LogBean.freeMemory}"/>
+            <ice:commandButton id="updateValues" action="" value="Refresh"
+                               styleClass="buttons" title="Refresh this value"/>
+            Total memory: <ice:outputText value="#{LogBean.totalMemory}"/>
+            Max memory: <ice:outputText value="#{LogBean.maxMemory}"/>
+        </div>
+        <div id="resultsDiv" style="background-color: #FEFEFE">
+            <table cellspacing="4" cellpadding="2">
+                <tr>
+                    <td align="left">Reset Auction?</td>
+                    <td align="left"><ice:commandButton value="Reset"
+                                                        action="#{LogBean.resetAuction}"
+                                                        title="Clear all bids and reset bid time"
+                                                        styleClass="buttons"
+                                                        style="width: 90px;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">Clear Log?</td>
+                    <td align="left"><ice:commandButton value="Clear"
+                                                        action="#{LogBean.clearMessageLog}"
+                                                        title="Clear all messages in the log"
+                                                        styleClass="buttons"
+                                                        style="width: 90px;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">Print Log?</td>
+                    <td align="left"><ice:commandButton value="Print"
+                                                        action="#{LogBean.printMessageLog}"
+                                                        title="Output the message log to the terminal"
+                                                        styleClass="buttons"
+                                                        style="width: 90px;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">Timestamps?</td>
+                    <td align="left"><ice:commandButton
+                            value="#{LogBean.timeStampState}"
+                            title="Enable or disable timestamps on messages"
+                            action="#{LogBean.toggleTimeStamp}"
+                            styleClass="buttons" style="width: 90px;"/></td>
+                </tr>
+                <tr>
+                    <td align="left">Clock Interval:</td>
+                    <td align="left">
+                    <ice:inputText
+                            value="#{ClockBean.tickInterval}"
+                            title="Milliseconds between clock ticks"
+                            action="#{ClockBean.updateInterval}"
+                            styleClass="textField" style="width: 90px;"/></td>
+                </tr>
+            </table>
+        </div>
+        <ice:dataTable value="#{LogBean.controlLog}" var="control">
+            <ice:column>
+                <ice:outputText value="#{control}"/>
+            </ice:column>
+        </ice:dataTable>
+    </ice:form>
+    </body>
+</html>
+</f:view>

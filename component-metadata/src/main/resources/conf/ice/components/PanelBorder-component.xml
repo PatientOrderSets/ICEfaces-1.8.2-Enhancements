@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.BorderLayout</component-type>
+    <component-class>com.icesoft.faces.component.panelborder.PanelBorder</component-class>
+</component>  

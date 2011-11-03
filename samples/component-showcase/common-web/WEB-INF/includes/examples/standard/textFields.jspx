@@ -1,0 +1,132 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, ice:inputText, ice:inputSecret and ice:inputTextarea are
+used to input different kinds of texts. The input fields are submitted to the
+server one by one as they are being entered. These partial submits are triggered
+when the user presses the Enter key or tabs out of a field.
+-->
+<ice:panelGroup styleClass="componentBox"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:panelGroup styleClass="synopsisBox textEntryContainer">
+        <ice:outputText value="#{msgs['page.textFields.synopsis']}"/>
+        <ice:outputText value="#{msgs['page.textFields.directions']}"/>
+    </ice:panelGroup>
+    
+    <!-- Text Field input -->
+    <ice:panelGroup styleClass="exampleBox textEntryContainer">
+        <ice:panelGrid columns="3" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+            <ice:outputLabel for="TxtName"
+                             value="#{msgs['page.textFields.name']}" style="line-height:200%"/>
+            <ice:inputText id="TxtName"
+                           size="30"
+                           maxlength="30"
+                           valueChangeListener="#{textFields.effectChangeListener}"
+                           value="#{textFields.name}"
+                           partialSubmit="true"
+                           required="true"
+                           >
+            </ice:inputText>
+            <ice:message id="nameMsg" for="TxtName" style="color:red; line-height:200%;background: url( 'xmlhttp/css/rime/css-images/bullet.gif' ) no-repeat 0 3px;padding-left:15px"/>
+        </ice:panelGrid>
+        <ice:panelGrid columns="3" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+
+            <ice:outputLabel for="TxtPw"
+                             value="#{msgs['page.textFields.password']}" style="line-height:200%"/>
+            <ice:inputSecret id="TxtPw"
+                             maxlength="20"
+                             size="20"
+                             valueChangeListener="#{textFields.effectChangeListener}"
+                             value="#{textFields.password}"
+                             partialSubmit="true"
+                             redisplay="true"
+                             required="true">
+                <f:validateLength minimum="6" maximum="10"/>
+            </ice:inputSecret>
+            <ice:message id="pwMsg" for="TxtPw" style="color:red; line-height:200%;background: url( 'xmlhttp/css/rime/css-images/bullet.gif' ) no-repeat 0 3px;padding-left:15px"/>
+        </ice:panelGrid>
+        <ice:panelGrid columns="3"
+                 columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+            <ice:outputLabel for="TxtName"
+                             value="#{msgs['page.textFields.comments']}" style="line-height:200%"/>
+            <ice:inputTextarea id="TxtCmt"
+                               value="#{textFields.comments}"
+                               cols="20" rows="4"
+                               partialSubmit="true"
+                               valueChangeListener="#{textFields.effectChangeListener}"
+                               style="width:280px;height:80px;overflow: auto;">
+            </ice:inputTextarea>
+        </ice:panelGrid>
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="clearer" />
+
+    <!-- Text Field output text -->
+    <ice:panelGroup
+            styleClass="exampleBox firstChildTitle backBeanChangeContainer">
+
+        <!-- backing bean title box -->
+        <ice:panelGroup styleClass="backBeanChangeTitle">
+            <ice:outputText value="#{msgs['page.global.serverFeedback']}"/>
+        </ice:panelGroup>
+
+        <!-- actual backing bean values. -->
+        <ice:panelGroup styleClass="backBeanChangeBody"
+                        effect="#{textFields.valueChangeEffect}">
+
+            <ice:panelGroup>
+                <ice:panelGrid columns="2" styleClass="verticalAlignTop">
+                    <ice:outputLabel for="TxtNameout"
+                                     value="#{msgs['page.textFields.name']} "/>
+                    <ice:outputText id="TxtNameout"
+                                    value="#{textFields.name}"/>
+
+                    <ice:outputLabel for="TxtPwout"
+                                     value="#{msgs['page.textFields.password']} "/>
+                    <ice:outputText id="TxtPwout"
+                                    value="#{textFields.password}"/>
+
+                    <ice:outputLabel for="TxtCmtout"
+                                     value="#{msgs['page.textFields.comments']} "/>
+                    <ice:outputText id="TxtCmtout"
+                                    value="#{textFields.comments}"/>
+                </ice:panelGrid>
+            </ice:panelGroup>
+        </ice:panelGroup>
+    </ice:panelGroup>
+
+</ice:panelGroup>        

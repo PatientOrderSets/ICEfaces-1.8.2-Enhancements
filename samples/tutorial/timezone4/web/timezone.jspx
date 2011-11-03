@@ -1,0 +1,160 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<f:view xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+    <html>
+    <head><title>ICEfaces: TimeZone Sample Application</title></head>
+    <body>
+    <h3>ICEfaces: TimeZone Sample Application</h3>
+    <ice:form partialSubmit="true">
+        <ice:panelGrid columns="2">
+            <ice:outputText style="font-weight:600" value="Server Time Zone"/>
+            <ice:outputText style="font-weight:600"
+                            value="Time Zone Selected from Map"/>
+            <ice:outputText value="#{timeZoneBean.serverTimeZoneName}"/>
+            <ice:outputText value="#{timeZoneBean.selectedTimeZoneName}"/>
+            <ice:outputText style="font-weight:800"
+                            value="#{timeZoneBean.serverTime}"/>
+            <ice:outputText style="font-weight:800"
+                            value="#{timeZoneBean.selectedTime}"/>
+        </ice:panelGrid>
+        <ice:commandButton id="map" image="images/map.jpg"
+                           actionListener="#{timeZoneBean.listen}"/>
+        <ice:panelGrid columns="7" cellspacing="0" cellpadding="0">
+            <ice:panelGroup
+                    style="background:#f16e28; border:1px solid #999999;">
+                <ice:selectBooleanCheckbox id="GMTminus10" required="false"
+                                           immediate="true"
+                                           valueChangeListener="#{timeZoneBean.timeZoneChanged}"
+                                           value="#{timeZoneBean.checkboxStates['GMTminus10']}"
+                                           autocomplete="off"/>
+                <ice:outputLabel value="HADT" style="margin-right:7px;"/>
+            </ice:panelGroup>
+            <ice:panelGroup
+                    style="background: #9566b6; border:1px solid #999999;">
+                <ice:selectBooleanCheckbox id="GMTminus9" required="false"
+                                           immediate="true"
+                                           valueChangeListener="#{timeZoneBean.timeZoneChanged}"
+                                           value="#{timeZoneBean.checkboxStates['GMTminus9']}"
+                                           autocomplete="off"/>
+                <ice:outputLabel value="AKST" style="margin-right:7px;"/>
+            </ice:panelGroup>
+            <ice:panelGroup
+                    style="background: #fefc5a; border:1px solid #999999;">
+                <ice:selectBooleanCheckbox id="GMTminus8" required="false"
+                                           immediate="true"
+                                           valueChangeListener="#{timeZoneBean.timeZoneChanged}"
+                                           value="#{timeZoneBean.checkboxStates['GMTminus8']}"
+                                           autocomplete="off"/>
+                <ice:outputLabel value="PST" style="margin-right:7px;"/>
+            </ice:panelGroup>
+            <ice:panelGroup
+                    style="background: #96b710; border:1px solid #999999;">
+                <ice:selectBooleanCheckbox id="GMTminus7" required="false"
+                                           immediate="true"
+                                           valueChangeListener="#{timeZoneBean.timeZoneChanged}"
+                                           value="#{timeZoneBean.checkboxStates['GMTminus7']}"
+                                           autocomplete="off"/>
+                <ice:outputLabel value="MDT" style="margin-right:7px;"/>
+            </ice:panelGroup>
+            <ice:panelGroup
+                    style="background: #f16e28; border:1px solid #999999;">
+                <ice:selectBooleanCheckbox id="GMTminus6" required="false"
+                                           immediate="true"
+                                           valueChangeListener="#{timeZoneBean.timeZoneChanged}"
+                                           value="#{timeZoneBean.checkboxStates['GMTminus6']}"
+                                           autocomplete="off"/>
+                <ice:outputLabel value="CDT" style="margin-right:7px;"/>
+            </ice:panelGroup>
+            <ice:panelGroup
+                    style="background: #9566b6; border:1px solid #999999;">
+                <ice:selectBooleanCheckbox id="GMTminus5" required="false"
+                                           immediate="true"
+                                           valueChangeListener="#{timeZoneBean.timeZoneChanged}"
+                                           value="#{timeZoneBean.checkboxStates['GMTminus5']}"
+                                           autocomplete="off"/>
+                <ice:outputLabel value="EST" style="margin-right:8px;"/>
+            </ice:panelGroup>
+            <ice:panelGroup
+                    style="background: #fefc5a; border:1px solid #999999;">
+                <ice:selectBooleanCheckbox id="GMTminus4" required="false"
+                                           immediate="true"
+                                           valueChangeListener="#{timeZoneBean.timeZoneChanged}"
+                                           value="#{timeZoneBean.checkboxStates['GMTminus4']}"
+                                           autocomplete="off"/>
+                <ice:outputLabel value="NST" style="margin-right:8px;"/>
+            </ice:panelGroup>
+        </ice:panelGrid>
+        <ice:dataTable frame="box"
+                       var="checkedTimeZone"
+                       value="#{timeZoneBean.checkedTimeZoneList}" >
+            <f:facet name="header">
+                <ice:outputText value="Checked Time Zones"/>
+            </f:facet>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText value="Time Zone"/>
+                </f:facet>
+                <ice:outputText value="#{checkedTimeZone.displayName}"/>
+            </ice:column>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText value="Location"/>
+                </f:facet>
+                <ice:outputText value="#{checkedTimeZone.location}"/>
+            </ice:column>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText value="Uses DST"/>
+                </f:facet>
+                <ice:outputText value="#{checkedTimeZone.useDaylightTime}"/>
+            </ice:column>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText value="In DST"/>
+                </f:facet>
+                <ice:outputText value="#{checkedTimeZone.inDaylightTime}"/>
+            </ice:column>
+            <ice:column>
+                <f:facet name="header">
+                    <ice:outputText value="Time"/>
+                </f:facet>
+                <ice:outputText value=" #{checkedTimeZone.time} "/>
+            </ice:column>
+        </ice:dataTable>
+    </ice:form>
+    </body>
+    </html>
+</f:view>

@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.MenuNodes</component-type>
+    <component-class>com.icesoft.faces.component.menubar.MenuItems</component-class>
+</component>  

@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Message</component-family>
+    <renderer-type>com.icesoft.faces.Message</renderer-type>
+    <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.MessageRenderer</renderer-class>
+</renderer>

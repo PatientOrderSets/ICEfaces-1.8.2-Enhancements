@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Input</component-family>
+    <renderer-type>com.icesoft.faces.Hidden</renderer-type>
+    <renderer-class>com.icesoft.faces.renderkit.dom_html_basic.HiddenRenderer</renderer-class>
+</renderer>

@@ -1,0 +1,136 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<project name="location" default="build.portlet.liferay.tomcat6.war">
+
+    <!--property name="ant.project.name" value="chat"/-->
+    <property name="war.file.name" value="location"/>
+     
+    <import file="../../etc/build-common.xml"/>
+
+    <property file="${build.common.basedir}/portlet.properties"/>
+    
+    <target name="build.war" depends="portlet.compile">
+        <build.war web.xml="conf/${general.xml}"/>
+    </target>
+    <!--
+    <target name="build.portlet.war">
+        <build.portlet.war web.xml="conf/${general.xml}"/>
+    </target>
+    -->
+    <target name="build.portlet.jboss4.2.portal.war" description="build portlet application for JBoss4.2 portal">
+
+        <antcall target="build.portlet" >
+            <param name="chat.xml" value="./conf/${general.xml}"/>
+            <param name="jsf12" value=""/>
+            <param name="serverjsf" value=""/>
+        </antcall>
+    </target>
+
+    <target name="build.portlet.liferay.jboss4.2.war" description="build a portlet application for Liferay JBoss4.2">
+
+        <antcall target="build.portlet">
+            <param name="chat.xml" value="./conf/${general.xml}"/>
+            <param name="liferay" value=""/>
+            <param name="jsf12" value=""/>
+            <param name="serverjsf" value=""/>
+        </antcall>
+    </target>
+    <target name="build.portlet" depends="portlet.compile">
+        <build.portlet.war web.xml="${chat.xml}"/>
+    </target>
+    <target name="build.portlet.liferay.tomcat6.war" description="build a portlet application for Liferay Tomcat6.x">
+
+        <antcall target="build.portlet">
+            <param name="chat.xml" value="./conf/${general.xml}"/>
+            <param name="jsf12" value=""/>
+            <param name="liferay" value=""/>
+        </antcall>
+    </target>
+    <target name="build.portlet.liferay.tomcat5.war" description="build a portlet application for Liferay Tomcat5.x">
+        <!--
+        <property name="portlet" value="true"/>
+        -->
+        <antcall target="build.portlet">
+            <param name="chat.xml" value="./conf/${general.xml}"/>
+            <param name="jsf11" value=""/>
+            <param name="liferay" value=""/>
+        </antcall>
+    </target>
+    <target name="build.portlet.liferay.jboss4.0.war" description="build a portlet application for Liferay JBoss4.0.x">
+        <!--
+        <property name="portlet" value="true"/>
+        -->
+        <antcall target="build.portlet">
+            <param name="chat.xml" value="./conf/${general.xml}"/>
+            <param name="jsf11" value=""/>
+            <param name="liferay" value=""/>
+        </antcall>
+    </target>    
+
+	<!--
+    <target name="tomcat6.0" description="a redirect call to build.portlet.jboss4.2.portal.war">
+        <antcall target="build.portlet.jboss4.2.portal.war"/>
+        <antcall target="help"/>
+    </target>
+    -->
+    <target name="build.portlet.liferay.glassfishv2.war" description="portlet application for Liferay Glassfish V2">
+        <antcall target="build.portlet">
+            <param name="chat.xml" value="./conf/${general.xml}"/>
+            <param name="jsf12" value=""/>
+            <param name="serverjsf" value=""/>
+            <param name="liferay" value=""/>
+        </antcall>        
+    </target>
+    
+    <!--
+    <target name="help">
+        <echo level="info">
+            *****************************
+             *      Help info          *
+            *****************************
+This application implements portlet version of chat application.
+Use the following target to build the application
+    build.portlet.liferay.war   - for Liferay Tomcat 5.x version
+    build.portlet.liferay.jboss4.2.ahs.war  - for Liferay-JBoss4.2 version with AHS
+    build.portlet.liferay.jboss4.2.war      - for Liferay-JBoss4.2 version without AHS
+    build.portlet.jboss4.2.portal.ahs.war   - for JBoss4.2 version with AHS
+    build.portlet.jboss4.2.portal.war       - for JBoss4.2 version without AHS
+    build.portlet.liferay.jboss4.0.ahs.war  - for JBoss4.0.x version with AHS
+    build.portlet.liferay.jboss4.0.war      - for JBoss4.0.x version without AHS
+    build.portlet.liferay.tomcat5.war       - for Tomcat5.x version without AHS
+    build.portlet.liferay.tomcat6.war       - for Tomcat6.x version without AHS
+</echo>
+    </target>
+    -->
+</project>

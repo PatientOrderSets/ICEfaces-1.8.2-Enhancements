@@ -1,0 +1,36 @@
+<property>
+    <description>
+        <![CDATA[
+        <p>Name of a request-scope attribute under which the current indexed  
+        state will be exposed. This is modeled after the Facelets JSTL c:forEach  
+        varStatus. The varStatus object has 5 sub-properties:</p>
+        <dl>
+        <dt>int <b>begin</b></dt> 
+        <dd>Corresponds to the UIData container's <b>first</b> property, the 
+            index at which it begins iteration.</dd>
+        <dt>int <b>end</b></dt>
+        <dd>The ending index of iteration, corresponding to the UIData 
+            container's <b>first</b> plus <b>rows</b> minus 1. Note: 
+            If the UIData's DataModel's isRowAvailable() method returns false, 
+            prematurely ending iteration, then the actual ending index may not 
+            equal the value for this <b>end</b> property.</dd>
+        <dt>int <b>index</b></dt>
+        <dd>The current iteration index. Corresponding to the UIData 
+            container's getRowIndex() value, which also corresponds with the 
+            UIData's DataModel's getRowIndex() value.</dd>
+        <dt>boolean <b>first</b></dt>
+        <dd>Defined simply as: <b>varStatus.index == varStatus.begin</b></dd>
+        <dt>boolean <b>last</b></dt>
+        <dd>Defined simply as: <b>varStatus.index == varStatus.end</b>. Note: 
+            This has the same limitations as the <b>end</b> property.</dd>
+		]]>
+    </description>
+    <property-name>varStatus</property-name>
+    <property-class>java.lang.String</property-class>       
+	<property-extension>
+		<category>ICE_LAYOUT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>		
+	</property-extension>
+</property>

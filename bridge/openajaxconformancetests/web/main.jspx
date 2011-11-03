@@ -1,0 +1,232 @@
+<f:view xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+<ice:outputDeclaration doctypeRoot="HTML"
+                       doctypePublic="-//W3C//DTD HTML 4.01 Transitional//EN"
+                       doctypeSystem="http://www.w3.org/TR/html4/loose.dtd"/>
+<!--
+/*******************************************************************************
+ * HubTest-BasicConformance.html:
+ *		Test case for Ajax libraries that verifies whether a given library
+ *		supports the most basic requirements from the OpenAjax Hub Specification.
+ *
+ *		To use this test case against a given Ajax library, this test case
+ *		needs to be customized. At a minimum, you will need to replace the
+ *		following line:
+ *
+ *			<script language="JavaScript" type="text/javascript" src="SampleAjaxLibrary.js"></script>
+ *
+ *		with a <script> element that loads your Ajax library instead of SampleAjaxLibrary.js.
+ *
+ *		Libraries can make other modifications, but the <div> block
+ *		with id=HubTest_BasicConformance" must be left intact.
+ *
+ *		Other customization instructions are included within the comments in the
+ *		various files.
+ *
+ * Copyright 2007 OpenAjax Alliance
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not 
+ * use this file except in compliance with the License. You may obtain a copy 
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0 . Unless 
+ * required by applicable law or agreed to in writing, software distributed 
+ * under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
+ * specific language governing permissions and limitations under the License.
+ *
+ ******************************************************************************/
+-->
+
+<!--	****************************************************************************
+			The xmlns declarations are included in this test case below because they are required
+			by the OpenAjax Hub Specification which is forward looking to when browsers
+			support XML/XHTML properly. Note, however, that xmlns declarations generally have 
+			no effect with browsers shipping at the time this test case was developed (early 2007).
+
+			The xmlns:SampleAjaxLibrary declaration should be changed such that
+				- "SampleAjaxLibrary" is changed to the prefix used by the given library
+				- "http://example.com/SampleAjaxLibrary" is changed to the namespaceURI for the library
+			(See documentation on OpenAjax.registerLibrary() for more about prefix and namespaceURI.)
+			**************************************************************************** -->
+
+<html xmlns:ice="http://www.icesoft.com/icefaces/component">
+<head>
+	<!--	****************************************************************************
+				THE CONTENTS OF THE FOLLOWING HEAD ELEMENTS MUST NOT BE CHANGED
+				(except it  is OK to change the location of the referenced files). 
+				**************************************************************************** -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ICEfaces: TimeZone Sample Application</title>
+	<link rel="StyleSheet" href="stylesheets/hubtest.css" type="text/css" />
+    <link rel="StyleSheet" href="stylesheets/timezone_style.css" type="text/css" />
+
+	<!--	****************************************************************************
+				YOU MUST CUSTOMIZE THE FOLLOWING SCRIPT.
+					1- Change HubTest-BasicConformance-MyPrefix from "SampleAjaxLibrary"
+							to the prefix used by your library.
+					2- (Only if you are using a different implementation of the Hub than the 
+							Alliance's reference implementation at http://openajaxallianc.sourceforge.net)
+							Replace function HubTest_BasicConformance_Verify_Load() with
+							appropriate logic that verifies that your library registered
+							its load handlers via the Hub.
+				**************************************************************************** -->
+	<script language="JavaScript" type="text/javascript">
+		var HubTest_BasicConformance_MyPrefix = "icefaces-d2d";
+		function HubTest_BasicConformance_Verify_Load() {
+			return (OpenAjax._libraryLoadCBs.length || OpenAjax._componentLoadCBs.length);
+		}
+	</script>
+
+	<!--	****************************************************************************
+				YOU MAY CUSTOMIZE THE SCRIPT ELEMENTS BELOW:
+					- You probably will want to change the 'src' attribute to point
+						to the location of where the Hub is implemented. (Or maybe the Hub code
+						is embedded within your library, in which case you might just delete
+						this SCRIPT tag.)
+				**************************************************************************** -->
+	<script language="JavaScript" type="text/javascript" src="files/OpenAjax.js"></script>
+
+	<!--	****************************************************************************
+				YOU MUST LOAD THE FOLLOWING JS FILE AS THE LAST JAVASCRIPT FILE LOADED.
+				**************************************************************************** -->
+	<script language="JavaScript" type="text/javascript" src="HubTest-BasicConformance.js"></script>
+</head>
+
+<body>
+    <ice:form>
+    <ice:panelPopup rendered="#{timeZoneBean.dialogRendered}" visible="#{timeZoneBean.dialogRendered}" styleClass="dialogPopup">
+        <f:facet name="header">
+            <ice:panelGroup>
+                <p id="OpenAjaxBanner" class="imageContainer">
+                    <img id="OpenAjaxBanner" src="images/OpenAjaxAllianceBanner.jpg" width="846px" alt="OpenAjax Alliance banner"/>
+                </p>
+            </ice:panelGroup>
+        </f:facet>
+        <f:facet name="body">
+            <ice:panelGroup style="width: 830px; vertical-align: middle; padding: 2px;">
+	<!--	****************************************************************************
+				THE CONTENTS OF THE FOLLOWING DIV BLOCK MUST NOT BE CHANGED.
+				(But it's OK if your library needs to move this block elsewhere
+				within the document hierarchy and OK if you need to add other
+				elements to the BODY.)
+				**************************************************************************** -->
+            <div id="HubTest_BasicConformance">
+                <h1 class="HubTestTitle">OpenAjax Hub Basic Conformance Test</h1>
+                <p id="LibraryName">For library: (unknown)</p>
+                <table id="HubTestResults" class="HubTestResults">
+                    <tbody>
+                        <tr>
+                            <td class="HubTestNumber">1</td>
+                            <td class="HubTestLabel">OpenAjax Conformance Requirement (Libraries): Library Registration</td>
+                            <td class="HubTestResult" id="registerLibraryResult"><span style="color:red">TEST NOT SUCCESSFUL</span></td>
+                        </tr>
+                        <tr>
+                            <td class="HubTestNumber">2</td>
+                            <td class="HubTestLabel">OpenAjax Conformance Requirement (Libraries): Globals Registration</td>
+                            <td class="HubTestResult" id="registerGlobalsResult"><span style="color:red">TEST NOT SUCCESSFUL</span></td>
+                        </tr>
+                        <tr>
+                            <td class="HubTestNumber">3</td>
+                            <td class="HubTestLabel">OpenAjax Conformance Requirement (Libraries): Load/Unload Handlers Registered Indirectly Through the Hub</td>
+                            <td class="HubTestResult" id="addOnLoadResult"><span style="color:blue">TEST NOT APPLICABLE</span></td>
+                        </tr>
+                        <tr>
+                            <td class="HubTestNumber">4</td>
+                            <td class="HubTestLabel">OpenAjax Hub Publish/Subscribe Test</td>
+                            <td class="HubTestResult" id="PublishSubscribeResult"><span style="color:red">TEST NOT SUCCESSFUL</span></td>
+                        </tr>
+                        <tr>
+                            <td class="HubTestNumber">5</td>
+                            <td class="HubTestLabel">OpenAjax Hub Markup Scanner Test</td>
+                            <td class="HubTestResult" id="MarkupScannerResult"><span style="color:red">TEST NOT SUCCESSFUL</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Notes:</p>
+                <ul>
+                    <li>A library completely passes this test if all boxes say TEST SUCCEEDED.</li>
+                    <li>Uncommon exceptional situation: If a library does not register a 'load' event handler, then it is OK if
+                            the load/unload test case says TEST NOT APPLICABLE.</li>
+                </ul>
+            </div>
+            <center>
+                <ice:commandButton value="Close" action="#{timeZoneBean.closeDialog}"/>
+            </center>
+            </ice:panelGroup>
+        </f:facet>
+    </ice:panelPopup>
+    </ice:form>
+
+    <div id="headerDiv">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+       <td valign="top">
+           <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                 <td background="images/demo-page-bkgnd.gif" align="left"><img src="images/demo-page-left.gif"/></td>
+              </tr>
+              <tr>
+                 <td height="45" align="left" valign="bottom"><img src="images/timezone_logo.gif"/></td>
+             </tr>
+           </table>
+       </td>
+       <td valign="top" align="right" width="119"><img src="images/demo-page-right.gif"/></td>
+      </tr>
+    </table>
+    </div>
+
+    <div id="timeZonePanel">
+        <ice:form partialSubmit="true">
+            <ice:panelGrid columns="2" rowClasses="floatingDialogHeader,none,none" width="100%">
+                <ice:outputText value="Server Time Zone"/>
+                <ice:outputText value="Time Zone Selected from Map"/>
+                <ice:outputText styleClass="formLabel" value="#{timeZoneBean.serverTimeZoneName}"/>
+                <ice:outputText styleClass="formLabel" value="#{timeZoneBean.selectedTimeZoneName}"/>
+                <ice:outputText value="#{timeZoneBean.serverTime}"/>
+                <ice:outputText value="#{timeZoneBean.selectedTime}"/>
+            </ice:panelGrid>
+            <ice:panelGrid columns="6" width="100%" cellpadding="0" cellspacing="0">
+                <ice:commandButton id="GMTminus10" image="images/hawaii.jpg" actionListener="#{timeZoneBean.listen}" style="border: 0px;"/>
+                <ice:commandButton id="GMTminus9" image="images/alaska.jpg" actionListener="#{timeZoneBean.listen}" style="border: 0px;"/>
+                <ice:commandButton id="GMTminus8" image="images/pacific.jpg" actionListener="#{timeZoneBean.listen}" style="border: 0px;"/>
+                <ice:commandButton id="GMTminus7" image="images/mountain.jpg" actionListener="#{timeZoneBean.listen}" style="border: 0px;"/>
+                <ice:commandButton id="GMTminus6" image="images/central.jpg" actionListener="#{timeZoneBean.listen}" style="border: 0px;"/>
+                <ice:commandButton id="GMTminus5" image="images/eastern.jpg" actionListener="#{timeZoneBean.listen}" style="border: 0px;"/>
+                <ice:selectBooleanCheckbox id="Cminus10" required="false" immediate="true" valueChangeListener="#{timeZoneBean.timeZoneChanged}" value="#{timeZoneBean.checkboxStates['Cminus10']}" autocomplete="off"/>
+                <ice:selectBooleanCheckbox id="Cminus9" required="false" immediate="true" valueChangeListener="#{timeZoneBean.timeZoneChanged}" value="#{timeZoneBean.checkboxStates['Cminus9']}" autocomplete="off"/>
+                <ice:selectBooleanCheckbox id="Cminus8" required="false" immediate="true" valueChangeListener="#{timeZoneBean.timeZoneChanged}" value="#{timeZoneBean.checkboxStates['Cminus8']}" autocomplete="off"/>
+                <ice:selectBooleanCheckbox id="Cminus7" required="false" immediate="true" valueChangeListener="#{timeZoneBean.timeZoneChanged}" value="#{timeZoneBean.checkboxStates['Cminus7']}" autocomplete="off"/>
+                <ice:selectBooleanCheckbox id="Cminus6" required="false" immediate="true" valueChangeListener="#{timeZoneBean.timeZoneChanged}" value="#{timeZoneBean.checkboxStates['Cminus6']}" autocomplete="off"/>
+                <ice:selectBooleanCheckbox id="Cminus5" required="false" immediate="true" valueChangeListener="#{timeZoneBean.timeZoneChanged}" value="#{timeZoneBean.checkboxStates['Cminus5']}" autocomplete="off"/>
+            </ice:panelGrid>
+            <ice:dataTable id="timezoneDataTable" value="#{timeZoneBean.checkedTimeZoneList}" var="checkedTimeZone" headerClass="tableHeader" width="100%" columnClasses="checkedDisplayName,checkedLocation,checkedUseDaylightTime,checkedInDaylightTime,checkedTime">
+                <f:facet name="header">
+                    <ice:outputText styleClass="tableHeaderTitle" value="Checked Time Zones"/>
+                </f:facet>
+                <ice:column>
+                    <f:facet name="header"><ice:outputText value="Time Zone"/></f:facet>
+                    <ice:outputText value="#{checkedTimeZone.displayName}"/>
+                </ice:column>
+                <ice:column>
+                    <f:facet name="header"><ice:outputText value="Location"/></f:facet>
+                    <ice:outputText value="#{checkedTimeZone.location}"/>
+                </ice:column>
+                <ice:column>
+                    <f:facet name="header"><ice:outputText value="Uses DST"/></f:facet>
+                    <ice:outputText value="#{checkedTimeZone.useDaylightTime}"/>
+                </ice:column>
+                <ice:column>
+                    <f:facet name="header"><ice:outputText value="In DST"/></f:facet>
+                    <ice:outputText value="#{checkedTimeZone.inDaylightTime}"/>
+                </ice:column>
+                <ice:column>
+                    <f:facet name="header"><ice:outputText value="Time"/></f:facet>
+                    <ice:outputText styleClass="formLabel" value=" #{checkedTimeZone.time} "/>
+                </ice:column>
+            </ice:dataTable>
+        </ice:form>
+    </div>
+    
+</body>
+</html>
+</f:view>

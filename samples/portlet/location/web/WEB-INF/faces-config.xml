@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE faces-config PUBLIC
+        "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+        "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<faces-config>
+
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>en_US</supported-locale>
+            <supported-locale>es</supported-locale>
+        </locale-config>
+    </application>
+
+    <managed-bean>
+        <description>
+            This bean holds the user-specific autoComplete values and not the
+            dictionary.
+        </description>
+        <managed-bean-name>cityDictionary</managed-bean-name>
+        <managed-bean-class>
+            org.icefaces.sample.location.CityDictionary
+        </managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <description>
+            Coordinates the updating of portlet displays based on the currently
+            selected city using Ajax Push.
+        </description>
+        <managed-bean-name>coordinator</managed-bean-name>
+        <managed-bean-class>
+            org.icefaces.sample.location.Coordinator
+        </managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>cityDictionary</property-name>
+            <value>#{cityDictionary}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <description>
+            This bean holds the user-specific autoComplete values and not the
+            dictionary.
+        </description>
+        <managed-bean-name>citySelect</managed-bean-name>
+        <managed-bean-class>
+            org.icefaces.sample.location.CityAutoComplete
+        </managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>cityDictionary</property-name>
+            <value>#{cityDictionary}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>coordinator</property-name>
+            <value>#{coordinator}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <description>
+            This bean backs the GMap component used to map the located city.
+        </description>
+        <managed-bean-name>cityMap</managed-bean-name>
+        <managed-bean-class>
+            org.icefaces.sample.location.Map
+        </managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>coordinator</property-name>
+            <value>#{coordinator}</value>
+        </managed-property>
+    </managed-bean>
+
+
+</faces-config>

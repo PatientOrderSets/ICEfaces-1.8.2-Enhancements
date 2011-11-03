@@ -1,0 +1,144 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>tree Component</title>
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2">tree</h2>
+<hr>
+<p >The tree component displays hierarchical data as a
+"tree" of
+branches and leaf nodes.
+Optionally, the tree may also display
+navigation
+controls for the dynamic expansion and collapse of branch nodes. Nodes
+may
+also support an action event when clicked that can be used to respond
+to user
+click events.</p>
+<p> The tree component uses a TreeModel defined in an application backing bean.
+The TreeModel must contain a tree of DefaultMutableTreeNode instances.
+Each DefaultMutableTreeNode instance encapsultes an IceUserObject.
+The IceUserObject is the extension point for the application developer.
+The leaf attribute of the IceUserObject defines the type of the tree node.
+By default the leaf attribute is false and tree nodes will be folders unless the
+leaf attribute is set to true.
+</p>
+<p >The tree component can be used in cases where a
+hierarchical
+data structure must be viewed and navigated. It is typically used for
+menu-style applications, where the user selects a tree node and the
+application responds with an action related to the selected node.<br>
+</p>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Example
+<br>
+</div>
+<p >The following code shows how to create a basic tree
+component:</p>
+<pre class="Preformatted">&lt;ice:tree <br>         id="myTree"<br>         value="#{treeBean.model}"<br>         hideRootNode="false"<br>         action="#{treeBean.treeSelectionAction}"<br>         binding="#{treeBean.treeComponent}"<br>/&gt;<br></pre>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-name:</div>
+      </td>
+      <td>
+      <div class="CellBody"> &lt;ice:tree&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.tree.TreeTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-class:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.component.tree.Tree</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.TreeView</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-family:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.TreeView</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">
+com.icesoft.faces.component.tree.TreeRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.View</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

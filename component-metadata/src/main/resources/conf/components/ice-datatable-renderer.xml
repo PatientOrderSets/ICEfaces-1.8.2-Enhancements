@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+	<description><![CDATA[<p>Renders an HTML "table" element compliant with the HTML 401
+          specification.  Please consult the javadoc for <code>UIData</code>
+          to supplement this specification.  If the "styleClass" attribute
+          is specified, render its value as the value of the "class"
+          attribute on the "table" element.  Any pass-through attributes are
+          also rendered on the "table" element.  </p><p>Rendering the header</p><ul><p>If the <code>UIData</code> component has a "header" facet, or
+          any of the child <code>UIColumn</code> components has a "header"
+          facet, render a "thead" element.  If the <code>UIData</code>
+          component has a "header" facet, encode its contents inside of "tr"
+          and "th" elements, respectively.  Output the value of the
+          "headerClass" attribute of the <code>UIData</code> component, if
+          present, as the value of the "class" attribute on the "th".
+          Output the number of child <code>UIColumn</code> components of the
+          <code>UIData</code> component as the value of the "colspan"
+          attribute on the "th".  Output "colgroup" as the value of the
+          "scope" attribute on the "th" element. </p><p>If any of the child <code>UIColumn</code> components has a
+          "header" facet render a "tr" element.  For each
+          <code>UIColumn</code> that actually has a "header" facet, render
+          it inside of a "th" element.  Columns that don't have a "header"
+          facet cause an empty "th" element to be rendered.  Output the
+          value of the "headerClass" attribute of the <code>UIData</code>
+          component, if present, as the value of the "class" attribute on
+          the "th".  Output "col" as the value of the "colgroup" attribute
+          on the "th" element.
+          </p><p>Close out the "thead" element.</p></ul><p>Rendering the footer</p><ul><p>Follow the same process as for the header, except replace
+          "header" with "footer", "th" with "td", "thead" with "tfoot", and
+          "headerClass" with "footerClass".  Do not render any "scope"
+          attribute for the footer.</p></ul><p>Rendering the table body</p><ul><p>Render a "tbody" element.  Keep track of the result of the
+          "rows" property on the <code>UIData</code> component.  Keep track
+          of the number of rows we have rendered so far.  Iterate through
+          the rows.  Set the "rowIndex" property of the <code>UIData</code>
+          component to be correct as we iterate through the rows.  Stop
+          rendering children and close out the "tbody" element if the
+          "rowAvailable" property of the <code>UIData</code> returned false.
+          Output a "tr" element.  Output the value of the "rowClasses" per
+          the attribute description below.  For each <code>UIColumn</code>
+          child, output a "td" element, attaching the value of the
+          "columnClasses" attribute of the <code>UIData</code> component per
+          the attribute description below.  Recursively encode each child of
+          each <code>UIColumn</code> child.  Close out the "td" element.
+          When done with the row, close out the "tr" element.  When done
+          with all the rows, close out the "tbody" element.</p></ul><p>When done rendering all the rows, set the "rowIndex" property of
+         the <code>UIData</code> to -1, and close out the "table"
+         element.</p>]]>
+	</description>
+	<component-family>javax.faces.Data</component-family>
+
+	<renderer-type>com.icesoft.faces.Table</renderer-type>
+
+	<renderer-extension>
+		<instance-name>dataTable</instance-name>
+		<is-container>true</is-container>
+		<renders-children>true</renders-children>
+		<tag-name>dataTable</tag-name>
+		<taglib-prefix>@taglib-prefix@</taglib-prefix>
+		<taglib-uri>@taglib-uri@</taglib-uri>
+	</renderer-extension>
+
+</renderer>

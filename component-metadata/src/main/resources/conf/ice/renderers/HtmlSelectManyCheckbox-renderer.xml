@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.SelectMany</component-family>
+    <renderer-type>com.icesoft.faces.Checkbox</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.SelectManyCheckboxListRenderer</renderer-class>
+</renderer>

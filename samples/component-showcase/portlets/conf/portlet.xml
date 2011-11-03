@@ -1,0 +1,779 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+             version="1.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd">
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Autocomplete                                              -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_autocomplete</portlet-name>
+        <display-name>ICEfaces: Autocomplete</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Autocomplete.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Autocomplete</title>
+            <short-title>Autocomplete</short-title>
+            <keywords>ICEfaces Component Showcase Autocomplete</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Buttons & Links                                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_buttonsAndLinks</portlet-name>
+        <display-name>ICEfaces: Button and Links</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_ButtonsAndLinks.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Buttons and Links</title>
+            <short-title>Buttons and Links</short-title>
+            <keywords>ICEfaces Component Showcase Buttons Links</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Calendar                                                  -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_calendar</portlet-name>
+        <display-name>ICEfaces: Calendar</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Calendar.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Calendar</title>
+            <short-title>Calendar</short-title>
+            <keywords>ICEfaces Component Showcase Calendar</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Charts                                                    -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_charts</portlet-name>
+        <display-name>ICEfaces: Charts</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Charts.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Charts</title>
+            <short-title>Charts</short-title>
+            <keywords>ICEfaces Component Showcase Charts</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Connection Status                                         -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_connectionStatus</portlet-name>
+        <display-name>ICEfaces: Connection Status</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_ConnectionStatus.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Connection Status</title>
+            <short-title>Connection Status</short-title>
+            <keywords>ICEfaces Component Showcase Connection Status</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Drag & Drop                                               -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_dragAndDrop</portlet-name>
+        <display-name>ICEfaces: Drag and Drop</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_DragAndDrop.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Drag and Drop</title>
+            <short-title>Drag and Drop</short-title>
+            <keywords>ICEfaces Component Showcase Drag Drop</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Effects                                                   -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_effects</portlet-name>
+        <display-name>ICEfaces: Effects</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Effects.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Effects</title>
+            <short-title>Effects</short-title>
+            <keywords>ICEfaces Component Showcase Effects</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: File Upload                                               -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_fileUpload</portlet-name>
+        <display-name>ICEfaces: File Upload</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_FileUpload.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: File Upload</title>
+            <short-title>File Upload</short-title>
+            <keywords>ICEfaces Component Showcase File Upload</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Google Map                                                -->
+    <!-- =================================================================== -->
+
+     <portlet>
+        <portlet-name>components_gmap</portlet-name>
+        <display-name>ICEfaces: GMap</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_GMap.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: GMap</title>
+            <short-title>GMap</short-title>
+            <keywords>ICEfaces Component Showcase GMap</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Media Player                                              -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_media_player</portlet-name>
+        <display-name>ICEfaces: Media Player</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Media_Player.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Media Player</title>
+            <short-title>Media Player</short-title>
+            <keywords>ICEfaces Component Showcase Media Player</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Menubar                                                   -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_menubar</portlet-name>
+        <display-name>ICEfaces: Menubar</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Menubar.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Menubar</title>
+            <short-title>Menubar</short-title>
+            <keywords>ICEfaces Component Showcase Menubar</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- ICEfaces: Panel - Border                                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_border</portlet-name>
+        <display-name>ICEfaces: Panel - Border</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Border.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Border</title>
+            <short-title>Panel - Border</short-title>
+            <keywords>ICEfaces Component Showcase Border Panel</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Panel - Collapsible                                       -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_collapsible</portlet-name>
+        <display-name>ICEfaces: Panel - Collapsible</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Collapsible.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Collapsible</title>
+            <short-title>Panel - Collapsible</short-title>
+            <keywords>ICEfaces Component Showcase Collapsible Panel</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Panel - Divider                                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_divider</portlet-name>
+        <display-name>ICEfaces: Panel - Divider</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Divider.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Divider</title>
+            <short-title>Panel - Divider</short-title>
+            <keywords>ICEfaces Component Showcase Divider Panel</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Panel - Popup                                             -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_popup</portlet-name>
+        <display-name>ICEfaces: Panel - Popup</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Popup.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Popup</title>
+            <short-title>Panel - Popup</short-title>
+            <keywords>ICEfaces Component Showcase Popup Panel</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Panel - Positioned                                        -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_positioned</portlet-name>
+        <display-name>ICEfaces: Panel - Positioned</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Positioned.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Positioned</title>
+            <short-title>Panel - Positioned</short-title>
+            <keywords>ICEfaces Component Showcase Positioned Panel</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Panel - Series                                            -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_series</portlet-name>
+        <display-name>ICEfaces: Panel - Series</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Series.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Series</title>
+            <short-title>Panel - Series</short-title>
+            <keywords>ICEfaces Component Showcase Series Panel</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Panel - Stack                                             -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_stack</portlet-name>
+        <display-name>ICEfaces: Panel - Stack</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Stack.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Stack</title>
+            <short-title>Panel - Stack</short-title>
+            <keywords>ICEfaces Component Showcase Stack Panel</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Panel - Tabset Dynamic                                    -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_tabset_dynamic</portlet-name>
+        <display-name>ICEfaces: Panel - Tabset Dynamic</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Tabset_Dynamic.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Tabset Dynamic</title>
+            <short-title>Panel - Tabset</short-title>
+            <keywords>ICEfaces Component Showcase Tabset Panel Dynamic</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Panel - Tabset Static                                    -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_tabset_static</portlet-name>
+        <display-name>ICEfaces: Panel - Tabset Static</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Tabset_Static.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Tabset Static</title>
+            <short-title>Panel - Tabset</short-title>
+            <keywords>ICEfaces Component Showcase Tabset Panel Static</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Panel - Tooltip                                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_tooltip</portlet-name>
+        <display-name>ICEfaces: Panel - Tooltip</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Panel_Tooltip.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Panel - Tooltip</title>
+            <short-title>Panel - Tooltip</short-title>
+            <keywords>ICEfaces Component Showcase Tooltip Panel</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Progress Bar                                              -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_progressBar</portlet-name>
+        <display-name>ICEfaces: Progress Bar</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_ProgressBar.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Progress Bar</title>
+            <short-title>Progress Bar</short-title>
+            <keywords>ICEfaces Component Showcase Progress Bar</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Rich Text Editor                                          -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_rich_text_editor</portlet-name>
+        <display-name>ICEfaces: Rich Text Editor</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Rich_Text_Editor.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Rich Text Editor</title>
+            <short-title>Rich Text Editor</short-title>
+            <keywords>ICEfaces Component Showcase Rich Text Editor</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Selection Portlet                      -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_selection</portlet-name>
+        <display-name>ICEfaces: Selection</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Selection.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Selection</title>
+            <short-title>Selection</short-title>
+            <keywords>ICEfaces Component Showcase Selection</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Set Event Phase Portlet                      -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_setEventPhase</portlet-name>
+        <display-name>ICEfaces: Set Event Phase</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_SetEventPhase.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Set Event Phase</title>
+            <short-title>Set Event Phase</short-title>
+            <keywords>ICEfaces Component Showcase Set Event Phase</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Table - Columns                                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_columns</portlet-name>
+        <display-name>ICEfaces: Table - Columns</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Table_Columns.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Table - Columns</title>
+            <short-title>Table - Columns</short-title>
+            <keywords>ICEfaces Component Showcase Table Columns</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Table - Data Paging                                       -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_dataPaging</portlet-name>
+        <display-name>ICEfaces: Table - Data Paging</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Table_DataPaging.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Table - Data Paging</title>
+            <short-title>Data Paging</short-title>
+            <keywords>ICEfaces Component Showcase Table Data Paging</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Table - Expandable                                        -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_expandable</portlet-name>
+        <display-name>ICEfaces: Table - Expandable</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Table_Expandable.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Table - Expandable</title>
+            <short-title>Table - Expandable</short-title>
+            <keywords>ICEfaces Component Showcase Table Expandable</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Table - Grouping                                          -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_grouping</portlet-name>
+        <display-name>ICEfaces: Table - Grouping</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Table_Grouping.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Table - Grouping</title>
+            <short-title>Grouping</short-title>
+            <keywords>ICEfaces Component Showcase Datatable Grouping</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Table - Resizable Columns                                 -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_resizableColumns</portlet-name>
+        <display-name>ICEfaces: Table - Resizable Columns</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Table_Resizable_Columns.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Table - Resizable Columns</title>
+            <short-title>Resizable Columns</short-title>
+            <keywords>ICEfaces Component Showcase Datatable Resizable Columns</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Table - Table Row Selection                               -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_rowSelection</portlet-name>
+        <display-name>ICEfaces: Table - Row Selection</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Table_RowSelection.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Table - Row Selection</title>
+            <short-title>Table - Row Selection</short-title>
+            <keywords>ICEfaces Component Showcase Table Row Selection</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Table - Sortable Header                                   -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_sortableHeader</portlet-name>
+        <display-name>ICEfaces: Table - Sortable Header</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Table_SortableHeader.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Table - Sortable Header</title>
+            <short-title>Table - Sortable Header</short-title>
+            <keywords>ICEfaces Component Showcase Table Sortable Header</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Text Entry                                                -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_textEntry</portlet-name>
+        <display-name>ICEfaces: Text Entry</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_TextEntry.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Text Entry</title>
+            <short-title>Text Entry</short-title>
+            <keywords>ICEfaces Component Showcase Text Entry</keywords>
+        </portlet-info>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces: Tree                                                      -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_tree</portlet-name>
+        <display-name>ICEfaces: Tree</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_Tree.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Tree</title>
+            <short-title>Tree</short-title>
+            <keywords>ICEfaces Component Showcase Tree</keywords>
+        </portlet-info>
+    </portlet>
+    
+    <!-- =================================================================== -->
+    <!-- ICEfaces: OutputResource                                            -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_output_resource</portlet-name>
+        <display-name>ICEfaces: Download Resource</display-name>
+        <portlet-class>com.icesoft.faces.webapp.http.portlet.MainPortlet</portlet-class>
+        <init-param>
+            <name>com.icesoft.faces.portlet.viewPageURL</name>
+            <value>/Components_OutputResource.iface</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <portlet-info>
+            <title>ICEfaces: Download Resource</title>
+            <short-title>OuputResource</short-title>
+            <keywords>ICEfaces Component Showcase OutputResource Download Resource</keywords>
+        </portlet-info>
+    </portlet>
+
+
+    <!-- =================================================================== -->
+</portlet-app>

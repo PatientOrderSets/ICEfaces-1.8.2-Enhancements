@@ -1,0 +1,140 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+    <meta http-equiv="content-type" content="">
+    <title>outputResource Component</title>
+    <link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h2 class="Heading2">outputResource</h2>
+<hr>
+
+<p>The Resource Download Component (outputResource) provides a means for users
+to download specific resources, such as Files and Streams from an ICEfaces page. The
+component also allows the developer control over several aspects of resource provisioning,
+such as dynamically controlling the file name, whether the resource is sourced from a 
+cache or not, and whether it is downloaded as a browser attachment. The developer can also
+control certain display characteristics of the component, such as whether it appears
+as a link, a button, or as an image.</p>
+
+<p>Common attributes are specified in the component tag itself.
+    They include:</p>
+<ul>
+    <li>mimeType</li>
+    <li>attachment</li>
+    <li>resource</li>
+    <li>fileName</li>
+    <li>shared</li>
+</ul>
+
+<p>The following code shows basic usage of the component:</p>
+<pre class="Preformatted">
+    &lt;ice:outputResource id="imgRsource"
+			resource="#{resourceBean.imgResource}" label="Click to load image"
+			fileName="icefaces.jpg" mimeType="image/jpeg" attachment="false" /&gt;
+</pre>
+<p>All of the attribute values in the example can be replaced with EL expressions.</p>
+
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-name:</div>
+      </td>
+      <td>
+      <div class="CellBody"> &lt;ice:outputResource&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-class:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.component.outputresource.OutputResourceTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-class:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.component.outputresource.OutputResource</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.OutputResource</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-family:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.OutputResource</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.component.outputresource.OutputResourceRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.OutputResource</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</body>
+</html>

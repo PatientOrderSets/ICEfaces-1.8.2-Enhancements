@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlInputHidden</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlInputHidden</component-class>
+</component>  

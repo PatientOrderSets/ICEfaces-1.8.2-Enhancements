@@ -1,0 +1,148 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>Drag and Drop</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<h2 class="Heading2"><span style="color: rgb(0, 0, 102);">Drag and Drop</span></h2>
+<hr>
+PanelGroup components can optionally be configured to be draggable, a
+drop target for other draggable panelGroups, or both. By configuring
+PanelGroup components as Drag &amp; Drop sources (draggables) or
+destinations (drop targets) application developers can create
+sophisticated, intuitive user-interfaces that leverage the
+direct-manipulation of UI components.
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">Example
+<br>
+</div>
+<p>The following code shows how a draggable panelGroup can
+be created:</p>
+<pre class="Preformatted">
+&lt;ice:panelGroup draggable="true"&gt;
+  Drag
+&lt;/ice:panelGroup&gt;
+</pre>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Drag and Drop attributes<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <caption>
+    <br>
+    </caption>
+    <tbody>
+      <tr>
+        <td> <div class="CellBody"> Attribute:</div></td>
+        <td> <div class="CellBody"> Description </div></td>
+      </tr>
+      <tr>
+        <td> <div class="CellBody"> draggable</div></td>
+        <td> <div class="CellBody"> When set to 'true' this panel is draggable.
+            The user will be able to drag the panel to any position on the page.
+            Note: all Draggable panels must be contained in a form. </div></td>
+      </tr>
+      <tr>
+        <td> <div class="CellBody"> dragOptions</div></td>
+        <td> <div class="CellBody"> Optional effects for draggable panels. List
+            in a coma separated string. (revert,ghosting,solid,dragGhost)<br>
+            revert - When a draggable is dropped the draggable will move back
+            to it's starting position.<br>
+            ghosting - When a draggable is dragged a ghost copy is left in the
+            original position.<br>
+            solid - Do not make transparent when dragging.<br>
+            dragGhost - Drag a ghost copy of the group panel. Hide the ghost
+            copy when dropped (Do not use with any other dragOption).<br>
+          </div></td>
+      </tr>
+      <tr>
+        <td> <div class="CellBody"> dragValue</div></td>
+        <td> <div class="CellBody"> The drag value of this panel. For use in DnDEvents.
+            This value can be a string or a value binding expression.</div></td>
+      </tr>
+      <tr>
+        <td> <div class="CellBody"> dragListener</div></td>
+        <td> <div class="CellBody"> The dragListener specifies a method on a backing
+            bean that will accept DnDEvents. This value must be a method binding
+            expression.</div></td>
+      </tr>
+      <tr>
+        <td> <div class="CellBody"> dragMask</div></td>
+        <td> <div class="CellBody"> Drag mask is used to prevent drag events from
+            propagating to the server. For example if your backing bean is not
+            interested in hover_start events then adding hover_start to the mask
+            will stop the event from being sent. Multiple values are specified
+            in a comma separated list. Possible values are:<br>
+            dragging, drag_cancel,dropped,hover_start,hover_end</div></td>
+      </tr>
+      <tr>
+        <td> <div class="CellBody"> dropTarget </div></td>
+        <td> <div class="CellBody"> When set to true this panel is a dropTarget
+            for draggable panels. Drop targets detect when a draggable has been
+            dropped on a specific region of the page. Note: all Drop Target panels
+            must be contained in a form. </div></td>
+      </tr>
+      <tr>
+        <td> <div class="CellBody"> dropValue </div></td>
+        <td> <div class="CellBody"> The drop value of this panel, for use in DnDEvents.
+            This value can be a string or a value binding expression. </div></td>
+      </tr>
+      <tr>
+        <td> <div class="CellBody"> dropListener </div></td>
+        <td> <div class="CellBody">The dropListener specifies a method on a backing
+            bean that will accept DnDEvents. This value must be a method binding
+            expression. This method will be called when a droppable is dropped
+            or hovered on this panel unless masked. </div></td>
+      </tr>
+      <tr>
+        <td> <div class="CellBody"> dropMask </div></td>
+        <td> <div class="CellBody">Drop mask is used to prevent drop events from
+            propagating to the server. For example if your backing bean is not
+            interested in hover_start events then adding hover_start to the mask
+            will stop the event from being sent. Multiple values are specified
+            in a comma separated list. Possible values are:<br>
+            dropped,hover_start
+          </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

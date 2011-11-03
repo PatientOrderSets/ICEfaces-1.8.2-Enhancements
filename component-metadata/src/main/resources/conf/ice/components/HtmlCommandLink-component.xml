@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlCommandLink</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlCommandLink</component-class>
+</component>  

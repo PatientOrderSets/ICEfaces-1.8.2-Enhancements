@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.PanelTabSet</component-type>
+    <component-class>com.icesoft.faces.component.paneltabset.PanelTabSet</component-class>
+</component>  

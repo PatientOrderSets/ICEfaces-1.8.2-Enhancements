@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.MenuNodes</component-family>
+    <renderer-type>com.icesoft.faces.View</renderer-type>
+    <renderer-class>com.icesoft.faces.component.menubar.MenuItemsRenderer</renderer-class>
+</renderer>

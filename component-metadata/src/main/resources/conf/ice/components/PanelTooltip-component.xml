@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.PanelTooltip</component-type>
+    <component-class>com.icesoft.faces.component.paneltooltip.PanelTooltip</component-class>
+</component>  

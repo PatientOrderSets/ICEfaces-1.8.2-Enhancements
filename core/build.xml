@@ -1,0 +1,289 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<project name="icefaces" default="jar">
+    <property name="src.dir" location="src"/>
+    <property name="build.dir" location="build"/>
+    <property name="build.classes.dir" location="${build.dir}/classes"/>
+    <property name="build.lib.dir" location="${build.dir}/lib"/>
+    <property name="dist.dir" location="dist"/>
+    <property name="lib.dir" location="../lib"/>
+    <property environment="env"/>
+
+    <property name="productinfo.src"
+              location="conf/com/icesoft/faces/application"/>
+    <property name="productinfo.dest"
+              location="src/com/icesoft/faces/application"/>
+    <property name="productinfo.file" value="ProductInfo.java"/>
+    <property name="company" value="ICEsoft Technologies, Inc."/>
+    <property name="product" value="ICEfaces"/>
+    <property name="version.primary" value="x"/>
+    <property name="version.secondary" value="x"/>
+    <property name="version.tertiary" value="x"/>
+    <property name="release.type" value="x"/>
+    <property name="revision" value="x"/>
+    <property name="build.number" value="x"/>
+
+    <property name="build.sysclasspath" value="ignore"/>
+    <property name="compile.debug" value="true"/>
+
+    <property name="bridge.dir" location="../bridge"/>
+    <property name="bridge.build.dir" location="${bridge.dir}/build"/>
+    <property name="bridge.collate.dir"
+              location="${build.classes.dir}/com/icesoft/faces/webapp/xmlhttp"/>
+    <property name="bridge.script"
+              location="${bridge.collate.dir}/icefaces-d2d.js"/>
+    <property name="bridge-extras.script"
+              location="${bridge.collate.dir}/ice-extras.js"/>
+    <property name="bridge-openajax.script"
+              location="${bridge.collate.dir}/openajax.js"/>
+    <property name="words.obfuscation.excludes"
+              value="words.obfuscation.excludes"/>
+
+    <tstamp>
+        <format property="buildtime" pattern="yyyy-MM-dd HH:mm z" locale="en"/>
+    </tstamp>
+
+    <path id="compile.run.classpath">
+        <pathelement location="${build.classes.dir}"/>
+        <fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+            <exclude name="${ant.project.name}.jar"/>
+            <exclude name="just-ice.jar"/>
+            <exclude name="icefaces-comps.jar"/>
+            <exclude name="jsf-api-1.2.jar"/>
+        </fileset>
+    </path>
+
+    <macrodef name="build.jar">
+        <attribute name="jar.file.name" default="${ant.project.name}.jar"/>
+        <element name="add.excludes" optional="true"/>
+        <element name="add.metainfs" optional="true"/>
+
+        <sequential>
+            <delete file="${dist.dir}/@{jar.file.name}"/>
+            <mkdir dir="${dist.dir}"/>
+            <jar destfile="${dist.dir}/@{jar.file.name}" duplicate="fail">
+                <fileset dir="${build.classes.dir}">
+                    <add.excludes/>
+                </fileset>
+                <fileset dir="${src.dir}">
+                    <include name="com/icesoft/faces/resources/"/>
+                    <include name="com/icesoft/faces/context/*.xslt"/>
+                    <include name="**/*.properties"/>
+                </fileset>
+                <zipfileset dir="${bridge.dir}/build"
+                            includes="icefaces-d2d.js, ice-extras.js, openajax.js"
+                            prefix="com/icesoft/faces/webapp/xmlhttp"
+                        />
+                <manifest>
+                    <section name="com.icesoft.faces">
+                        <attribute name="Implementation-Title"
+                                   value="${product}"/>
+                        <attribute name="Implementation-Version"
+                                   value="${release.type} ${version.primary}.${version.secondary}.${version.tertiary}_${build.number} (${buildtime})"/>
+                        <attribute name="Implementation-Vendor"
+                                   value="${company}"/>
+                    </section>
+                </manifest>
+                <add.metainfs/>
+            </jar>
+        </sequential>
+    </macrodef>
+
+    <target name="update.product.info">
+        <copy file="${productinfo.src}/${productinfo.file}"
+              todir="${productinfo.dest}" overwrite="true"/>
+        <replace file="${productinfo.dest}/${productinfo.file}">
+            <replacefilter token="@company@" value="${company}"/>
+            <replacefilter token="@product@" value="${product}"/>
+            <replacefilter token="@version.primary@"
+                           value="${version.primary}"/>
+            <replacefilter token="@version.secondary@"
+                           value="${version.secondary}"/>
+            <replacefilter token="@version.tertiary@"
+                           value="${version.tertiary}"/>
+            <replacefilter token="@release.type@" value="${release.type}"/>
+            <replacefilter token="@revision@" value="${revision}"/>
+            <replacefilter token="@build.number@" value="${build.number}"/>
+        </replace>
+    </target>
+
+    <target name="testJDK">
+       <condition property="isJDK15plus">
+           <or>
+               <equals arg1="${ant.java.version}" arg2="1.5"/>
+               <equals arg1="${ant.java.version}" arg2="1.6"/>
+           </or>
+       </condition>
+    </target>
+
+
+    <target name="compile15" depends="testJDK" if="isJDK15plus">
+        <javac destdir="${build.classes.dir}" sourcepath=""
+               debug="${compile.debug}" source="1.5" target="1.5">
+            <classpath refid="compile.run.classpath"/>
+            <src location="${src.dir}"/>
+            <include name="com/icesoft/faces/webapp/http/servlet/TomcatPushServlet.java"/>
+            <include name="com/icesoft/faces/webapp/http/servlet/GrizzlyPushServlet.java"/>
+        </javac>
+
+        <antcall target="jsf12" /> 
+
+        <available file="${lib.dir}/ext/jsf-api-2.0.jar" 
+                   property="jsf2.present" />
+        <antcall target="jsf2" /> 
+
+    </target>
+
+    <target name="jsf12" >
+        <javac destdir="${build.classes.dir}" sourcepath=""
+               debug="${compile.debug}" source="1.5" target="1.5">
+            <classpath location="${lib.dir}/jsf-api-1.2.jar"/>
+            <classpath refid="compile.run.classpath"/>
+            <src location="${src.dir}"/>
+            <include name="com/icesoft/faces/webapp/parser/ELSetPropertiesRule.java"/>
+        </javac>
+    </target>
+
+    <target name="jsf2" if="jsf2.present" >
+        <javac destdir="${build.classes.dir}" sourcepath=""
+               debug="${compile.debug}" source="1.5" target="1.5" failonerror="false">
+            <classpath location="${lib.dir}/ext/jsf-api-2.0.jar"/>
+            <classpath location="${lib.dir}/ext/jsf-impl-2.0.jar"/>
+            <classpath refid="compile.run.classpath"/>
+            <src location="${src.dir}"/>
+            <include name="org/icefaces/x/context/BridgeFacesContext2.java"/>
+            <include name="org/icefaces/x/context/BridgeExternalContext2.java"/>
+        </javac>
+    </target>
+
+    <target name="compile" depends="update.product.info">
+        <delete dir="${build.classes.dir}"/>
+        <mkdir dir="${build.classes.dir}"/>
+
+        <javac destdir="${build.classes.dir}" sourcepath=""
+               debug="${compile.debug}" source="1.4" target="1.4">
+            <classpath refid="compile.run.classpath"/>
+            <src location="${src.dir}"/>
+            <include name="**/*.java"/>
+            <exclude name="com/icesoft/faces/webapp/parser/ELSetPropertiesRule.java"/>
+            <exclude name="com/icesoft/faces/webapp/http/servlet/TomcatPushServlet.java"/>
+            <exclude name="com/icesoft/faces/webapp/http/servlet/GrizzlyPushServlet.java"/>
+            <exclude name="org/icefaces/x/context/BridgeFacesContext2.java"/>
+            <exclude name="org/icefaces/x/context/BridgeExternalContext2.java"/>
+        </javac>
+
+        <antcall target="compile15" />
+
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${src.dir}" includes="**/*.dtd"/>
+        </copy>
+    </target>
+
+    <target name="gen.component.map" depends="compile">
+        <java classname="com.icesoft.faces.webapp.parser.TagToComponentMap"
+              fork="true" failonerror="true">
+            <classpath refid="compile.run.classpath"/>
+            <arg value="new"/>
+            <arg file="${build.classes.dir}/com/icesoft/faces/application/serializedTagToComponentMapFull.ser"/>
+            <arg file="conf/tld/xhtml.tld"/>
+        </java>
+    </target>
+
+    <target name="build.bridge">
+        <ant antfile="${bridge.dir}/build.xml" inheritall="false">
+            <target name="build"/>
+            <property name="script" location="${bridge.dir}/build/icefaces-d2d.js"/>
+            <property name="extras.script" location="${bridge.dir}/build/ice-extras.js"/>
+            <property name="open.ajax.script" location="${bridge.dir}/build/openajax.js"/>
+        </ant>
+    </target>
+
+    <target name="jar" depends="gen.component.map, build.bridge" description="Creates ICEFaces library.">
+        <build.jar>
+            <add.metainfs>
+                <metainf dir="conf/META-INF"/>
+            </add.metainfs>
+        </build.jar>
+        <copy file="${dist.dir}/${ant.project.name}.jar" todir="${lib.dir}"
+              overwrite="true"/>
+    </target>
+
+    <target name="just-ice.jar" depends="gen.component.map, build.bridge">
+        <build.jar jar.file.name="just-ice.jar">
+            <add.metainfs>
+                <metainf file="conf/META-INF/include.tld"/>
+                <metainf dir="conf/just-ice"/>
+            </add.metainfs>
+        </build.jar>
+        <copy file="${dist.dir}/just-ice.jar" todir="${lib.dir}"
+              overwrite="true"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="javadoc">
+        <delete dir="${build.dir}/javadocs"/>
+        <javadoc destdir="${build.dir}/javadocs" windowtitle="ICEfaces API" failonerror="true">
+            <classpath refid="compile.run.classpath"/>
+            <fileset dir="${src.dir}">
+                <include name="com/icesoft/faces/context/DOMContext.java"/>
+                <include name="com/icesoft/faces/context/ViewListener.java"/>
+                <include name="com/icesoft/faces/renderkit/dom_html_basic/HTML.java"/>
+                <include name="com/icesoft/faces/renderkit/dom_html_basic/DomBasicInputRenderer.java"/>
+                <include name="com/icesoft/faces/renderkit/dom_html_basic/DomBasicRenderer.java"/>
+                <include name="com/icesoft/faces/renderkit/dom_html_basic/PassThruAttributeRenderer.java"/>
+                <include name="com/icesoft/faces/webapp/xmlhttp/PersistentFacesState.java"/>
+                <include name="com/icesoft/faces/webapp/xmlhttp/RenderingException.java"/>
+                <include name="com/icesoft/faces/webapp/xmlhttp/FatalRenderingException.java"/>
+                <include name="com/icesoft/faces/webapp/xmlhttp/TransientRenderingException.java"/>
+                <include name="com/icesoft/faces/async/render/AsyncRenderer.java"/>
+                <include name="com/icesoft/faces/async/render/DelayRenderer.java"/>
+                <include name="com/icesoft/faces/async/render/GroupAsyncRenderer.java"/>
+                <include name="com/icesoft/faces/async/render/IntervalRenderer.java"/>
+                <include name="com/icesoft/faces/async/render/OnDemandRenderer.java"/>
+                <include name="com/icesoft/faces/async/render/Renderable.java"/>
+                <include name="com/icesoft/faces/async/render/RenderManager.java"/>
+                <include name="com/icesoft/faces/context/DisposableBean.java"/>
+                <include name="org/icefaces/x/core/push/SessionRenderer.java"/>
+                <include name="com/icesoft/faces/context/effects/"/>
+                <include name="com/icesoft/faces/async/render/SessionRenderer.java"/>
+            </fileset>
+            <doctitle><![CDATA[<h2>ICEfaces API</h2>]]></doctitle>
+        </javadoc>
+    </target>
+</project>

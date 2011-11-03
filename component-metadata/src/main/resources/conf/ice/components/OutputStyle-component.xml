@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.OutputStyleComp</component-type>
+    <component-class>com.icesoft.faces.component.style.OutputStyle</component-class>
+</component>  

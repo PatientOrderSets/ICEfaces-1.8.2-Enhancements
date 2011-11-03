@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Command</component-family>
+    <renderer-type>com.icesoft.faces.SortHeader</renderer-type>
+    <renderer-class>com.icesoft.faces.component.commandsortheader.CommandSortHeaderRenderer</renderer-class>
+</renderer>

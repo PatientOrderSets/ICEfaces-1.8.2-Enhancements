@@ -1,0 +1,222 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>menu Component</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 class="Heading2">menuBar</h2>
+<hr>
+The menuBar component provides a robust menu system that supports:
+
+<ul>
+  <li>Nested child menuItem and menuItemSeparator components. Support for menuItemCheckbox
+    and menuItemRadio components are planned for a future release.</li>
+  <li>Horizontal (default) and Vertical menu orientations. Defines whether the
+    submenus of the top-level menu items appear beside or below the top-level
+    menu items.</li>
+  <li>Definition of the hierarchy of menu items and their submenus in one of two
+    ways:
+    <ol>
+      <li>by using a binding to a bean method that returns a (potentially) dynamic
+        hierarchy of menu items.</li>
+      <li>by statically defining the hierarchy in the JSPX page.</li>
+    </ol>
+  </li>
+  <li>The action attribute of the contained menuItem tags or instances can be
+    defined to indicate a string or a backing bean method that can be used in
+    application navigation</li>
+  <li>The actionListener attribute of the contained menuItem tags or instances
+    can be defined to indicate an actionListener that resides in a backing bean.<br>
+  </li>
+</ul>
+<p></p>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Examples
+</div>
+<p >This is an example of a static menu definition that can
+be expressed in a jsp or jspx page.
+This is a typical menu bar with File, Edit and View menus. The final
+top-level menu, the View menu, is quite plain
+with only labels and no actions, actionListeners, or custom images.
+Only labels exist on non-functional menuItems.
+</p>
+<p >The top-level File and Edit menus have a bit more
+detail: they contains labels, custom icons for each menu item, and
+associations with actions
+or actionListeners.
+</p>
+<pre class="Preformatted">&lt;ice:menuBar orientation="vertical"&gt;<br><br>    &lt;ice:menuItem value="File"&gt;<br>        &lt;ice:menuItem value="Open" icon="file_open.gif" actionListener="#{menuBean.menuActionListener}" /&gt;<br>        &lt;ice:menuItem value="Close" icon="file_close.gif" actionListener="#{menuBean.menuActionListener}" /&gt;<br>        &lt;ice:menuItemSeparator/&gt;<br>        &lt;ice:menuItem value="Recent"&gt;<br>            &lt;ice:menuItem icon="xmlhttp/css/xp/css-images/document.gif" value="File 1"/&gt;<br>            &lt;ice:menuItem icon="xmlhttp/css/xp/css-images/document.gif" value="File 2"&gt;<br>                &lt;ice:menuItem icon="xmlhttp/css/xp/css-images/paragraph.gif" value="Para 1" actionListener="#{menuBean.menuActionListener}" /&gt;<br>                &lt;ice:menuItem icon="xmlhttp/css/xp/css-images/paragraph.gif" value="Para 2" action="#{menuBean.menuAction}" /&gt;<br>            &lt;/ice:menuItem&gt;<br>            &lt;ice:menuItem value="File 3" icon="xmlhttp/css/xp/css-images/document.gif"&gt;<br>                &lt;ice:menuItem icon="xmlhttp/css/xp/css-images/paragraph.gif" value="Para 1"/&gt;<br>                &lt;ice:menuItem icon="xmlhttp/css/xp/css-images/paragraph.gif" value="Para 2"/&gt;<br>                &lt;ice:menuItem icon="xmlhttp/css/xp/css-images/paragraph.gif" value="Para 3"/&gt;<br>            &lt;/ice:menuItem&gt;<br>        &lt;/ice:menuItem&gt;<br>    &lt;/ice:menuItem&gt;<br><br>    &lt;ice:menuItem value="Edit"&gt;<br>        &lt;ice:menuItem value="Cut" icon="xmlhttp/css/xp/css-images/cut.gif" action="#{menuBean.menuActionCut}"/&gt;<br>        &lt;ice:menuItem value="Copy" icon="xmlhttp/css/xp/css-images/copy.gif" action="#{menuBean.menuActionCopy}"/&gt;<br>        &lt;ice:menuItem value="Paste" icon="xmlhttp/css/xp/css-images/paste.gif" action="#{menuBean.menuActionPaste}"/&gt;<br>    &lt;/ice:menuItem&gt;<br><br>    &lt;ice:menuItem value="View"&gt;<br>        &lt;ice:menuItem value="toolbar" /&gt;<br>        &lt;ice:menuItem value="statusbar" /&gt;<br>        &lt;ice:menuItem value="custom" /&gt;<br>    &lt;/ice:menuItem&gt;<br><br>&lt;/ice:menuBar&gt;<br><br></pre>
+<p >
+The next example is the dynamic menu bar. The hierarchy is composed in
+and returned from the backing bean method.
+</p>
+<p >
+The jsp/jspx snippet is very simple:
+</p>
+<p >
+</p>
+<pre class="Preformatted">&lt;ice:menuBar orientation="vertical"&gt;<br>    &lt;ice:menuItems value="#{menuBean.menuModel}"/&gt;<br>&lt;/ice:menuBar&gt;<br><br></pre>
+<p >
+The backing bean provides (some variation of) the following
+infrastructure. Actions and actionListeners are omitted
+for brevity:
+</p>
+<p ></p>
+<pre class="Preformatted"><span style="font-family: monospace;">    private List menuModel;</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">    public List getMenuModel() {</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        return menuModel;</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">    }</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">    public MenuBean() {</span><br
+ style="font-family: monospace;"><br style="font-family: monospace;"><span
+ style="font-family: monospace;">        menuModel = new ArrayList();</span><br
+ style="font-family: monospace;"><br style="font-family: monospace;"><span
+ style="font-family: monospace;">        MenuItem topLevel1 = new MenuItem();</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        topLevel1.setIcon("xmlhttp/css/xp/css-images/menuitem.gif");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        topLevel1.setValue("topLevel1");</span><br
+ style="font-family: monospace;"><br style="font-family: monospace;"><span
+ style="font-family: monospace;">        MenuItem topLevel2 = new MenuItem();</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        topLevel2.setIcon("xmlhttp/css/xp/css-images/menuitem.gif");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        topLevel2.setValue("topLevel2");</span><br
+ style="font-family: monospace;"><br style="font-family: monospace;"><span
+ style="font-family: monospace;">        MenuItem topLevel3 = new MenuItem();</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        topLevel3.setIcon("xmlhttp/css/xp/css-images/menuitem.gif");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        topLevel3.setValue("topLevel3");</span><br
+ style="font-family: monospace;"><br style="font-family: monospace;"><span
+ style="font-family: monospace;">        menuModel.add(topLevel1);</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        menuModel.add(topLevel2);</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        menuModel.add(topLevel3);</span><br
+ style="font-family: monospace;"><br style="font-family: monospace;"><span
+ style="font-family: monospace;">        MenuItem sub1_1 = new MenuItem();</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1.setIcon("xmlhttp/css/xp/css-images/menuitem.gif");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1.setValue("sub1_1");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        MenuItem sub1_2 = new MenuItem();</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_2.setIcon("xmlhttp/css/xp/css-images/menuitem.gif");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_2.setValue("sub1_2");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        MenuItem sub1_3 = new MenuItem();</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_3.setIcon("xmlhttp/css/xp/css-images/menuitem.gif");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_3.setValue("sub1_3");</span><br
+ style="font-family: monospace;"><br style="font-family: monospace;"><span
+ style="font-family: monospace;">        topLevel1.getChildren().add(sub1_1);</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        topLevel1.getChildren().add(sub1_2);</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        topLevel1.getChildren().add(sub1_3);</span><br
+ style="font-family: monospace;"><br style="font-family: monospace;"><span
+ style="font-family: monospace;">        MenuItem sub1_1_1 = new MenuItem();</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1_1.setIcon("xmlhttp/css/xp/css-images/menuitem.gif");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1_1.setValue("sub1_1_1");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        MenuItem sub1_1_2 = new MenuItem();</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1_2.setIcon("xmlhttp/css/xp/css-images/menuitem.gif");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1_2.setValue("sub1_1_2");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        MenuItem sub1_1_3 = new MenuItem();</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1_3.setIcon("xmlhttp/css/xp/css-images/menuitem.gif");</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1_3.setValue("sub1_1_3");</span><br
+ style="font-family: monospace;"><br style="font-family: monospace;"><span
+ style="font-family: monospace;">        sub1_1.getChildren().add(sub1_1_1);</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1.getChildren().add(sub1_1_2);</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">        sub1_1.getChildren().add(sub1_1_3);</span><br
+ style="font-family: monospace;"><span style="font-family: monospace;">    }</span></pre>
+<p></p>
+<div
+ style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+ style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-name:</div>
+      </td>
+      <td>
+      <div class="CellBody"> &lt;ice:menuBar&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> tag-class:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.component.menubar.MenuBarTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-class:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.component.menubar.MenuBar</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.Menu</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> component-family:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.Menu</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-class:</div>
+      </td>
+      <td>
+      <div class="CellBody">com.icesoft.faces.component.menubar.MenuBarRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="CellBody"> renderer-type:</div>
+      </td>
+      <td>
+      <div class="CellBody"> com.icesoft.faces.View</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

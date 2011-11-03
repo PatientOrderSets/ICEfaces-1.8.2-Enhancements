@@ -1,0 +1,410 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 4.3.0//EN"
+        "http://www.liferay.com/dtd/liferay-portlet-app_4_3_0.dtd">
+
+<liferay-portlet-app>
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Autocomplete                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_autocomplete</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Buttons & Links                        -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_buttonsAndLinks</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Calendar                               -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_calendar</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Charts                                 -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_charts</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Connection Status                      -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_connectionStatus</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Drag & Drop                            -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_dragAndDrop</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Effects                                -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_effects</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: File Upload                            -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_fileUpload</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: GMap                                   -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_gmap</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Media Player                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_media_player</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Menubar Portlet                        -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_menubar</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Border                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_border</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Collapsible                      -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_collapsible</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Divider                          -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_divider</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Popup                            -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_popup</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Positioned                       -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_positioned</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Series                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_series</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Stack                            -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_stack</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Tabset Dynamic                   -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_tabset_dynamic</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Tabset Static                    -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_tabset_static</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Panel Tooltip                          -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_panel_tooltip</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Progress Bar                           -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_progressBar</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Rich Text Editor                       -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_rich_text_editor</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Selection                              -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_selection</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: setEventPhase                              -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_setEventPhase</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+    
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Table - Columns                        -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_columns</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Table - Data Paging                    -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_dataPaging</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Table - Expandable Table               -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_expandable</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Table - Grouping                       -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_grouping</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Table - Resizable Columns              -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_resizableColumns</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Table - Row Selection                  -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_rowSelection</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Table - Sortable Header                -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_table_sortableHeader</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Text Entry                             -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_textEntry</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: Tree                                   -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_tree</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+    
+    <!-- =================================================================== -->
+    <!-- ICEfaces Component-Showcase: OutputResource                         -->
+    <!-- =================================================================== -->
+
+    <portlet>
+        <portlet-name>components_output_resource</portlet-name>
+        <instanceable>true</instanceable>
+        <render-weight>1</render-weight>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <!-- =================================================================== -->
+
+    <role-mapper>
+        <role-name>administrator</role-name>
+        <role-link>Administrator</role-link>
+    </role-mapper>
+    <role-mapper>
+        <role-name>guest</role-name>
+        <role-link>Guest</role-link>
+    </role-mapper>
+    <role-mapper>
+        <role-name>power-user</role-name>
+        <role-link>Power User</role-link>
+    </role-mapper>
+    <role-mapper>
+        <role-name>user</role-name>
+        <role-link>User</role-link>
+    </role-mapper>
+    
+</liferay-portlet-app>

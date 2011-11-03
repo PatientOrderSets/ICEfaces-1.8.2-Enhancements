@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+	<description>
+	           <![CDATA[<p>The tree component displays hierarchical data as a "tree" of branches  and leaf nodes.
+            Optionally, the tree may also display navigation controls for the dynamic expansion
+            and collapse of branch nodes. Tree navigation events are available so that an application 
+            can respond to these events. Nodes may also support an action event that can be used to respond
+            to user click events. <br>
+            
+            The tree component can be used in cases where a hierarchical data structure must be viewed
+            and navigated. It is typically used for menu-style applications, where the user selects
+            a tree node and the application responds with an action related to the selected node.<br>
+            
+            In implementing a tree tag, the application developer must provide declare in the JSP a tree tag and 
+            a single treeNode tag as a child of the tree tag. The tree tag should declare the "value" attribute
+            to be a value binding to a backing bean that will return an object that implements the 
+            javax.swing.tree.TreeModel interface. The TreeModel must contain a tree of DefaultMutableTreeNode instances.
+            Each DefaultMutableTreeNode instance encapsultes an IceUserObject. The IceUserObject is the extension point
+            for the application developer. If the IceUserObject does not provide sufficient state for representation
+            of the tree's nodes, then the application developer should extend the IceUserObject and add state as required 
+            to their extension. When creating an IceUserObject, the DefaultMutableTreeNode wrapper must
+            be provided to the constructor. Then the node's state can be set to the attributes on the IceUserObject including:
+            text, a convenience field that will typically represent the text that will be displayed somewhere 
+            in the content facet; expanded, whether the node is expanded on its first rendering and until the 
+            user initiates a navigation event to change this value; tooltip, the text that will appear in the 
+            tooltip that appears when the user hovers over a node; leafIcon, the application-relative path to 
+            an image that will be used to represent this node when it has no children (is a leaf),
+            typically referred to in the icon facet; branchExpandedIcon, the application-relative path to 
+            an image that will be used to represent this node when it has children (is a branch) and is expanded,
+            typically referred to in the icon facet; branchContractedIcon, the application-relative path to 
+            an image that will be used to represent this node when it has children (is a branch) and is not expanded,
+            typically referred to in the icon facet. The "binding" attribute can be defined so that the 
+            application developer will have access to the Tree component in the application's backing bean.
+            The "var" attribute can be declared on the tree tag such that the treeNode tag's children have 
+            access to the state of the TreeModel's node that it represents.<br>
+            See the documentation for the treeNode tag for a description of supported facets.]]>
+	</description>
+	<component-family>com.icesoft.faces.TreeView</component-family>
+
+	<renderer-type>com.icesoft.faces.View</renderer-type>
+
+			<renderer-extension>
+				<instance-name>tree</instance-name>
+				<is-container>true</is-container>
+				<renders-children>true</renders-children>
+				<tag-name>tree</tag-name>
+				<taglib-prefix>@taglib-prefix@</taglib-prefix>
+				<taglib-uri>@taglib-uri@</taglib-uri>
+			</renderer-extension>
+
+</renderer>

@@ -1,0 +1,47 @@
+<f:view xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <html>
+
+    <head>
+        <title>
+            ICEfaces Location - Find
+        </title>
+    </head>
+
+    <body>
+
+    <ice:portlet>
+
+        <ice:outputStyle href="/xmlhttp/css/rime/rime-portlet.css"/>
+        <ice:outputStyle href="/resources/css/location.css"/>
+        <f:loadBundle basename="org.icefaces.sample.location.resources.messages" var="msgs"/>
+
+        <ice:form>
+
+            <ice:panelGrid columns="2">
+
+                <ice:outputText value="City:"/>
+                <ice:outputText value="#{coordinator.currentCity.city}"/>
+
+                <ice:outputText value="County:"/>
+                <ice:outputText value="#{coordinator.currentCity.country}"/>
+
+                <ice:outputText value="State:"/>
+                <ice:outputText value="#{coordinator.currentCity.state} #{coordinator.currentCity.stateCode}"/>
+
+                <ice:outputText value="Zip:"/>
+                <ice:outputText value="#{coordinator.currentCity.zip}"/>
+
+                <ice:outputText value="Area Code:"/>
+                <ice:outputText value="#{coordinator.currentCity.areaCode}"/>
+
+            </ice:panelGrid>
+
+        </ice:form>
+    </ice:portlet>
+
+    </body>
+    </html>
+</f:view>

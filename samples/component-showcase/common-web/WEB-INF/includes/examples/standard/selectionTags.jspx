@@ -1,0 +1,197 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, various selection tags are used to present different
+kinds of selection components. The inputs are submitted to the server one by
+one as they are being entered. These partial submits are triggered when the user
+clicks a selection or tabs out of a field.
+-->
+
+<ice:panelGroup styleClass="componentBox"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+        <!-- Description -->
+        <ice:panelGroup styleClass="synopsisBox selectionContainer">
+
+            <ice:outputText
+                    value="#{msgs['page.selection.instructions.text']}"/>
+
+            <ice:outputText
+                    value="#{msgs['page.selection.subInstructions.text']}"/>
+
+        </ice:panelGroup>
+
+        <ice:panelGroup styleClass="clearer" />
+
+        <!-- selection tags -->
+        <ice:panelGroup styleClass="exampleBox selectionContainer" >
+            <ice:panelGrid columns="2" styleClass="verticalAlignTop" >
+                <!-- Check box - new user -->
+                <ice:outputLabel
+                        for="SlctUsr"
+                        value="#{msgs['page.selection.users.label']}"/>
+                <ice:selectBooleanCheckbox id="SlctUsr"
+                               valueChangeListener="#{selectionTags.effectChangeListener}"
+                               value="#{selectionTags.newUser}"
+                               partialSubmit="true"/>
+
+                <!-- Select one menu - component type -->
+                <ice:outputLabel
+                        for="SlctCompTyp"
+                        value="#{msgs['page.selection.component.label']}"/>
+                <ice:selectOneMenu id="SlctCompTyp"
+                        valueChangeListener="#{selectionTags.effectChangeListener}"
+                        value="#{selectionTags.selectedComponent}"
+                        partialSubmit="true">
+                    <f:selectItems id="SlctcompTypeItms"
+                                   value="#{selectionTags.componentItems}"/>
+                </ice:selectOneMenu>
+                
+                <!---Select many menu - select cars-->
+                <ice:outputLabel
+                        for="SlctCar"
+                        value="#{msgs['page.selection.cars.label']}" />
+                <ice:selectManyMenu id="SlctCar"  style="height:75px;"
+                                value="#{selectionTags.selectedCars}"
+                                partialSubmit="true"
+                                valueChangeListener="#{selectionTags.carChanged}">
+                      <f:selectItems id="SlctCarItms"
+                                value="#{selectionTags.carListItems}"/>
+                </ice:selectManyMenu>
+                               
+
+                <!-- Radio buttons - select drink -->
+                <ice:outputLabel for="SlctDrk"
+                                value="#{msgs['page.selection.drink.label']}"/>
+                <ice:panelGroup styleClass="selectionRadioGroup">
+                    <ice:selectOneRadio id="SlctDrk"
+                            value="#{selectionTags.selectedDrink}"
+                            valueChangeListener="#{selectionTags.effectChangeListener}"
+                            partialSubmit="true" >
+                        <f:selectItems  id="SlctDrkItms"
+                                        value="#{selectionTags.drinkItems}"/>
+                    </ice:selectOneRadio>
+                </ice:panelGroup>
+
+                <!-- Check boxes - select language -->
+                <ice:outputLabel
+                        for="SlctLang"
+                        value="#{msgs['page.selection.language.label']}"/>
+                <ice:panelGroup styleClass="selectionRadioGroup">
+                    <ice:selectManyCheckbox id="SlctLang"
+                            value="#{selectionTags.selectedLanguages}"
+                            valueChangeListener="#{selectionTags.effectChangeListener}"
+                            partialSubmit="true">
+                        <f:selectItems  id="SlctLangItms"
+                                        value="#{selectionTags.languageItems}"/>
+                    </ice:selectManyCheckbox>
+                </ice:panelGroup>
+
+
+                <!-- Select one list boxes - select countries and city -->
+                <ice:outputLabel
+                        for="SlctCnty"
+                        value="#{msgs['bean.selection.countryCities.label']}"/>
+                <ice:panelGroup styleClass="selectionListBoxGroup">
+                    <ice:selectOneListbox id="SlctCnty"
+                                          value="#{selectionTags.selectedCountry}"
+                                          partialSubmit="true"
+                                          style="overflow: auto;height:75px"
+                                          valueChangeListener="#{selectionTags.countryChanged}">
+                        <f:selectItems id="SlctCntyItms"
+                                        value="#{selectionTags.countryItems}"/>
+                    </ice:selectOneListbox>
+                    <ice:selectManyListbox id="citiesListBox"
+                                           partialSubmit="true"
+                                           value="#{selectionTags.selectedCities}"
+                                           style="overflow: auto;width:110px;height:75px"
+                                           valueChangeListener="#{selectionTags.cityChanged}">
+                        <f:selectItems id="SlctCtyItms"
+                                        value="#{selectionTags.cityItems}"/>
+                    </ice:selectManyListbox>
+                </ice:panelGroup>
+
+            </ice:panelGrid>
+        </ice:panelGroup>
+
+        <!-- displayed values -->
+       <ice:panelGroup
+            styleClass="exampleBox firstChildTitle backBeanChangeContainer">
+
+            <!-- backing bean title box -->
+            <ice:panelGroup styleClass="backBeanChangeTitle">
+                <ice:outputText value="#{msgs['page.global.serverFeedback']}"/>
+            </ice:panelGroup>
+
+            <!-- actual backing bean values. -->
+            <ice:panelGroup styleClass="backBeanChangeBody"
+                            effect="#{selectionTags.valueChangeEffect}">
+
+                <ice:panelGroup>
+                    <ice:panelGrid columns="2" styleClass="verticalAlignTop">
+                        <ice:outputText
+                                value="#{msgs['page.selection.server.users.label']}" />
+                        <ice:outputText id="SlctUsrout"
+                                        value="#{selectionTags.newUser}" />
+                        <ice:outputText
+                                value="#{msgs['page.selection.server.component.label']}" />
+                        <ice:outputText id="SlctCompTypout"
+                                        value="#{selectionTags.selectedComponentString}" />
+                        <ice:outputText value="#{msgs['page.selection.server.cars.label']}" />
+                        <ice:outputText id="SlctCarout"
+                                        value="#{selectionTags.selectedCarsStrings}" />
+                        <ice:outputText
+                                value="#{msgs['page.selection.server.drink.label']}" />
+                        <ice:outputText id="SlctDrkout"
+                                        value="#{selectionTags.selectedDrinkString}" />
+                        <ice:outputText
+                                value="#{msgs['page.selection.server.language.label']}" />
+                        <ice:outputText id="SlctLangout"
+                                        value="#{selectionTags.selectedLanguagesStrings}" />
+                        <ice:outputText
+                                value="#{msgs['page.selection.server.country.label']}" />
+                        <ice:outputText id="SlctCntyout"
+                                        value="#{selectionTags.selectedCountryString}" />
+                        <ice:outputText
+                                value="#{msgs['page.selection.server.cities.label']}" />
+                        <ice:outputText id="SlctCtyout"
+                                        value="#{selectionTags.selectedCitiesStrings}"/>
+                    </ice:panelGrid>
+                </ice:panelGroup>
+            </ice:panelGroup>
+        </ice:panelGroup>
+
+</ice:panelGroup>

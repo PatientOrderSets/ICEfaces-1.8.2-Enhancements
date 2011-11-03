@@ -1,0 +1,164 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, ice:selectInputDate is used to select a date from
+a selectInputDate. The selectInputDate can be displayed inline or can be popped
+up by
+the click of a button.
+-->
+
+<ice:panelGroup styleClass="componentBox"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <!-- Standard Calendar -->
+    <ice:panelGroup styleClass="synopsisBox selectInputDateContainer">
+        <ice:outputText
+                value="#{msgs['page.selectInputDate.synopsis']}"/>
+        <ice:outputText
+                value="#{msgs['page.selectInputDate.instructions']}"/>
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="clearer"/>
+
+    <ice:panelGroup styleClass="exampleBox firstChildTitle">
+
+        <ice:outputText
+                value="#{msgs['page.selectInputDate.nonPopup.label']}"/>
+        <br/><br/>
+
+        <!-- display regular selectInputDate bean values-->
+        <ice:outputLabel
+                value="#{msgs['page.selectInputDate.selectedDate.label']}"/>
+        <ice:outputText id="defaultSelectedDate"
+                        effect="#{dateSelect.valueChangeEffect}"
+                        value="#{dateSelect.date1}">
+            <f:convertDateTime pattern="MM/dd/yyyy"
+                               timeZone="#{dateSelect.timeZone}"/>
+        </ice:outputText>
+        <!-- Calendar Component -->
+        <ice:selectInputDate id="date1"
+                             value="#{dateSelect.date1}"
+                             valueChangeListener="#{dateSelect.effectChangeListener}"
+                             highlightClass="weekend: august:"
+                             highlightUnit="DAY_OF_WEEK: MONTH"
+                             highlightValue="1,7: 8">
+            <f:convertDateTime pattern="MM/dd/yyyy"
+                               timeZone="#{dateSelect.timeZone}"/>
+        </ice:selectInputDate>
+
+        <ice:panelGroup style="text-align:right;margin-top:10px;">
+            <ice:outputText
+                    value="#{msgs['page.selectInputDate.comment.weekends']}"/><br/>
+            <ice:outputText
+                    value="#{msgs['page.selectInputDate.comment.august']}"/><br/>
+
+        </ice:panelGroup>
+
+    </ice:panelGroup>
+
+
+
+    <!-- Popup Calendar -->
+    <ice:panelGroup styleClass="exampleBox firstChildTitle">
+
+        <ice:outputText id="popupSelectedDate"
+                        value="#{msgs['page.selectInputDate.popup.label']}"/>
+
+        <br/><br/>
+        <ice:outputLabel value="Select Pattern :"/>
+        <ice:selectOneMenu id="datePattern" value="#{dateSelect.pattern}" partialSubmit="true" >
+            <f:selectItems id="pattern" value="#{dateSelect.patterns}"/>
+        </ice:selectOneMenu>
+
+        <!-- display popup selectInputDate bean values-->
+        <br/><br/>
+        <ice:outputLabel id="popupSelectedDateTxt"
+                         value="#{msgs['page.selectInputDate.selectedDate.label']}"/>
+        
+        <ice:outputText id="popupSelectedDatePattern1" value="#{dateSelect.date2}" rendered="#{dateSelect.pattern eq 'date'}"
+                        effect="#{dateSelect.valueChangeEffect2}">
+            <f:convertDateTime pattern="MM/dd/yyyy"
+                               timeZone="#{dateSelect.timeZone}"/>
+    </ice:outputText>
+        <ice:outputText id="popupSelectedDatePattern2" value="#{dateSelect.date3}" rendered="#{dateSelect.pattern eq 'dateTime'}"
+                        effect="#{dateSelect.valueChangeEffect2}">
+            <f:convertDateTime pattern="MM/dd/yyyy HH:mm"
+                               timeZone="#{dateSelect.timeZone}"/>
+        </ice:outputText>
+        
+        <ice:outputText id="popupSelectedDatePattern3" value="#{dateSelect.date4}" rendered="#{dateSelect.pattern eq 'dateTimeAmPm'}"
+                        effect="#{dateSelect.valueChangeEffect2}">
+            <f:convertDateTime pattern="MM/dd/yyyy hh:mm a"
+                               timeZone="#{dateSelect.timeZone}"/>
+        </ice:outputText>        
+        <!-- Calendar Component -->
+        
+        <ice:selectInputDate id="popupDatePttrn1" renderMonthAsDropdown="true" renderYearAsDropdown="true"
+                             value="#{dateSelect.date2}" rendered="#{dateSelect.pattern eq 'date'}"
+                             valueChangeListener="#{dateSelect.effect2ChangeListener}"
+                             title="#{msgs['page.selectInputDate.popup.title']}"
+                             renderAsPopup="true">
+            <f:convertDateTime pattern="MM/dd/yyyy"
+                               timeZone="#{dateSelect.timeZone}"/>
+        </ice:selectInputDate>
+        
+        
+        <ice:selectInputDate id="popupDatePttrn2" renderMonthAsDropdown="true" renderYearAsDropdown="true"
+                             value="#{dateSelect.date3}" rendered="#{dateSelect.pattern eq 'dateTime'}"
+                             valueChangeListener="#{dateSelect.effect2ChangeListener}"
+                             title="#{msgs['page.selectInputDate.popup.title']}"
+                             renderAsPopup="true">
+            <f:convertDateTime pattern="MM/dd/yyyy HH:mm"
+                               timeZone="#{dateSelect.timeZone}"/>
+        </ice:selectInputDate>
+
+        <ice:selectInputDate id="popupDatePttrn3" renderMonthAsDropdown="true" renderYearAsDropdown="true"
+                             value="#{dateSelect.date4}" rendered="#{dateSelect.pattern eq 'dateTimeAmPm'}"
+                             valueChangeListener="#{dateSelect.effect2ChangeListener}"
+                             title="#{msgs['page.selectInputDate.popup.title']}"
+                             renderAsPopup="true">
+            <f:convertDateTime pattern="MM/dd/yyyy hh:mm a"
+                               timeZone="#{dateSelect.timeZone}"/>
+        </ice:selectInputDate>
+
+    </ice:panelGroup>
+
+    <ice:panelGroup styleClass="clearer"/>
+
+    <ice:panelGroup styleClass="selectInputDateContainer">
+        <ice:messages/>
+    </ice:panelGroup>
+</ice:panelGroup>

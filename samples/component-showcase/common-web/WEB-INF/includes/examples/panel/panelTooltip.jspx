@@ -1,0 +1,179 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<ice:panelGroup styleClass="componentBox"
+                xmlns:c="http://java.sun.com/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+<ice:panelGroup styleClass="synopsisBox panelToolTipContainer">
+    <ice:outputText value="#{msgs['page.panelTooltip.synopsis']}"/>
+    <ice:outputText value="#{msgs['page.panelTooltip.description']}"/>
+</ice:panelGroup>
+
+<!-- Simple panel Popup...
+-->
+<ice:panelGroup styleClass="exampleBox panelToolTipContainer">
+
+    <ice:panelGroup style="display:inline;">
+        <ice:outputLabel value="#{msgs['page.panelTooltip.displayOn.label']}" for="displayOn"/>
+        <ice:selectOneMenu id="displayOn" value="#{tooltipController.panelToolTipModel.displayOn}" partialSubmit="true">
+            <f:selectItem itemValue="hover" itemLabel="#{msgs['page.panelTooltip.displayOn.label1']}"/>
+            <f:selectItem itemValue="click" itemLabel="#{msgs['page.panelTooltip.displayOn.label2']}"/>
+            <f:selectItem itemValue="altclick" itemLabel="#{msgs['page.panelTooltip.displayOn.label3']}"/>
+            <f:selectItem itemValue="dblclick" itemLabel="#{msgs['page.panelTooltip.displayOn.label4']}"/>
+        </ice:selectOneMenu>
+    </ice:panelGroup>
+    <!-- tool tip duration config -->
+    <ice:panelGroup style="display:inline;">
+        <ice:outputLabel value="#{msgs['page.panelTooltip.duration.label']}"
+                         for="duration" style="margin-left:1em;"/>
+        <ice:selectOneMenu id="duration"
+                           partialSubmit="true" disabled="#{tooltipController.panelToolTipModel.displayOn != 'hover'}"
+                           value="#{tooltipController.panelToolTipModel.hoverDelay}">
+            <f:selectItem
+                    itemValue="500"
+                    itemLabel="#{msgs['page.panelTooltip.duration.label1']}"/>
+            <f:selectItem
+                    itemValue="1000"
+                    itemLabel="#{msgs['page.panelTooltip.duration.label2']}"/>
+            <f:selectItem
+                    itemValue="1500"
+                    itemLabel="#{msgs['page.panelTooltip.duration.label3']}"/>
+        </ice:selectOneMenu>
+    </ice:panelGroup>
+    <ice:panelGroup style="display:inline;">
+        <ice:outputLabel value="#{msgs['page.panelTooltip.moveWithMouse.label']}" for="moveWithMouse" style="margin-left:1em;"/>
+        <ice:selectBooleanCheckbox id="moveWithMouse" partialSubmit="true" value="#{tooltipController.panelToolTipModel.moveWithMouse}"/>
+    </ice:panelGroup>
+    <ice:messages />
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="exampleBox panelToolTipContainer">
+
+    <ice:panelSeries id="icepnlsrs"
+                     value="#{tooltipController.storeInventory.inventory}"
+                     var="inventoryItem"
+                     style="width: 441px;">
+        <ice:panelGroup style="float: left; width: 110px;">
+            <ice:panelGroup panelTooltip="pnlSerPanelToolTip">
+                <ice:graphicImage id="GrphImg"
+                                  width="100px"
+                                  height="75px"
+                                  url="/images/dragDrop/#{inventoryItem.pictureName}.png"
+                                  alt="#{inventoryItem.name}"/>
+                <br/>
+                <ice:outputText value="#{inventoryItem.name}"/>
+            </ice:panelGroup>
+    
+            <ice:panelTooltip id="pnlSerPanelToolTip" displayOn="#{tooltipController.panelToolTipModel.displayOn}"
+                              hideOn="#{tooltipController.panelToolTipModel.hideOn}" moveWithMouse="#{tooltipController.panelToolTipModel.moveWithMouse}"
+                              hoverDelay="#{tooltipController.panelToolTipModel.hoverDelayTime}"
+                              style="width:100px;height:75px;text-align:left;">
+                <f:facet name="header">
+                    <ice:outputText
+                            value="#{inventoryItem.name}"/>
+                </f:facet>
+                <f:facet name="body">
+                    <ice:panelGroup>
+                        <ice:outputText
+                                value="#{msgs['page.dragDrop.store.price.label']}"/>
+                        <ice:outputText id="DDPrice"
+                                        value="#{inventoryItem.price}">
+                            <f:convertNumber type="currency" currencySymbol="$"
+                                             groupingUsed="true"
+                                             maxFractionDigits="2"/>
+                        </ice:outputText>
+                        <ice:outputText id="DDQty"
+                                        value="#{msgs['page.dragDrop.store.quantity.label']}#{inventoryItem.quantity}"/>
+                    </ice:panelGroup>
+                </f:facet>
+            </ice:panelTooltip>
+        </ice:panelGroup>
+    </ice:panelSeries>
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="clearer" />
+
+<ice:panelGroup styleClass="synopsisBox panelToolTipContainer" style="margin-top:15px;">
+    <ice:outputText value="#{msgs['page.panelTooltip.description2']}"/>
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="exampleBox panelToolTipContainer">
+
+    <!-- all the following panels uses the same tool tip component.  -->
+    <ice:panelGroup panelTooltip="provinceInfo"
+                    contextValue="page.panelTooltip.province1"
+                    style="float:left;margin-left:20px;">
+        <ice:outputText value="#{msgs['page.panelTooltip.province1.label']}"/>
+    </ice:panelGroup>
+    <ice:panelGroup panelTooltip="provinceInfo"
+                    contextValue="page.panelTooltip.province2"
+                    style="float:left;margin-left:20px;">
+        <ice:outputText value="#{msgs['page.panelTooltip.province2.label']}"/>
+    </ice:panelGroup>
+    <ice:panelGroup panelTooltip="provinceInfo"
+                    contextValue="page.panelTooltip.province3"
+                    style="float:left;margin-left:20px;">
+        <ice:outputText value="#{msgs['page.panelTooltip.province3.label']}"/>
+    </ice:panelGroup>
+    <ice:panelGroup panelTooltip="provinceInfo"
+                    contextValue="page.panelTooltip.province4"
+                    style="float:left;margin-left:20px;">
+        <ice:outputText value="#{msgs['page.panelTooltip.province4.label']}"/>
+    </ice:panelGroup>
+
+    <!-- toolTip decloration that is ued for more then one panelGroup -->
+    <ice:panelTooltip id="provinceInfo" displayOn="#{tooltipController.panelToolTipModel.displayOn}"
+                      hideOn="#{tooltipController.panelToolTipModel.hideOn}" moveWithMouse="#{tooltipController.panelToolTipModel.moveWithMouse}"
+                      hoverDelay="#{tooltipController.panelToolTipModel.hoverDelayTime}"
+                      displayListener="#{tooltipController.displayListener}"
+                      style="width: 125px; height: 135px;" >
+
+        <f:facet name="header">
+            <ice:outputText value="#{msgs['page.panelTooltip.city.label']}"/>
+        </f:facet>
+
+        <f:facet name="body">
+            <ice:panelSeries id="cities"
+                           value="#{tooltipController.cityList}"
+                           var="city">
+                <ice:panelGroup style="padding: 2px;">
+                    <ice:outputText id="cityname" value="#{city}"/>
+                </ice:panelGroup>
+            </ice:panelSeries>
+        </f:facet>
+    </ice:panelTooltip>
+</ice:panelGroup>
+</ice:panelGroup>

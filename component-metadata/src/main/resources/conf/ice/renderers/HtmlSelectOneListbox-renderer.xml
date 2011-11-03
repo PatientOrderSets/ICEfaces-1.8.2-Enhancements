@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.SelectOne</component-family>
+    <renderer-type>com.icesoft.faces.Listbox</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.ListboxRenderer</renderer-class>
+</renderer>

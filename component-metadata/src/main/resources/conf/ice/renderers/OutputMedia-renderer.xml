@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.OutputMedia</component-family>
+    <renderer-type>com.icesoft.faces.OutputMedia</renderer-type>
+    <renderer-class>com.icesoft.faces.component.outputmedia.OutputMediaRenderer</renderer-class>
+</renderer>

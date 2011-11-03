@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+	<description>
+		<![CDATA[
+        <p>The outputConnectionStatus component displays the information about the status of the network connection
+        between the client browser and the server. The component displays one of 4 possible states, which are as
+        follows.
+        <p>
+           1. Active: The connection is alive and there is a request pending.<br/>
+           2. Inactive: The connection is alive and there is no pending activity.<br/>
+           3. Caution: The connection request/response latency has exceeded the configured threshold.
+           Indicates that asynchronous updates from the server may not be received in a timely manner.<br/>
+           4. Disconnected: The connection has been lost, either due to network or application error
+           (session expiry, etc.).<br/>
+        <p>
+        The outputConnectionStatus component provides an ideal mechanism to provide continuous real-time feedback
+        to users of the status of their ICEfaces application. It is particularly important to inform users when the
+        application is busy sending and receiving data in response to a user-initiated action to manage their 
+        expectations with respect to application readiness for additional user input. Generally, the
+        outputConnectionStatus component should be located in a consistent location throughout an ICEfaces application.
+        <p>
+        NOTE: A web-page may only contain a single outputConnectionStatus component. Using more than one 
+        outputConnectionStatus component on the same web page will result in erratic results.
+         ]]>
+	</description>
+	<component-family>javax.faces.Panel</component-family>
+
+	<renderer-type>
+		com.icesoft.faces.OutputConnectionStatusRenderer
+	</renderer-type>
+
+	<renderer-extension>
+		<instance-name>outputConnectionStatus</instance-name>
+		<is-container>false</is-container>
+		<renders-children>false</renders-children>
+		<tag-name>outputConnectionStatus</tag-name>
+		<taglib-prefix>@taglib-prefix@</taglib-prefix>
+		<taglib-uri>@taglib-uri@</taglib-uri>
+	</renderer-extension>
+
+</renderer>

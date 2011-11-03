@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+&base-props;
+
+<property>
+    <description>
+        TODO
+    </description>
+    <property-name>fire</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <default-value>false</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+    <![CDATA[
+    <table>
+    <tr><td>effectType</td><td>Description</td><td>Options</td></tr>
+    <tr>
+        <td>appear</td>
+        <td>Fade in an element from hidden to visiable</td>
+        <td>
+            <table>
+            <tr>
+                <th>option</th>
+                <th>Description</th>
+                <th>Default Value</th>
+            </tr>
+            <tr>
+                <td>from</td>
+                <td>Starting opacity</td>
+                <td>0.0</td>
+            </tr>
+            <tr>
+                <td>to</td>
+                <td>Ending opacity</td>
+                <td>1.0</td>
+            </tr>
+            </table>
+        </td>
+    <tr>
+        <td>fade</td>
+        <td>Fade out an element from visiable to hidden</td>
+        <td>
+            <table>
+            <tr>
+                <th>option</th>
+                <th>Description</th>
+                <th>Default Value</th>
+            </tr>
+            <tr>
+                <td>from</td>
+                <td>Starting opacity</td>
+                <td>1.0</td>
+            </tr>
+            <tr>
+                <td>to</td>
+                <td>Ending opacity</td>
+                <td>0.0</td>
+            </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>highlight</td>
+        <td>Highlight an element in a specifed color, the fade to the backgroud color</td>
+        <td>
+            <table>
+            <tr>
+                <th>option</th>
+                <th>Description</th>
+                <th>Default Value</th>
+            </tr>
+            <tr>
+                <td>startcolor</td>
+                <td>Highlight color</td>
+                <td>"#ffff99"</td>
+            </tr>
+            </table>        
+        </td>
+    </tr>
+    <tr>
+        <td>pulsate</td>
+        <td>Flash an element</td>
+        <td>
+            None
+        </td>
+    </tr>
+    <tr>
+        <td>scale</td>
+        <td>Change the dimenstions of an element</td>
+        <td>
+            <table>
+            <tr>
+                <th>option</th>
+                <th>Description</th>
+                <th>Default Value</th>
+            </tr>
+            <tr>
+                <td>scaleX</td>
+                <td>Scale X</td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td>scaleY</td>
+                <td>Scale Y</td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td>scaleContent</td>
+                <td>scale Content</td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td>scaleFromCenter</td>
+                <td>scale From Center</td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td>scaleMode</td>
+                <td>can be 'box' or 'contents' </td>
+                <td>'box'</td>
+            </tr>
+            <tr>
+                <td>scaleFrom</td>
+                <td>Starting percent to scale from</td>
+                <td>100.0</td>
+            </tr>
+            <tr>
+                <td>scaleTo</td>
+                <td>Ending percent to scale to</td>
+                <td>0</td>
+            </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>puff</td>
+        <td>Grow and fade an element</td>
+        <td>
+            None
+        </td>
+    </tr>
+    <tr>
+        <td>blindup</td>
+        <td>Remove an element by rolling it up</td>
+        <td>
+            None
+        </td>
+    </tr>
+    <tr>
+        <td>blinddown</td>
+        <td>Show an element by rolling it down</td>
+        <td>
+            None
+        </td>
+    </tr>
+        <tr>
+        <td> swtichoff
+       </td>
+        <td>Flash and then fold the element. Removing it from the display</td>
+        <td>
+            None
+        </td>
+    </tr>
+        <tr>
+        <td> dropout
+       </td>
+        <td>Move the element down and fade. Removing it from the display</td>
+        <td>
+            None
+        </td>
+    </tr>
+        <tr>
+        <td> shake
+        </td>
+        <td>Shake an element from left to right</td>
+        <td>
+            None
+        </td>
+    </tr>
+        <tr>
+        <td>slidedown
+        </td>
+        <td>Slide an element doen from the top</td>
+        <td>
+            None
+        </td>
+    </tr>
+        <tr>
+        <td>slideup
+        </td>
+        <td>Slide an element uo to the top. Removing it from the display</td>
+        <td>
+            None
+        </td>
+    </tr>
+        <tr>
+        <td>squish
+        </td>
+        <td>Squish an element off of the display</td>
+        <td>
+            None
+        </td>
+    </tr>
+        <tr>
+        <td>grow
+        </td>
+        <td>Grow an element from hidden to its normal size</td>
+        <td>
+            None
+        </td>
+    </tr>
+        <tr>
+        <td>shrink
+        </td>
+        <td>Shrink an element off of the display</td>
+        <td>
+            None
+        </td>
+    </tr>
+    <tr>
+        <td>fold
+        </td>
+        <td>Fold and element into smaller picese, util it is removed from the diplsay</td>
+        <td>
+            None
+        </td>
+    </tr>
+    <tr>
+        <td>move
+        </td>
+        <td>Move and element to a new location</td>
+        <td>
+            <table>
+            <tr>
+                <th>option</th>
+                <th>Description</th>
+                <th>Default Value</th>
+            </tr>
+            <tr>
+                <td>x</td>
+                <td>New X or left position</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>y</td>
+                <td>New Y or top position</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>mode</td>
+                <td>relative or absoulte</td>
+                <td>relative</td>
+            </tr>
+            </table>
+        </td>
+    </tr>
+    <table>
+
+     ]]>
+    </description>
+    <property-name>effectType</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Set the fire value to false after effect has been fired.
+        Default is true.
+    </description>
+    <property-name>autoReset</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        When true records modifications to the CSS of the effected element.
+        This will be sent to the server on the next submit.
+        Default True
+    </description>
+    <property-name>transitory</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+<property>
+    <description>
+        Fires a partial submit to the server when effect is complete.
+    </description>
+    <property-name>submit</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <default-value>false</default-value>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Javascript event to fire this effect on.
+        click, dblclick, mousedown , mouseup, mousemove,mouseover, mouseout,
+        keypress, keydown, keyup
+    </description>
+    <property-name>event</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+    </property-extension>
+</property>
+<property>
+    <description>
+        A comma seperated list of options and their values.
+        Example: highlight:'#dd0000',duration:1.0
+    </description>
+    <property-name>options</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        Used to fire a number of effects in sequence.
+        Defines the sequence name for this effect
+    </description>
+    <property-name>sequence</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+    </property-extension>
+</property>
+
+
+
+
+<property>
+    <description>
+        Used to fire a number of effects in sequence.
+        Defines the sequenceNumber of a sequence. Starts at 1,
+        lower number are fired first.
+    </description>
+    <property-name>sequenceNumber</property-name>
+    <property-class>int</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <default-value>0</default-value>
+    </property-extension>
+</property>
+
+

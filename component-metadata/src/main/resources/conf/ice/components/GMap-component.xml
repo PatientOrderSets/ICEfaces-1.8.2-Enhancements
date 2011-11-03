@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.GMap</component-type>
+    <component-class>com.icesoft.faces.component.gmap.GMap</component-class>
+</component>  

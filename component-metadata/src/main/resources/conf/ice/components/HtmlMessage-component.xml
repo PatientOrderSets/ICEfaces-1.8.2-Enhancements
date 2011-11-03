@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlMessage</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlMessage</component-class>
+</component>  

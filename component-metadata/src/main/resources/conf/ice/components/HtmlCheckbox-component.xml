@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlCheckbox</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlCheckbox</component-class>
+</component>  

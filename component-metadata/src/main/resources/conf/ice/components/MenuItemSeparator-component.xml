@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.MenuNodeSeparator</component-type>
+    <component-class>com.icesoft.faces.component.menubar.MenuItemSeparator</component-class>
+</component>  

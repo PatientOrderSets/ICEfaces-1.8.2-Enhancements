@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.ApplyEffect</component-type>
+    <component-class>com.icesoft.faces.component.effect.ApplyEffect</component-class>
+</component>  

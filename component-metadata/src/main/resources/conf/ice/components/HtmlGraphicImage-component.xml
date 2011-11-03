@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlGraphicImage</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlGraphicImage</component-class>
+</component>  

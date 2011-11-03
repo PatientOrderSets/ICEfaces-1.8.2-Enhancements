@@ -1,0 +1,713 @@
+<?xml version="1.0" ?>
+<taglib uri="http://java.sun.com/jsf/html">
+	<tag name="column">
+		<category name="JSF" displaylabel="%Category.Label.JSF">
+			<attribute name="id" displaylabel="%Attribute.Label.id" />
+			<attribute name="binding" type="PROPERTYBINDING"
+				displaylabel="%Attribute.Label.binding" />
+			<attribute name="rendered" type="BOOLEAN"
+				displaylabel="%Attribute.Label.rendered" />
+		</category>
+	</tag>
+	<tag name="commandButton">
+		<referedcategory ref="JSF">
+			<includeattrs>
+				<attribute name="action"
+					displaylabel="%Attribute.Label.action" description="action"/>
+				<attribute name="actionListener" type="METHODBINDING"
+					displaylabel="%Attribute.Label.actionListener" />
+			</includeattrs>
+			<excludeattrs
+				refs="converter,validator,valueChangeListener,required" />
+		</referedcategory>
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML">
+			<includeattrs>
+				<attribute name="type" type="ENUMERATED"
+					displaylabel="%Attribute.Label.type">
+					<option key="submit" value="submit" default="default"/>
+					<option key="reset" value="reset" />
+				</attribute>
+				<attribute name="image" type="RELATIVEPATH"
+					typeparam="suffix=jpg;gif;png"
+					displaylabel="%Attribute.Label.image" />
+				<attribute name="alt"
+					displaylabel="%Attribute.Label.alt" />
+			</includeattrs>
+		</referedcategory>
+	</tag>
+	<tag name="commandLink">
+		<referedcategory ref="JSF">
+			<includeattrs>
+				<attribute name="action"
+					displaylabel="%Attribute.Label.action" />
+				<attribute name="actionListener" type="METHODBINDING"
+					displaylabel="%Attribute.Label.actionListener" />
+			</includeattrs>
+			<excludeattrs
+				refs="converter,validator,valueChangeListener,required" />
+		</referedcategory>
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event">
+			<excludeattrs refs="onchange,onclick,onselect" />
+		</referedcategory>
+		<referedcategory ref="Link" displaylabel="%Category.Label.HTML" />
+	</tag>
+	<tag name="dataTable">
+		<category name="JSF" displaylabel="%Category.Label.JSF">
+			<attribute name="id" displaylabel="%Attribute.Label.id" />
+			<attribute name="value"
+				displaylabel="%Attribute.Label.value" />
+			<attribute name="binding" type="PROPERTYBINDING"
+				displaylabel="%Attribute.Label.binding" />
+			<attribute name="var" displaylabel="%Attribute.Label.var" />
+			<attribute name="rendered" type="BOOLEAN"
+				displaylabel="%Attribute.Label.rendered" />
+			<attribute name="rows" displaylabel="%Attribute.Label.rows" />
+			<attribute name="first"
+				displaylabel="%Attribute.Label.first" />
+		</category>
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS3" displaylabel="%Category.Label.CSS" />
+		<referedcategory ref="Event">
+			<excludeattrs refs="onblur,onchange,onfocus,onselect" />
+		</referedcategory>
+		<referedcategory ref="Table"
+			displaylabel="%Category.Label.HTML" />
+	</tag>
+	<tag name="form">
+		<category name="JSF" displaylabel="%Category.Label.JSF">
+			<attribute name="id" displaylabel="%Attribute.Label.id" />
+			<attribute name="binding" type="PROPERTYBINDING"
+				displaylabel="%Attribute.Label.binding" />
+			<attribute name="rendered" type="BOOLEAN"
+				displaylabel="%Attribute.Label.rendered" />
+		</category>
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event">
+			<includeattrs>
+				<attribute name="onreset"
+					displaylabel="%Attribute.Label.onreset" />
+				<attribute name="onsubmit"
+					displaylabel="%Attribute.Label.onsubmit" />
+			</includeattrs>
+			<excludeattrs refs="onblur,onchange,onfocus,onselect" />
+		</referedcategory>
+		<category name="HTML" displaylabel="%Category.Label.HTML">
+			<attribute name="target" type="ENUMERATED"
+				displaylabel="%Attribute.Label.target">
+				<option key="_self" value="_self" />
+				<option key="_blank" value="_blank" />
+				<option key="_parent" value="_parent" />
+				<option key="_top" value="_top" />
+			</attribute>
+			<attribute name="accept"
+				displaylabel="%Attribute.Label.accept" />
+			<attribute name="acceptcharset"
+				displaylabel="%Attribute.Label.acceptcharset" />
+			<attribute name="enctype"
+				displaylabel="%Attribute.Label.enctype" type="ENUMERATED">
+				<option key="application/x-www-form-urlencoded"
+					value="application/x-www-form-urlencoded" default="default"/>
+			</attribute>
+			<attribute name="title"
+				displaylabel="%Attribute.Label.title" />
+		</category>
+	</tag>
+	<tag name="graphicImage">
+		<category name="JSF" displaylabel="%Category.Label.JSF">
+			<attribute name="value" type="WEBPATH"
+				typeparam="suffix=jpg;gif;png"
+				displaylabel="%Attribute.Label.value" />
+			<attribute name="url" type="WEBPATH"
+				typeparam="suffix=jpg;gif;png" displaylabel="%Attribute.Label.url" />
+			<attribute name="binding" type="PROPERTYBINDING"
+				displaylabel="%Attribute.Label.binding" />
+			<attribute name="id" displaylabel="%Attribute.Label.id" />
+			<attribute name="rendered" type="BOOLEAN"
+				displaylabel="%Attribute.Label.rendered" />
+		</category>
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event">
+			<excludeattrs refs="onblur,onchange,onfocus,onselect" />
+		</referedcategory>
+		<category name="HTML" displaylabel="%Category.Label.HTML">
+			<attribute name="ismap" type="NAMED-BOOLEAN"
+				displaylabel="%Attribute.Label.ismap" />
+			<attribute name="longdesc" type="RELATIVEPATH"
+				displaylabel="%Attribute.Label.longdesc" />
+			<attribute name="alt" displaylabel="%Attribute.Label.alt" />
+			<attribute name="height"
+				displaylabel="%Attribute.Label.height" />
+			<attribute name="title"
+				displaylabel="%Attribute.Label.title" />
+			<attribute name="usemap"
+				displaylabel="%Attribute.Label.usemap" />
+			<attribute name="width"
+				displaylabel="%Attribute.Label.width" />
+		</category>
+	</tag>
+	<tag name="inputHidden">
+		<referedcategory ref="JSF" />
+	</tag>
+	<tag name="inputSecret">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML">
+			<includeattrs>
+				<attribute name="maxlength"
+					displaylabel="%Attribute.Label.maxlength" />
+				<attribute name="redisplay" type="BOOLEAN"
+					displaylabel="%Attribute.Label.redisplay" />
+				<attribute name="alt"
+					displaylabel="%Attribute.Label.alt" />
+				<attribute name="size"
+					displaylabel="%Attribute.Label.size" />
+			</includeattrs>
+		</referedcategory>
+	</tag>
+	<tag name="inputText">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML">
+			<includeattrs>
+				<attribute name="maxlength"
+					displaylabel="%Attribute.Label.maxlength" />
+				<attribute name="alt"
+					displaylabel="%Attribute.Label.alt" />
+				<attribute name="size"
+					displaylabel="%Attribute.Label.size" />
+			</includeattrs>
+		</referedcategory>
+	</tag>
+	<tag name="inputTextarea">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML">
+			<includeattrs>
+				<attribute name="cols"
+					displaylabel="%Attribute.Label.cols" />
+				<attribute name="rows"
+					displaylabel="%Attribute.Label.rows" />
+			</includeattrs>
+		</referedcategory>
+	</tag>
+	<tag name="message">
+		<category name="JSF" displaylabel="%Category.Label.JSF">
+			<attribute name="id" displaylabel="%Attribute.Label.id" />
+			<attribute name="binding" type="PROPERTYBINDING"
+				displaylabel="%Attribute.Label.binding" />
+			<attribute name="for" displaylabel="%Attribute.Label.for" required="required"/>
+			<attribute name="rendered" type="BOOLEAN"
+				displaylabel="%Attribute.Label.rendered" />
+			<attribute name="showDetail" type="BOOLEAN"
+				typeparam="default=true" displaylabel="%Attribute.Label.showDetail" />
+			<attribute name="showSummary" type="BOOLEAN"
+				typeparam="default=false"
+				displaylabel="%Attribute.Label.showSummary" />
+		</category>
+		<referedcategory ref="CSS2" displaylabel="%Category.Label.CSS" />
+		<category name="HTML" displaylabel="%Category.Label.HTML">
+			<attribute name="tooltip" type="BOOLEAN"
+				displaylabel="%Attribute.Label.tooltip" />
+			<attribute name="title"
+				displaylabel="%Attribute.Label.title" />
+		</category>
+	</tag>
+	<tag name="messages">
+		<category name="JSF" displaylabel="%Category.Label.JSF">
+			<attribute name="id" displaylabel="%Attribute.Label.id" />
+			<attribute name="binding" type="PROPERTYBINDING"
+				displaylabel="%Attribute.Label.binding" />
+			<attribute name="globalOnly" type="BOOLEAN"
+				typeparam="default=false"
+				displaylabel="%Attribute.Label.globalOnly" />
+			<attribute name="rendered" type="BOOLEAN"
+				displaylabel="%Attribute.Label.rendered" />
+			<attribute name="showDetail" type="BOOLEAN"
+				typeparam="default=false"
+				displaylabel="%Attribute.Label.showDetail" />
+			<attribute name="showSummary" type="BOOLEAN"
+				typeparam="default=true"
+				displaylabel="%Attribute.Label.showSummary" />
+		</category>
+		<referedcategory ref="CSS2" displaylabel="%Category.Label.CSS" />
+		<category name="HTML" displaylabel="%Category.Label.HTML">
+			<attribute name="layout" type="ENUMERATED"
+				displaylabel="%Attribute.Label.layout">
+				<option key="list" value="list" default="default"/>
+				<option key="table" value="table" />
+			</attribute>
+			<attribute name="tooltip" type="BOOLEAN"
+				displaylabel="%Attribute.Label.tooltip" />
+			<attribute name="title"
+				displaylabel="%Attribute.Label.title" />
+		</category>
+	</tag>
+	<tag name="outputFormat">
+		<referedcategory ref="JSF">
+			<excludeattrs
+				refs="validator,valueChangeListener,immediate,required" />
+		</referedcategory>
+		<referedcategory ref="CSS" />
+		<category name="HTML" displaylabel="%Category.Label.HTML">
+			<attribute name="escape" type="BOOLEAN"
+				typeparam="default=true" displaylabel="%Attribute.Label.escape" />
+			<attribute name="title"
+				displaylabel="%Attribute.Label.title" />
+		</category>
+	</tag>
+	<tag name="outputLabel">
+		<referedcategory ref="JSF">
+			<excludeattrs
+				refs="validator,valueChangeListener,immediate,required" />
+		</referedcategory>
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event">
+			<excludeattrs refs="onchange,onselect" />
+		</referedcategory>
+		<referedcategory ref="HTML">
+			<includeattrs>
+				<attribute name="for"
+					displaylabel="%Attribute.Label.for" />
+			</includeattrs>
+			<excludeattrs refs="disabled,readonly" />
+		</referedcategory>
+	</tag>
+	<tag name="outputLink">
+		<referedcategory ref="JSF">
+			<includeattrs>
+				<attribute name="value" type="RELATIVEPATH"
+					displaylabel="%Attribute.Label.value" />
+			</includeattrs>
+			<excludeattrs
+				refs="validator,valueChangeListener,immediate,required" />
+		</referedcategory>
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event">
+			<excludeattrs refs="onchange,onselect" />
+		</referedcategory>
+		<referedcategory ref="Link" displaylabel="%Category.Label.HTML" />
+	</tag>
+	<tag name="outputText">
+		<referedcategory ref="JSF">
+			<excludeattrs
+				refs="validator,valueChangeListener,immediate,required" />
+		</referedcategory>
+		<referedcategory ref="CSS" />
+		<category name="HTML" displaylabel="%Category.Label.HTML">
+			<attribute name="escape" type="BOOLEAN"
+				typeparam="default=true" displaylabel="%Attribute.Label.escape" />
+			<attribute name="title"
+				displaylabel="%Attribute.Label.title" />
+		</category>
+	</tag>
+	<tag name="panelGrid">
+		<category name="JSF" displaylabel="%Category.Label.JSF">
+			<attribute name="id" displaylabel="%Attribute.Label.id" />
+			<attribute name="binding" type="PROPERTYBINDING"
+				displaylabel="%Attribute.Label.binding" />
+			<attribute name="rendered" type="BOOLEAN"
+				displaylabel="%Attribute.Label.rendered" />
+		</category>
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS3" displaylabel="%Category.Label.CSS" />
+		<referedcategory ref="Event">
+			<excludeattrs refs="onblur,onchange,onfocus,onselect" />
+		</referedcategory>
+		<referedcategory ref="Table"
+			displaylabel="%Category.Label.HTML">
+			<includeattrs>
+				<attribute name="columns"
+					displaylabel="%Attribute.Label.columns" />
+			</includeattrs>
+		</referedcategory>
+	</tag>
+	<tag name="panelGroup">
+		<category name="JSF" displaylabel="%Category.Label.JSF">
+			<attribute name="id" displaylabel="%Attribute.Label.id" />
+			<attribute name="binding" type="PROPERTYBINDING"
+				displaylabel="%Attribute.Label.binding" />
+			<attribute name="rendered" type="BOOLEAN"
+				displaylabel="%Attribute.Label.rendered" />
+		</category>
+		<referedcategory ref="CSS" />
+	</tag>
+	<tag name="selectBooleanCheckbox">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML" />
+	</tag>
+	<tag name="selectManyCheckbox">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS4" displaylabel="%Category.Label.CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML">
+			<includeattrs>
+				<attribute name="layout" type="ENUMERATED"
+					displaylabel="%Attribute.Label.layout">
+					<option key="lineDirection" value="lineDirection" default="default" />
+					<option key="pageDirection" value="pageDirection" />
+				</attribute>
+				<attribute name="border"
+					displaylabel="%Attribute.Label.border" />
+			</includeattrs>
+		</referedcategory>
+	</tag>
+	<tag name="selectManyListbox">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS4" displaylabel="%Category.Label.CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML">
+			<includeattrs>
+				<attribute name="size"
+					displaylabel="%Attribute.Label.size" />
+			</includeattrs>
+		</referedcategory>
+	</tag>
+	<tag name="selectManyMenu">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS4" displaylabel="%Category.Label.CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML" />
+	</tag>
+	<tag name="selectOneListbox">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS4" displaylabel="%Category.Label.CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML">
+			<includeattrs>
+				<attribute name="size"
+					displaylabel="%Attribute.Label.size" />
+			</includeattrs>
+		</referedcategory>
+	</tag>
+	<tag name="selectOneMenu">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS4" displaylabel="%Category.Label.CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML" />
+	</tag>
+	<tag name="selectOneRadio">
+		<referedcategory ref="JSF" />
+		<referedcategory ref="Language" />
+		<referedcategory ref="CSS4" displaylabel="%Category.Label.CSS" />
+		<referedcategory ref="Event" />
+		<referedcategory ref="HTML">
+			<includeattrs>
+				<attribute name="layout" type="ENUMERATED"
+					displaylabel="%Attribute.Label.layout">
+					<option key="lineDirection" value="lineDirection" default="default" />
+					<option key="pageDirection" value="pageDirection" />
+				</attribute>
+				<attribute name="border"
+					displaylabel="%Attribute.Label.border" />
+			</includeattrs>
+		</referedcategory>
+	</tag>
+	<definition>
+		<categories>
+			<category name="JSF" displaylabel="%Category.Label.JSF">
+				<attribute name="id" displaylabel="%Attribute.Label.id" />
+				<attribute name="value"
+					displaylabel="%Attribute.Label.value" />
+				<attribute name="binding" type="PROPERTYBINDING"
+					displaylabel="%Attribute.Label.binding" />
+				<attribute name="converter"
+					displaylabel="%Attribute.Label.converter" />
+				<attribute name="validator" type="METHODBINDING"
+					displaylabel="%Attribute.Label.validator" />
+				<attribute name="valueChangeListener"
+					type="METHODBINDING"
+					displaylabel="%Attribute.Label.valueChangeListener" />
+				<attribute name="immediate" type="BOOLEAN"
+					displaylabel="%Attribute.Label.immediate" />
+				<attribute name="rendered" type="BOOLEAN"
+					displaylabel="%Attribute.Label.rendered" />
+				<attribute name="required" type="BOOLEAN"
+					displaylabel="%Attribute.Label.required" />
+			</category>
+			<category name="Language"
+				displaylabel="%Category.Label.Language">
+				<referedattribute ref="lang" />
+				<attribute name="dir" type="ENUMERATED"
+					displaylabel="%Attribute.Label.dir">
+					<option key="RTL" value="RTL" />
+					<option key="LTR" value="LTR" />
+				</attribute>
+			</category>
+			<category name="CSS" displaylabel="%Category.Label.CSS">
+				<attribute name="style" type="CSSSTYLE"
+					typeparam="style=STYLE" displaylabel="%Attribute.Label.style" />
+				<attribute name="styleClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.styleClass" />
+			</category>
+			<category name="Event"
+				displaylabel="%Category.Label.Event">
+				<attribute name="onblur" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onblur" />
+				<attribute name="onchange" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onchange" />
+				<attribute name="onclick" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onclick" />
+				<attribute name="ondblclick" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.ondblclick" />
+				<attribute name="onfocus" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onfocus" />
+				<attribute name="onkeydown" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onkeydown" />
+				<attribute name="onkeypress" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onkeypress" />
+				<attribute name="onkeyup" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onkeyup" />
+				<attribute name="onmousedown" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onmousedown" />
+				<attribute name="onmousemove" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onmousemove" />
+				<attribute name="onmouseout" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onmouseout" />
+				<attribute name="onmouseover" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onmouseover" />
+				<attribute name="onmouseup" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onmouseup" />
+				<attribute name="onselect" type="JAVASCRIPT"
+					displaylabel="%Attribute.Label.onselect" />
+			</category>
+			<category name="HTML" displaylabel="%Category.Label.HTML">
+				<attribute name="accesskey"
+					displaylabel="%Attribute.Label.accesskey" />
+				<attribute name="disabled" type="BOOLEAN"
+					displaylabel="%Attribute.Label.disabled" />
+				<attribute name="readonly" type="BOOLEAN"
+					displaylabel="%Attribute.Label.readonly" />
+				<attribute name="title"
+					displaylabel="%Attribute.Label.title" />
+				<attribute name="tabindex"
+					displaylabel="%Attribute.Label.tabindex" />
+			</category>
+			<category name="Link" displaylabel="%Category.Label.Link">
+				<attribute name="accesskey"
+					displaylabel="%Attribute.Label.accesskey" />
+				<attribute name="title"
+					displaylabel="%Attribute.Label.title" />
+				<attribute name="tabindex"
+					displaylabel="%Attribute.Label.tabindex" />
+				<attribute name="charset"
+					displaylabel="%Attribute.Label.charset" />
+				<referedattribute ref="lang" overridename="hreflang"
+					displaylabel="%Attribute.Label.hreflang" />
+				<referedattribute ref="link" overridename="rel"
+					displaylabel="%Attribute.Label.rel" />
+				<attribute name="shape" type="ENUMERATED"
+					displaylabel="%Attribute.Label.shape">
+					<option key="default"
+						value="Entire region" default="default"/>
+					<option key="circle" value="Circular region" />
+					<option key="rect" value="Rectangular region" />
+					<option key="poly" value="Polygonal region" />
+				</attribute>
+				<attribute name="target" type="ENUMERATED"
+					displaylabel="%Attribute.Label.target">
+					<option key="_self" value="_self" />
+					<option key="_blank" value="_blank" />
+					<option key="_parent" value="_parent" />
+					<option key="_top" value="_top" />
+				</attribute>
+				<attribute name="coords"
+					displaylabel="%Attribute.Label.coords" />
+				<referedattribute ref="link" overridename="rev"
+					displaylabel="%Attribute.Label.rev" />
+				<attribute name="type"
+					displaylabel="%Attribute.Label.type" />
+			</category>
+			<category name="CSS2" displaylabel="%Category.Label.CSS2">
+				<attribute name="style" type="CSSSTYLE"
+					typeparam="style=STYLE" displaylabel="%Attribute.Label.style" />
+				<attribute name="styleClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.styleClass" />
+				<attribute name="infoStyle" type="CSSSTYLE"
+					displaylabel="%Attribute.Label.infoStyle" />
+				<attribute name="infoClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.infoClass" />
+				<attribute name="warnStyle" type="CSSSTYLE"
+					displaylabel="%Attribute.Label.warnStyle" />
+				<attribute name="warnClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.warnClass" />
+				<attribute name="errorStyle" type="CSSSTYLE"
+					displaylabel="%Attribute.Label.errorStyle" />
+				<attribute name="errorClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.errorClass" />
+				<attribute name="fatalStyle" type="CSSSTYLE"
+					displaylabel="%Attribute.Label.fatalStyle" />
+				<attribute name="fatalClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.fatalClass" />
+			</category>
+			<category name="CSS3" displaylabel="%Category.Label.CSS3">
+				<attribute name="style" type="CSSSTYLE"
+					typeparam="style=STYLE" displaylabel="%Attribute.Label.style" />
+				<attribute name="styleClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.styleClass" />
+				<attribute name="columnClasses" type="CSSCLASS"
+					typeparam="," displaylabel="%Attribute.Label.columnClasses" />
+				<attribute name="footerClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.footerClass" />
+				<attribute name="headerClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.headerClass" />
+				<attribute name="rowClasses" type="CSSCLASS"
+					typeparam="separator=," displaylabel="%Attribute.Label.rowClasses" />
+			</category>
+			<category name="CSS4" displaylabel="%Category.Label.CSS4">
+				<attribute name="style" type="CSSSTYLE"
+					typeparam="style=STYLE" displaylabel="%Attribute.Label.style" />
+				<attribute name="styleClass" type="CSSCLASS"
+					typeparam=" " displaylabel="%Attribute.Label.styleClass" />
+				<attribute name="disabledClass" type="CSSCLASS"
+					typeparam="" displaylabel="%Attribute.Label.disabledClass" />
+				<attribute name="enabledClass" type="CSSCLASS"
+					typeparam="" displaylabel="%Attribute.Label.enabledClass" />
+			</category>
+			<category name="Table"
+				displaylabel="%Category.Label.Table">
+				<attribute name="bgcolor" type="COLOR"
+					displaylabel="%Attribute.Label.bgcolor" />
+				<attribute name="border"
+					displaylabel="%Attribute.Label.border" />
+				<attribute name="cellpadding"
+					displaylabel="%Attribute.Label.cellpadding" />
+				<attribute name="cellspacing"
+					displaylabel="%Attribute.Label.cellspacing" />
+				<attribute name="width"
+					displaylabel="%Attribute.Label.width" />
+				<attribute name="frame" type="ENUMERATED"
+					displaylabel="%Attribute.Label.frame">
+					<option key="lhs" value="Left hand side only" />
+					<option key="above" value="Top side only" />
+					<option key="none" value="No sides" default="default"/>
+					<option key="box" value="All four sides" />
+					<option key="vsides"
+						value="Right and left sides only" />
+					<option key="below" value="Bottom side only" />
+					<option key="border" value="All four sides" />
+					<option key="rhs" value="Right hand side only" />
+					<option key="hsides"
+						value="Top and bottom sides only" />
+				</attribute>
+				<attribute name="rules" type="ENUMERATED"
+					displaylabel="%Attribute.Label.rules">
+					<option key="cols" value="Between columns only" />
+					<option key="groups" value="Between row groups" />
+					<option key="rows" value="Between rows only" />
+					<option key="none" value="No rules" default="default"/>
+					<option key="all"
+						value="Between all rows and columns" />
+				</attribute>
+				<attribute name="summary"
+					displaylabel="%Attribute.Label.summary" />
+				<attribute name="title"
+					displaylabel="%Attribute.Label.title" />
+			</category>
+		</categories>
+		<attributes>
+			<attribute name="lang" type="ENUMERATED"
+				displaylabel="%Attribute.Label.lang">
+				<option key="af" value="af Afrikaans" />
+				<option key="ar" value="ar Arabic (needs subtype)" />
+				<option key="be" value="be Belarusian" />
+				<option key="bg" value="bg Bulgarian" />
+				<option key="br" value="br Breton" />
+				<option key="ca" value="ca Catalan" />
+				<option key="cs" value="cs Czech" />
+				<option key="da" value="da Danish" />
+				<option key="de" value="de German (Standard)" />
+				<option key="el" value="el Greek" />
+				<option key="en" value="en English" />
+				<option key="es" value="es Spanish (Spain)" />
+				<option key="et" value="et Estonian" />
+				<option key="eu" value="eu Basque" />
+				<option key="fa" value="fa Farsi" />
+				<option key="fi" value="fi Finnish" />
+				<option key="fo" value="fo Faeroese" />
+				<option key="fr" value="fr French (Standard)" />
+				<option key="gd" value="gd Gaelic (Scotland)" />
+				<option key="he" value="he Hebrew" />
+				<option key="hi" value="hi Hindi" />
+				<option key="hr" value="hr Croatian" />
+				<option key="hu" value="hu Hungarian" />
+				<option key="id" value="id Indonesian" />
+				<option key="is" value="is Icelandic" />
+				<option key="it" value="it Italian (Standard)" />
+				<option key="ja" value="ja Japanese" />
+				<option key="ko" value="ko Korean" />
+				<option key="lt" value="lt Lithuanian" />
+				<option key="lv" value="lv Latvian" />
+				<option key="mk" value="mk Macedonian" />
+				<option key="ms" value="ms Malaysian" />
+				<option key="mt" value="mt Maltese" />
+				<option key="nl" value="nl Dutch (Standard)" />
+				<option key="no" value="no Norwegian (Bokmal/Nynorsk)" />
+				<option key="pl" value="pl Polish" />
+				<option key="pt" value="pt Portuguese (Standard)" />
+				<option key="rm" value="rm Rhaeto-Romanic" />
+				<option key="ro" value="ro Romanian" />
+				<option key="ru" value="ru Russian" />
+				<option key="sk" value="sk Slovak" />
+				<option key="sl" value="sl Slovenian" />
+				<option key="sq" value="sq Albanian" />
+				<option key="sr" value="sr Serbian (Cyrillic/Latin)" />
+				<option key="sv" value="sv Swedish" />
+				<option key="sx" value="sx Sutu" />
+				<option key="sz" value="sz Sami (Lappish)" />
+				<option key="th" value="th Thai" />
+				<option key="tn" value="tn Setswana" />
+				<option key="tr" value="tr Turkish" />
+				<option key="ts" value="ts Tsonga" />
+				<option key="uk" value="uk Ukrainian" />
+				<option key="ur" value="ur Urdu" />
+				<option key="vi" value="vi Vietnamese" />
+				<option key="xh" value="xh Xhosa" />
+				<option key="yi" value="yi Yiddish" />
+				<option key="zh" value="zh Chinese (needs subtype)" />
+				<option key="zu" value="zu Zulu" />
+			</attribute>
+			<attribute name="link" type="MULTICHOICE" typeparam=" "
+				displaylabel="%Attribute.Label.link">
+				<option key="index" value="index" />
+				<option key="subsection" value="subsection" />
+				<option key="bookmark" value="bookmark" />
+				<option key="start" value="start" />
+				<option key="next" value="next" />
+				<option key="stylesheet" value="stylesheet" />
+				<option key="chapter" value="chapter" />
+				<option key="help" value="help" />
+				<option key="alternate" value="alternate" />
+				<option key="appendix" value="appendix" />
+				<option key="contents" value="contents" />
+				<option key="section" value="section" />
+				<option key="prev" value="prev" />
+				<option key="glossary" value="glossary" />
+				<option key="copyright" value="copyright" />
+			</attribute>
+		</attributes>
+	</definition>
+
+</taglib>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+  
+&ice-att-userrole-rendered-props;
+&core-props;
+&table-props;
+&uidata-props;
+&pass-thru-dir-props;
+&pass-thru-lang-props;
+&pass-thru-title-props;
+&events-props;
+&ice-att-varStatus-props;
+
+<property>
+	<description>
+		Sets default sort order, required for sortheader component.
+	</description>
+	<property-name>sortAscending</property-name>
+	<property-class>boolean</property-class>
+	<property-extension>
+		<category>ICE_ADVANCED</category>
+      <default-value>true</default-value>  		
+	</property-extension>
+</property>
+
+<property>
+	<description>
+		Sets column to be sort, required for sortheader component.
+	</description>
+	<property-name>sortColumn</property-name>
+	<property-class>java.lang.String</property-class>
+	<property-extension>
+		<category>ICE_COMPONENT</category>
+		<editor-class>
+			&stringEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+	<description>
+	    <![CDATA[	
+		This attribute can be used to define the separate style classes for the each 
+		header of the each column.<br/>
+		
+		The default would rendered as : iceDatTblColHdr1, iceDatTblColHdr2 alternatively<br/>
+		Note: The attribute has been deprecated.
+     	]]> 		
+	</description>
+	<property-name>headerClasses</property-name>
+	<property-extension>
+		<category>APPEARANCE</category>
+		<editor-class>
+			&cssStyleEditor;
+		</editor-class>
+	</property-extension>
+</property>
+        
+ <property>
+	<description>
+		When true table is scrollable.
+		(Note: you will also need to set columnWidths, and scrollHeight)
+        When table is scrollable pass-thru attributes like bgcolor will not work
+        because they are passed to the outer scrollable div only, not to the table
+        itself. Use style classes instead. See the styleClass, rowClasses and
+        columnClasses attributes.
+    </description>
+    <property-name>scrollable</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+  </property>
+
+
+<property>
+	<description>
+		Set the height of the scroll table.
+	</description>
+    <property-name>scrollHeight</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+  </property>
+
+
+
+<property>
+	<description>
+		A comma separated list of the widths of each column for a scrollable table. Please note that column widths must be set in pixels. This attribute does not yet support percentage column widths.
+	</description>
+    <property-name>columnWidths</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+  </property>
+
+<property>
+    <description>
+        A comma separated list of the widths of each column for a resizable table. Please note that column widths must be
+        set in pixels. This attribute does not yet support percentage column widths.
+    </description>
+    <property-name>resizableColumnWidths</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+	    <![CDATA[
+        <p>
+		Space-separated list of CSS style class(es) to be applied when this 
+		element is rendered. This value must be passed through as the "class" 
+		attribute on generated markup.
+		the default class rendered as <b>iceDatTbl</b>.
+              if enabled
+              <ul>
+                <li>iceDatTbl</li>
+                <li>iceDatTblCol</li>
+                <li>iceDatTblCol1</li>                
+                <li>iceDatTblCol2</li>
+                <li>iceDatTblColHdr</li>
+                <li>iceDatTblColHdr1</li>
+                <li>iceDatTblColHdr2</li>
+                <li>iceDatTblRow1</li>
+                <li>iceDatTblRow2</li>                
+                <li>iceDatTblHdr</li>
+                <li>iceDatTblFtr</li>   
+                <li>iceDatTblScrlHdrTbl</li>  
+                <li>iceDatTblScrlBdyTbl</li>           
+              </ul>   
+              The following style class is being rendered for the div of the 
+              "header" if the dataTable is scrollable. 
+              <ul>
+                <li>iceDatTblScrlSpr</li>                
+              </ul>      
+              
+              The following style class is being rendered for active sortable column header. 
+              <ul>
+                <li>iceDatTblActvSrtHdr</li>                
+              </ul>                        
+        </p>		
+     	]]>  		
+	</description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+      <category>ICE_LAYOUT</category>
+    </property-extension>
+  </property>
+  
+  <property>
+    <description>
+        Zero-relative row number of the first row to be displayed. If this 
+        property is set to zero, rendering will begin with the first row of the 
+        underlying data.			
+    </description>			
+    <property-name>first</property-name>
+    <property-class>int</property-class>		
+    <property-extension>
+        <category>DATA</category>
+        <editor-class>
+            &integerEditor;
+        </editor-class>
+        <named-value>
+            <name>minValue</name>
+            <expression>new Integer(0)</expression>
+        </named-value>
+        <named-value>
+            <name>unsetValue</name>
+            <expression>new Integer(Integer.MIN_VALUE)</expression>
+        </named-value>       
+      <default-value>0</default-value>            
+    </property-extension>      	
+</property>
+<property>
+    <description>
+        <![CDATA[
+        <p>    
+            To make columns resizable, this attribute needs to be true.
+        </p>        
+        <b>Note: </b> Only those columns of the table can be dragged which are 
+        defined as the "header" facet of a column. The headers which are defined by 
+        the "columnGroup" can not be dragged.
+         <p>
+        This feature does not yet support dataTables with the 'scrollable' attribute 
+        set. This combination of features is slated for a future release.
+        </p>
+        ]]>          
+    </description>
+    <property-name>resizable</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_ADVANCED</category>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        If false, saves the width of the columns to the server, its only applicable 
+        when resizeable = true. "true" is the default value. It helps when the 
+        width of the column needs to be preserved after the resize operation.
+    </description>
+    <property-name>clientOnly</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+      <default-value>true</default-value>        
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        In scrollable mode the footer scrolls as well, to trun the scrolling off
+        it can be set to the false. The default value is true.
+    </description>
+    <property-name>scrollFooter</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+      <default-value>true</default-value>          
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        If false, saves the width of the columns to the server, its only applicable
+        when resizeable = true. "true" is the default value. It helps when the
+        width of the column needs to be preserved after the resize operation.
+    </description>
+    <property-name>clientOnly</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+
+<property>
+  <description>
+      Zero-relative row number of the first row to be displayed. If this
+      property is set to zero, rendering will begin with the first row of the
+      underlying data.
+  </description>
+  <property-name>first</property-name>
+  <property-class>int</property-class>
+  <property-extension>
+      <category>DATA</category>
+      <default-value>0</default-value>
+      <editor-class>
+          &integerEditor;
+      </editor-class>
+      <named-value>
+          <name>minValue</name>
+          <expression>new Integer(0)</expression>
+      </named-value>
+      <named-value>
+          <name>unsetValue</name>
+          <expression>new Integer(Integer.MIN_VALUE)</expression>
+      </named-value>
+  </property-extension>
+  </property>
+
+<property>
+    <description>
+        <![CDATA[
+        <p>
+            To make columns resizable, this attribute needs to be true.
+        </p>
+        <b>Note: </b> Only those columns of the table can be dragged which are
+        defined as the "header" facet of a column. The headers which are defined by
+        the "columnGroup" can not be dragged.
+         <p>
+        This feature does not yet support dataTables with the 'scrollable' attribute
+        set. This combination of features is slated for a future release.
+        </p>
+        ]]>
+    </description>
+    <property-name>resizable</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_ADVANCED</category>
+    </property-extension>
+</property>
+
+<property>
+	<description>
+		The number of rows to display, starting with the one identified
+		by the "first" property. If this value is set to zero, all
+		available rows in the underlying data model will be displayed.
+	</description>
+	<property-name>rows</property-name>
+	<property-class>int</property-class>
+	<property-extension>
+		<category>APPEARANCE</category>
+        <default-value>0</default-value>
+		<editor-class>
+			&numberEditor;
+		</editor-class>
+	</property-extension>
+</property>
+
+<property>
+    <description>
+        In scrollable mode the footer scrolls as well, to trun the scrolling off
+        it can be set to the false. The default value is true.
+    </description>
+    <property-name>scrollFooter</property-name>
+    <property-class>boolean</property-class>
+    <property-extension>
+        <category>ICE_LAYOUT</category>
+        <default-value>true</default-value>
+    </property-extension>
+</property>
+

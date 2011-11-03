@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.series</component-type>
+    <component-class>com.icesoft.faces.component.panelseries.UISeries</component-class>
+</component>  

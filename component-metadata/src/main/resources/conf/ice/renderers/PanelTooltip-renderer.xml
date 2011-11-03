@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Panel</component-family>
+    <renderer-type>com.icesoft.faces.PanelTooltipRenderer</renderer-type>
+    <renderer-class>com.icesoft.faces.component.paneltooltip.PanelTooltipRenderer</renderer-class>
+</renderer>

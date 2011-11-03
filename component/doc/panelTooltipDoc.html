@@ -1,0 +1,191 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>panelTooltip Component</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h2 class="Heading2">panelTooltip</h2>
+<hr>
+<p>The panelTooltip is a container component that renders the panel as tooltip that hovers
+  on top of an element. This component can be used with conjunction of the panelGroup.
+
+<p>The popupTooltip contains two user defined regions which are defined using named
+  facets. The facet names are "header" and "body".
+
+ <p>The panelTooltip can be draggable</p>
+
+ <p>The hide functionality is controlled by the hideOn attribute. Please see the Tld doc for more details.</p>
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Example <br>
+</div>
+
+<p >The following code shows how a static tooltip can be created:</p>
+<pre class="Preformatted">
+
+&lt;ice:panelGroup panelTooltip="staticTooltip" &gt;
+	&lt;ice:outputText value="Hovering on this text will bring a panelTooltip" /&gt;
+&lt;/ice:panelGroup&gt;
+&lt;ice:panelTooltip id="staticTooltip"
+	style="width: 300px; height: 200px; background: #FFFFFF;"&gt;
+
+	&lt;f:facet name="body"&gt;
+			&lt;h:outputText value="This panelTooltip is static. It will be closed when the user moves the mouse out of the triggering component" /&gt;
+	&lt;/f:facet&gt;
+
+&lt;/ice:panelTooltip&gt;
+
+
+</pre>
+
+<p >The following code shows how a draggable tooltip with a header can be created:</p>
+<pre class="Preformatted">
+
+&lt;ice:panelGroup panelTooltip="dynamicTooltip" &gt;
+	&lt;ice:outputText value="Hovering on this text will bring a panelTooltip" /&gt;
+&lt;/ice:panelGroup&gt;
+
+&lt;ice:panelPopup id="dynamicTooltip"
+	draggable="true"
+	hideOn="mousedown"
+	style="width: 300px; height: 200px;"&gt;
+
+	&lt;f:facet name="header"&gt;
+		&lt;h:panelGrid width="100%" cellpadding="0" cellspacing="0"&gt;
+			&lt;h:outputText value="ICEfaces Popup Demo"/&gt;
+		&lt;/h:panelGrid&gt;
+	&lt;/f:facet&gt;
+
+
+	&lt;f:facet name="body"&gt;
+		&lt;h:panelGrid width="100%" cellpadding="0" cellspacing="0" &gt;
+			&lt;h:outputText value="This Tooltip is draggable." /&gt;
+		&lt;/h:panelGrid&gt;
+	&lt;/f:facet&gt;
+
+&lt;/ice:panelPopup&gt;
+
+
+</pre>
+
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption>
+  <tbody>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-name:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        &lt;ice:panelTooltip&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.paneltooltip.PanelTooltipTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.paneltooltip.PanelTooltip</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.PanelTooltip</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-family:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        javax.faces.Panel</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.panelpopup.PanelTooltipRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.PanelTooltipRenderer</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

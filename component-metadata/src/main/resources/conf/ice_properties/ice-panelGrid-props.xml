@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+&base-props;  
+&ice-ext-core-styled-props;
+&panel-grid-props;
+&table-props;  
+&events-props; 
+&pass-thru-lang-props; 
+&pass-thru-title-props; 
+<property>
+    <description>
+        <![CDATA[
+        <p>      
+        Comma-delimited list of CSS style classes that will be applied to the 
+        rows of this table. A space separated list of classes may also be 
+        specified for any individual row. Thes styles are applied, in turn, 
+        to each row in the table. For example, if the list has two elements, 
+        the first style class in the list is applied to the first row, the 
+        second to the second row, the first to the third row, the second to 
+        the fourth row, etc. In other words, we keep iterating through the 
+        list until we reach the end, and then we start at the beginning again.
+        <br/>	
+        The default classes rendered as <b>icePnlGrdRow1, icePnlGrdRow2</b> 
+        alternatively.
+        </p>		
+     	]]>        		
+    </description>			
+    <property-name>rowClasses</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &styleClassEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        <p>  
+        Space-separated list of CSS style class(es) that will be applied to any 
+        header generated for this table.	
+        <br/>
+        	The default header class would be rendered as <b>icePnlGrdHdr</b>.	
+        </p>		
+     	]]> 	
+    </description>			
+    <property-name>headerClass</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &styleClassEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        <p>    
+		Space-separated list of CSS style class(es) that will be applied to any
+		footer generated for this table.
+		<br/>
+		The default footer class would be rendered as <b>icePnlGrdFtr</b>.
+		</p>		
+     	]]>  		
+    </description>			
+    <property-name>footerClass</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &styleClassEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+        <p>
+        Comma-delimited list of CSS style classes that will be applied to the 
+        columns of this table. A space separated list of classes may also be 
+        specified for any individual column. If the number of elements in this 
+        list is less than the number of columns specified in the "columns" 
+        attribute, no "class" attribute is output for each column greater than 
+        the number of elements in the list. If the number of elements in the 
+        list is greater than the number of columns specified in the "columns" 
+        attribute, the elements at the posisiton in the list after the value 
+        of the "columns" attribute are ignored.	
+        </p>
+        <p>
+ 		The default column classes would be rendered as : <b>icePnlGrdCol1, 
+ 		icePnlGrdCol2 </b>alternatively
+        </p>		
+     ]]>        
+    </description>			
+    <property-name>columnClasses</property-name>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &styleClassEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <description>
+        <![CDATA[
+             <p>
+              Space-separated list of CSS style class(es) to be applied when this
+              element is rendered. This value must be passed through as the 
+              "class" attribute on generated markup.<br/>
+              <p>Defines the base class name for all style classes. Default value is <b>icePnlGrd</b></p>
+              <ul>
+                <li>icePnlGrd</li>
+                <li>icePnlGrdHdr</li>
+                <li>icePnlGrdFtr</li>
+                <li>icePnlGrdRow1</li>
+                <li>icePnlGrdRow2</li>
+                <li>icePnlGrdCol1</li>
+                <li>icePnlGrdCol2</li>
+              </ul>              
+  		 </p>                   
+		]]>
+    </description>
+    <property-name>styleClass</property-name>
+    <property-class>java.lang.String</property-class>
+    <property-extension>
+        <category>ADVANCED</category>
+        <editor-class>
+            &styleClassEditor;
+        </editor-class>
+    </property-extension>
+</property>
+
+<property>
+    <property-name>columns</property-name>
+    <property-class>int</property-class>
+    <property-extension>
+        <category>APPEARANCE</category>
+        <editor-class>
+            &integerEditor;
+        </editor-class>
+        <named-value>
+            <name>minValue</name>
+            <expression>new Integer(0)</expression>
+        </named-value>
+        <named-value>
+            <name>unsetValue</name>
+            <expression>new Integer(Integer.MIN_VALUE)</expression>
+        </named-value>
+    </property-extension>
+</property>
+        

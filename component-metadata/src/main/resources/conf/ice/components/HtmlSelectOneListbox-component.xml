@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlSelectOneListbox</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlSelectOneListbox</component-class>
+</component>  

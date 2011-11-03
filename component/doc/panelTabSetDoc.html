@@ -1,0 +1,178 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>panelTabSet Component</title>
+  
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h2 class="Heading2">panelTabSet</h2>
+<hr>
+
+<p >The panelTabSet is a container component which itself
+contains one or more panelTab components, which are also container
+components. The panelTabSet component displays the "active" panelTab, hiding
+the contents of the others. Users can select which panelTab to make visible
+by clicking on the tab header of the panelTab that they want to display.</p>
+
+<p >The panelTabSet component can be used in cases where a
+file-tab navigation interface is appropriate.<br>
+</p>
+
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Example <br>
+</div>
+
+<p >The following code shows how a basic tabbed pane containing 3
+tab panels can be created:</p>
+<pre class="Preformatted">
+&lt;ice:panelTabSet&gt;<br> <br>        &lt;ice:panelTab id="tab1" label="Tab1"&gt;<br>                &lt;ice:inputTextarea &gt;&lt;/ice:inputTextarea&gt;<br>        &lt;/ice:panelTab&gt;<br> <br>        &lt;ice:panelTab label="Tab2"&gt;<br>                &lt;ice:inputTextarea &gt;&lt;/ice:inputTextarea&gt;<br>        &lt;/ice:panelTab&gt;<br> <br>        &lt;ice:panelTab id="tab3" label="Tab3"&gt;<br>                &lt;ice:inputTextarea &gt;&lt;/ice:inputTextarea&gt;<br>        &lt;/ice:panelTab&gt;<br> <br>&lt;/ice:panelTabSet&gt;<br></pre>
+
+<p >The following code shows how a tabbed pane with dynamic tab panels can be created
+using the new var and value attributes:</p>
+<pre class="Preformatted">
+&lt;ice:panelTabSet var="tab" value="#{tabbedPaneExample.tabs}" tabPlacement="bottom" &gt;
+	&lt;ice:panelTab label="#{tab.label}" &gt;
+		&lt;ice:outputText value="#{tab.content}" /&gt;
+	&lt;/ice:panelTab&gt;
+&lt;/ice:panelTabSet&gt;
+</pre>
+
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption>
+  <tbody>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-name:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        &lt;ice:panelTabSet&gt;</div>
+
+        <div class="CellBody">
+        &lt;ice:panelTab&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.paneltabset.PanelTabSetTag</div>
+
+        <div class="CellBody">
+        com.icesoft.faces.component.paneltabset.PanelTabTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+         com.icesoft.faces.component.paneltabset.PanelTabSet</div>
+
+        <div class="CellBody">
+         com.icesoft.faces.component.paneltabset.PanelTab</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.PanelTabSet</div>
+
+        <div class="CellBody">
+        com.icesoft.faces.PanelTab</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-family:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        javax.faces.Panel</div>
+        <div class="CellBody">
+        javax.faces.Panel</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+         com.icesoft.faces.component.paneltabset.PanelTabSetRenderer</div>
+        <div class="CellBody">
+         com.icesoft.faces.component.paneltabset.PanelTabRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.TabbedPane</div>
+        <div class="CellBody">
+        com.icesoft.faces.TabbedPaneTab</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

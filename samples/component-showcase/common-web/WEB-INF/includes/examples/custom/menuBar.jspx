@@ -1,0 +1,233 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<!--
+In this demonstration, ice:menuBar and ice:menuItem are
+used to build an application menubar. The menuItem selection events
+are shown but could easily be made to invoke application logic.
+-->
+
+<ice:panelGroup styleClass="componentBox"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+<ice:panelGroup styleClass="synopsisBox menuBarContainer">
+    <ice:outputText value="#{msgs['page.menuBar.synopsis']}"/>
+    <ice:outputText value="#{msgs['page.menuBar.instructions']}"/>
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="exampleBox firstChildTitle menuBarContainer">
+
+    <ice:panelGroup style="float:left;padding-right:3px;">
+        <ice:outputText value="#{msgs['page.menuBar.orientation.label']}"/>
+    </ice:panelGroup>
+    <!-- toggle menu bar orientation -->
+    <ice:panelGroup style="float:left;">
+        <ice:selectOneRadio id="MenuSlctRadio"
+                            value="#{menuBar.orientation}"
+                            partialSubmit="true">
+            <f:selectItem id="MenuHoriz"
+                          itemValue="#{msgs['page.menuBar.orientation.horiz']}"
+                          itemLabel="#{msgs['page.menuBar.orientation.horiz']}"/>
+            <f:selectItem id="MenuVert"
+                          itemValue="#{msgs['page.menuBar.orientation.vert']}"
+                          itemLabel="#{msgs['page.menuBar.orientation.vert']}"/>
+        </ice:selectOneRadio>
+    </ice:panelGroup>
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="clearer" />
+
+<!-- main menu declaration  -->
+<ice:panelGroup styleClass="exampleBox menuBarContainer">
+<ice:menuBar id="menuBar"
+             orientation="#{menuBar.orientation}">
+
+<!-- File menu -->
+<ice:menuItem value="File"
+              id="file" onclick="return false;">
+    <ice:menuItem actionListener="#{menuBar.primaryListener}"
+                  id="open"
+                  value="Open"
+                  icon="/images/menu/open.gif">
+        <f:param name="myParam"
+                 value="Open"/>
+    </ice:menuItem>
+    <ice:menuItem id="close"
+                  value="Close"
+                  actionListener="#{menuBar.primaryListener}">
+        <f:param name="myParam"
+                 value="Close"/>
+    </ice:menuItem>
+    <ice:menuItem id="recent"
+                  value="Recent"
+                  icon="/images/menu/recent.gif"
+                  actionListener="#{menuBar.primaryListener}">
+        <f:param name="myParam"
+                 value="Recent"/>
+        <ice:menuItem id="file1"
+                      value="File 1"
+                      actionListener="#{menuBar.primaryListener}">
+            <f:param name="myParam"
+                     value="File 1"/>
+        </ice:menuItem>
+        <ice:menuItem id="file2"
+                      actionListener="#{menuBar.primaryListener}"
+                      value="File 2">
+            <f:param name="myParam"
+                     value="File 2"/>
+            <ice:menuItem id="para1"
+                          actionListener="#{menuBar.primaryListener}"
+                          value="Para 1">
+                <f:param name="myParam"
+                         value="Para 1"/>
+            </ice:menuItem>
+            <ice:menuItem id="para2"
+                          value="Para 2"
+                          actionListener="#{menuBar.primaryListener}">
+                <f:param name="myParam"
+                         value="Para 2"/>
+            </ice:menuItem>
+            <ice:menuItem id="para3"
+                          value="Para 3"
+                          actionListener="#{menuBar.primaryListener}"/>
+        </ice:menuItem>
+        <ice:menuItem value="File 3"
+                      id="file3"
+                      actionListener="#{menuBar.primaryListener}">
+            <f:param name="myParam"
+                     value="file3"/>
+        </ice:menuItem>
+        <ice:menuItem value="File 4"
+                      id="file4"
+                      actionListener="#{menuBar.primaryListener}"/>
+    </ice:menuItem>
+
+    <ice:menuItem id="save"
+                  icon="/images/menu/save.gif"
+                  value="Save"
+                  actionListener="#{menuBar.primaryListener}">
+        <f:param name="myParam"
+                 value="save"/>
+    </ice:menuItem>
+    <ice:menuItemSeparator/>
+    <ice:menuItem id="print"
+                  icon="/images/menu/print.gif"
+                  value="Print"
+                  actionListener="#{menuBar.primaryListener}">
+        <f:param name="myParam"
+                 value="Print"/>
+    </ice:menuItem>
+</ice:menuItem>
+
+<!-- Edit menu -->
+<ice:menuItem value="Edit"
+              id="edit" onclick="return false;">
+    <ice:menuItem id="cut"
+                  value="Cut"
+                  actionListener="#{menuBar.primaryListener}">
+    </ice:menuItem>
+    <ice:menuItem id="copy"
+                  value="Copy"
+                  actionListener="#{menuBar.primaryListener}">
+    </ice:menuItem>
+    <ice:menuItem id="paste"
+                  value="Paste"
+                  actionListener="#{menuBar.primaryListener}">
+    </ice:menuItem>
+</ice:menuItem>
+
+<!-- View menu -->
+<ice:menuItem value="View"
+              id="view" onclick="return false;">
+    <ice:menuItem id="zoom_in"
+                  value="Zoom In"
+                  icon="/images/menu/zoomin.gif"
+                  actionListener="#{menuBar.primaryListener}">
+    </ice:menuItem>
+    <ice:menuItem id="zoom_out"
+                  value="Zoom Out"
+                  icon="/images/menu/zoomout.gif"
+                  actionListener="#{menuBar.primaryListener}">
+    </ice:menuItem>
+    <ice:menuItem id="fit_in_window"
+                  value="Fit In Window"
+                  icon="/images/menu/fitinwindow.gif"
+                  actionListener="#{menuBar.primaryListener}">
+    </ice:menuItem>
+    <ice:menuItem id="actual_size"
+                  value="Actual Size"
+                  icon="/images/menu/actualsize.gif"
+                  actionListener="#{menuBar.primaryListener}">
+    </ice:menuItem>
+</ice:menuItem>
+
+</ice:menuBar>
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="clearer" />
+
+<!-- Server Side Backing Bean Values -->
+<ice:panelGroup
+            styleClass="exampleBox firstChildTitle backBeanChangeContainer">
+
+    <!-- backing bean title box -->
+    <ice:panelGroup styleClass="backBeanChangeTitle" style="width:425px;">
+        <ice:outputText value="#{msgs['page.global.serverFeedback']}"/>
+    </ice:panelGroup>
+
+    <!-- actual backing bean values. -->
+    <ice:panelGroup styleClass="backBeanChangeBody"
+                    effect="#{menuBar.valueChangeEffect}">
+
+        <ice:panelGroup>
+            <ice:panelGrid columns="2">
+
+                <!-- menu selection -->
+                <ice:outputLabel for="MenuSlct"
+                                 value="#{msgs['page.menuBar.selection']}"/>
+                <ice:outputText id="MenuSlct"
+                                value="#{menuBar.actionFired}"/>
+                <!-- paramater passed into action event.  -->
+                <ice:outputLabel for="MenuParamVal"
+                                 value="#{msgs['page.menuBar.param']}"/>
+                <ice:outputText id="MenuParamVal"
+                                value="#{menuBar.param}"/>
+            </ice:panelGrid>
+        </ice:panelGroup>
+    </ice:panelGroup>
+</ice:panelGroup>
+
+</ice:panelGroup>
+

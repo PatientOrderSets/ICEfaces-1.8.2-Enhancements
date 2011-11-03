@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>javax.faces.Data</component-family>
+    <renderer-type>com.icesoft.faces.Table</renderer-type>
+    <renderer-class>com.icesoft.faces.component.ext.renderkit.TableRenderer</renderer-class>
+</renderer>

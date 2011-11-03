@@ -1,0 +1,238 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<ice:panelGroup styleClass="componentBox"
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+<!-- Description -->
+<ice:panelGroup styleClass="synopsisBox dragDropContainer">
+    <ice:outputText value="#{msgs['page.dragDrop.synopsis']}"/>
+    <ice:outputText value="#{msgs['page.dragDrop.instructions']}"/>
+</ice:panelGroup>
+
+<!-- Container for items that make up the store  -->
+<ice:panelGroup 
+        style="float:left;margin-top:15px;">
+
+<!-- Store  -->
+<ice:panelSeries id="PnlSrs"
+                 value="#{dragDropController.storeInventory.inventory}"
+                 var="inventoryItem">
+    <ice:panelGroup
+            styleClass="inventoryItemContainer">
+        <!--
+            Drag the image, name and price over to the cart...
+            The dragListener event is responsible for handling what happens
+            after a drag event has occured.
+
+            DragMask should be used to avoid the unnessary nework trafic when
+            a particular drag or drop event is not being used.
+        -->
+        <ice:panelGroup id="PnlGrp"
+                draggable="true"
+                dragListener="#{dragDropController.addShoppingCartItem}"
+                dragValue="#{inventoryItem}"
+                dragOptions="dragGhost"
+                dragMask="dragging,drag_cancel,hover_start,hover_end"
+                dropMask="dragging,drag_cancel,hover_start,hover_end" >
+            <ice:graphicImage id="GrphImg"
+                              width="100px"
+                              height="75px"
+                              url="/images/dragDrop/#{inventoryItem.pictureName}.png"
+                              alt="#{inventoryItem.name}"/>
+        </ice:panelGroup>
+        <ice:panelGroup style="text-align:center">
+            <b><ice:outputText id="DDName"
+                            value="#{inventoryItem.name}"/></b>
+            <br/>
+            <ice:outputText value="#{msgs['page.dragDrop.store.price.label']}" />
+            <ice:outputText id="DDPrice"
+                            value="#{inventoryItem.price}">
+                <f:convertNumber type="currency" currencySymbol="$"
+                                 groupingUsed="true" maxFractionDigits="2" />
+            </ice:outputText>
+            <br />
+            <ice:outputText id="DDQty"
+                        value="#{msgs['page.dragDrop.store.quantity.label']}#{inventoryItem.quantity}"/>
+        </ice:panelGroup>
+    </ice:panelGroup>
+</ice:panelSeries>
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="clearer" />
+
+ <!-- Cart Title -->
+<ice:panelGroup styleClass="dndCartDesc">
+    <ice:outputText value="#{msgs['page.dragDrop.cart.desrc1.label']}" />
+    <br />
+    <ice:outputText value="#{msgs['page.dragDrop.cart.desrc2.label']}" />
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="clearer" />
+
+<!-- Conainer for shopping cart summary, also a drop target. -->
+<ice:panelGroup id="shoppingCart"
+		    styleClass="chartContainer backBeanChangeContainer"
+                style="border: none;padding:2px;"
+                hoverclass="cartDropTarget"
+                dropTarget="true" >
+    <ice:panelGroup>
+    <!-- Cart items -->
+    <ice:dataTable id="DataTbl"
+                   value="#{dragDropController.shoppingCart.inventory}"
+                   var="cartItem"
+                   width="100%"
+                   style="padding: 0px; margin: 0px;"
+                   border="0" cellpadding="2">
+        <ice:column>
+            <f:facet name="header">
+                <ice:outputText
+                        value="#{msgs['page.dragDrop.cart.image.label']}"/>
+            </f:facet>
+            <ice:panelGroup>
+                <ice:graphicImage id="cartItemImage"
+                                  url="/images/dragDrop/#{cartItem.pictureName}_small.png"
+                                  alt="#{cartItem.name}"/>
+            </ice:panelGroup>
+        </ice:column>
+
+        <ice:column>
+            <f:facet name="header">
+                <ice:outputText
+                        value="#{msgs['page.dragDrop.cart.name.label']}"/>
+            </f:facet>
+            <ice:outputText id="DDNameout" value="#{cartItem.name}"/>
+        </ice:column>
+
+        <ice:column>
+            <f:facet name="header">
+                <ice:outputText
+                        style="display:inline;"
+                        value="#{msgs['page.dragDrop.cart.price.label']}"/>
+            </f:facet>
+            <ice:outputText id="DDPriceout"
+                            style="display:inline;"
+                            value="#{cartItem.price}">
+                <f:convertNumber type="currency" currencySymbol="$"
+                                 groupingUsed="true" maxFractionDigits="2" />
+            </ice:outputText>
+        </ice:column>
+
+        <ice:column>
+            <f:facet name="header">
+                <ice:outputText
+                        value="#{msgs['page.dragDrop.cart.quantity.label']}"/>
+            </f:facet>
+            <ice:panelGroup effect="#{cartItem.changeQuantityEffect}" style="text-align:center;" >
+                <ice:outputText id="DDQtyout"
+                                value="#{cartItem.quantity}" />
+            </ice:panelGroup>
+
+        </ice:column>
+
+        <ice:column>
+            <f:facet name="header">
+                <ice:outputText
+                        value="#{msgs['page.dragDrop.cart.cost.label']}"/>
+            </f:facet>
+            <ice:outputText id="DDQCostout"
+                            style="display:inline;"
+                            value="#{cartItem.price * cartItem.quantity}">
+                <f:convertNumber type="currency" currencySymbol="$"
+                             groupingUsed="true" maxFractionDigits="2" />
+            </ice:outputText>
+        </ice:column>
+
+        <ice:column>
+            <f:facet name="header">
+                <ice:outputText
+                        value="#{msgs['page.dragDrop.cart.returnItem.label']}"/>
+            </f:facet>
+            <ice:panelGroup styleClass="returnItemButton">
+                <ice:commandLink id="DDRtn"
+                                 actionListener="#{dragDropController.returnShoppingCartItem}"
+                        value="#{msgs['page.dragDrop.cart.return.label']}" >
+                    <f:param name="inventoryId" value="#{cartItem.id}" />
+                </ice:commandLink>
+            </ice:panelGroup>
+        </ice:column>
+    </ice:dataTable>
+    </ice:panelGroup>
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="clearer" />
+
+<!--
+    Drop Target, drag event is fire when an Iventory item is dragged on this
+    panelGroup.
+-->
+<ice:panelGroup styleClass="chartContainer backBeanChangeContainer" 
+                style="padding:2px;"
+                dropTarget="true"
+                hoverclass="cartDropTarget"
+                rendered="#{empty dragDropController.shoppingCart.inventory}">
+    <ice:panelGroup id="cartDropTarget"
+                    style="text-align: center;background-color:white;padding:20px;" >
+
+        <ice:graphicImage value="/images/dragDrop/shopping-cart.png"
+                          alt="#{msgs['page.dragDrop.cartZone.image.label']}"
+                          width="55" height="45"/>
+    </ice:panelGroup>
+</ice:panelGroup>
+
+<ice:panelGroup styleClass="clearer" />
+
+<!-- cart total, also a drag target. -->
+<ice:panelGroup styleClass="chartContainer backBeanChangeContainer"
+        style="text-align: right;"
+        dropTarget="true"
+        hoverclass="cartDropTarget"
+        rendered="#{!empty dragDropController.shoppingCart.inventory}">
+    <ice:panelGroup>
+        <ice:outputText
+             style="display: inline;"
+             value="#{msgs['page.dragDrop.cart.total.label']}"/>
+        <ice:outputText
+                style="display: inline;"
+                value="#{dragDropController.shoppingCart.inventoryPriceTotal}" >
+            <f:convertNumber type="currency" currencySymbol="$"
+                             groupingUsed="true" maxFractionDigits="2" />
+        </ice:outputText>
+        <ice:outputText
+                value="(#{dragDropController.shoppingCart.inventoryUnitTotal} #{msgs['page.dragDrop.cart.items.label']})" />
+    </ice:panelGroup>
+</ice:panelGroup>
+
+</ice:panelGroup>

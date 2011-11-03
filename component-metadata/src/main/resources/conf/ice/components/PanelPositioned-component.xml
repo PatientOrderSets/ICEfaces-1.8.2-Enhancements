@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.dragdrop.PanelPositioned</component-type>
+    <component-class>com.icesoft.faces.component.panelpositioned.PanelPositioned</component-class>
+</component>  

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE taglib
+PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+"http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+
+<tag>
+	<name>a</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>abbr</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>acronym</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>address</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>applet</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>area</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>b</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>base</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>basefont</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>bdo</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>big</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>blockquote</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>br</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>button</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>caption</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>center</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>cite</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>code</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>col</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>colgroup</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>dd</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>del</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>dir</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>div</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>dfn</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>dl</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>dt</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>em</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>embed</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>fieldset</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>font</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>form</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>frame</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>frameset</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>h1</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>h2</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>h3</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>h4</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>h5</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>h6</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>hr</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>html</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>i</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>iframe</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>img</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>input</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>ins</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>kbd</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>label</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>legend</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>li</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>link</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>map</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>menu</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>meta</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>noframes</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>noscript</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>object</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>ol</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>optgroup</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>option</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>p</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>param</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>pre</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>q</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>s</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>samp</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>script</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>select</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>small</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>span</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>strike</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>strong</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>style</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>sub</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>sup</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>table</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>tbody</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>td</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>textarea</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>tfoot</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>th</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>thead</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>title</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>tr</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>tt</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>u</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>ul</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+	<name>var</name>
+	<tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+    <name>head</name>
+    <tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+<tag>
+    <name>body</name>
+    <tag-class>com.icesoft.faces.webapp.parser.XhtmlTag</tag-class>
+</tag>
+</taglib>

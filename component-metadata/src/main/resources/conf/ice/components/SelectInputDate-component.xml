@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.SelectInputDate</component-type>
+    <component-class>com.icesoft.faces.component.selectinputdate.SelectInputDate</component-class>
+</component>  

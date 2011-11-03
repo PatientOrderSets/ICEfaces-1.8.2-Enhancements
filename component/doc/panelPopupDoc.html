@@ -1,0 +1,292 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>panelPopup Component</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h2 class="Heading2">panelPopup</h2>
+<hr>
+<p>The panelPopup is a container component that renders a popup panel that hovers
+  on top of a web page.
+<p>The popupPanel contains two user defined regions which are defined using named
+  facets. The facet names are "header" and "body".
+
+ <p>This component provides general popup window behavior such as draggable and modal. The 
+ component may also be used with the autoCentre, and autoPosition attributes to cause 
+ the popup to stick to either the centre of the viewable port of the browser window, 
+ or to the position specified in pixels from the top left of the window.</p>
+
+ <p >The panelPopup component may be used in cases where a
+a popup window is appropriate.<br>
+</p>
+
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Example <br>
+</div>
+
+<p >The following code shows how a modal popup with a header can be created:</p>
+<pre class="Preformatted">
+
+&lt;ice:panelPopup styleClass="panelPopup"
+	modal="true"
+	rendered="true"
+	visible="#{popupBean.showPopup2}"
+	style="z-index:999; top: 400px; left: 400px; width: 300px; height: 200px; position:absolute; background: #FFFFFF;"&gt;
+
+	&lt;f:facet name="header"&gt;
+		&lt;h:panelGrid id="popupHeader2" width="100%" cellpadding="0" cellspacing="0" columns="3" columnClasses="popupIcon,popupTitle,popupButton"&gt;
+			&lt;h:graphicImage id="popupIcon2" value="#{popupBean.popupIcon}" /&gt;
+			&lt;h:outputText value="ICEfaces Popup Demo"/&gt;
+			&lt;h:commandButton id="popupClose2" type="button" image="#{popupBean.closePopupImage}"
+				action="#{popupBean.closePopup2}" style="cursor: pointer;"/&gt;
+		&lt;/h:panelGrid&gt;
+	&lt;/f:facet&gt;
+
+
+	&lt;f:facet name="body"&gt;
+		&lt;h:panelGrid id="popupBody2" width="100%" cellpadding="0" cellspacing="0" column="1"&gt;
+			&lt;h:outputText value="This Modal Popup is not draggable. It can only be closed using one of the the Close buttons." /&gt;
+			&lt;h:commandButton id="closeModal" action="#{popupBean.togglePopup2}" value="Close" style="z-index:2;"/&gt;
+		&lt;/h:panelGrid&gt;
+	&lt;/f:facet&gt;
+
+&lt;/ice:panelPopup&gt;
+
+
+</pre>
+
+<p >The following code shows how a draggable popup with a header can be created:</p>
+<pre class="Preformatted">
+
+&lt;ice:panelPopup styleClass="panelPopup"
+	draggable="true"
+	rendered="true"
+	visible="#{popupBean.showPopup2}"
+	style="z-index:999; top: 400px; left: 400px; width: 300px; height: 200px; position:absolute; background: #FFFFFF;"&gt;
+
+	&lt;f:facet name="header"&gt;
+		&lt;h:panelGrid id="popupHeader2" width="100%" cellpadding="0" cellspacing="0" columns="3" columnClasses="popupIcon,popupTitle,popupButton"&gt;
+			&lt;h:graphicImage id="popupIcon2" value="#{popupBean.popupIcon}" /&gt;
+			&lt;h:outputText value="ICEfaces Popup Demo"/&gt;
+			&lt;h:commandButton id="popupClose2" type="button" image="#{popupBean.closePopupImage}"
+				action="#{popupBean.closePopup2}" style="cursor: pointer;"/&gt;
+		&lt;/h:panelGrid&gt;
+	&lt;/f:facet&gt;
+
+
+	&lt;f:facet name="body"&gt;
+		&lt;h:panelGrid id="popupBody2" width="100%" cellpadding="0" cellspacing="0" column="1"&gt;
+			&lt;h:outputText value="This Popup is draggable." /&gt;
+			&lt;h:commandButton id="closeModal" action="#{popupBean.togglePopup2}" value="Close" style="z-index:2;"/&gt;
+		&lt;/h:panelGrid&gt;
+	&lt;/f:facet&gt;
+
+&lt;/ice:panelPopup&gt;
+
+
+</pre>
+
+
+
+<p >The following code shows how a popup using the autoCentre attribute can be created:</p>
+<pre class="Preformatted">
+
+&lt;ice:panelPopup id="autoCentrePP"
+        draggable="true"
+        rendered="#{popup.showAutoCentrePanel}"
+        visible="#{popup.showAutoCentrePanel}"
+        autoCentre="true"
+        style="z-index: 1000;width: 300px; height: 150px;"&gt;
+
+    &lt;f:facet name="header"&gt;
+        &lt;ice:panelGrid id="autoCentPanelGrid"
+                       width="100%" cellpadding="0"
+                       cellspacing="0" columns="2"
+                       columnClasses="none, popupButton"&gt;
+            &lt;ice:outputText value="Auto-Centre Popup Panel"/&gt;
+            &lt;ice:commandButton id="autoCentPopupClose" type="button"
+                               image="#{popup.closePopupImage}"
+                               actionListener="#{popup.closeAutoCentrePopup}"
+                               style="cursor: pointer;"/&gt;
+        &lt;/ice:panelGrid&gt;
+    &lt;/f:facet&gt;
+
+    &lt;f:facet name="body"&gt;
+        &lt;ice:panelGrid id="autoCentContent"
+                       width="100%" cellpadding="0"
+                       cellspacing="0" columns="1"
+                       styleClass="popupModalBody"&gt;
+            &lt;ice:outputText
+                    value="This Popup will remain centred even if you scroll or resize the window."/&gt;
+        &lt;/ice:panelGrid&gt;
+    &lt;/f:facet&gt;
+
+&lt;/ice:panelPopup&gt;
+
+
+</pre>
+
+
+
+<p >The following code shows how a popup using the autoPosition attribute can be created:</p>
+<pre class="Preformatted">
+
+&lt;ice:panelPopup id="autoPositionPP"
+        draggable="true"
+        rendered="#{popup.showAutoPositionPanel}"
+        visible="#{popup.showAutoPositionPanel}"
+        style="z-index: 1000;width: 300px; height: 150px;"
+        autoPosition="#{popup.autoPositionInput}"&gt;
+
+    &lt;f:facet name="header"&gt;
+        &lt;ice:panelGrid id="autoPosPanelGrid"
+                       width="100%" cellpadding="0"
+                       cellspacing="0" columns="2"
+                       columnClasses="none, popupButton"&gt;
+            &lt;ice:outputText value="Auto-Position Popup Panel"/&gt;
+            &lt;ice:commandButton id="autoPosPopupClose" type="button"
+                               image="#{popup.closePopupImage}"
+                               actionListener="#{popup.closeAutoPositionPopup}"
+                               style="cursor: pointer;"/&gt;
+        &lt;/ice:panelGrid&gt;
+    &lt;/f:facet&gt;
+
+    &lt;f:facet name="body"&gt;
+        &lt;ice:panelGrid id="autoPosContent"
+                       width="100%" cellpadding="0"
+                       cellspacing="0" columns="1"
+                       styleClass="popupModalBody"&gt;
+            &lt;ice:outputText
+                    value="This Popup will remain in the specified position even if you scroll or resize the window."/&gt;
+        &lt;/ice:panelGrid&gt;
+    &lt;/f:facet&gt;
+
+&lt;/ice:panelPopup&gt;
+
+</pre>
+
+
+
+
+<div
+style="margin: 13pt 0pt 6pt; color: rgb(0, 0, 0); font-style: normal; font-weight: bold; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none; vertical-align: baseline;">
+Tag Summary<span
+style="color: rgb(0, 0, 0); font-style: normal; font-weight: normal; text-decoration: none; text-transform: none; vertical-align: baseline;"></span>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><br>
+  </caption>
+  <tbody>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-name:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        &lt;ice:panelPopup&gt;</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        tag-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.panelpopup.PanelPopupTag</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.panelpopup.PanelPopup</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.PanelPopup</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        component-family:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        javax.faces.Panel</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-class:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.component.panelpopup.PanelPopupRenderer</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="CellBody">
+        renderer-type:</div>
+      </td>
+      <td>
+        <div class="CellBody">
+        com.icesoft.faces.PanelPopup</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

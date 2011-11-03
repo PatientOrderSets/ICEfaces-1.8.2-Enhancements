@@ -1,0 +1,397 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>Components Common Attributes</title>
+
+<link href="standard.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h2 class="Heading2"> Common Attributes</h2>
+<hr>
+<p>The following are descriptions of the common attributes that apply to the ICEfaces
+  components.</p>
+<p ><b>renderedOnUserRole</b> the visibleOnUserRole attribute has been re-named
+  to renderedOnUserRole. If user is in given role, this component will be rendered
+  normally. If not, nothing is rendered and the body of this tag will be skipped.
+</p>
+<p ><b>enabledOnUserRole</b> If user is in given role, this component will be
+  rendered normally. If not, then component will be rendered in the disabled state.
+</p>
+<p ><b>visible</b> The visible attribute has been added to all the relevant standard
+  extended components. Used to render the visibility style attribute on the root
+  element. visible values: true || false. Note: If the visible attribute is not
+  defined, the default is visible.</p>
+<p ><b>disabled</b> the disabled attribute is a Flag indicating that this element
+  must never receive focus or be included in a subsequent submit. Unlike the readOnly
+  which is included in a submit but cannot receive focus. </p>
+<p ><b>partialSubmit</b> the partialSubmit attribute enables a component to perform
+  a partial submit in the appropriate event for the component. The partialSubmit
+  attribute only applies to custom and extended components. </p>
+<p >The following table shows which attributes are applicable to each ICEfaces component.&nbsp;</p>
+<table bgcolor="gray"><tr><td><table  cellpadding="2" cellspacing="2" style="border-style: solid;border-width: 2px;" >
+<tr bgcolor="white">
+  <td class="CellHeading">&nbsp; </td>
+      <td class="CellHeading"> renderedOnUserRole </td>
+      <td class="CellHeading"> enabledOnUserRole</td>
+      <td class="CellHeading"> visible </td>
+  <td class="CellHeading"> disabled </td>
+  <td class="CellHeading"> partialSubmit </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> commandButton </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> commandLink </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> commandSortHeader </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> dataPaginator </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> dataTable </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> form </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> graphicImage </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> inputFile </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> inputSecret </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> inputText </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> inputTextarea </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> menuBar </td>
+  <td class="CellBody"> * </td>
+  <td > </td>
+  <td > </td>
+  <td > </td>
+  <td > </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> menuItem </td>
+  <td class="CellBody"> * </td>
+  <td > </td>
+  <td > </td>
+  <td > </td>
+  <td > </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> menuItems </td>
+  <td class="CellBody"> * </td>
+  <td > </td>
+  <td > </td>
+  <td > </td>
+  <td > </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> menuItemSeparator </td>
+  <td class="CellBody"> * </td>
+  <td > </td>
+  <td > </td>
+  <td > </td>
+  <td > </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> message </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> messages </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> outputConnectionStatus </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> outputDeclaration </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> outputLabel </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> outputLink </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> outputProgress </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> outputText </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> panelBorder </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> panelGrid </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> panelGroup </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> panelPopup </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> panelSeries </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> panelStack </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> panelTabSet </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> panelTab </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> selectBooleanCheckbox </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> selectInputDate </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> selectInputText </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> *  </td>
+  <td class="CellBody"> * </td>
+  <td> </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> selectManyCheckbox </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> selectManyListbox </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> selectManyMenu </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> selectOneListbox </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> selectOneMenu </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+<tr bgcolor="white">
+  <td class="CellBody"> selectOneRadio </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+  <td class="CellBody"> * </td>
+</tr>
+
+</body>
+</html>

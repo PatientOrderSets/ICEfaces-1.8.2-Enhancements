@@ -1,0 +1,3013 @@
+/*
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * "The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations under
+ * the License.
+ *
+ * The Original Code is ICEfaces 1.5 open source software code, released
+ * November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+ * Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+ * 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+ *
+ * Contributor(s): _____________________.
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+ * License), in which case the provisions of the LGPL License are
+ * applicable instead of those above. If you wish to allow use of your
+ * version of this file only under the terms of the LGPL License and not to
+ * allow others to use your version of this file under the MPL, indicate
+ * your decision by deleting the provisions above and replace them with
+ * the notice and other provisions required by the LGPL License. If you do
+ * not delete the provisions above, a recipient may use your version of
+ * this file under either the MPL or the LGPL License."
+ *
+ */
+
+/* Basic CSS styles This stylesheet is intended to match the style of the default Windows XP UI */
+/* Default CSS styles. These styles override the basic HTML tags on the page  */
+/* Version received from KF Apr 01 2006 v1.2   */
+
+/*
+=================== Font Family, Size and Color ==============
+*/
+
+/* set the attributes for the font family, size and color for ALL elements on the page */
+/* make the fonts inside tables and forms == the default size of the page */
+body, table {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+}
+
+/* now set the size and other attributes of the fonts for any of the form elements for non-ICE form elements. (note this will also affect any ICE components that render out any of the following HTML tags  */
+input, textarea, select {
+}
+
+/*
+=================== HTML Form Element Appearence ==============
+*/
+
+a:hover {
+    color: #003399;
+    text-decoration: underline;
+}
+
+a:link, a:visited {
+    color: #003399;
+    text-decoration: none;
+}
+
+/* set the style elements for any of the input form elements   */
+input, select {
+    font-size: 1em;
+}
+
+/*
+== Code necessary to fix commandButtons with images, but this also causes problems for calendar opening buttons ==
+input[type="image"] {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+*/
+
+fieldset {
+    border: 0px none;
+}
+
+/*
+=================== Style class definitions for ICE Standard Extended Component Appearance ==============
+*/
+.iceInpTxt, .iceInpSecrt, .iceInpTxtArea {
+    background: #FFFFFF url(./css-images/field/bg_gradient.gif) repeat-x scroll center top;
+    border-color: #9D9FA1 rgb(174, 175, 176) rgb(185, 185, 186);
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-width: 1px;
+    padding: 1px 0pt 0pt 2px;
+}
+
+.iceSelMnyCb {
+    white-space: nowrap;
+}
+
+.iceSelMnyCb input, .iceSelOneRb input, .iceSelBoolChkbx {
+    margin: 2px;
+    padding: 2px;
+}
+
+.iceSelOneRb table tr td {
+    padding: 1px;
+}
+
+
+.iceSelOneMnu, .iceSelMnyLb, .iceSelMnyMnu, .iceSelOneLb {
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #FFFFFF url(./css-images/field/bg_gradient.gif) repeat-x scroll center top;    
+    border-color: #9D9FA1 rgb(174, 175, 176) rgb(185, 185, 186);
+    border-style: solid;
+    border-width: 1px;
+}
+
+.iceOutTxt, .iceOutLbl {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.iceOutLbl {
+    font-weight: bold;
+    color: #484848;
+}
+
+.iceCmdBtn {
+    background: #ABD2EB url(./css-images/button/primary-enabled.gif) repeat-x scroll center top;
+    border-color: #6C8197 rgb(78, 100, 122) rgb(38, 62, 90);
+    font-size: 1em;
+    margin: 0pt 2px 0pt 1px;
+    padding: 0pt 5px 1px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/*
+=================== ICE Component Appearence ==============
+*/
+/*
+----------- Calendar Component classes
+*/
+.iceSelInpDate {
+/* calendar outline & background color */
+    background-color: #E5E9ED;
+    border: 1px solid #5F6466;
+    padding: 2px;
+}
+table.iceSelInpDate tbody tr td table{
+    border-right: 1px solid #d9d9d9;
+}
+
+.iceSelInpDateIFrameFix, .iceIEIFrameFix {
+    z-index: -1;
+    position: absolute;
+    display: block;
+    filter: mask();
+}
+
+.iceIEIFrameFix {
+    height: 0;
+}
+
+.iceSelInpDatePopup {
+    min-width: 172px;
+    padding: 3px 0px 3px 0px;
+}
+
+.iceSelInpDateInput {
+    background: #FFFFFF url(./css-images/field/bg_gradient.gif) repeat-x scroll center top;
+    border-color: #9D9FA1 rgb(174, 175, 176) rgb(185, 185, 186);
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-width: 1px;
+    width: 150px;
+    padding: 1px 0pt 0pt 2px;
+}
+
+.iceSelInpDateOpenPopup {
+    display: inline;
+    text-decoration: none;
+    background-color: transparent;
+    background-image: url(./css-images/cal_button.gif);
+    background-repeat: no-repeat;
+    text-align: center;
+    vertical-align: bottom;
+    border: none;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.iceSelInpDateClosePopup {
+    display: inline;
+    text-decoration: none;
+    background-color: transparent;
+    background-image: url(./css-images/cal_off.gif);
+    background-repeat: no-repeat;
+    text-align: center;
+    vertical-align: bottom;
+    border: none;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.iceSelInpDateMonthYear, .iceSelInpDateTime {
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
+    background-color: #E5E9ED;
+}
+
+.iceSelInpDateMovePrev {
+    text-decoration: none;
+    display: inline;
+    background-color: transparent;
+    background-image: url(./css-images/cal_arrow_left.gif);
+    background-repeat: no-repeat;
+    text-align: center;
+    vertical-align: bottom;
+    border: none;
+    width: 20px;
+    height: 20px;
+}
+
+.iceSelInpDateMoveNext {
+    text-decoration: none;
+    display: inline;
+    background-color: transparent;
+    background-image: url(./css-images/cal_arrow_right.gif);
+    background-repeat: no-repeat;
+    text-align: center;
+    border: none;
+    width: 20px;
+    height: 20px;
+}
+
+.iceSelInpDateWeek {
+/* the days of the week row */
+    background-color: #E5E9ED;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    padding: 3px;
+    border-top: 1px solid #d6dce1;
+    border-right: 1px solid #d6dce1;
+    border-bottom: 1px solid #d6dce1;
+    /*width: 22px;*/
+}
+
+/* set the look for the days of the week backgrounds */
+
+.iceSelInpDateDay, .iceSelInpDateCur {
+    text-align: center;
+    border-right: 1px solid #d6dce1;
+    border-bottom: 1px solid #d6dce1;
+    background-color: #FFFFFF;
+    padding: 3px;
+}
+
+.iceSelInpDateCur, .iceSelInpDateCur .iceOutTxt {
+    color: #000000;
+    font-weight: bold;
+}
+
+.iceSelInpDateCur .iceCmdLnk {
+    background: none;
+    border: none;
+}
+
+.weekend {
+    background-color: #E5E9ED;
+}
+
+.weekend .iceOutTxt {
+    color: #000000;
+}
+
+.weekend .iceCmdLnk {
+    background: none;
+    border: none;
+}
+
+/* now set the attributes for the numbers for each day of the week */
+
+.iceSelInpDateDay a {
+/* the day text */
+    text-decoration: none;
+    background-color: #FFFFFF;
+    /*border: 1px solid #FFFFFF;*/
+    color: #000000;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    display: block;
+}
+.iceSelInpDateDay .iceOutTxt {
+    color: #000000;
+}
+
+.iceSelInpDateCur a {
+    color: #000000;
+    font-weight: bold;
+}
+
+.iceSelInpDateCur a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* now set the color attributes for the hover effect on non-current days */
+.iceSelInpDateDay a:hover {
+/* the day text */
+    text-decoration: underline;
+    font-weight: bold;
+    color: #000000;
+}
+
+.exampleBoxCol1 {
+    padding: 7px;
+}
+
+/*
+----------- Output Table Component classes
+*/
+
+/*
+.firstChildTitle .icePnlGrd {
+    margin-top: 10px;
+    border: 1px solid #d9d9d9;
+    border-collapse: collapse;
+}
+
+.firstChildTitle .icePnlGrdRow1 {
+    background: #f1f1f1;
+    border-left: 1px solid #d9d9d9;
+}
+
+.firstChildTitle .icePnlGrdRow2 {
+    background: #FFF;
+    border-left: 1px solid #d9d9d9;
+}
+
+.firstChildTitle .icePnlGrdCol1 {
+    font-weight: bold;
+    padding: 7px;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    text-align: left;
+}
+
+.firstChildTitle .icePnlGrdCol2 {
+    padding: 7px;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    text-align: left;
+
+}
+*/
+
+/*
+----------- Data Table Component classes
+*/
+.iceDatTbl {
+/* was iceDataTblOutline */
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border: none;
+    border-left: 1px solid #d9d9d9;
+    margin: 10px 0 0 0;
+}
+
+.iceDatTbl table {
+    border-collapse: collapse;
+}
+
+.iceDatTblColHdr, .iceDatTblColHdr1, .iceDatTblColHdr2, .iceDatTblColGrpHdrCol, .iceDatTblFtr {
+/* was iceTblHeader */
+    text-align: left;
+    color: #000000;
+    padding:3px 0pt 3px 5px;
+    font-weight: bold;
+    background: #E1E5E8 url(./css-images/table2/column_gradient.png) repeat-x center top;
+    border: 1px solid #8C8F91;
+}
+
+.iceDatTblResHdlr {
+    margin:0px;; 
+    padding:0px;
+    border-width: 0px;
+    width:2px;
+    background-color:transparent;
+ 
+}
+
+.iceDatTblResBor {
+    margin:0px;; 
+    padding:0px;
+    background-color: #d9d9d9;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    width:2px;   
+    border-top: 1px solid #CCCCCC; 
+}
+
+.iceDatTblBlkTd {
+    border-bottom: 1px solid #CCCCCC;   
+    background-color: #d9d9d9;   
+}
+
+/* set the common attributes for the column classes */
+.iceDatTblCol, .iceDatTblCol1, .iceDatTblCol2 {
+/*was column, column1, column2, column3*/
+    border-right: 1px solid #CAD0D2;
+    border-bottom: 1px solid #CAD0D2;
+    margin: 0pt;
+    padding: 3px 5px 1px;
+    color: #000000;
+    text-align: left;
+}
+
+.iceDatTblHdr {
+}
+
+/*was iceTblHeader */
+.iceDatTblFtr {
+	background: none;
+    border-top: 1px solid #d9d9d9; 	
+}
+
+.iceDatTblScrlSpr{ 
+    background: url( './css-images/table_col_header.gif' ) repeat-x bottom left; 
+    border-top: 1px solid #d9d9d9; 
+    border-right: 1px solid #d9d9d9;
+}
+
+.iceDatTblScrlSprFtr{ 
+    border-bottom: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;        
+}
+
+.iceDatTblScrlSprFtr .iceDatTblFtr{ 
+    border-bottom: none;     
+}
+
+.iceDatTblScrlSpr .iceDatTblColHdr1, .iceDatTblScrlSpr .iceDatTblColHdr2 {
+    border-left-style: none;
+    border-top-style: none;
+}
+
+.iceDatTblActvSrtHdr{}
+/*was iceTblFooter */
+
+/*
+----- for datatable when cell content length exceeds-----
+*/
+
+.iceDatTbl td span.iceOutTxt {
+    overflow: hidden;
+    display: block;
+}
+
+/* etc */
+
+/*
+----------- Data Scroller Component classes
+*/
+.iceDatPgrScrOut {
+/* the class for the outside table */
+    background-color: transparent;
+    margin: 10px;
+}
+
+.iceDatPgrScrBtn {
+/* the cells behind the scroll buttons */
+    background-color: transparent;
+    padding: 2px;
+}
+
+.iceDatPgrScrBtn .iceCmdLnk-dis {
+       border-bottom:none;
+}
+
+.iceDatPgrTbl {
+/* the container for the pagination*/
+    background-color: transparent;
+}
+
+/* set the common attributes for the pagination numbers */
+.iceDatPgrScrCol a, .iceDatPgrCol a {
+    text-decoration: none;
+    font-weight: normal;
+    background-color: #FFFFFF;
+    color: #656565;
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 1px solid #DBDBDB;
+}
+
+/** html .iceDatPgrCol a {*/
+    /*width: 1%;*/
+/*}*/
+
+/* override the attributes for the currently selected page */
+.iceDatPgrScrCol a {
+    color: #FFFFFF;
+    border: 1px solid #DBDBDB;
+    background-color: #90B7D0;
+}
+
+/** html .iceDatPgrScrCol a {*/
+    /*width: 1%;*/
+/*}*/
+
+/* set the attributes for the mouseover on none-current pages */
+.iceDatPgrCol a:hover {
+    color: #000000;
+    border: 1px solid #90B7D0;
+    text-decoration: none;
+    padding-bottom: 1px;
+}
+.iceDatPgrScrCol a:hover {
+    color: #000000;
+    border: 1px solid #DBDBDB;
+    text-decoration: none;
+    padding-bottom: 1px;
+}
+
+/*
+----------- commandSortHeader classes
+*/
+.iceCmdSrtHdrAsc, .iceCmdSrtHdrDesc{
+    background-repeat: no-repeat;
+    background-position: center;
+    width:10px;
+    height:10px;
+}
+.iceCmdSrtHdrAsc{
+    background-image: url('./css-images/column_sort_asc.gif');
+}
+.iceCmdSrtHdrDesc{
+    background-image: url('./css-images/column_sort_desc.gif');
+}
+
+/*
+----------- Tabbed Pane Component classes
+*/
+
+/* tabOn style classes */
+
+.icePnlTbOn {
+    margin: 0;
+    padding: 0;
+}
+
+.icePnlTbOn .MidMid td {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.icePnlTbOn .LftTop {
+    background: url( './css-images/Tab_LftTop.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOn .MidTop {
+    background: url( './css-images/Tab_MidTop.gif' ) repeat-x top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOn .RtTop {
+    background: url( './css-images/Tab_RtTop.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOn .LftMid {
+    background: url( './css-images/Tab_LftMid.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOn .MidMid {
+    background: url( './css-images/Tab_MidMid.gif' ) repeat-x top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 22px;
+}
+
+.icePnlTbOn .MidMid a {
+    border: none;
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0;
+    padding-top: 0;
+    line-height: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.icePnlTbOn .RtMid {
+    background: url( './css-images/Tab_RtMid.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOn .LftBtm {
+    background: url( './css-images/Tab_Btm_LftBtm.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOn .MidBtm {
+    background: url( './css-images/Tab_Btm_MidBtm.gif' ) repeat-x bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOn .RtBtm {
+    background: url( './css-images/Tab_Btm_RtBtm.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+* html .icePnlTbOn .MidMid a {
+    width: 1%;
+}
+
+/* tabOff style classes */
+
+.icePnlTbOff {
+    margin: 0;
+    padding: 0;
+}
+
+.icePnlTbOff .MidMid td {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.icePnlTbOff .LftTop {
+    background: url( './css-images/Tab_LftTop_off.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOff .MidTop {
+    background: url( './css-images/Tab_MidTop_off.gif' ) repeat-x top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOff .RtTop {
+    background: url( './css-images/Tab_RtTop_off.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOff .LftMid {
+    background: url( './css-images/Tab_LftMid_off.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOff .MidMid {
+    background: url( './css-images/Tab_MidMid_off.gif' ) repeat-x top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 22px;
+}
+
+.icePnlTbOff .MidMid a {
+    border: none;
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0;
+    padding-top: 0;
+    line-height: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.icePnlTbOff .RtMid {
+    background: url( './css-images/Tab_RtMid_off.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOff .LftBtm {
+    background: url( './css-images/Tab_Btm_LftBtm_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOff .MidBtm {
+    background: url( './css-images/Tab_Btm_MidBtm_off.gif' ) repeat-x bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOff .RtBtm {
+    background: url( './css-images/Tab_Btm_RtBtm_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+* html .icePnlTbOff .MidMid a {
+    width: 1%;
+}
+
+/* tabOver style classes */
+
+.icePnlTbOver {
+/* was iceTabSetTabOver */
+
+}
+
+.icePnlTbOver .MidMid td {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.icePnlTbOver .LftTop {
+    background: url( './css-images/Tab_LftTop_off.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOver .MidTop {
+    background: url( './css-images/Tab_MidTop_off.gif' ) repeat-x top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOver .RtTop {
+    background: url( './css-images/Tab_RtTop_off.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOver .LftMid {
+    background: url( './css-images/Tab_LftMid_off.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOver .MidMid {
+    background: url( './css-images/Tab_MidMid_off.gif' ) repeat-x top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 22px;
+}
+
+.icePnlTbOver .MidMid a {
+    border: none;
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0;
+    padding-top: 0;
+    line-height: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.icePnlTbOver .MidMid a:hover, .icePnlTbOver .MidMid td:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.icePnlTbOver .RtMid {
+    background: url( './css-images/Tab_RtMid_off.gif' ) no-repeat top left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOver .LftBtm {
+    background: url( './css-images/Tab_Btm_LftBtm_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOver .MidBtm {
+    background: url( './css-images/Tab_Btm_MidBtm_off.gif' ) repeat-x bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOver .RtBtm {
+    background: url( './css-images/Tab_Btm_RtBtm_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+* html .icePnlTbOver .MidMid a {
+    width: 1%;
+}
+
+/* tabSpacer */
+
+.icePnlTbSetSpcr {
+    width: 100%;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+/* tabPanel */
+.icePnlTbSet {
+/* was iceTabSet*/
+    width: 100%;
+}
+
+.icePnlTbSetCnt {
+/*newly added class*/
+    background: #FFF url( './css-images/contentContainer_bg.gif' ) repeat-x top left;
+    border-bottom: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    padding: 20px;
+}
+
+.icePnlTbSetCntBtm {
+/*was iceTabSetBottom*/
+    background: url( './css-images/contentContainer_bg_up.gif' ) repeat-x top left;
+    border-top: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    padding: 20px;
+}
+
+/* TABS ON BOTTOM STYLE CLASSES */
+/* tabOn style classes */
+
+.icePnlTbOnBtm {
+    margin: 0;
+    padding: 0;
+}
+
+.icePnlTbOnBtm .MidMid td {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.icePnlTbOnBtm .LftTop {
+    background: #f7f7f7;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+
+}
+
+.icePnlTbOnBtm .MidTop {
+    background: #f7f7f7;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOnBtm .RtTop {
+    background: #f7f7f7;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOnBtm .LftMid {
+    background: url( './css-images/Tab_Btm_LftMid.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOnBtm .MidMid {
+    background: url( './css-images/Tab_Btm_MidMid.gif' ) repeat-x bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 22px;
+}
+
+.icePnlTbOnBtm .MidMid a {
+    border: none;
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0;
+    padding-top: 0;
+    line-height: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.icePnlTbOnBtm .RtMid {
+    background: url( './css-images/Tab_Btm_RtMid.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOnBtm .LftBtm {
+    background: url( './css-images/Tab_Btm_LftBtm.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOnBtm .MidBtm {
+    background: url( './css-images/Tab_Btm_MidBtm.gif' ) repeat-x bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOnBtm .RtBtm {
+    background: url( './css-images/Tab_Btm_RtBtm.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+* html .icePnlTbOnBtm .MidMid a {
+    width: 1%;
+}
+
+/* tabOff style classes */
+
+.icePnlTbOffBtm {
+    margin: 0;
+    padding: 0;
+}
+
+.icePnlTbOffBtm .MidMid td {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.icePnlTbOffBtm .LftTop {
+    background: #F3F4F8;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOffBtm .MidTop {
+    background: #F3F4F8;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOffBtm .RtTop {
+    background: #F3F4F8;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 1px;
+}
+
+.icePnlTbOffBtm .LftMid {
+    background: url( './css-images/Tab_Btm_LftMid_off.gif' ) no-repeat bottom left;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOffBtm .MidMid {
+    background: url( './css-images/Tab_Btm_MidMid_off.gif' ) repeat-x bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 22px;
+}
+
+.icePnlTbOffBtm .MidMid a {
+    border: none;
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0;
+    padding-top: 0;
+    line-height: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.icePnlTbOffBtm .RtMid {
+    background: url( './css-images/Tab_Btm_RtMid_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOffBtm .LftBtm {
+    background: url( './css-images/Tab_Btm_LftBtm_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOffBtm .MidBtm {
+    background: url( './css-images/Tab_Btm_MidBtm_off.gif' ) repeat-x bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOffBtm .RtBtm {
+    background: url( './css-images/Tab_Btm_RtBtm_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+* html .icePnlTbOffBtm .MidMid a {
+    width: 1%;
+}
+
+/* tabOver style classes */
+
+.icePnlTbOverBtm {
+/* was iceTabSetTabOverBottom*/
+
+}
+
+.icePnlTbOverBtm .MidMid td {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.icePnlTbOverfBtm .LftTop {
+    background: #F3F4F8;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOverBtm .MidTop {
+    background: #F3F4F8;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOverBtm .RtTop {
+    background: #F3F4F8;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOverBtm .LftMid {
+    background: url( './css-images/Tab_Btm_LftMid_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOverBtm .MidMid {
+    background: url( './css-images/Tab_Btm_MidMid_off.gif' ) repeat-x bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 22px;
+}
+
+.icePnlTbOverBtm .MidMid a {
+    border: none;
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0;
+    padding-top: 0;
+    line-height: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.icePnlTbOverBtm .MidMid a:hover .icePnlTbOverBtm .MidMid td:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.icePnlTbOverBtm .RtMid {
+    background: url( './css-images/Tab_Btm_RtMid_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 22px;
+}
+
+.icePnlTbOverBtm .LftBtm {
+    background: url( './css-images/Tab_Btm_LftBtm_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+.icePnlTbOverBtm .MidBtm {
+    background: url( './css-images/Tab_Btm_MidBtm_off.gif' ) repeat-x bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 4px;
+}
+
+.icePnlTbOverBtm .RtBtm {
+    background: url( './css-images/Tab_Btm_RtBtm_off.gif' ) no-repeat bottom left;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 4px;
+    height: 4px;
+}
+
+* html .icePnlTbOverBtm .MidMid a {
+
+}
+
+/* tabSpacer */
+.icePnlTbSetSpcrBtm {
+    width: 100%;
+    border-top: 1px solid #d9d9d9;
+}
+
+/* tabPanel */
+
+.icePnlTbSetBtm {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid #ABABAB;
+    border-top: 1px solid #ABABAB;
+    border-left: 1px solid #ABABAB;
+    background-color: #FFFFFF;
+}
+
+
+/*
+------------- BorderLayout
+*/
+.icePnlBrdrNorth {
+    padding: 5px;
+    background: #FFF;
+    font-weight: bold;
+    height: 60px;
+    text-align: center;
+}
+
+.icePnlBrdrEast {
+    width: 10%;
+    background-color: #FFFFFF;
+    padding: 5px;
+    vertical-align: top;
+}
+
+.icePnlBrdrWest {
+    width: 20%;
+    background-color: #FFFFFF;
+    vertical-align: top;
+}
+
+.icePnlBrdrCenter {
+    width: 70%;
+    background-color: #FFFFFF;
+    padding: 5px;
+    vertical-align: top;
+}
+
+.icePnlBrdrSouth {
+    border-top: 1px solid #FFFFFF;
+    color: #666666;
+    padding: 4px;
+}
+
+/*
+------------- PanelLayout
+*/
+
+.pageHdr {
+    font-weight: bold;
+    height: 80px;
+    background-color: #CDCDCD;
+    padding: 5px;
+    text-align: center;
+}
+
+.icePnlBrdrStyle {
+    background-color: #FFFFFF;
+    border: 1px solid #ABABAB;
+    margin: 10px;
+    width: 97%;
+}
+
+.pageNavigation {
+    width: 20%;
+    background-color: #DEDEDE;
+    padding: 5px;
+    vertical-align: top;
+}
+
+.pageBody {
+    width: 80%;
+    background-color: #FFFFFF;
+    padding: 5px;
+    vertical-align: top;
+}
+
+.pageFtr {
+    border-top: 1px solid #ABABAB;
+    color: #666666;
+    padding: 4px;
+}
+
+/*
+------------ PanelNavigation
+*/
+
+.navFormOutline {
+    background-color: #DEDEDE;
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+}
+
+.navItem, .navActvItem, .navOpenItem {
+    color: #333333;
+    text-decoration: none;
+    background-color: #CDCDCD;
+    width: 100%;
+    border: 1px solid #CDCDCD;
+    border-bottom: 1px solid #FFFFFF;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 1px;
+    display: block;
+}
+
+.navItem:hover, .navActvItem:hover, .navOpenItem:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 1px solid #2A6CC2;
+}
+
+.navOpenItem {
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navActvItem {
+    width: 100%;
+    background-color: #2A6CC2;
+    color: #FFFFFF;
+    background-image: url( ./css-images/cal_arrow_right.gif );
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+
+.navSeparator {
+    width: 100%;
+    height: 1px;
+    padding: 0px;
+    margin: 0px;
+    background-color: #CDCDCD;
+    border-bottom: 1px solid #DEDEDE;
+}
+
+/*
+--------------- Progress bar
+*/
+.iceOutProg {
+    margin: 0;
+    padding: 0;
+}
+
+.iceOutProgBg {
+    width: 300px;
+    height: 12px;
+    border: 1px solid #666664;
+    background: #F2F3F4;
+}
+
+.iceOutProgFill {
+    display: block;
+    margin: 1px 0px 1px 0px;
+    padding: 0;
+    height: 12px;
+    background: url( './css-images/progressBar/reg-slice.gif' ) repeat-x top left;
+}
+
+.iceOutProgTxt {
+    color: #000000;
+    font-size: 8px;
+    line-height: 12px;
+}
+
+/*
+   Classes for the output progress bar
+*/
+
+.iceOutProgIndetActv {
+    margin: 1px 0px 1px 0px;
+    padding: 0;
+    height: 12px;
+    background: url( './css-images/ProgFill_Indet_Bg_active.gif' ) repeat-x top left;
+}
+
+.iceOutProgIndetInactv {
+    margin: 1px 0px 1px 0px;
+    padding: 0;
+    height: 12px;
+    background: url( './css-images/ProgFill_Indet_Bg_inactive.gif' ) repeat-x top left;
+}
+
+/*
+--------------- autoComplete classes ------
+*/
+
+.iceSelInpTxtTxt {
+    background: #FFFFFF url(./css-images/field/bg_gradient.gif) repeat-x scroll center top;
+    border-color: #9D9FA1 rgb(174, 175, 176) rgb(185, 185, 186);
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-width: 1px;
+    padding: 1px 0pt 0pt 2px;
+}
+
+.iceSelInpTxtList {
+    position: absolute;
+    display: block;
+    border-top: 1px solid #ABABAB;
+    border-right: 1px solid #666666;
+    border-left: 1px solid #ABABAB;
+    border-bottom: 1px solid #333333;
+}
+
+.iceSelInpTxtRow {
+    display: block;
+    background-color: #FFFFFF;
+    color: #333333;
+    padding: 2px;
+    padding-left: 10px;
+    border-bottom: 1px solid #DEDEDE;
+    position: relative;
+}
+
+.iceSelInpTxtSelRow {
+    display: block;
+    background-color: #90B7D0;
+    color: #FFFFFF;
+    padding: 2px;
+    padding-left: 10px;
+    border-bottom: 1px solid #FFFFFF;
+    position: relative;
+}
+
+.iceSelInpTxtSelRow span {
+    color: #FFFFFF;
+}
+
+/*
+--------------- autoComplete disable class ------
+*/
+
+.iceSelInpTxtTxt-dis {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .95em;
+    color: #ABABAB;
+    border: 1px dotted #CCCCCC;
+    cursor: default;
+}
+
+/*
+----------- FileUpload Component classes
+*/
+.iceInpFile {
+    overflow: hidden;
+}
+
+.iceInpFileTxt {
+    border: 1px solid #ABABAB;
+    background-color: #FFFFFF;
+    margin: 2px;
+    padding: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #000000;
+}
+
+.iceInpFileBtn {
+    border: 1px solid #ABABAB;
+    background-color: #FFFFFF;
+    margin: 2px;
+    padding: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #000000;
+}
+
+/*
+----------- Data Navigation Bar classes
+*/
+
+.tablebg {
+    background-color: #EEF3FB;
+    border: 1px solid #6392C6;
+    width: 70%;
+}
+
+.oddRow {
+    background-color: #FFFFFF;
+}
+
+.evenRow {
+    background-color: #EEF3FB;
+}
+
+.barCol1 {
+    width: 40%;
+    text-align: left;
+}
+
+.barCol2 {
+    width: 15%;
+    text-align: left;
+}
+
+.barCol3 {
+    width: 20%;
+    text-align: left;
+}
+
+.barCol4 {
+    width: 15%;
+    text-align: right;
+}
+
+.barCol5 {
+    width: 15%;
+    text-align: left;
+}
+
+/*
+----------- TreeView component
+*/
+
+.iceTreeRow {
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.iceTreeRow a {
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+    padding: 0;
+    /*padding-left: 3px;*/
+    vertical-align: middle;
+}
+
+.iceTreeRow a:hover {
+    text-decoration: underline;
+}
+
+.iceTreeRow img {
+    border: 0;
+    vertical-align: middle;
+    background-repeat: repeat-y;
+    padding: 0;
+}
+.iceTreeRow > img{
+    /*width: 10px;*/
+    /*height:16px;*/
+}
+
+
+.iceTreeRow a img {
+/* vertical-align: top; - Bug in FF, when img has focus it is not highlighted with a box.*/
+    background-repeat: repeat-y;
+    border: 0;
+    padding: 0;
+}
+
+.iceTreeRow * div {
+    padding: 0;
+    vertical-align: middle;
+}
+
+/* ------------ Menu Classes --
+*/
+
+.iceMnuBar, .iceMnuBarVrt {
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    background-image: none;
+    background-color: #FFFFFF;
+}
+
+.iceMnuBarItem, .iceMnuBarVrtItem {
+    float: left;
+    white-space: nowrap;
+}
+
+.iceMnuBarVrtItem {
+    float: none;
+}
+
+.iceMnuBarItem a, .iceMnuBarItem span, .iceMnuBarItem a:hover, .iceMnuBarVrtItem a, .iceMnuBarVrtItem span, .iceMnuBarVrtItem a:hover {
+    text-decoration: none;
+    display: block;
+    font-size: 1.0em;
+    color: #003399;
+}
+
+.iceMnuBarItem a, .iceMnuBarItem span, .iceMnuBarItem a:hover {
+    padding: 1px 3px 1px 3px;
+}
+
+.iceMnuBarVrtItem a, .iceMnuBarVrtItem span, .iceMnuBarVrtItem a:hover {
+    padding: 1px 0 1px 3px;
+}
+
+.iceMnuBarItem a, .iceMnuBarVrtItem a {
+}
+
+.iceMnuBarItem a:hover, .iceMnuBarVrtItem a:hover {
+}
+
+.iceMnuItmSep hr {
+    width: 85%;
+}
+
+.iceMnuBarSubMenu, .iceMnuBarVrtSubMenu {
+    position: absolute;
+    background-color: #FCFCFC;
+    display: block;
+    width: 145px;
+    border: 1px solid #8C8F91;
+    z-index: 1000;
+}
+
+.iceMnuItm {
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+}
+
+.iceMnuItm a, .iceMnuItm a:hover, .iceMnuItmVrt a, .iceMnuItmVrt a:hover {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-decoration: none;
+    text-align: left;
+    vertical-align: top;
+    line-height: 25px;
+    height: 25px;
+    width: 100%;
+}
+
+.iceMnuItm a, .iceMnuItmVrt a {
+    background-color: #FCFCFC;
+    color: #003399;
+}
+
+.iceMnuItm a:hover, .iceMnuItmVrt a:hover {
+    background-color: #90B7D0;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.iceMnuItm a:hover .iceOutTxt, .iceMnuItmVrt a:hover .iceOutTxt {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.iceMnuItm a:hover .iceOutTxt, .iceMnuItmVrt a:hover .iceOutTxt, .iceMnuItm a:hover .iceMnuItmLabel {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.iceMnuItmLabel {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 7px;
+    font-weight: normal;
+}
+
+.iceMnuItmLabel, .iceMnuBarItemLabel {
+    font-size: 1.0em;
+    /*width: 100%;*/
+    vertical-align: top;
+}
+
+.iceDatTbl td span.iceMnuItmLabel {
+    display: inline;
+    padding: 0 0 0 7px;
+}
+
+.iceMnuItmImage, .iceMnuBarItemImage, .iceMnuBarVrtItemImage {
+    display: inline;
+}
+
+.iceMnuItmImage, .iceMnuItmLabel {
+    vertical-align: middle;
+}
+
+.iceMnuBarSubMenuInd {
+    float: right;
+    padding: 5px 0 0 0;
+    margin: 0;
+}
+
+.iceMnuBarVrt {
+    width: 100px;
+    display: block;
+}
+
+.iceMnuBarVrtSubMenuInd {
+    display: inline;
+    float: right;
+    padding-top: 3px;
+    padding-right: 1px;
+}
+
+/*
+----------- PanelPopup ----------
+*/
+
+.iceMnuPopVrtItemLabel {
+    vertical-align: middle;
+    color: #333333;
+}
+
+.iceMnuPopVrtItemImage {
+    width: 19px;
+    vertical-align: middle;
+}
+
+.iceMnuPopVrt {
+/* was iceMenu_vertical */
+    float: left;
+    white-space: nowrap;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    width: 0px;
+    height: 0px;
+}
+
+.iceMnuPopVrtTopSubMenu {
+    padding: 1px;
+    width: 160px;
+    background-color: #FCFCFC;
+    border: 1px solid #999999;
+    position: absolute;
+    font-size: 10px;
+    height: auto;
+    display: block;
+}
+
+.iceMnuPopVrtItem {
+/* was iceMenu_verticalItem */
+    width: 160px;
+    display: block;
+}
+
+.iceMnuPopVrtItem a {
+/* was iceMenu_verticalItem */
+/*    background-color: #DDDDDD;*/
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: #333333;
+    font-size: 1.1em;
+    margin-bottom: 1px;
+    float: none;
+    display: block;
+    text-decoration: none;
+    border: 0px solid #FFFFFF; /*width: 100%;*/
+}
+
+.iceMnuPopVrtItem a:hover {
+/* was iceMenu_verticalItem */
+    background-color: #90B7D0;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.iceMnuPopVrtItem a:hover .iceMnuPopVrtItemLabel {
+    color: #FFFFFF;
+}
+
+.iceMnuPopVrtSubMenu {
+/* was iceSubMenu_vertical*/
+    padding: 1px;
+    width: 160px;
+    background-color: #EFEFEF;
+    border-top: 1px solid #999999;
+    border-right: 1px solid #999999;
+    border-left: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    position: absolute;
+    height: auto;
+    display: block;
+}
+
+.iceMnuPopVrtSubMenuInd {
+/* was iceSubMenuDividerVert */
+    display: inline;
+    float: right;
+    padding-top: 0px;
+    padding-right: 1px;
+}
+
+/*
+----------- PanelPopup & panelTooltip ----------
+*/
+
+.icePnlPop, .icePnlTlTip {
+    padding: 0px;
+    z-index: 1000;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    color: #000000;
+}
+
+.icePnlPopHdr, .icePnlTlTipHdr {
+    height: 18px;
+    line-height: 18px;
+    font-weight: bold;
+    background: #E1E5E8 url(./css-images/table2/column_gradient.png) repeat-x center top;
+    border-bottom: 1px solid #8C8F91;
+}
+
+.icePnlPopHdr .iceOutTxt, .icePnlTlTipHdr .iceOutTxt {
+    padding-left: 5px;
+    text-align: center;
+    vertical-align: middle;
+    color: #000000;
+    font-weight: bold;
+}
+
+.icePnlPopBody, .icePnlTlTipBody {
+    padding: 10px;
+}
+
+.icePnlPopFtr, .icePnlTlTipFtr {
+    float: right;
+    height: auto;
+    background-color: #FFFFFF;
+}
+
+.popupTopTextDrag, .popupTopTextModal {
+    margin: 2px 0 0 4px;
+    display: inline;
+    float: left;
+}
+
+.popupTopClose, .popupTopCloseModal {
+    vertical-align: middle;
+    display: inline;
+    float: right;
+}
+
+.popupContentText {
+    display: block;
+}
+
+/*
+    Classes for the connection status indicator
+*/
+
+.iceOutConStatInactv, .iceOutConStatActv, .iceOutConStatCaution, .iceOutConStatDisconnect {
+    height: 33px;
+    width: 33px;
+    position: absolute;
+    margin-left: -10px;
+}
+
+.iceOutConStat {
+    margin: 10px;
+    width: 25px;
+    height: 25px;
+    border: none;
+    font-size: .5em;
+}
+
+.iceOutConStatInactv {
+    background: url( './css-images/connect_idle.gif' ) no-repeat center top;
+}
+
+.iceOutConStatActv {
+    background: url( './css-images/connect_active.gif' ) no-repeat center top;
+}
+
+.iceOutConStatCaution {
+    background: url( './css-images/connect_caution.gif' ) no-repeat center top;
+}
+
+.iceOutConStatDisconnect {
+    background: url( './css-images/connect_disconnected.gif' ) no-repeat center top;
+}
+
+/* XP Disabled styles CSS Document  v1.0 mar 31 2006 */
+
+.iceCmdBtn-dis {
+    background: #BAC4D1 url(../images/button/primary-disabled.gif) repeat-x scroll center top;
+    border-color: #B5BDC6 rgb(167, 175, 184) rgb(153, 160, 168);
+    color:#777E86;
+}
+
+.iceCmdLnk-dis, .iceOutLnk-dis {
+    color: #ABABAB;
+    text-decoration: none;
+    border-bottom: 1px dotted #CCCCCC;
+    cursor: default;
+}
+
+.iceOutTxt-dis, .iceOutLbl-dis {
+    color: #ABABAB;
+    text-decoration: none;
+    border-bottom: 1px dotted #CCCCCC;
+    cursor: default;
+}
+
+.iceInpTxt-dis, .iceInpSecrt-dis, iceInpTxtArea-dis {
+    color: #ABABAB;
+    cursor: default;
+    border: 1px dotted #CCCCCC;
+}
+
+.iceSelMnyCb-dis {
+    background-color: #CCCCCC;
+    padding: 2px;
+    margin: 2px;
+    cursor: default;
+    color: #CCCCCC;
+    border: none;
+}
+
+.iceSelOneMnu-dis, .iceSelMnyLb-dis, .iceSelMnyMnu-dis, .iceSelOneLb-dis {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #CCCCCC;
+    padding: 2px;
+    font-size: .95em;
+    cursor: default;
+    border: none;
+}
+
+.iceSelOneRb-dis {
+    background-color: #CCCCCC;
+    padding: 2px;
+    margin: 2px;
+    cursor: default;
+    color: #444444;
+    border: none;
+}
+
+.iceInpFileTxt-dis {
+    border: none;
+    background-color: #FFFFFF;
+    margin: 2px;
+    padding: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #CCCCCC;
+    cursor: default;
+}
+
+.iceInpFileBtn-dis {
+    border: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+    margin: 2px;
+    padding: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #CCCCCC;
+    cursor: default;
+}
+
+/* submenu disabled style classes */
+.iceSubMenuRowLabel-dis {
+    color: #ABABAB;
+    text-decoration: none;
+    cursor: default;
+}
+
+.iceSubMenuRow-dis {
+    color: #ABABAB;
+    text-decoration: none;
+    cursor: default;
+    padding: 0px;
+    display: block;
+    height: auto;
+}
+
+.iceSubMenuRow-dis a {
+    color: #333333;
+    text-decoration: none;
+    cursor: default;
+    display: block;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+}
+
+.iceSubMenuRow-dis a:hover {
+    color: #ABABAB;
+    text-decoration: none;
+    border-bottom: 1px dotted #CCCCCC;
+    cursor: default;
+}
+
+/* panel tabs disabled style classes */
+.icePnlTbOff {
+/* was iceTabSetTabOff*/
+
+}
+
+.icePnlTbOff .LftTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-left-top-dis.gif" );
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+    height: 4px;
+}
+
+.icePnlTbOff .MidTop-dis {
+    background-color: #DEDEDE;
+    background-image: url( './css-images/off-mid-top-dis.gif' );
+    background-repeat: repeat-x;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+}
+
+.icePnlTbOff .RtTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-right-top-dis.gif" );
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+}
+
+.icePnlTbOff .LftMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-left-mid.gif");
+    background-repeat:no-repeat;*/
+    text-align: center;
+    padding-top: 15px;
+    border: none;
+}
+
+.icePnlTbOff .MidMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-mid-mid.gif");
+    background-repeat:repeat-x;*/
+    text-align: center;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: none;
+    white-space: nowrap;
+    color: #ABABAB;
+}
+
+.icePnlTbOff .MidMid-dis a {
+    text-decoration: none;
+    color: #ABABAB;
+    cursor: default;
+
+}
+
+.icePnlTbOff .RtMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-right-mid.gif");
+    background-repeat:no-repeat;*/
+    text-align: center;
+    padding-top: 15px;
+    border: none;
+}
+
+.icePnlTbOff .LftBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-left-bot.gif" );
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.icePnlTbOff .MidBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-mid-bot.gif" );
+    background-repeat: repeat-x;
+    border: none;
+}
+
+.icePnlTbOff .RtBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-right-bot.gif" );
+    background-repeat: no-repeat;
+    border: none;
+}
+
+/* disabled bottom tab off */
+.icePnlTbOffBtm .LftBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-left-top-dis.gif" );
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+    height: 4px;
+}
+
+.icePnlTbOffBtm .MidBtm-dis {
+    background-color: #DEDEDE;
+    background-image: url( './css-images/off-mid-top-dis.gif' );
+    background-repeat: repeat-x;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+}
+
+.icePnlTbOffBtm .RtBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-right-top-dis.gif" );
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+}
+
+.icePnlTbOffBtm .LftMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-left-mid.gif");
+    background-repeat:no-repeat;*/
+    text-align: center;
+    padding-top: 15px;
+    border: none;
+}
+
+.icePnlTbOffBtm .MidMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-mid-mid.gif");
+    background-repeat:repeat-x;*/
+    text-align: center;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: none;
+    white-space: nowrap;
+    color: #ABABAB;
+}
+
+.icePnlTbOffBtm .MidMid-dis a {
+    text-decoration: none;
+    color: #ABABAB;
+    cursor: default;
+
+}
+
+.icePnlTbOffBtm .RtMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-right-mid.gif");
+    background-repeat:no-repeat;*/
+    text-align: center;
+    padding-top: 15px;
+    border: none;
+}
+
+.icePnlTbOffBtm .LftTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-left-bot.gif" );
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.icePnlTbOffBtm .MidTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-mid-bot.gif" );
+    background-repeat: repeat-x;
+    border: none;
+}
+
+.icePnlTbOffBtm .RtTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-right-bot.gif" );
+    background-repeat: no-repeat;
+    border: none;
+}
+
+/* disabled bottom tab on */
+
+.icePnlTbOnBtm .LftBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-left-top-dis.gif" );
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+    height: 4px;
+}
+
+.icePnlTbOnBtm .MidBtm-dis {
+    background-color: #DEDEDE;
+    background-image: url( './css-images/off-mid-top-dis.gif' );
+    background-repeat: repeat-x;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+}
+
+.icePnlTbOnBtm .RtBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-right-top-dis.gif" );
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+}
+
+.icePnlTbOnBtm .LftMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-left-mid.gif");
+    background-repeat:no-repeat;*/
+    text-align: center;
+    padding-top: 15px;
+    border: none;
+}
+
+.icePnlTbOnBtm .MidMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-mid-mid.gif");
+    background-repeat:repeat-x;*/
+    text-align: center;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: none;
+    white-space: nowrap;
+    color: #ABABAB;
+}
+
+.icePnlTbOnBtm .MidMid-dis a {
+    text-decoration: none;
+    color: #ABABAB;
+    cursor: default;
+}
+
+.icePnlTbOnBtm .RtMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-right-mid.gif");
+    background-repeat:no-repeat;*/
+    text-align: center;
+    padding-top: 15px;
+    border: none;
+}
+
+.icePnlTbOnBtm .LftTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-left-bot.gif" );
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.icePnlTbOnBtm .MidTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-mid-bot.gif" );
+    background-repeat: repeat-x;
+    border: none;
+}
+
+.icePnlTbOnBtm .RtTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-right-bot.gif" );
+    background-repeat: no-repeat;
+    border: none;
+}
+
+/* tab on disabled */
+.icePnlTbOn {
+
+}
+
+.icePnlTbOn .LftTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-left-top-dis.gif" );
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+    height: 4px;
+}
+
+.icePnlTbOn .MidTop-dis {
+    background-color: #DEDEDE;
+    background-image: url( './css-images/off-mid-top-dis.gif' );
+    background-repeat: repeat-x;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+}
+
+.icePnlTbOn .RtTop-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-right-top-dis.gif" );
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-align: center;
+    padding-top: 1px;
+    border: none;
+}
+
+.icePnlTbOn .LftMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-left-mid.gif");
+    background-repeat:no-repeat;*/
+    text-align: center;
+    padding-top: 15px;
+    border: none;
+}
+
+.icePnlTbOn .MidMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-mid-mid.gif");
+    background-repeat:repeat-x;*/
+    text-align: center;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: none;
+    white-space: nowrap;
+    color: #ABABAB;
+}
+
+.icePnlTbOn .MidMid-dis a {
+    text-decoration: none;
+    color: #ABABAB;
+    cursor: default;
+}
+
+.icePnlTbOn .RtMid-dis {
+    background-color: #DEDEDE;
+    /*    background-image: url("./css-images/off-right-mid.gif");
+    background-repeat:no-repeat;*/
+    text-align: center;
+    padding-top: 15px;
+    border: none;
+}
+
+.icePnlTbOn .LftBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-left-bot.gif" );
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.icePnlTbOn .MidBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-mid-bot.gif" );
+    background-repeat: repeat-x;
+    border: none;
+}
+
+.icePnlTbOn .RtBtm-dis {
+    background-color: transparent;
+    background-image: url( "./css-images/off-right-bot.gif" );
+    background-repeat: no-repeat;
+    border: none;
+}
+
+/*
+data scroller classes disabled styles
+*/
+.sclBtnCell-dis {
+/* the cells behind the scroll buttons */
+    background-color: #FFFFFF;
+    padding: 2px;
+}
+
+.sclBtnCell-dis img {
+    cursor: default;
+}
+
+.icePaginatorTbl-dis {
+/* the container for the pagination*/
+    background-color: #FFFFFF;
+}
+
+/* set the common attributes for the pagination numbers */
+.icePaginatorAtvCol-dis a, .icePaginatorCol-dis a {
+    text-decoration: none;
+    font-weight: normal;
+    background-color: #FFFFFF;
+    color: #ABABAB;
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #FFFFFF;
+    cursor: default;
+}
+
+/* override the attributes for the currently selected page */
+.icePaginatorAtvCol-dis a {
+    color: #ABABAB;
+    /*    border:1px solid #2A6CC2;
+        background-color:#2A6CC2;
+    */
+    cursor: default;
+}
+
+/* set the attributes for the mouseover on none-current pages */
+.icePaginatorCol-dis a:hover {
+    /*    color:#000000;
+  border:1px solid #2A6CC2;*/
+}
+
+/*
+Disabled classes for the calendar controls
+*/
+
+.iceSelInpDate-dis {
+/* calendar outline & background color */
+    background-color: #FFFFFF;
+    border: 1px solid #DEDEDE; /* removed margin from calendar outline - better absolute positioning of popup */
+/*margin:10px;*/
+}
+
+.iceSelInpDateMonthYear-dis {
+    background-color: #EFEFEF;
+    /*    background-image: url("./css-images/table_col_header.gif");
+    background-position:bottom;
+    background-repeat:repeat-x;*/
+    font-weight: normal;
+    text-align: center;
+    color: #999999;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 4px;
+    padding-bottom: 4px; /*border-right:1px solid #CCCCCC;*/
+}
+
+.iceSelInpDateMoYrDropdown-dis {
+    background-color: #EFEFEF;
+    color: #999999;
+}
+
+.iceSelInpDateMonthYear-dis img {
+    cursor: default;
+}
+
+.iceSelInpDateWeek-dis {
+/* the days of the week row */
+    font-weight: normal;
+    color: #999999;
+    background-color: #EFEFEF;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-bottom: 1px solid #ABABAB;
+}
+
+/* set the look for the days of the week backgrounds */
+.iceSelInpDateDay-dis, .iceSelInpDateCur-dis {
+/* the background & alignment for the days */
+    padding: 3px;
+    text-align: center;
+}
+
+/* now set the attributes for the numbers for each day of the week */
+.iceSelInpDateDay-dis a {
+/* the day text */
+    text-decoration: none;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    color: #ABABAB;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    display: block;
+    cursor: default;
+}
+
+.iceSelInpDateCur-dis a {
+    text-decoration: none;
+    background-color: #ABABAB;
+    border: 1px solid #ABABAB;
+    color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    display: block;
+    cursor: default;
+}
+
+/*
+----------- commandSortHeader ----------
+*/
+.iceCmdSrtHdr {
+    text-decoration: none; /*border: 1px solid #ABABAB;*/
+    color: #333333;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    display: block;
+}
+
+.iceCmdSrtHdr-dis {
+    text-decoration: none; /*border: 1px solid #ABABAB;*/
+    color: #999999;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    display: block;
+    cursor: default;
+}
+
+/* IE specific CSS to enlarge clickable area of SortHeader links */
+* html .iceCmdSrtHdr {
+    height: 1%;
+}
+
+/*
+----------- form ----------
+*/
+.iceFrm {
+
+}
+
+/*
+----------- graphicImage ----------
+*/
+.iceGphImg {
+
+}
+
+/*
+----------- message ----------
+*/
+.iceMsg {
+
+}
+
+.iceMsgFatal {
+
+}
+
+.iceMsgError {
+
+}
+
+.iceMsgWarn {
+
+}
+
+.iceMsgInfo {
+
+}
+
+/*
+----------- messages ----------
+*/
+.iceMsgs {
+
+}
+
+.iceMsgsFatal {
+
+}
+
+.iceMsgsError {
+
+}
+
+.iceMsgsWarn {
+
+}
+
+.iceMsgsInfo {
+
+}
+
+/*
+----------- panelGrid ----------
+*/
+.icePnlGrd {
+
+}
+
+.icePnlGrdHdr {
+
+}
+
+.icePnlGrdFtr {
+
+}
+
+.icePnlGrdRow1 {
+
+}
+
+.icePnlGrdRow2 {
+
+}
+
+.icePnlGrdCol1 {
+
+}
+
+.icePnlGrdCol2 {
+
+}
+
+/*
+----------- panelGroup ----------
+*/
+.icePnlGrp {
+
+}
+
+/*
+----------- outputFormat ----------
+*/
+.iceOutFrmt {
+
+}
+
+/*
+----------- tree ----------
+*/
+.iceTree {
+
+}
+
+.iceTreeRow {
+
+}
+
+/*
+----------- panelSeries ----------
+*/
+.icePnlSrs {
+
+}
+
+/*
+----------- positionedPanel ----------
+*/
+.icePnlPos {
+
+}
+
+.icePnlPos-dis {
+
+}
+
+/*
+----------- positionedPanel ----------
+*/
+.icePnlStk {
+}
+
+.icePnlStkRow {
+}
+
+.icePnlStkCol {
+}
+
+/*
+----------- panelTab header ----------
+*/
+.icePnlTbSetHdrIconLft {
+    display: none;
+    width: 0;
+    height: 0;
+
+}
+
+.icePnlTbSetHdrIconRt {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.icePnlTbSetHdrLbl {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    white-space: nowrap;
+}
+
+/*
+----------- Table Row Selection --------
+*/
+.iceRowSelSelected {
+    background: #90B7D0;
+}
+.iceRowSelSelected .iceOutTxt {
+    color: #000000;
+}
+.iceRowSelSelectedMouseOver {
+    background: #6D8B9E;
+}
+.iceRowSelSelectedMouseOver  .iceOutTxt {
+    color: #FFFFFF;
+}
+.iceRowSelMouseOver {
+    background: #6D8B9E;
+}
+.iceRowSelMouseOver .iceOutTxt {
+    color: #FFFFFF;
+}
+
+/*
+----------- outputChart --------
+*/
+
+.iceOutChrt {
+
+}
+
+/*
+----------- Panel Collapsible --------
+*/
+
+.icePnlClpsbl, .icePnlClpsbl-dis {
+    border: none;
+}
+
+.icePnlClpsblCnt {
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+}
+
+.icePnlClpsblHdr, .icePnlClpsblHdr-dis,
+.icePnlClpsblColpsdHdr, .icePnlClpsblColpsdHdr-dis {
+    color: #000000;
+    font-weight: bold;
+    height: 18px;
+    line-height: 18px;
+    background: #E1E5E8 url(./css-images/table2/column_gradient.png) repeat-x top left;
+    border: 1px solid #8C8F91;
+}
+
+.icePnlClpsblCnt, .icePnlClpsblCnt-dis {
+    background: #FFFFFF;
+    padding: 4px 4px 4px 9px;
+}
+
+.icePnlClpsblColpsdHdr .iceOutTxt, .icePnlClpsblHdr .iceOutTxt, 
+.icePnlClpsblColpsdHdr-dis .iceOutTxt, .icePnlClpsblHdr-dis .iceOutTxt {
+    padding-left: 22px;
+}
+
+.icePnlClpsblHdr, .icePnlClpsblColpsdHdr {
+    cursor: pointer;
+}
+
+.icePnlClpsblHdr-dis, .icePnlClpsblColpsdHdr-dis {
+    cursor: default;
+}
+
+.icePnlClpsblHdr div, .icePnlClpsblHdr-dis div, .icePnlClpsblColpsdHdr div, .icePnlClpsblColpsdHdr-dis div {
+    height: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+.icePnlClpsblHdr div {
+    background: url( './css-images/PnlHdr_down.gif' ) no-repeat top left;
+}
+
+.icePnlClpsblHdr-dis div {
+    background: url( './css-images/PnlHdr_down_dis.gif' ) no-repeat top left;
+}
+
+.icePnlClpsblColpsdHdr div {
+    background: url( './css-images/PnlHdr_collapsed.gif' ) no-repeat top left;
+}
+
+.icePnlClpsblColpsdHdr-dis div {
+    background: url( './css-images/PnlHdr_collapsed_dis.gif' ) no-repeat top left;
+}
+
+.icePnlClpsbl-dis, .icePnlClpsblHdr-dis, .icePnlClpsblCnt-dis,
+.icePnlClpsblColpsd-dis, .icePnlClpsblColpsdHdr-dis, .icePnlClpsblColpsdCnt-dis{
+    color: #000000;
+}
+
+.icePnlClpsblHdr-dis .iceOutTxt, .icePnlClpsblCnt-dis .iceOutTxt,
+.icePnlClpsblColpsdHdr-dis .iceOutTxt, .icePnlClpsblColpsdCnt-dis .iceOutTxt {
+    color: #000000;
+}
+
+.icePnlClpsblHdr img, .icePnlClpsblColpsdHdr img {
+    border: 0;
+}
+
+/*
+----------- Google Maps --------
+*/
+
+.iceGmp{
+    border-collapse:collapse;
+    border-spacing:0px;
+    padding:0px;
+}
+
+.iceGmpMapTd {
+    vertical-align: top;
+}
+
+.iceGmpMapTd div.gmap {
+    width: 600px;
+    height: 400px;
+}
+
+.iceInpRchTxt {
+    width: 100%;
+}
+
+/* panel divider */
+.icePnlDvr, .icePnlDvrHor {
+    width: 800px;
+    height: 400px;
+}
+
+.icePnlDvrCnt, .icePnlDvrHorCnt {
+    border: 1px solid #ABABAB;
+    /*width: 100%;*/
+    height: 100%;
+}
+
+.icePnlDvrFst, .icePnlDvrSnd {
+    height: 100%;
+    display: block;
+    float: left;
+    overflow: auto;
+}
+
+.icePnlDvrSpt {
+    width: 2px;
+    height: 100%;
+    display: inline;
+    background-color: #EFEFEF;
+    border-left: 1px solid #ABABAB;
+    border-right: 1px solid #ABABAB;
+    float: left;
+    cursor: e-resize;
+}
+
+.icePnlDvrHorFst, .icePnlDvrHorSnd {
+    width: 100%;
+    display: block;
+    overflow: auto;
+    display: block;
+}
+
+.icePnlDvrHorSpt {
+    width: 100%;
+    height: 2px;
+    background-color: #EFEFEF;
+    border-top: 1px solid #ABABAB;
+    border-bottom: 1px solid #ABABAB;
+    cursor: n-resize;
+}
+
+.iceSelMnyCb input, .iceSelOneRb input, .iceSelBoolChkbx {
+    margin: 0 5px 2px 2px;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/*
+----------- PanelConfirmation ----------
+*/
+
+.icePnlCnf {
+    background-color: #F5F5F5;
+    border: 1px solid #d9d9d9;
+    width: 300px;
+    padding: 0;
+    z-index: 1000;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.icePnlCnfHdr {
+    background: #FFF url( './css-images/PnlHdr_bgslice.gif' ) repeat-x top left;
+    border-bottom: 1px solid #d9d9d9;
+    height: 2.0em;
+    padding: 4px;
+    text-align: left;
+    vertical-align: middle;
+    font: 11px tahoma;
+    color: #484848;
+    font-weight: bold;
+}
+
+.icePnlCnfBody {
+    padding: 10px 10px 5px 10px;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.icePnlCnfBtns {
+    padding: 5px 10px 10px 10px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.icePnlCnfBtns input {
+    margin: 0 20px 0 20px;
+}
+
+.icePnlTbLblLnk img {
+    border: 0;
+}

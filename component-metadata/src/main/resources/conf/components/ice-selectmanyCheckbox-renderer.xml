@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+	<description>
+	<![CDATA[<p>Render an HTML checkbox list.</p><p><a name="decode">Decode Behavior</a></p><ul><p>See the <a href="javax.faces.SelectManyjavax.faces.Listbox.html#decodeMany">"Decode
+          Behavior for UISelectMany Components"</a> section.</p></ul><p>Encode Behavior</p><ul><p>Render a "table" element.  If the "styleClass" is specified, render the 
+          value of the "styleClass" attribute as the value of the "class" attribute 
+          on the "table" element. If the "style", "border" attributes are specified,
+          pass them thru.  If the "layout" attribute is specified, and its
+          value is "spread", let the checkbox tag do the rendering.
+          If the "layout" attribute is specified, and its
+          value is "pageDirection", render the children elements vertically,
+          otherwise horizontally, in the table.  If any of the children are
+          an instance of SelectItemGroup, render them as a nested table.
+          Each of the children are ultimately rendered as follows.  Render
+          a "label" element. Inside of the "label", render an "input" element
+          of "type" "checkbox" for each child component.  As an exception to
+          the general rules about how to handle the "id" attribute, render it
+          as an attribute on the outer "table" element, the value of which is the 
+          <code>clientId</code> of the component per the rules at the beginning 
+          of this specification.The "id" attribute must not be output on each "input" 
+          element. The value of the current SelectItem is rendered as the value of
+          the "value" attribute.  If the value of the enclosing UISelectMany
+          matches the current value, render "checked" as the value of the
+          "checked" attribute.  If the current SelectItem.isDisabled()
+          returns true, render "disabled" as the value of the "disabled"
+          attribute.  Close out the "input" element and render the return
+          value from SelectItem.getLabel().  Close out the "label" element
+          and any other nested elements.  See the <a href="javax.faces.SelectManyjavax.faces.Listbox.html#options">"Rendering
+          the option elements" </a> specification for
+          <code>ListboxRenderer</code> for more detail on how to render the
+          "option" elements in this renderer.</p></ul>]]>
+	</description>
+	<component-family>javax.faces.SelectMany</component-family>
+
+	<renderer-type>com.icesoft.faces.Checkbox</renderer-type>
+
+	<renderer-extension>
+		<instance-name>selectManyCheckbox</instance-name>
+		<is-container>true</is-container>
+		<renders-children>true</renders-children>
+		<tag-name>selectManyCheckbox</tag-name>
+		<taglib-prefix>@taglib-prefix@</taglib-prefix>
+		<taglib-uri>@taglib-uri@</taglib-uri>
+	</renderer-extension>
+
+</renderer>

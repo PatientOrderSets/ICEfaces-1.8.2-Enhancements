@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.InputRichText</component-type>
+    <component-class>com.icesoft.faces.component.inputrichtext.InputRichText</component-class>
+</component>  

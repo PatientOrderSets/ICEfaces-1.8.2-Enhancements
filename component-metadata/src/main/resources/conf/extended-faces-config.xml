@@ -1,0 +1,683 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<!-- ================== ICEfaces Component METADATA  ========================== -->
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Overlay 1.1//EN"
+  "dtd/web-facesconfig-overlay_1_1.dtd"
+  [   
+  
+  <!-- include componet properties  -->
+  <!ENTITY actionsource-props       SYSTEM "properties/actionsource-props.xml">
+  <!ENTITY valueholder-props        SYSTEM "properties/valueholder-props.xml">
+  <!ENTITY editable-props           SYSTEM "properties/editable-props.xml">
+  <!ENTITY uicomponent-props        SYSTEM "properties/uicomponent-props.xml">
+
+  <!ENTITY converter-props        SYSTEM "properties/converter-props.xml">
+  <!ENTITY required-props        SYSTEM "properties/required-props.xml">
+  <!ENTITY validator-props        SYSTEM "properties/validator-props.xml">
+  <!ENTITY valuechangelistener-props        SYSTEM "properties/valuechangelistener-props.xml">
+  <!ENTITY input-common-props       SYSTEM "properties/input-common-props.xml">
+  <!ENTITY message-common-props     SYSTEM "properties/message-common-props.xml">    
+  <!ENTITY escape-props        		SYSTEM "properties/escape-props.xml"> 
+  <!ENTITY select-common-props      SYSTEM "properties/select-common-props.xml">     
+  <!ENTITY uicolumn-props           SYSTEM "properties/uicolumn-props.xml">
+  <!ENTITY uicommand-props          SYSTEM "properties/uicommand-props.xml">
+  <!ENTITY uicommand-novalue-props  SYSTEM "properties/uicommand-novalue-props.xml">
+  <!ENTITY uidata-props             SYSTEM "properties/uidata-props.xml">
+  <!ENTITY uiform-props             SYSTEM "properties/uiform-props.xml">
+  <!ENTITY uigraphic-props          SYSTEM "properties/uigraphic-props.xml">
+  <!ENTITY uimessage-props          SYSTEM "properties/uimessage-props.xml">
+  <!ENTITY uimessages-props         SYSTEM "properties/uimessages-props.xml">
+  <!ENTITY uinamingcontainer-props  SYSTEM "properties/uinamingcontainer-props.xml">
+  <!ENTITY uioutput-props           SYSTEM "properties/uioutput-props.xml">
+  <!ENTITY uipanel-props            SYSTEM "properties/uipanel-props.xml">
+  <!ENTITY uiparameter-props        SYSTEM "properties/uiparameter-props.xml">
+  <!ENTITY uiselectitem-props       SYSTEM "properties/uiselectitem-props.xml">
+  <!ENTITY uiselectitems-props      SYSTEM "properties/uiselectitems-props.xml">
+  <!ENTITY uiviewroot-props         SYSTEM "properties/uiviewroot-props.xml">
+
+  <!ENTITY uiinput-props            SYSTEM "properties/uiinput-props.xml">
+  <!ENTITY uiselectboolean-props    SYSTEM "properties/uiselectboolean-props.xml">
+  <!ENTITY uiselectmany-props       SYSTEM "properties/uiselectmany-props.xml">
+  <!ENTITY uiselectone-props        SYSTEM "properties/uiselectone-props.xml">
+
+  <!ENTITY value-props              SYSTEM "properties/value-props.xml">
+  <!ENTITY input-value-props        SYSTEM "properties/input-value-props.xml">
+  <!ENTITY series-value-props       SYSTEM "properties/series-value-props.xml">
+  <!ENTITY core-props               SYSTEM "properties/core-props.xml">
+  <!ENTITY events-props             SYSTEM "properties/events-props.xml">
+  <!ENTITY focus-props              SYSTEM "properties/focus-props.xml">
+  <!ENTITY i18n-props               SYSTEM "properties/i18n-props.xml">
+  <!ENTITY input-props              SYSTEM "properties/input-props.xml">
+  <!ENTITY link-props               SYSTEM "properties/link-props.xml">
+  <!ENTITY list-props               SYSTEM "properties/list-props.xml">
+  <!ENTITY listbox-props            SYSTEM "properties/listbox-props.xml">
+  <!ENTITY table-props              SYSTEM "properties/table-props.xml">
+  <!ENTITY text-props               SYSTEM "properties/text-props.xml">
+  <!ENTITY base-props               SYSTEM "properties/base-props.xml">
+
+  <!ENTITY command-button-props     SYSTEM "properties/command-button-props.xml">
+  <!ENTITY form-form-props          SYSTEM "properties/form-form-props.xml">
+  <!ENTITY graphic-image-props      SYSTEM "properties/graphic-image-props.xml">
+  <!ENTITY input-secret-props       SYSTEM "properties/input-secret-props.xml">
+  <!ENTITY input-textarea-props     SYSTEM "properties/input-textarea-props.xml">
+  <!ENTITY message-message-props    SYSTEM "properties/message-message-props.xml">
+  <!ENTITY messages-messages-props  SYSTEM "properties/messages-messages-props.xml">
+  <!ENTITY output-format-props      SYSTEM "properties/output-format-props.xml">
+  <!ENTITY output-label-props       SYSTEM "properties/output-label-props.xml">
+  <!ENTITY output-text-props        SYSTEM "properties/output-text-props.xml">
+  <!ENTITY panel-grid-props         SYSTEM "properties/panel-grid-props.xml">
+  <!ENTITY panel-group-props        SYSTEM "properties/panel-group-props.xml">
+  <!ENTITY selectmany-checkbox-props SYSTEM "properties/selectmany-checkbox-props.xml">
+  <!ENTITY selectone-radio-props    SYSTEM "properties/selectone-radio-props.xml">
+  
+    <!-- pass thru properties  -->  
+  <!ENTITY pass-thru-accesskey-props	SYSTEM "properties/pass-thru/accesskey-props.xml">
+  <!ENTITY pass-thru-alt-props      	SYSTEM "properties/pass-thru/alt-props.xml">
+  <!ENTITY pass-thru-dir-props      	SYSTEM "properties/pass-thru/dir-props.xml">
+  <!ENTITY pass-thru-lang-props 		SYSTEM "properties/pass-thru/lang-props.xml">
+  <!ENTITY pass-thru-tabindex-props    	SYSTEM "properties/pass-thru/tabindex-props.xml">
+  <!ENTITY pass-thru-title-props    	SYSTEM "properties/pass-thru/title-props.xml">
+  <!ENTITY pass-thru-disabled-props    	SYSTEM "properties/pass-thru/disabled-props.xml">
+  <!ENTITY pass-thru-onblur-props    	SYSTEM "properties/pass-thru/onblur-props.xml">
+  <!ENTITY pass-thru-onchange-props    	SYSTEM "properties/pass-thru/onchange-props.xml">
+  <!ENTITY pass-thru-onfocus-props    	SYSTEM "properties/pass-thru/onfocus-props.xml">
+  <!ENTITY pass-thru-onselect-props    	SYSTEM "properties/pass-thru/onselect-props.xml">    
+  <!ENTITY pass-thru-readonly-props    	SYSTEM "properties/pass-thru/readonly-props.xml">    
+  <!ENTITY pass-thru-accept-props    	SYSTEM "properties/pass-thru/accept-props.xml">      
+  <!ENTITY pass-thru-maxlength-props    SYSTEM "properties/pass-thru/maxlength-props.xml">      
+  <!ENTITY pass-thru-rel-props    		SYSTEM "properties/pass-thru/rel-props.xml">      
+  <!ENTITY pass-thru-coords-props    	SYSTEM "properties/pass-thru/coords-props.xml">      
+  <!ENTITY pass-thru-hreflang-props    	SYSTEM "properties/pass-thru/hreflang-props.xml">      
+  <!ENTITY pass-thru-charset-props    	SYSTEM "properties/pass-thru/charset-props.xml">      
+  <!ENTITY pass-thru-rev-props    		SYSTEM "properties/pass-thru/rev-props.xml">      
+  <!ENTITY pass-thru-shape-props    	SYSTEM "properties/pass-thru/shape-props.xml">        
+  
+  <!-- properties -->
+  <!ENTITY panelBorder-core-props    SYSTEM "properties/panelBorder-core-props.xml">
+  <!ENTITY panelstack-core-props    SYSTEM "properties/panelstack-core-props.xml">
+  <!ENTITY fileupload-core-props    SYSTEM "properties/fileupload-core-props.xml">
+  <!ENTITY outputprogress-core-props    SYSTEM "properties/outputprogress-core-props.xml">
+  <!ENTITY outputConnectionStatus-core-props    SYSTEM "properties/outputConnectionStatus-core-props.xml">
+
+      
+  <!-- ICE core properties for each instance of the extended component -->
+  <!ENTITY ice-att-style-props SYSTEM "ice_properties/ice-att-style-props.xml">
+  <!ENTITY ice-att-menuPopup-props SYSTEM "ice_properties/ice-att-menuPopup-props.xml">
+  <!ENTITY ice-att-contextValue-props SYSTEM "ice_properties/ice-att-contextValue-props.xml">
+  <!ENTITY ice-att-displayListener-props SYSTEM "ice_properties/ice-att-displayListener-props.xml">
+  <!ENTITY ice-att-varStatus-props SYSTEM "ice_properties/ice-att-varstatus-props.xml">
+  <!ENTITY ice-att-title-props SYSTEM "ice_properties/ice-att-title-props.xml">
+  <!ENTITY ice-att-immediate-props SYSTEM "ice_properties/ice-att-immediate-props.xml">
+  <!ENTITY ice-att-autoComplete-props SYSTEM "ice_properties/ice-att-autoComplete-props.xml">
+  <!ENTITY ice-att-partialsubmit-props SYSTEM "ice_properties/ice-att-partialsubmit-props.xml">
+  <!ENTITY ice-att-partialsubmit-true-props SYSTEM "ice_properties/ice-att-partialsubmit-true-props.xml">
+  <!ENTITY ice-att-userrole-enabled-props SYSTEM "ice_properties/ice-att-userrole-enabled-props.xml">
+  <!ENTITY ice-att-userrole-rendered-props SYSTEM "ice_properties/ice-att-userrole-rendered-props.xml">
+  <!ENTITY ice-att-visible-props SYSTEM "ice_properties/ice-att-visible-props.xml">
+  <!ENTITY ice-effects-props SYSTEM "ice_properties/ice-effects-props.xml">
+  <!ENTITY ice-effects-noeffect-props SYSTEM "ice_properties/ice-effects-noeffect-props.xml">
+  <!ENTITY ice-ext-core-props SYSTEM "ice_properties/ice-ext-core-props.xml">
+  <!ENTITY ice-ext-core-styled-props SYSTEM "ice_properties/ice-ext-core-styled-props.xml">
+
+  <!-- extended components properties-->
+  <!ENTITY ice-outputHtml-props SYSTEM "ice_properties/ice-outputHtml-props.xml">
+  <!ENTITY ice-outputBody-props SYSTEM "ice_properties/ice-outputBody-props.xml">
+  <!ENTITY ice-outputHead-props SYSTEM "ice_properties/ice-outputHead-props.xml">
+  <!ENTITY ice-commandButton-props SYSTEM "ice_properties/ice-commandButton-props.xml">
+  <!ENTITY ice-commandLink-props SYSTEM "ice_properties/ice-commandLink-props.xml">
+  <!ENTITY ice-dataTable-props SYSTEM "ice_properties/ice-dataTable-props.xml">
+  <!ENTITY ice-form-props SYSTEM "ice_properties/ice-form-props.xml">
+  <!ENTITY ice-graphicImage-props SYSTEM "ice_properties/ice-graphicImage-props.xml">
+  <!ENTITY ice-inputSecret-props SYSTEM "ice_properties/ice-inputSecret-props.xml">
+  <!ENTITY ice-inputText-props SYSTEM "ice_properties/ice-inputText-props.xml">
+  <!ENTITY ice-headerrow-props SYSTEM "ice_properties/ice-headerrow-props.xml">
+  <!ENTITY ice-columngroup-props SYSTEM "ice_properties/ice-columngroup-props.xml">
+  <!ENTITY ice-uicolumn-props SYSTEM "ice_properties/ice-uicolumn-props.xml">
+  <!ENTITY ice-uicolumns-props SYSTEM "ice_properties/ice-uicolumns-props.xml">
+  
+  <!ENTITY ice-inputHidden-props SYSTEM "ice_properties/ice-inputHidden-props.xml">  
+  
+  <!ENTITY ice-inputTextarea-props SYSTEM "ice_properties/ice-inputTextarea-props.xml">
+  <!ENTITY ice-message-props SYSTEM "ice_properties/ice-message-props.xml">
+  <!ENTITY ice-messages-props SYSTEM "ice_properties/ice-messages-props.xml">
+  <!ENTITY ice-outputLabel-props SYSTEM "ice_properties/ice-outputLabel-props.xml">
+  <!ENTITY ice-outputLink-props SYSTEM "ice_properties/ice-outputLink-props.xml">
+  <!ENTITY ice-outputText-props SYSTEM "ice_properties/ice-outputText-props.xml">
+  <!ENTITY ice-panelGrid-props SYSTEM "ice_properties/ice-panelGrid-props.xml">  
+  <!ENTITY ice-panelGroup-props SYSTEM "ice_properties/ice-panelGroup-props.xml">
+  <!ENTITY ice-selectBooleanCheckbox-props SYSTEM "ice_properties/ice-selectBooleanCheckbox-props.xml">       
+  <!ENTITY ice-selectManyCheckbox-props SYSTEM "ice_properties/ice-selectManyCheckbox-props.xml">
+  <!ENTITY ice-checkbox-props SYSTEM "ice_properties/ice-checkbox-props.xml">
+  <!ENTITY ice-selectManyListbox-props SYSTEM "ice_properties/ice-selectManyListbox-props.xml">
+  <!ENTITY ice-selectManyMenu-props SYSTEM "ice_properties/ice-selectManyMenu-props.xml">
+  <!ENTITY ice-selectOneListbox-props SYSTEM "ice_properties/ice-selectOneListbox-props.xml">
+  <!ENTITY ice-selectOneMenu-props SYSTEM "ice_properties/ice-selectOneMenu-props.xml">
+  <!ENTITY ice-selectOneRadio-props SYSTEM "ice_properties/ice-selectOneRadio-props.xml">
+  <!ENTITY ice-radio-props SYSTEM "ice_properties/ice-radio-props.xml">
+  <!ENTITY ice-outputFormat-props SYSTEM "ice_properties/ice-outputFormat-props.xml">
+  
+  <!-- custom components properties -->
+  <!ENTITY ice-cust-outputchart-props SYSTEM "ice_cust_properties/cust-outputchart-props.xml">
+  <!ENTITY ice-cust-rowselector-props SYSTEM "ice_cust_properties/cust-rowselector-props.xml">
+  <!ENTITY ice-cust-table-props SYSTEM "ice_cust_properties/cust-table-props.xml">
+  <!ENTITY ice-cust-panelBorder-props SYSTEM "ice_cust_properties/cust-panelBorder-props.xml">
+  <!ENTITY ice-cust-datapaginator-props SYSTEM "ice_cust_properties/cust-datapaginator-props.xml">
+  <!ENTITY ice-cust-inputFile-props SYSTEM "ice_cust_properties/cust-inputFile-props.xml">
+  <!ENTITY ice-cust-gmap-props SYSTEM "ice_cust_properties/cust-gmap-props.xml">
+  <!ENTITY ice-cust-gMapLatLng-props SYSTEM "ice_cust_properties/cust-gMapLatLng-props.xml">
+  <!ENTITY ice-cust-gMapLatLngs-props SYSTEM "ice_cust_properties/cust-gMapLatLngs-props.xml">
+  <!ENTITY ice-cust-gMapMarker-props SYSTEM "ice_cust_properties/cust-gMapMarker-props.xml">  
+  <!ENTITY ice-cust-gMapControl-props SYSTEM "ice_cust_properties/cust-gMapControl-props.xml">
+  <!ENTITY ice-cust-gMapGeoXml-props SYSTEM "ice_cust_properties/cust-gMapGeoXml-props.xml">
+  <!ENTITY ice-cust-gMapDirection-props SYSTEM "ice_cust_properties/cust-gMapDirection-props.xml">
+  <!ENTITY ice-cust-inputRichText-props SYSTEM "ice_cust_properties/cust-inputRichText-props.xml">
+  <!ENTITY ice-cust-menunodecheckbox-props SYSTEM "ice_cust_properties/cust-menunodecheckbox-props.xml">
+  <!ENTITY ice-cust-menunode-props SYSTEM "ice_cust_properties/cust-menunode-props.xml">
+  <!ENTITY ice-cust-menunodeRadio-props SYSTEM "ice_cust_properties/cust-menunodeRadio-props.xml">
+  <!ENTITY ice-cust-menunodeSeparator-props SYSTEM "ice_cust_properties/cust-menunodeSeparator-props.xml">
+  <!ENTITY ice-cust-menunodes-props SYSTEM "ice_cust_properties/cust-menunodes-props.xml">
+  <!ENTITY ice-cust-menu-props SYSTEM "ice_cust_properties/cust-menu-props.xml">
+  <!ENTITY ice-cust-menuPopup-props SYSTEM "ice_cust_properties/cust-menuPopup-props.xml">
+  <!ENTITY ice-cust-outputConnectionStatus-props SYSTEM "ice_cust_properties/cust-outputConnectionStatus-props.xml">
+  <!ENTITY ice-cust-panelconfirmation-props SYSTEM "ice_cust_properties/cust-panelconfirmation-props.xml">
+  <!ENTITY ice-cust-panelpopup-props SYSTEM "ice_cust_properties/cust-panelpopup-props.xml">
+  <!ENTITY ice-cust-panelDivider-props SYSTEM "ice_cust_properties/cust-panelDivider-props.xml">  
+  <!ENTITY ice-cust-paneltooltip-props SYSTEM "ice_cust_properties/cust-paneltooltip-props.xml">
+  <!ENTITY ice-cust-panelSeries-props SYSTEM "ice_cust_properties/cust-panelSeries-props.xml">
+  <!ENTITY ice-cust-panelstack-props SYSTEM "ice_cust_properties/cust-panelstack-props.xml">
+  <!ENTITY ice-cust-paneltabset-props SYSTEM "ice_cust_properties/cust-paneltabset-props.xml">
+  <!ENTITY ice-cust-paneltab-props SYSTEM "ice_cust_properties/cust-paneltab-props.xml">
+  <!ENTITY ice-cust-outputprogress-props SYSTEM "ice_cust_properties/cust-outputprogress-props.xml">
+  <!ENTITY ice-cust-outputresource-props SYSTEM "ice_cust_properties/cust-outputresource-props.xml">
+  <!ENTITY ice-cust-selectInputDate-props SYSTEM "ice_cust_properties/cust-selectInputDate-props.xml">
+  <!ENTITY ice-cust-selectinputtext-props SYSTEM "ice_cust_properties/cust-selectinputtext-props.xml">
+  <!ENTITY ice-cust-sortheader-props SYSTEM "ice_cust_properties/cust-sortheader-props.xml">
+  <!ENTITY ice-cust-treenode-props SYSTEM "ice_cust_properties/cust-treenode-props.xml">
+  <!ENTITY ice-cust-tree-props SYSTEM "ice_cust_properties/cust-tree-props.xml">        
+  <!ENTITY ice-cust-outputDeclaration-props SYSTEM "ice_cust_properties/cust-outputDeclaration-props.xml">  
+  <!ENTITY ice-cust-style-props SYSTEM "ice_cust_properties/cust-style-props.xml">
+  <!ENTITY ice-cust-panelPositioned-props SYSTEM "ice_cust_properties/cust-panelPositioned-props.xml">
+  <!ENTITY ice-cust-portlet-props SYSTEM "ice_cust_properties/cust-portlet-props.xml">
+  <!ENTITY ice-cust-panelLayout-props SYSTEM "ice_cust_properties/cust-panelLayout-props.xml">
+  <!ENTITY ice-cust-loadbundle-props SYSTEM "ice_cust_properties/cust-loadbundle-props.xml">  
+  <!ENTITY ice-cust-dataExporter-props SYSTEM "ice_cust_properties/cust-dataExporter-props.xml">
+  
+  <!--
+  <!ENTITY ice-cust-inputOutputText-props SYSTEM "ice_cust_properties/cust-inputOutputText-props.xml">
+  -->
+  <!ENTITY ice-cust-outputMedia-props SYSTEM "ice_cust_properties/cust-outputMedia-props.xml">
+  <!ENTITY ice-cust-setEventPhase-props SYSTEM "ice_cust_properties/cust-setEventPhase-props.xml">
+
+  <!-- ICE Extended components -->
+  <!ENTITY ice-outputHtml-component   SYSTEM "components/ice-outputHtml-component.xml">
+  <!ENTITY ice-outputHtml-renderer    SYSTEM "components/ice-outputHtml-renderer.xml">
+    
+  <!ENTITY ice-outputHead-component   SYSTEM "components/ice-outputHead-component.xml">
+  <!ENTITY ice-outputHead-renderer    SYSTEM "components/ice-outputHead-renderer.xml">
+  
+  <!ENTITY ice-outputBody-component   SYSTEM "components/ice-outputBody-component.xml">
+  <!ENTITY ice-outputBody-renderer    SYSTEM "components/ice-outputBody-renderer.xml">
+    
+  <!ENTITY ice-button-component   SYSTEM "components/ice-button-component.xml">
+  <!ENTITY ice-button-renderer    SYSTEM "components/ice-button-renderer.xml">
+  
+  <!ENTITY ice-commandlink-component   SYSTEM "components/ice-commandlink-component.xml">
+  <!ENTITY ice-commandlink-renderer    SYSTEM "components/ice-commandlink-renderer.xml">
+  
+  <!ENTITY ice-panelgroup-component   SYSTEM "components/ice-panelgroup-component.xml">
+  <!ENTITY ice-panelgroup-renderer    SYSTEM "components/ice-panelgroup-renderer.xml">
+    
+  <!ENTITY ice-datatable-component   SYSTEM "components/ice-datatable-component.xml">
+  <!ENTITY ice-datatable-renderer    SYSTEM "components/ice-datatable-renderer.xml">      
+  
+  <!ENTITY ice-form-component   SYSTEM "components/ice-form-component.xml">
+  <!ENTITY ice-form-renderer    SYSTEM "components/ice-form-renderer.xml">      
+  
+  <!ENTITY ice-inputsecret-component   SYSTEM "components/ice-inputsecret-component.xml">
+  <!ENTITY ice-inputsecret-renderer    SYSTEM "components/ice-inputsecret-renderer.xml">    
+    
+  <!ENTITY ice-inputtextarea-component   SYSTEM "components/ice-inputtextarea-component.xml">
+  <!ENTITY ice-inputtextarea-renderer    SYSTEM "components/ice-inputtextarea-renderer.xml">  
+  
+  <!ENTITY ice-graphicimage-component   SYSTEM "components/ice-graphicimage-component.xml">
+  <!ENTITY ice-graphicimage-renderer    SYSTEM "components/ice-graphicimage-renderer.xml">  
+  
+  <!ENTITY ice-inputtext-component   SYSTEM "components/ice-inputtext-component.xml">
+  <!ENTITY ice-inputtext-renderer    SYSTEM "components/ice-inputtext-renderer.xml">
+  
+  <!ENTITY ice-message-component   SYSTEM "components/ice-message-component.xml">
+  <!ENTITY ice-message-renderer    SYSTEM "components/ice-message-renderer.xml">
+  
+  <!ENTITY ice-messages-component   SYSTEM "components/ice-messages-component.xml">
+  <!ENTITY ice-messages-renderer    SYSTEM "components/ice-messages-renderer.xml">
+
+  <!ENTITY ice-outputLabel-component   SYSTEM "components/ice-outputLabel-component.xml">
+  <!ENTITY ice-outputLabel-renderer    SYSTEM "components/ice-outputLabel-renderer.xml">
+  
+  <!ENTITY ice-outputLink-component   SYSTEM "components/ice-outputLink-component.xml">
+  <!ENTITY ice-outputLink-renderer    SYSTEM "components/ice-outputLink-renderer.xml">
+
+  <!ENTITY ice-outputText-component   SYSTEM "components/ice-outputText-component.xml">
+  <!ENTITY ice-outputText-renderer    SYSTEM "components/ice-outputText-renderer.xml">
+  
+  <!ENTITY ice-panelgrid-component   SYSTEM "components/ice-panelgrid-component.xml">
+  <!ENTITY ice-panelgrid-renderer    SYSTEM "components/ice-panelgrid-renderer.xml">
+  
+  <!ENTITY ice-selectBooleanCheckbox-component   SYSTEM "components/ice-selectBooleanCheckbox-component.xml">
+  <!ENTITY ice-selectBooleanCheckbox-renderer    SYSTEM "components/ice-selectBooleanCheckbox-renderer.xml">
+    
+  <!ENTITY ice-selectmanyCheckbox-component   SYSTEM "components/ice-selectmanyCheckbox-component.xml">
+  <!ENTITY ice-selectmanyCheckbox-renderer    SYSTEM "components/ice-selectmanyCheckbox-renderer.xml">
+  <!ENTITY ice-checkbox-component   SYSTEM "components/ice-checkbox-component.xml">
+  <!ENTITY ice-checkbox-renderer    SYSTEM "components/ice-checkbox-renderer.xml">
+
+  <!ENTITY ice-selectmanyListbox-component   SYSTEM "components/ice-selectmanyListbox-component.xml">
+  <!ENTITY ice-selectmanyListbox-renderer    SYSTEM "components/ice-selectmanyListbox-renderer.xml">
+  
+  <!ENTITY ice-selectmanyMenu-component   SYSTEM "components/ice-selectmanyMenu-component.xml">
+  <!ENTITY ice-selectmanyMenu-renderer    SYSTEM "components/ice-selectmanyMenu-renderer.xml">
+
+  <!ENTITY ice-selectoneListbox-component   SYSTEM "components/ice-selectoneListbox-component.xml">
+  <!ENTITY ice-selectoneListbox-renderer    SYSTEM "components/ice-selectoneListbox-renderer.xml">
+
+  <!ENTITY ice-selectoneMenu-component   SYSTEM "components/ice-selectoneMenu-component.xml">
+  <!ENTITY ice-selectoneMenu-renderer    SYSTEM "components/ice-selectoneMenu-renderer.xml">
+
+  <!ENTITY ice-selectoneRadio-component   SYSTEM "components/ice-selectoneRadio-component.xml">
+  <!ENTITY ice-selectoneRadio-renderer    SYSTEM "components/ice-selectoneRadio-renderer.xml">
+  <!ENTITY ice-radio-component   SYSTEM "components/ice-radio-component.xml">
+  <!ENTITY ice-radio-renderer    SYSTEM "components/ice-radio-renderer.xml">
+
+  <!ENTITY ice-outputFormat-component   SYSTEM "components/ice-outputFormat-component.xml">
+  <!ENTITY ice-outputFormat-renderer    SYSTEM "components/ice-outputFormat-renderer.xml">
+  
+  <!ENTITY ice-inputhidden-component   SYSTEM "components/ice-inputhidden-component.xml">
+  <!ENTITY ice-inputhidden-renderer    SYSTEM "components/ice-inputhidden-renderer.xml">
+  
+  <!ENTITY ice-uicolumn-component   SYSTEM "components/ice-uicolumn-component.xml">
+  <!ENTITY ice-uicolumn-renderer	SYSTEM "components/ice-uicolumn-renderer.xml">
+  
+  <!ENTITY ice-headerrow-component   SYSTEM "components/ice-headerrow-component.xml">
+  <!ENTITY ice-headerrow-renderer    SYSTEM "components/ice-headerrow-renderer.xml">
+
+  <!ENTITY ice-columngroup-component   SYSTEM "components/ice-columngroup-component.xml">
+  <!ENTITY ice-columngroup-renderer    SYSTEM "components/ice-columngroup-renderer.xml">
+    
+  <!ENTITY ice-uicolumns-component   SYSTEM "components/ice-uicolumns-component.xml">
+  <!ENTITY ice-uicolumns-renderer	SYSTEM "components/ice-uicolumns-renderer.xml">
+   
+  <!-- ICE custom components -->
+  <!ENTITY selectinputdate-component   SYSTEM "custom/selectinputdate-component.xml">
+  <!ENTITY selectinputdate-renderer    SYSTEM "custom/selectinputdate-renderer.xml">
+  
+  <!ENTITY inputFile-component   SYSTEM "custom/inputFile-component.xml">
+  <!ENTITY inputFile-renderer    SYSTEM "custom/inputFile-renderer.xml">
+
+  <!ENTITY gmap-component   SYSTEM "custom/gmap-component.xml">
+  <!ENTITY gmap-renderer    SYSTEM "custom/gmap-renderer.xml">
+
+  <!ENTITY gMapLatLng-component   SYSTEM "custom/gMapLatLng-component.xml">
+  <!ENTITY gMapLatLng-renderer    SYSTEM "custom/gMapLatLng-renderer.xml">
+
+  <!ENTITY gMapLatLngs-component   SYSTEM "custom/gMapLatLngs-component.xml">
+  <!ENTITY gMapLatLngs-renderer    SYSTEM "custom/gMapLatLngs-renderer.xml">
+
+  <!ENTITY gMapMarker-component   SYSTEM "custom/gMapMarker-component.xml">
+  <!ENTITY gMapMarker-renderer    SYSTEM "custom/gMapMarker-renderer.xml">
+  
+  <!ENTITY gMapControl-component   SYSTEM "custom/gMapControl-component.xml">
+  <!ENTITY gMapControl-renderer    SYSTEM "custom/gMapControl-renderer.xml">
+    
+  <!ENTITY gMapGeoXml-component   SYSTEM "custom/gMapGeoXml-component.xml">
+  <!ENTITY gMapGeoXml-renderer    SYSTEM "custom/gMapGeoXml-renderer.xml">
+
+  <!ENTITY gMapDirection-component   SYSTEM "custom/gMapDirection-component.xml">
+  <!ENTITY gMapDirection-renderer    SYSTEM "custom/gMapDirection-renderer.xml">
+  
+  <!ENTITY inputRichText-component   SYSTEM "custom/inputRichText-component.xml">
+  <!ENTITY inputRichText-renderer    SYSTEM "custom/inputRichText-renderer.xml">
+  
+  <!ENTITY panelstack-component   SYSTEM "custom/panelstack-component.xml">
+  <!ENTITY panelstack-renderer    SYSTEM "custom/panelstack-renderer.xml">
+  
+  <!ENTITY outputprogress-component   SYSTEM "custom/outputprogress-component.xml">
+  <!ENTITY outputprogress-renderer    SYSTEM "custom/outputprogress-renderer.xml">
+  
+  <!ENTITY outputresource-component   SYSTEM "custom/outputResource-component.xml">
+  <!ENTITY outputresource-renderer    SYSTEM "custom/outputResource-renderer.xml">
+  
+  <!ENTITY panelBorder-component   SYSTEM "custom/panelBorder-component.xml">
+  <!ENTITY panelBorder-renderer    SYSTEM "custom/panelBorder-renderer.xml">
+    
+  <!ENTITY outputConnectionStatus-component   SYSTEM "custom/outputConnectionStatus-component.xml">
+  <!ENTITY outputConnectionStatus-renderer    SYSTEM "custom/outputConnectionStatus-renderer.xml">
+          
+  <!ENTITY datapaginator-component   SYSTEM "custom/datapaginator-component.xml">
+  <!ENTITY datapaginator-renderer    SYSTEM "custom/datapaginator-renderer.xml">
+
+  <!ENTITY sortheader-component   SYSTEM "custom/sortheader-component.xml">
+  <!ENTITY sortheader-renderer    SYSTEM "custom/sortheader-renderer.xml">
+    
+  <!ENTITY paneltab-component   SYSTEM "custom/paneltab-component.xml">
+  <!ENTITY paneltab-renderer    SYSTEM "custom/paneltab-renderer.xml">
+  
+  <!ENTITY paneltabset-component   SYSTEM "custom/paneltabset-component.xml">
+  <!ENTITY paneltabset-renderer    SYSTEM "custom/paneltabset-renderer.xml">  
+  
+  <!ENTITY tree-component   SYSTEM "custom/tree-component.xml">
+  <!ENTITY tree-renderer    SYSTEM "custom/tree-renderer.xml">  
+  
+  <!ENTITY treenode-component   SYSTEM "custom/treenode-component.xml">
+  <!ENTITY treenode-renderer    SYSTEM "custom/treenode-renderer.xml">   
+
+  <!ENTITY panelconfirmation-component   SYSTEM "custom/panelconfirmation-component.xml">
+  <!ENTITY panelconfirmation-renderer    SYSTEM "custom/panelconfirmation-renderer.xml">
+
+  <!ENTITY panelpopup-component   SYSTEM "custom/panelpopup-component.xml">
+  <!ENTITY panelpopup-renderer    SYSTEM "custom/panelpopup-renderer.xml">
+
+  <!ENTITY panelDivider-component   SYSTEM "custom/panelDivider-component.xml">
+  <!ENTITY panelDivider-renderer    SYSTEM "custom/panelDivider-renderer.xml">
+
+  <!ENTITY paneltooltip-component   SYSTEM "custom/paneltooltip-component.xml">
+  <!ENTITY paneltooltip-renderer    SYSTEM "custom/paneltooltip-renderer.xml">
+  
+  <!ENTITY menuPopup-component   SYSTEM "custom/menuPopup-component.xml">
+  <!ENTITY menuPopup-renderer    SYSTEM "custom/menuPopup-renderer.xml">
+      
+  <!ENTITY menu-component   SYSTEM "custom/menu-component.xml">
+  <!ENTITY menu-renderer    SYSTEM "custom/menu-renderer.xml">
+  
+  <!ENTITY menuitem-component   SYSTEM "custom/menuitem-component.xml">
+  <!ENTITY menuitem-renderer    SYSTEM "custom/menuitem-renderer.xml">
+  
+  <!ENTITY menuitemcheckbox-component   SYSTEM "custom/menuitemcheckbox-component.xml">
+  <!ENTITY menuitemcheckbox-renderer    SYSTEM "custom/menuitemcheckbox-renderer.xml">
+  
+  <!ENTITY menuitemRadio-component   SYSTEM "custom/menuitemRadio-component.xml">
+  <!ENTITY menuitemRadio-renderer    SYSTEM "custom/menuitemRadio-renderer.xml">
+
+  <!ENTITY menuitemSeparator-component   SYSTEM "custom/menuitemSeparator-component.xml">
+  <!ENTITY menuitemSeparator-renderer    SYSTEM "custom/menuitemSeparator-renderer.xml">
+
+  <!ENTITY menuitems-component   SYSTEM "custom/menuitems-component.xml">
+  <!ENTITY menuitems-renderer    SYSTEM "custom/menuitems-renderer.xml">
+            
+  <!ENTITY selectinputtext-component   SYSTEM "custom/selectinputtext-component.xml">
+  <!ENTITY selectinputtext-renderer    SYSTEM "custom/selectinputtext-renderer.xml">
+  
+  <!ENTITY panelSeries-component   SYSTEM "custom/panelSeries-component.xml">
+  <!ENTITY panelSeries-renderer    SYSTEM "custom/panelSeries-renderer.xml">
+  
+  <!ENTITY outputDeclaration-component   SYSTEM "custom/outputDeclaration-component.xml">
+  <!ENTITY outputDeclaration-renderer    SYSTEM "custom/outputDeclaration-renderer.xml">
+ 
+  <!ENTITY outputstyle-component SYSTEM "custom/outputstyle-component.xml">
+  <!ENTITY outputstyle-renderer SYSTEM "custom/outputstyle-renderer.xml">
+  
+  <!ENTITY panelPositioned-component SYSTEM "custom/panelPositioned-component.xml">
+  <!ENTITY panelPositioned-renderer SYSTEM "custom/panelPositioned-renderer.xml">
+
+  <!ENTITY rowselector-component SYSTEM "custom/rowselector-component.xml">
+  <!ENTITY rowselector-renderer SYSTEM "custom/rowselector-renderer.xml">
+  
+  <!ENTITY outputChart-component   SYSTEM "custom/outputChart-component.xml">
+  <!ENTITY outputChart-renderer    SYSTEM "custom/outputChart-renderer.xml">
+  
+  <!ENTITY uiseries-component   SYSTEM "custom/uiseries-component.xml">
+  <!ENTITY uiseries-renderer    SYSTEM "custom/uiseries-renderer.xml">
+  
+  <!ENTITY ice-cust-panelCollapsible-props SYSTEM "ice_cust_properties/cust-panelCollapsible-props.xml">
+  <!ENTITY panelCollapsible-component SYSTEM "custom/panelCollapsible-component.xml">
+  <!ENTITY panelCollapsible-renderer SYSTEM "custom/panelCollapsible-renderer.xml">
+
+  <!ENTITY loadbundle-component   SYSTEM "custom/loadbundle-component.xml">
+  <!ENTITY loadbundle-renderer    SYSTEM "custom/loadbundle-renderer.xml">
+
+  <!ENTITY dataExporter-component   SYSTEM "custom/dataExporter-component.xml">
+  <!ENTITY dataExporter-renderer    SYSTEM "custom/dataExporter-renderer.xml">     
+
+<!ENTITY ice-cust-effect-props SYSTEM "ice_cust_properties/cust-effect-props.xml">
+  <!ENTITY effect-component SYSTEM "custom/effect-component.xml">
+  <!ENTITY effect-renderer SYSTEM "custom/effect-renderer.xml">          
+  
+  <!ENTITY ice-cust-googlemap-props SYSTEM "ice_cust_properties/cust-googlemap-props.xml">
+  <!ENTITY googlemap-component SYSTEM "custom/googlemap-component.xml">
+  <!ENTITY googlemap-renderer SYSTEM "custom/googlemap-renderer.xml">    
+
+  <!ENTITY portlet-component   SYSTEM "custom/portlet-component.xml">
+  <!ENTITY portlet-renderer    SYSTEM "custom/portlet-renderer.xml">
+  
+  <!--
+  <!ENTITY inputOutputText-component   SYSTEM "custom/inputOutputText-component.xml">
+  <!ENTITY inputOutputText-renderer    SYSTEM "custom/inputOutputText-renderer.xml">
+  -->
+  
+  <!ENTITY outputMedia-component   SYSTEM "custom/outputMedia-component.xml">
+  <!ENTITY outputMedia-renderer    SYSTEM "custom/outputMedia-renderer.xml">
+
+  <!ENTITY panelLayout-component   SYSTEM "custom/panelLayout-component.xml">
+  <!ENTITY panelLayout-renderer    SYSTEM "custom/panelLayout-renderer.xml">
+  
+  <!ENTITY setEventPhase-component   SYSTEM "custom/setEventPhase-component.xml">
+  <!ENTITY setEventPhase-renderer    SYSTEM "custom/setEventPhase-renderer.xml">
+  
+  <!ENTITY % property-editors SYSTEM "dtd/property-editors.dtd">
+  %property-editors;
+    
+  ]>
+
+<faces-config>
+
+	<!--  ext component -->
+	&ice-button-component;
+	&ice-commandlink-component;
+	&ice-panelgroup-component;
+	&ice-datatable-component;
+	&ice-form-component;
+	&ice-inputsecret-component;
+	&ice-inputtextarea-component;
+	&ice-graphicimage-component;
+	&ice-inputtext-component;
+	&ice-message-component;
+	&ice-messages-component;
+	&ice-outputLabel-component;
+	&ice-outputLink-component;
+	&ice-outputText-component;
+	&ice-panelgrid-component;
+	&ice-selectBooleanCheckbox-component;
+	&ice-selectmanyCheckbox-component;
+	&ice-checkbox-component;
+	&ice-selectmanyListbox-component;
+	&ice-selectmanyMenu-component;
+	&ice-selectoneListbox-component;
+	&ice-selectoneMenu-component;
+	&ice-selectoneRadio-component;
+	&ice-radio-component;
+	&ice-outputFormat-component;
+	&ice-inputhidden-component;
+	&ice-headerrow-component;
+    &ice-columngroup-component;	
+	&ice-uicolumn-component;
+	&ice-uicolumns-component;
+    &ice-outputHtml-component;
+    &ice-outputHead-component;
+    &ice-outputBody-component;
+
+	<!--  custom component -->
+	&selectinputdate-component;
+	&inputFile-component;
+	&gmap-component;
+    &gMapLatLng-component;
+    &gMapLatLngs-component;
+    &gMapMarker-component;	
+    &gMapControl-component;	
+    &gMapGeoXml-component;    
+	&gMapDirection-component;	
+    &inputRichText-component;	
+	&panelstack-component;
+	&outputprogress-component;
+	&outputresource-component;
+	&panelBorder-component;
+	&outputConnectionStatus-component;
+    &datapaginator-component;
+	&dataExporter-component;
+	&sortheader-component;
+	&paneltab-component;
+	&paneltabset-component;
+	&tree-component;
+	&treenode-component;
+	&panelconfirmation-component;
+	&panelpopup-component;
+    &panelDivider-component;	
+    &paneltooltip-component;
+	&portlet-component;
+	&menuPopup-component;
+	&menu-component;
+	&menuitem-component;
+	&menuitems-component;
+	<!-- &menuitemcheckbox-component; -->
+	<!-- &menuitemRadio-component; -->
+	&menuitemSeparator-component;
+	&selectinputtext-component;
+	&panelSeries-component;
+	&outputDeclaration-component;
+	&outputstyle-component;
+    &panelPositioned-component;
+    &rowselector-component;
+    &outputChart-component;
+    &uiseries-component;
+    &panelCollapsible-component;
+    &effect-component;
+    &outputMedia-component;
+    &panelLayout-component;
+    &loadbundle-component;    
+    &setEventPhase-component;
+    
+    <!-- &inputOutputText-component; -->
+    
+    <render-kit>
+
+		<!-- extended component -->
+		&ice-button-renderer;
+		&ice-commandlink-renderer;
+		&ice-panelgroup-renderer;
+		&ice-datatable-renderer;
+		&ice-form-renderer;
+		&ice-inputsecret-renderer;
+		&ice-inputtextarea-renderer;
+		&ice-graphicimage-renderer;
+		&ice-inputtext-renderer;
+		&ice-message-renderer;
+		&ice-messages-renderer;
+		&ice-outputLabel-renderer;
+		&ice-outputLink-renderer;
+		&ice-outputText-renderer;
+		&ice-panelgrid-renderer;
+		&ice-selectBooleanCheckbox-renderer;
+		&ice-selectmanyCheckbox-renderer;
+		&ice-checkbox-renderer;
+		&ice-selectmanyListbox-renderer;
+		&ice-selectmanyMenu-renderer;
+		&ice-selectoneListbox-renderer;
+		&ice-selectoneMenu-renderer;
+		&ice-selectoneRadio-renderer;
+		&ice-radio-renderer;
+		&ice-outputFormat-renderer;
+		&ice-inputhidden-renderer;
+        &ice-headerrow-renderer;
+        &ice-columngroup-renderer;       
+		&ice-uicolumn-renderer;
+		&ice-uicolumns-renderer;
+        &ice-outputHtml-renderer;
+        &ice-outputHead-renderer;
+        &ice-outputBody-renderer;
+		
+		<!-- custom component -->
+		&selectinputdate-renderer;
+		&inputFile-renderer;
+		&gmap-renderer;
+        &gMapLatLng-renderer;
+        &gMapLatLngs-renderer;
+        &gMapMarker-renderer;
+		&gMapControl-renderer;
+        &gMapGeoXml-renderer;		
+        &gMapDirection-renderer;
+        &inputRichText-renderer;   
+		&panelstack-renderer;
+		&outputprogress-renderer;
+		&outputresource-renderer;
+		&panelBorder-renderer;
+		&outputConnectionStatus-renderer;
+		&datapaginator-renderer;
+        &dataExporter-renderer;
+		&sortheader-renderer;
+		&paneltab-renderer;
+		&paneltabset-renderer;
+		&tree-renderer;
+		&treenode-renderer;
+		&panelconfirmation-renderer;
+		&panelpopup-renderer;
+        &panelDivider-renderer;		
+        &paneltooltip-renderer;	
+		&portlet-renderer;
+		&menuPopup-renderer;
+		&menu-renderer;
+		&menuitem-renderer;
+		&menuitems-renderer;
+		<!-- &menuitemcheckbox-renderer; -->
+		<!-- &menuitemRadio-renderer; -->
+		&menuitemSeparator-renderer;
+		&selectinputtext-renderer;
+		&panelSeries-renderer;
+		&outputDeclaration-renderer;
+		&outputstyle-renderer;
+        &panelPositioned-renderer;
+        &rowselector-renderer;
+        &outputChart-renderer;	
+        &uiseries-renderer;
+        &panelCollapsible-renderer;
+        &effect-renderer;
+        &outputMedia-renderer;	
+        &panelLayout-renderer;
+        &loadbundle-renderer;        
+        &setEventPhase-renderer;
+        
+        <!-- &inputOutputText-renderer; -->
+    </render-kit>
+
+</faces-config>

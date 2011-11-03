@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.TreeView</component-family>
+    <renderer-type>com.icesoft.faces.View</renderer-type>
+    <renderer-class>com.icesoft.faces.component.tree.TreeRenderer</renderer-class>
+</renderer>

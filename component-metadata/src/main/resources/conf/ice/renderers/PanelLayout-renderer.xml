@@ -1,0 +1,6 @@
+
+<renderer>
+    <component-family>com.icesoft.faces.Layout</component-family>
+    <renderer-type>com.icesoft.faces.PanelLayout</renderer-type>
+    <renderer-class>com.icesoft.faces.component.panellayout.PanelLayoutRenderer</renderer-class>
+</renderer>

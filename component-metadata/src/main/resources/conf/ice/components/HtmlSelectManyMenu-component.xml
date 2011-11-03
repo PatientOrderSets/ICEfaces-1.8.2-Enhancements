@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.HtmlSelectManyMenu</component-type>
+    <component-class>com.icesoft.faces.component.ext.HtmlSelectManyMenu</component-class>
+</component>  

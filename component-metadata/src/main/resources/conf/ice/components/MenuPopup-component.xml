@@ -1,0 +1,5 @@
+
+<component>
+    <component-type>com.icesoft.faces.MenuPopup</component-type>
+    <component-class>com.icesoft.faces.component.menupopup.MenuPopup</component-class>
+</component>  

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~  "The contents of this file are subject to the Mozilla Public License
+  ~  Version 1.1 (the "License"); you may not use this file except in
+  ~  compliance with the License. You may obtain a copy of the License at
+  ~  http://www.mozilla.org/MPL/
+  ~
+  ~  Software distributed under the License is distributed on an "AS IS"
+  ~  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~  License for the specific language governing rights and limitations under
+  ~  the License.
+  ~
+  ~  The Original Code is ICEfaces 1.5 open source software code, released
+  ~  November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~  Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~  2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~  Contributor(s): _____________________.
+  ~
+  ~  Alternatively, the contents of this file may be used under the terms of
+  ~  the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~  License), in which case the provisions of the LGPL License are
+  ~  applicable instead of those above. If you wish to allow use of your
+  ~  version of this file only under the terms of the LGPL License and not to
+  ~  allow others to use your version of this file under the MPL, indicate
+  ~  your decision by deleting the provisions above and replace them with
+  ~  the notice and other provisions required by the LGPL License. If you do
+  ~  not delete the provisions above, a recipient may use your version of
+  ~  this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<renderer>
+	<description>
+	          <![CDATA[
+          <p>Renders an HTML "form" element.</p>
+
+            <p>Decode Behavior</p><ul><p>Obtain the <code>Map</code> from the
+                "requestParameterMap"
+                property of the <code>ExternalContext</code>. If the map contains
+                an entry for the "clientId" of this <code>UIForm</code> component,
+                call <code>setSubmitted(true)</code> on the form, otherwise call
+                <code>setSubmitted(false)</code> on the form.</p></ul>
+
+            <p>Encode Behavior</p>
+
+            <ul><p>The value of the "method" attribute must be
+                "post". The value
+                of the "action" attribute must be the result of passing the view
+                identifier of the current view to the <code>getActionURL()</code>
+                method of the <code>ViewHandler</code> for this application,
+                then passing that String to the <code>encodeActionURL()</code>
+                method on the <code>ExternalContext</code>. If the "styleClass"
+                attribute is specified, render its value as the value of the
+                "class" attribute. Render all the necessary hidden fields for all
+                commandLink instances in the page just before the close of the
+                "form" element.</p>
+            </ul>
+
+          ]]>	
+	</description>
+	<component-family>javax.faces.Form</component-family>
+
+	<renderer-type>com.icesoft.faces.Form</renderer-type>
+
+	<renderer-extension>
+		<instance-name>form</instance-name>
+		<is-container>true</is-container>
+		<renders-children>true</renders-children>
+		<tag-name>form</tag-name>
+		<taglib-prefix>@taglib-prefix@</taglib-prefix>
+		<taglib-uri>@taglib-uri@</taglib-uri>
+	</renderer-extension>
+</renderer>

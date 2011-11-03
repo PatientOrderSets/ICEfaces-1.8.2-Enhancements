@@ -1,0 +1,181 @@
+<!--
+  ~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  ~
+  ~ "The contents of this file are subject to the Mozilla Public License
+  ~ Version 1.1 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://www.mozilla.org/MPL/
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations under
+  ~ the License.
+  ~
+  ~ The Original Code is ICEfaces 1.5 open source software code, released
+  ~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+  ~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+  ~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+  ~
+  ~ Contributor(s): _____________________.
+  ~
+  ~ Alternatively, the contents of this file may be used under the terms of
+  ~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+  ~ License), in which case the provisions of the LGPL License are
+  ~ applicable instead of those above. If you wish to allow use of your
+  ~ version of this file only under the terms of the LGPL License and not to
+  ~ allow others to use your version of this file under the MPL, indicate
+  ~ your decision by deleting the provisions above and replace them with
+  ~ the notice and other provisions required by the LGPL License. If you do
+  ~ not delete the provisions above, a recipient may use your version of
+  ~ this file under either the MPL or the LGPL License."
+  ~
+  -->
+
+<project name="component-showcase" default="liferay.tomcat6">
+    
+    <property file="build.properties"/>
+    <property name="component.docs.dir" location="../../../component/doc"/>
+    <property name="common.build.file" location="../../etc/build-common.xml"/>
+    <property name="web.content.dir" location="build/web"/>
+    <property name="proj.war.lib.dir" location="../lib/"/>
+    <property name="compile.source" value="1.5"/>
+    <property name="compile.target" value="1.5"/>
+    
+    <import file="${common.build.file}"/>
+    
+    <patternset id="additional.icefaces.lib.jars.to.include">
+        <include name="krysalis-jCharts-1.0.0-alpha-1.jar"/>
+        <include name="just-ice.jar" if="just-ice" />
+    </patternset>
+    
+    <patternset id="additional.compile.lib.jars">
+        <include name="servlet-api.jar"/>
+        <include name="just-ice.jar" if="just-ice" />
+    </patternset>
+    
+    <!-- jars needed for form Facelets -->
+    <patternset id="faclets.jars"
+                includes="
+                icefaces-facelets.jar
+                el-ri.jar
+                "
+    />
+    <target name="clean">
+        <clean/>
+        <delete dir="${web.content.dir}/docs"/>
+    </target>
+    
+    <target name="copy.doc">
+        <!--<copy todir="${web.content.dir}/docs" preservelastmodified="true">-->
+            <!--<fileset dir="${component.docs.dir}"/>-->
+        <!--</copy>        -->
+    </target>
+
+    <target name="copy.portlet.pages">
+        <copy todir="${web.content.dir}">
+            <fileset dir="web">
+                <include name="**/*"/>
+            </fileset>
+        </copy>        
+    </target>
+    
+    <target name="build.war" depends="compile">
+                
+        <antcall target="copy.doc"/>
+        <build.war web.xml="conf/web.sunri.icefaces.ce.xml"/>
+        
+    </target>
+
+    <target name="portlet.compile">
+        <compile src.copy.excludes="**/*.java">
+            <add.javac.elements>
+                <src location="../common-src"/>
+                <classpath>
+                    <fileset dir="${proj.war.lib.dir}" includes="*.jar"/>
+                </classpath>
+            </add.javac.elements>
+        </compile>
+    </target>
+
+    <target name="build.portlet.war" depends="portlet.compile">
+
+        <!--<antcall target="copy.doc"/>-->
+        <antcall target="copy.portlet.pages"/>
+
+        <build.portlet.war web.xml="${comp.xml}" portlet.conf.liferay.dir="conf/liferay">
+            <add.filesets>
+                <fileset dir="../common-web"/>
+                <zipfileset prefix="WEB-INF/classes" dir="../common-src" excludes="**/*.java"/>
+                <!--<lib dir="${proj.war.lib.dir}"/>-->
+            </add.filesets>
+        </build.portlet.war>
+    </target>
+
+
+    <target name="jboss4.2.portal" description="build portlet application for JBoss4.2 portal">
+        <antcall target="build.portlet.war">
+            <param name="comp.xml" value="./conf/web.sunri.icefaces.portlet.xml"/>
+            <param name="jsf12" value=""/>
+            <param name="serverjsf" value=""/>
+        </antcall>
+    </target>
+    
+    <target name="liferay.tomcat6" description="build a portlet application for Liferay Tomcat6.x">
+        <antcall target="build.portlet.war">
+            <param name="comp.xml" value="./conf/web.sunri.icefaces.portlet.xml"/>
+            <param name="jsf12" value=""/>
+            <param name="liferay" value=""/>
+        </antcall>
+    </target>
+    <target name="tomcat6.0" depends="liferay.tomcat6"/>
+
+    <target name="liferay.tomcat5" description="build a portlet application for Liferay Tomcat5.x">
+        <antcall target="build.portlet.war">
+            <param name="comp.xml" value="./conf/web.sunri.icefaces.portlet.xml"/>
+            <param name="jsf11" value=""/>
+            <param name="liferay" value=""/>
+        </antcall>
+    </target>
+    <target name="liferay.jboss4.0" description="build a portlet application for Liferay JBoss4.0.x">
+        <antcall target="build.portlet.war">
+            <param name="comp.xml" value="./conf/web.sunri.icefaces.portlet.xml"/>
+            <param name="jsf11" value=""/>
+            <param name="liferay" value=""/>
+        </antcall>
+    </target>    
+
+    <target name="liferay.jboss4.2" description="build a portlet application for Liferay JBoss4.2">
+        <antcall target="build.portlet.war">
+            <param name="comp.xml" value="./conf/web.sunri.icefaces.portlet.xml"/>
+            <param name="jsf12" value=""/>
+            <param name="serverjsf" value=""/>
+            <param name="liferay" value=""/>
+        </antcall>
+    </target>
+
+    <target name="liferay.glassfishv2" description="portlet application for Liferay Glassfish V2">
+        <antcall target="build.portlet.war">
+            <param name="comp.xml" value="./conf/web.sunri.icefaces.portlet.xml"/>
+            <param name="jsf12" value=""/>
+            <param name="serverjsf" value=""/>
+            <param name="liferay" value=""/>
+        </antcall>        
+    </target>
+    
+    <!--
+    <target name="build.facelet.ear" description="facelets version for Seam" depends="build.facelet.war">
+        <copy todir="conf" preservelastmodified="true">
+            <fileset dir="${build.common.basedir}" includes="application.xml">
+                <present present="srconly" targetdir="conf"/>
+            </fileset>
+            <filterset>
+                <filter token="project_name" value="${ant.project.name}"/>
+            </filterset>
+        </copy>
+        <ear destfile="${dist.dir}/${ant.project.name}.ear" appxml="conf/application.xml">
+            <fileset dir="${dist.dir}" includes="*.war"/>
+        </ear>
+    </target>
+    -->
+
+</project>
